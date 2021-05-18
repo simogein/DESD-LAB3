@@ -1,0 +1,162 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon May 17 19:36:56 2021
+# Process ID: 6888
+# Current directory: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12092 D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.xpr
+# Log file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/vivado.log
+# Journal file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:32 ; elapsed = 00:00:14 . Memory (MB): peak = 1095.148 ; gain = 0.000
+update_compile_order -fileset sources_1
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+Reading block design file <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd>...
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_1
+Adding component instance block -- DigiLAB:ip:AXI4Stream_UART:1.1 - AXI4Stream_UART_0
+Adding component instance block -- xilinx.com:module_ref:mute_controller:1.0 - mute_controller_0
+Adding component instance block -- xilinx.com:module_ref:packetizer:1.0 - packetizer_0
+Adding component instance block -- xilinx.com:module_ref:depacketizer:1.0 - depacketizer_0
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_0
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_1
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_0
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_1
+Adding component instance block -- xilinx.com:module_ref:volume_controller:1.0 - volume_controller_0
+Successfully read diagram <bd_DAW> from block design file <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd>
+open_bd_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:19 . Memory (MB): peak = 1095.148 ; gain = 0.000
+delete_bd_objs [get_bd_intf_nets volume_controller_0_m_axis] [get_bd_intf_nets depacketizer_0_m_axis] [get_bd_nets volume_controller_0_volume_level] [get_bd_nets edge_detector_0_edge_detected] [get_bd_nets edge_detector_1_edge_detected] [get_bd_cells volume_controller_0]
+delete_bd_objs [get_bd_ports led]
+connect_bd_intf_net [get_bd_intf_pins depacketizer_0/m_axis] [get_bd_intf_pins mute_controller_0/s_axis]
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+make_wrapper: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1263.629 ; gain = 168.480
+set_property is_enabled false [get_files  {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/volume_controller.vhd}}]
+delete_bd_objs [get_bd_nets btnU_1] [get_bd_nets debouncer_1_debounced] [get_bd_cells debouncer_1]
+delete_bd_objs: Time (s): cpu = 00:00:03 ; elapsed = 00:00:21 . Memory (MB): peak = 1263.629 ; gain = 0.000
+set_property location {3 726 254} [get_bd_cells debouncer_0]
+delete_bd_objs [get_bd_nets btnD_1] [get_bd_nets debouncer_0_debounced] [get_bd_cells debouncer_0]
+delete_bd_objs [get_bd_cells edge_detector_0]
+delete_bd_objs: Time (s): cpu = 00:00:03 ; elapsed = 00:00:27 . Memory (MB): peak = 1263.629 ; gain = 0.000
+delete_bd_objs [get_bd_nets proc_sys_reset_0_peripheral_reset] [get_bd_cells edge_detector_1]
+delete_bd_objs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:17 . Memory (MB): peak = 1265.020 ; gain = 1.391
+delete_bd_objs [get_bd_ports btnU]
+delete_bd_objs [get_bd_ports btnD]
+regenerate_bd_layout
+update_compile_order -fileset sources_1
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+set_property is_enabled false [get_files  {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/edge_detector.vhd}}]
+set_property is_enabled false [get_files  {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/debouncer.vhd}}]
+update_module_reference bd_DAW_mute_controller_0_0
+ERROR: [IP_Flow 19-262] [HDL Parser] Failed to parse top module entity.  This can result from an empty entity or module declaration (i.e. no ports or parameters/generics).  Check that design unit "mute_controller" of HDL file "d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/packetizer.vhd" is not empty.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/packetizer.vhd'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/packetizer.vhd'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'mute_controller'.
+ERROR: [Common 17-39] 'update_module_reference' failed due to earlier errors.
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+INFO: [BD 41-1662] The design 'bd_DAW.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+Exporting to file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+[Mon May 17 19:46:20 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Mon May 17 19:46:21 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 1304.938 ; gain = 8.570
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.2
+  **** Build date : Nov 18 2020 at 10:01:48
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2020.2
+  ****** Build date   : Nov 03 2020-22:02:56
+    **** Build number : 2020.2.1604437376
+      ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 1313.062 ; gain = 2.727
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183ACAD8EA
+open_hw_target: Time (s): cpu = 00:00:13 ; elapsed = 00:00:25 . Memory (MB): peak = 2871.188 ; gain = 1558.125
+set_property PROGRAM.FILE {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/bd_DAW_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/bd_DAW_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/bd_DAW_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+set_property is_enabled true [get_files  {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/debouncer.vhd} {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/edge_detector.vhd} {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/volume_controller.vhd}}]
+update_compile_order -fileset sources_1
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183ACAD8EA
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon May 17 23:12:28 2021...
+INFO: [filemgmt 56-326] User Interrupt. Could not getCurrentGraph()
+INFO: [filemgmt 56-326] User Interrupt. Could not getCurrentGraph()

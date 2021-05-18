@@ -1,0 +1,914 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon May 17 14:59:13 2021
+# Process ID: 8208
+# Current directory: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4508 D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.xpr
+# Log file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/vivado.log
+# Journal file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.xpr}
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:33 ; elapsed = 00:00:13 . Memory (MB): peak = 1091.750 ; gain = 0.000
+file mkdir D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new
+can't create directory "D:/Documenti/LEZIONI/Digital": file already exists
+file mkdir D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new
+can't create directory "D:/Documenti/LEZIONI/Digital": file already exists
+file mkdir D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new
+can't create directory "D:/Documenti/LEZIONI/Digital": file already exists
+file mkdir D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new
+can't create directory "D:/Documenti/LEZIONI/Digital": file already exists
+file mkdir D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new
+can't create directory "D:/Documenti/LEZIONI/Digital": file already exists
+file mkdir D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new
+can't create directory "D:/Documenti/LEZIONI/Digital": file already exists
+file mkdir {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new}
+close [ open {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/mute_controller.vhd} w ]
+add_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/mute_controller.vhd}}
+update_compile_order -fileset sources_1
+add_files -norecurse {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/depacketizer.vhd} {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/packetizer.vhd}}
+update_compile_order -fileset sources_1
+create_bd_design "bd_DAW"
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+create_bd_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:10 . Memory (MB): peak = 1091.750 ; gain = 0.000
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+make_wrapper: Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1239.156 ; gain = 146.605
+add_files -norecurse {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+update_compile_order -fileset sources_1
+set_property top bd_DAW_wrapper [current_fileset]
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+endgroup
+update_compile_order -fileset sources_1
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sys_clock ( System Clock ) } Manual_Source {New External Port (ACTIVE_LOW)}}  [get_bd_pins clk_wiz_0/clk_in1]
+INFO: [board_rule 100-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /clk_wiz_0]
+INFO: [board_rule 100-100] set_property CONFIG.CLK_IN1_BOARD_INTERFACE sys_clock [get_bd_cells /clk_wiz_0]
+WARNING: [BD 5-670] It is required to provide a frequency value for a user created input clock port. Please use the <-freq_hz $freq_val> argument of the create_bd_port command. ie create_bd_port -dir I -type clk -freq_hz 100000000 clkin
+INFO: [BoardRule 102-10] create_bd_port -dir I sys_clock -type clk
+INFO: [BoardRule 102-5] set_property CONFIG.FREQ_HZ 100000000 /sys_clock
+INFO: [BoardRule 102-6] set_property CONFIG.PHASE 0.000 /sys_clock
+INFO: [BoardRule 102-15] connect_bd_net /sys_clock /clk_wiz_0/clk_in1
+INFO: [BoardRule 102-17] set_property CONFIG.FREQ_HZ 100000000 /sys_clock
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {reset ( Reset Signal (BTNC) ) } Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+INFO: [board_rule 100-100] set_property CONFIG.RESET_BOARD_INTERFACE reset [get_bd_cells /clk_wiz_0]
+INFO: [BoardRule 102-10] create_bd_port -dir I reset -type rst
+INFO: [BoardRule 102-7] set_property CONFIG.POLARITY ACTIVE_HIGH /reset
+INFO: [BoardRule 102-15] connect_bd_net /reset /clk_wiz_0/reset
+INFO: [BoardRule 102-18] set_property CONFIG.POLARITY ACTIVE_HIGH /reset
+endgroup
+startgroup
+set_property -dict [list CONFIG.PRIMITIVE {PLL} CONFIG.CLKOUT2_USED {true} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {64.28571} CONFIG.CLKOUT1_DRIVES {BUFG} CONFIG.CLKOUT2_DRIVES {BUFG} CONFIG.CLKOUT3_DRIVES {BUFG} CONFIG.CLKOUT4_DRIVES {BUFG} CONFIG.CLKOUT5_DRIVES {BUFG} CONFIG.CLKOUT6_DRIVES {BUFG} CONFIG.CLKOUT7_DRIVES {BUFG} CONFIG.MMCM_BANDWIDTH {OPTIMIZED} CONFIG.MMCM_CLKFBOUT_MULT_F {9} CONFIG.MMCM_COMPENSATION {ZHOLD} CONFIG.MMCM_CLKOUT0_DIVIDE_F {9} CONFIG.MMCM_CLKOUT1_DIVIDE {14} CONFIG.NUM_OUT_CLKS {2} CONFIG.CLKOUT1_JITTER {137.681} CONFIG.CLKOUT1_PHASE_ERROR {105.461} CONFIG.CLKOUT2_JITTER {151.026} CONFIG.CLKOUT2_PHASE_ERROR {105.461}] [get_bd_cells clk_wiz_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0
+endgroup
+set_property location {2.5 742 -165} [get_bd_cells proc_sys_reset_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_1
+endgroup
+set_property location {3.5 1162 164} [get_bd_cells proc_sys_reset_1]
+set_property  ip_repo_paths  D:/Xilinx/Vivado/IPs [current_project]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_0/slowest_sync_clk]
+connect_bd_net [get_bd_ports reset] [get_bd_pins proc_sys_reset_0/ext_reset_in]
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked]
+connect_bd_net [get_bd_pins proc_sys_reset_1/dcm_locked] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins proc_sys_reset_1/slowest_sync_clk]
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv DigiLAB:ip:AXI4Stream_UART:1.1 AXI4Stream_UART_0
+endgroup
+set_property -dict [list CONFIG.UART_BAUD_RATE {2000000}] [get_bd_cells AXI4Stream_UART_0]
+set_property location {3.5 1200 253} [get_bd_cells AXI4Stream_UART_0]
+connect_bd_net [get_bd_pins AXI4Stream_UART_0/rst] [get_bd_pins proc_sys_reset_0/peripheral_reset]
+connect_bd_net [get_bd_pins proc_sys_reset_1/peripheral_aresetn] [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aresetn]
+connect_bd_net [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aresetn] [get_bd_pins proc_sys_reset_1/peripheral_aresetn]
+regenerate_bd_layout
+create_bd_cell -type module -reference packetizer packetizer_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+create_bd_cell -type module -reference depacketizer depacketizer_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+set_property location {3.5 1225 51} [get_bd_cells packetizer_0]
+set_property location {4 1109 259} [get_bd_cells depacketizer_0]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {usb_uart ( USB UART ) } Manual_Source {Auto}}  [get_bd_intf_pins AXI4Stream_UART_0/UART]
+INFO: [board_rule 100-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /AXI4Stream_UART_0]
+INFO: [board_rule 100-100] set_property CONFIG.UART_BOARD_INTERFACE usb_uart [get_bd_cells /AXI4Stream_UART_0]
+INFO: [BoardRule 102-8] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:uart_rtl:1.0 usb_uart
+INFO: [BoardRule 102-9] connect_bd_intf_net /usb_uart /AXI4Stream_UART_0/UART
+connect_bd_net [get_bd_ports reset] [get_bd_pins proc_sys_reset_1/ext_reset_in]
+connect_bd_intf_net [get_bd_intf_pins AXI4Stream_UART_0/S00_AXIS_TX] [get_bd_intf_pins packetizer_0/m_axis]
+connect_bd_intf_net [get_bd_intf_pins AXI4Stream_UART_0/M00_AXIS_RX] [get_bd_intf_pins depacketizer_0/s_axis]
+regenerate_bd_layout
+connect_bd_net [get_bd_pins packetizer_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins depacketizer_0/aresetn]
+connect_bd_net [get_bd_pins depacketizer_0/aclk] [get_bd_pins clk_wiz_0/clk_out1]
+regenerate_bd_layout
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out2 (64 MHz)} Freq {64} Ref_Clk0 {None} Ref_Clk1 {None} Ref_Clk2 {None}}  [get_bd_pins AXI4Stream_UART_0/clk_uart]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aclk]
+endgroup
+regenerate_bd_layout
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+update_compile_order -fileset sources_1
+close [ open {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd} w ]
+add_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd}}
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference mute_controller mute_controller_0
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/mute_controller.vhd'.
+WARNING: [IP_Flow 19-965] There are no component ports to infer bus interfaces.
+ERROR: [IP_Flow 19-748] Component Definition 'xilinx.com:module_ref:mute_controller:1.0 (mute_controller_v1_0)': No ports found. There must be an interface when the IP has at least one source file group.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'mute_controller'.
+ERROR: [BD 41-1699] Unable to add reference type cell for reference-module 'mute_controller'
+ERROR: [BD 5-7] Error: running create_bd_cell  -type module -reference mute_controller -name mute_controller_0 .
+ERROR: [Common 17-39] 'create_bd_cell' failed due to earlier errors.
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+create_bd_cell -type module -reference mute_controller mute_controller_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+connect_bd_net [get_bd_pins mute_controller_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins mute_controller_0/aclk] [get_bd_pins clk_wiz_0/clk_out1]
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+launch_runs synth_1 -jobs 2
+CRITICAL WARNING: [BD 41-1344] Reset pin /AXI4Stream_UART_0/rst (associated clock /AXI4Stream_UART_0/clk_uart) is connected to reset source /proc_sys_reset_0/peripheral_reset (synchronous to clock source /clk_wiz_0/clk_out1).
+This may prevent design from meeting timing. Instead it should be connected to reset source /proc_sys_reset_1/peripheral_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /AXI4Stream_UART_0/m00_axis_rx_aresetn (associated clock /AXI4Stream_UART_0/m00_axis_rx_aclk) is connected to reset source /proc_sys_reset_1/peripheral_aresetn (synchronous to clock source /clk_wiz_0/clk_out2).
+This may prevent design from meeting timing. Instead it should be connected to reset source /proc_sys_reset_0/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /AXI4Stream_UART_0/s00_axis_tx_aresetn (associated clock /AXI4Stream_UART_0/s00_axis_tx_aclk) is connected to reset source /proc_sys_reset_1/peripheral_aresetn (synchronous to clock source /clk_wiz_0/clk_out2).
+This may prevent design from meeting timing. Instead it should be connected to reset source /proc_sys_reset_0/peripheral_aresetn.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/packetizer_0/s_axis_tvalid
+/mute_controller_0/s_axis_tvalid
+/mute_controller_0/mute_left
+/mute_controller_0/mute_right
+
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI4Stream_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block packetizer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block depacketizer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_AXI4Stream_UART_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_clk_wiz_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_1_0
+[Mon May 17 17:13:53 2021] Launched bd_DAW_AXI4Stream_UART_0_0_synth_1, bd_DAW_packetizer_0_0_synth_1, bd_DAW_depacketizer_0_0_synth_1, bd_DAW_proc_sys_reset_1_0_synth_1, bd_DAW_clk_wiz_0_0_synth_1, bd_DAW_proc_sys_reset_0_0_synth_1, bd_DAW_mute_controller_0_0_synth_1...
+Run output will be captured here:
+bd_DAW_AXI4Stream_UART_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_AXI4Stream_UART_0_0_synth_1/runme.log
+bd_DAW_packetizer_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_packetizer_0_0_synth_1/runme.log
+bd_DAW_depacketizer_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_depacketizer_0_0_synth_1/runme.log
+bd_DAW_proc_sys_reset_1_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_proc_sys_reset_1_0_synth_1/runme.log
+bd_DAW_clk_wiz_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_clk_wiz_0_0_synth_1/runme.log
+bd_DAW_proc_sys_reset_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_proc_sys_reset_0_0_synth_1/runme.log
+bd_DAW_mute_controller_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_mute_controller_0_0_synth_1/runme.log
+[Mon May 17 17:13:53 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:21 . Memory (MB): peak = 1502.828 ; gain = 3.402
+delete_bd_objs [get_bd_nets proc_sys_reset_0_peripheral_reset]
+delete_bd_objs [get_bd_nets proc_sys_reset_1_peripheral_aresetn]
+connect_bd_net [get_bd_pins proc_sys_reset_1/peripheral_aresetn] [get_bd_pins AXI4Stream_UART_0/rst]
+connect_bd_net [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aresetn] [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aresetn]
+connect_bd_net [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+regenerate_bd_layout
+reset_run synth_1
+reset_run bd_DAW_clk_wiz_0_0_synth_1
+reset_run bd_DAW_proc_sys_reset_0_0_synth_1
+reset_run bd_DAW_mute_controller_0_0_synth_1
+reset_run bd_DAW_depacketizer_0_0_synth_1
+reset_run bd_DAW_proc_sys_reset_1_0_synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_proc_sys_reset_1_0_synth_1
+
+connect_bd_intf_net [get_bd_intf_pins depacketizer_0/m_axis] [get_bd_intf_pins mute_controller_0/s_axis]
+connect_bd_intf_net [get_bd_intf_pins mute_controller_0/m_axis] [get_bd_intf_pins packetizer_0/s_axis]
+regenerate_bd_layout
+regenerate_bd_layout
+set_property location {5 1242 253} [get_bd_cells packetizer_0]
+regenerate_bd_layout
+set_property location {5 1245 239} [get_bd_cells packetizer_0]
+create_bd_port -dir I btnR
+create_bd_port -dir I btnL
+connect_bd_net [get_bd_ports btnL] [get_bd_pins mute_controller_0/mute_left]
+connect_bd_net [get_bd_ports btnR] [get_bd_pins mute_controller_0/mute_right]
+regenerate_bd_layout
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+update_module_reference bd_DAW_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+delete_fileset: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1539.055 ; gain = 0.000
+delete_ip_run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1539.055 ; gain = 0.000
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+upgrade_ip: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1553.566 ; gain = 14.512
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 1553.566 ; gain = 14.512
+launch_runs synth_1 -jobs 2
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+ERROR: [BD 41-238] Port/Pin property POLARITY does not match between /AXI4Stream_UART_0/rst(ACTIVE_HIGH) and /proc_sys_reset_1/peripheral_aresetn(ACTIVE_LOW)
+ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd 
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_clk_wiz_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_1_0
+ERROR: [Vivado 12-4756] Launch of runs aborted due to earlier errors while preparing sub-designs for run execution.
+delete_bd_objs [get_bd_nets proc_sys_reset_1_peripheral_aresetn]
+connect_bd_net [get_bd_pins AXI4Stream_UART_0/rst] [get_bd_pins proc_sys_reset_1/peripheral_reset]
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+launch_runs synth_1 -jobs 2
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_clk_wiz_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_1_0
+[Mon May 17 17:20:13 2021] Launched bd_DAW_depacketizer_0_0_synth_1, bd_DAW_proc_sys_reset_1_0_synth_1, bd_DAW_clk_wiz_0_0_synth_1, bd_DAW_proc_sys_reset_0_0_synth_1, bd_DAW_mute_controller_0_0_synth_1...
+Run output will be captured here:
+bd_DAW_depacketizer_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_depacketizer_0_0_synth_1/runme.log
+bd_DAW_proc_sys_reset_1_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_proc_sys_reset_1_0_synth_1/runme.log
+bd_DAW_clk_wiz_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_clk_wiz_0_0_synth_1/runme.log
+bd_DAW_proc_sys_reset_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_proc_sys_reset_0_0_synth_1/runme.log
+bd_DAW_mute_controller_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_mute_controller_0_0_synth_1/runme.log
+[Mon May 17 17:20:14 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:16 . Memory (MB): peak = 1571.844 ; gain = 0.000
+connect_bd_net [get_bd_pins mute_controller_0/m_axis_tdata] [get_bd_pins packetizer_0/s_axis_tdata]
+WARNING: [BD 41-1306] The connection to interface pin </mute_controller_0/m_axis_tdata> is being overridden by the user with net <mute_controller_0_m_axis_tdata>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </packetizer_0/s_axis_tdata> is being overridden by the user with net <mute_controller_0_m_axis_tdata>. This pin will not be connected as a part of interface connection <s_axis>.
+connect_bd_net [get_bd_pins mute_controller_0/m_axis_tlast] [get_bd_pins packetizer_0/s_axis_tlast]
+WARNING: [BD 41-1306] The connection to interface pin </mute_controller_0/m_axis_tlast> is being overridden by the user with net <mute_controller_0_m_axis_tlast>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </packetizer_0/s_axis_tlast> is being overridden by the user with net <mute_controller_0_m_axis_tlast>. This pin will not be connected as a part of interface connection <s_axis>.
+connect_bd_net [get_bd_pins mute_controller_0/m_axis_tvalid] [get_bd_pins packetizer_0/s_axis_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin </mute_controller_0/m_axis_tvalid> is being overridden by the user with net <mute_controller_0_m_axis_tvalid>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </packetizer_0/s_axis_tvalid> is being overridden by the user with net <mute_controller_0_m_axis_tvalid>. This pin will not be connected as a part of interface connection <s_axis>.
+connect_bd_net [get_bd_pins mute_controller_0/m_axis_tready] [get_bd_pins packetizer_0/s_axis_tready]
+WARNING: [BD 41-1306] The connection to interface pin </mute_controller_0/m_axis_tready> is being overridden by the user with net <packetizer_0_s_axis_tready>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </packetizer_0/s_axis_tready> is being overridden by the user with net <packetizer_0_s_axis_tready>. This pin will not be connected as a part of interface connection <s_axis>.
+connect_bd_net [get_bd_pins depacketizer_0/m_axis_tdata] [get_bd_pins mute_controller_0/s_axis_tdata]
+WARNING: [BD 41-1306] The connection to interface pin </depacketizer_0/m_axis_tdata> is being overridden by the user with net <depacketizer_0_m_axis_tdata>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </mute_controller_0/s_axis_tdata> is being overridden by the user with net <depacketizer_0_m_axis_tdata>. This pin will not be connected as a part of interface connection <s_axis>.
+connect_bd_net [get_bd_pins depacketizer_0/m_axis_tlast] [get_bd_pins mute_controller_0/s_axis_tlast]
+WARNING: [BD 41-1306] The connection to interface pin </depacketizer_0/m_axis_tlast> is being overridden by the user with net <depacketizer_0_m_axis_tlast>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </mute_controller_0/s_axis_tlast> is being overridden by the user with net <depacketizer_0_m_axis_tlast>. This pin will not be connected as a part of interface connection <s_axis>.
+connect_bd_net [get_bd_pins depacketizer_0/m_axis_tvalid] [get_bd_pins mute_controller_0/s_axis_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin </depacketizer_0/m_axis_tvalid> is being overridden by the user with net <depacketizer_0_m_axis_tvalid>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </mute_controller_0/s_axis_tvalid> is being overridden by the user with net <depacketizer_0_m_axis_tvalid>. This pin will not be connected as a part of interface connection <s_axis>.
+connect_bd_net [get_bd_pins depacketizer_0/m_axis_tready] [get_bd_pins mute_controller_0/s_axis_tready]
+WARNING: [BD 41-1306] The connection to interface pin </depacketizer_0/m_axis_tready> is being overridden by the user with net <mute_controller_0_s_axis_tready>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </mute_controller_0/s_axis_tready> is being overridden by the user with net <mute_controller_0_s_axis_tready>. This pin will not be connected as a part of interface connection <s_axis>.
+connect_bd_net [get_bd_pins depacketizer_0/s_axis_tdata] [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_tdata]
+WARNING: [BD 41-1306] The connection to interface pin </depacketizer_0/s_axis_tdata> is being overridden by the user with net <AXI4Stream_UART_0_m00_axis_rx_tdata>. This pin will not be connected as a part of interface connection <s_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </AXI4Stream_UART_0/m00_axis_rx_tdata> is being overridden by the user with net <AXI4Stream_UART_0_m00_axis_rx_tdata>. This pin will not be connected as a part of interface connection <M00_AXIS_RX>.
+connect_bd_net [get_bd_pins depacketizer_0/s_axis_tvalid] [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin </depacketizer_0/s_axis_tvalid> is being overridden by the user with net <AXI4Stream_UART_0_m00_axis_rx_tvalid>. This pin will not be connected as a part of interface connection <s_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </AXI4Stream_UART_0/m00_axis_rx_tvalid> is being overridden by the user with net <AXI4Stream_UART_0_m00_axis_rx_tvalid>. This pin will not be connected as a part of interface connection <M00_AXIS_RX>.
+connect_bd_net [get_bd_pins depacketizer_0/s_axis_tready] [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_tready]
+WARNING: [BD 41-1306] The connection to interface pin </depacketizer_0/s_axis_tready> is being overridden by the user with net <depacketizer_0_s_axis_tready>. This pin will not be connected as a part of interface connection <s_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </AXI4Stream_UART_0/m00_axis_rx_tready> is being overridden by the user with net <depacketizer_0_s_axis_tready>. This pin will not be connected as a part of interface connection <M00_AXIS_RX>.
+regenerate_bd_layout
+connect_bd_net [get_bd_pins packetizer_0/m_axis_tdata] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_tdata]
+WARNING: [BD 41-1306] The connection to interface pin </packetizer_0/m_axis_tdata> is being overridden by the user with net <packetizer_0_m_axis_tdata>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </AXI4Stream_UART_0/s00_axis_tx_tdata> is being overridden by the user with net <packetizer_0_m_axis_tdata>. This pin will not be connected as a part of interface connection <S00_AXIS_TX>.
+connect_bd_net [get_bd_pins packetizer_0/m_axis_tvalid] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin </packetizer_0/m_axis_tvalid> is being overridden by the user with net <packetizer_0_m_axis_tvalid>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </AXI4Stream_UART_0/s00_axis_tx_tvalid> is being overridden by the user with net <packetizer_0_m_axis_tvalid>. This pin will not be connected as a part of interface connection <S00_AXIS_TX>.
+connect_bd_net [get_bd_pins packetizer_0/m_axis_tready] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_tready]
+WARNING: [BD 41-1306] The connection to interface pin </packetizer_0/m_axis_tready> is being overridden by the user with net <AXI4Stream_UART_0_s00_axis_tx_tready>. This pin will not be connected as a part of interface connection <m_axis>.
+WARNING: [BD 41-1306] The connection to interface pin </AXI4Stream_UART_0/s00_axis_tx_tready> is being overridden by the user with net <AXI4Stream_UART_0_s00_axis_tx_tready>. This pin will not be connected as a part of interface connection <S00_AXIS_TX>.
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+reset_run bd_DAW_mute_controller_0_0_synth_1
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/s00_axis_tx_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/m00_axis_rx_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/m00_axis_rx_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+Exporting to file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+[Mon May 17 17:26:54 2021] Launched bd_DAW_mute_controller_0_0_synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_mute_controller_0_0_synth_1/runme.log
+[Mon May 17 17:26:55 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 1586.328 ; gain = 0.000
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+reset_run bd_DAW_mute_controller_0_0_synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon May 17 17:28:28 2021] Launched bd_DAW_mute_controller_0_0_synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_mute_controller_0_0_synth_1/runme.log
+[Mon May 17 17:28:28 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+update_module_reference bd_DAW_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+regenerate_bd_layout
+export_ip_user_files -of_objects  [get_files {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}] -no_script -reset -force -quiet
+remove_files  {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+remove_files  {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+WARNING: [Vivado 12-818] No files matched 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd'
+update_compile_order -fileset sources_1
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/s00_axis_tx_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/m00_axis_rx_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/m00_axis_rx_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+add_files -norecurse {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+INFO: [BD 41-1662] The design 'bd_DAW.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/s00_axis_tx_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/m00_axis_rx_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/m00_axis_rx_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: AXI4Stream_UART_0_M00_AXIS_RX 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+[Mon May 17 17:32:15 2021] Launched bd_DAW_mute_controller_0_0_synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_mute_controller_0_0_synth_1/runme.log
+[Mon May 17 17:32:15 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1590.590 ; gain = 0.000
+launch_runs impl_1 -jobs 2
+[Mon May 17 17:34:32 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tcpg236-1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-454] Reading design checkpoint 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_AXI4Stream_UART_0_0/bd_DAW_AXI4Stream_UART_0_0.dcp' for cell 'bd_DAW_i/AXI4Stream_UART_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0.dcp' for cell 'bd_DAW_i/clk_wiz_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_depacketizer_0_0/bd_DAW_depacketizer_0_0.dcp' for cell 'bd_DAW_i/depacketizer_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_mute_controller_0_0/bd_DAW_mute_controller_0_0.dcp' for cell 'bd_DAW_i/mute_controller_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_packetizer_0_0/bd_DAW_packetizer_0_0.dcp' for cell 'bd_DAW_i/packetizer_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_0_0/bd_DAW_proc_sys_reset_0_0.dcp' for cell 'bd_DAW_i/proc_sys_reset_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_1_0/bd_DAW_proc_sys_reset_1_0.dcp' for cell 'bd_DAW_i/proc_sys_reset_1'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1626.180 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0_board.xdc] for cell 'bd_DAW_i/clk_wiz_0/inst'
+Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0_board.xdc] for cell 'bd_DAW_i/clk_wiz_0/inst'
+Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0.xdc] for cell 'bd_DAW_i/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0.xdc:57]
+Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0.xdc] for cell 'bd_DAW_i/clk_wiz_0/inst'
+Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_0_0/bd_DAW_proc_sys_reset_0_0_board.xdc] for cell 'bd_DAW_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_0_0/bd_DAW_proc_sys_reset_0_0_board.xdc] for cell 'bd_DAW_i/proc_sys_reset_0/U0'
+Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_0_0/bd_DAW_proc_sys_reset_0_0.xdc] for cell 'bd_DAW_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_0_0/bd_DAW_proc_sys_reset_0_0.xdc] for cell 'bd_DAW_i/proc_sys_reset_0/U0'
+Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_1_0/bd_DAW_proc_sys_reset_1_0_board.xdc] for cell 'bd_DAW_i/proc_sys_reset_1/U0'
+Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_1_0/bd_DAW_proc_sys_reset_1_0_board.xdc] for cell 'bd_DAW_i/proc_sys_reset_1/U0'
+Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_1_0/bd_DAW_proc_sys_reset_1_0.xdc] for cell 'bd_DAW_i/proc_sys_reset_1/U0'
+Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_1_0/bd_DAW_proc_sys_reset_1_0.xdc] for cell 'bd_DAW_i/proc_sys_reset_1/U0'
+Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_AXI4Stream_UART_0_0/bd_DAW_AXI4Stream_UART_0_0_board.xdc] for cell 'bd_DAW_i/AXI4Stream_UART_0/U0'
+Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_AXI4Stream_UART_0_0/bd_DAW_AXI4Stream_UART_0_0_board.xdc] for cell 'bd_DAW_i/AXI4Stream_UART_0/U0'
+INFO: [Project 1-1715] 3 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2306.508 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:32 ; elapsed = 00:00:27 . Memory (MB): peak = 2311.473 ; gain = 718.996
+close_design
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 2311.473 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 45 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.138 . Memory (MB): peak = 2336.691 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.140 . Memory (MB): peak = 2336.691 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2336.691 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:13 ; elapsed = 00:00:07 . Memory (MB): peak = 2401.461 ; gain = 89.988
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+set_property IOSTANDARD LVCMOS33 [get_ports [list btnL]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list btnR]]
+place_ports btnL W19
+place_ports btnR T17
+file mkdir {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/constrs_1/new}
+close [ open {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/constrs_1/new/pins.xdc} w ]
+add_files -fileset constrs_1 {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/constrs_1/new/pins.xdc}}
+set_property target_constrs_file {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/constrs_1/new/pins.xdc} [current_fileset -constrset]
+save_constraints -force
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+update_module_reference bd_DAW_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:13 . Memory (MB): peak = 2541.688 ; gain = 11.727
+delete_bd_objs [get_bd_nets AXI4Stream_UART_0_m00_axis_rx_tdata]
+delete_bd_objs [get_bd_nets AXI4Stream_UART_0_m00_axis_rx_tvalid]
+delete_bd_objs [get_bd_nets depacketizer_0_s_axis_tready]
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_out1]
+undo
+INFO: [Common 17-17] undo 'delete_bd_objs [get_bd_nets clk_wiz_0_clk_out1]'
+export_ip_user_files -of_objects  [get_files {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}] -no_script -reset -force -quiet
+remove_files  {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+update_compile_order -fileset sources_1
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/s00_axis_tx_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+add_files -norecurse {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+INFO: [BD 41-1662] The design 'bd_DAW.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /AXI4Stream_UART_0/s00_axis_tx_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: packetizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /depacketizer_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: depacketizer_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tdata has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tvalid has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /mute_controller_0/m_axis_tlast has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+WARNING: [BD 41-1271] The connection to the pin: /packetizer_0/s_axis_tready has been overridden by the user. This pin will not be connected as a part of the interface connection: mute_controller_0_m_axis 
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+[Mon May 17 17:44:43 2021] Launched bd_DAW_mute_controller_0_0_synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_mute_controller_0_0_synth_1/runme.log
+[Mon May 17 17:44:43 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 2542.312 ; gain = 0.000
+launch_runs impl_1 -jobs 2
+[Mon May 17 17:46:58 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+export_ip_user_files -of_objects  [get_files {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}] -no_script -reset -force -quiet
+remove_files  {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+update_compile_order -fileset sources_1
+delete_bd_objs [get_bd_nets depacketizer_0_m_axis_tdata]
+delete_bd_objs [get_bd_nets depacketizer_0_m_axis_tlast]
+delete_bd_objs [get_bd_nets depacketizer_0_m_axis_tvalid]
+delete_bd_objs [get_bd_nets mute_controller_0_s_axis_tready]
+delete_bd_objs [get_bd_nets mute_controller_0_m_axis_tdata]
+delete_bd_objs [get_bd_nets mute_controller_0_m_axis_tlast]
+delete_bd_objs [get_bd_nets mute_controller_0_m_axis_tvalid]
+delete_bd_objs [get_bd_nets packetizer_0_s_axis_tready]
+delete_bd_objs [get_bd_nets packetizer_0_m_axis_tdata]
+delete_bd_objs [get_bd_nets packetizer_0_m_axis_tvalid]
+delete_bd_objs [get_bd_nets AXI4Stream_UART_0_s00_axis_tx_tready]
+regenerate_bd_layout
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+add_files -norecurse {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+INFO: [BD 41-1662] The design 'bd_DAW.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+Exporting to file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+[Mon May 17 17:51:10 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Mon May 17 17:51:10 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 2542.312 ; gain = 0.000
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}]
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 2547.457 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 45 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.144 . Memory (MB): peak = 2547.457 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.144 . Memory (MB): peak = 2547.457 ; gain = 0.000
+refresh_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 2547.457 ; gain = 5.145
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+update_module_reference bd_DAW_packetizer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_packetizer_0_0 from packetizer_v1_0 1.0 to packetizer_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+update_module_reference bd_DAW_depacketizer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_depacketizer_0_0 from depacketizer_v1_0 1.0 to depacketizer_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 2714.895 ; gain = 0.203
+close [ open {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/volume_controller.vhd} w ]
+add_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/volume_controller.vhd}}
+update_compile_order -fileset sources_1
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+delete_bd_objs [get_bd_intf_nets depacketizer_0_m_axis]
+create_bd_cell -type module -reference volume_controller volume_controller_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+connect_bd_intf_net [get_bd_intf_pins volume_controller_0/m_axis] [get_bd_intf_pins mute_controller_0/s_axis]
+connect_bd_intf_net [get_bd_intf_pins volume_controller_0/s_axis] [get_bd_intf_pins depacketizer_0/m_axis]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins volume_controller_0/aclk]
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+apply_board_connection -board_interface "led_16bits" -ip_intf "axi_gpio_0/GPIO" -diagram "bd_DAW" 
+INFO: [BoardInterface 100-3] current_bd_design bd_DAW
+INFO: [BoardInterface 100-10] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells -quiet /axi_gpio_0]
+INFO: [BoardInterface 100-12] set_property CONFIG.GPIO_BOARD_INTERFACE led_16bits [get_bd_cells -quiet /axi_gpio_0]
+INFO: [BoardInterface 100-108] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 led_16bits
+INFO: [BoardInterface 100-109] connect_bd_intf_net /led_16bits /axi_gpio_0/GPIO
+endgroup
+undo
+INFO: [Common 17-17] undo 'endgroup'
+INFO: [Common 17-17] undo 'apply_board_connection -board_interface "led_16bits" -ip_intf "axi_gpio_0/GPIO" -diagram "bd_DAW" '
+INFO: [Common 17-17] undo 'create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0'
+INFO: [Common 17-17] undo 'startgroup'
+regenerate_bd_layout
+create_bd_port -dir O -from 15 -to 0 led
+connect_bd_net [get_bd_ports led] [get_bd_pins volume_controller_0/volume_level]
+regenerate_bd_layout
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+regenerate_bd_layout
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+update_compile_order -fileset sources_1
+update_module_reference bd_DAW_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+add_files -norecurse {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/debouncer.vhd} {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/edge_detector.vhd}}
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference debouncer debouncer_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+create_bd_cell -type module -reference debouncer debouncer_1
+create_bd_cell -type module -reference edge_detector edge_detector_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+create_bd_cell -type module -reference edge_detector edge_detector_1
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins debouncer_0/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins debouncer_1/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins edge_detector_0/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins edge_detector_1/clk]
+endgroup
+delete_bd_objs [get_bd_nets proc_sys_reset_0_peripheral_aresetn]
+undo
+INFO: [Common 17-17] undo 'delete_bd_objs [get_bd_nets proc_sys_reset_0_peripheral_aresetn]'
+undo
+INFO: [Common 17-17] undo 'endgroup'
+INFO: [Common 17-17] undo 'apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins edge_detector_1/clk]'
+INFO: [Common 17-17] undo 'apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins edge_detector_0/clk]'
+INFO: [Common 17-17] undo 'apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins debouncer_1/clk]'
+INFO: [Common 17-17] undo 'apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins debouncer_0/clk]'
+INFO: [Common 17-17] undo 'startgroup'
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_reset] [get_bd_pins edge_detector_0/reset]
+connect_bd_net [get_bd_pins debouncer_0/reset] [get_bd_pins proc_sys_reset_0/peripheral_reset]
+connect_bd_net [get_bd_pins edge_detector_1/reset] [get_bd_pins proc_sys_reset_0/peripheral_reset]
+connect_bd_net [get_bd_pins debouncer_1/reset] [get_bd_pins proc_sys_reset_0/peripheral_reset]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins debouncer_0/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins debouncer_1/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins edge_detector_0/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins edge_detector_1/clk]
+endgroup
+regenerate_bd_layout
+connect_bd_net [get_bd_pins debouncer_0/debounced] [get_bd_pins edge_detector_0/input_signal]
+connect_bd_net [get_bd_pins debouncer_1/debounced] [get_bd_pins edge_detector_1/input_signal]
+connect_bd_net [get_bd_pins edge_detector_0/edge_detected] [get_bd_pins volume_controller_0/volume_down]
+connect_bd_net [get_bd_pins edge_detector_1/edge_detected] [get_bd_pins volume_controller_0/volume_up]
+regenerate_bd_layout
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}] -no_script -reset -force -quiet
+remove_files  {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/debouncer_0/input_signal
+/debouncer_1/input_signal
+
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+add_files -norecurse {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd}}
+update_compile_order -fileset sources_1
+create_bd_port -dir I btnU
+create_bd_port -dir I btnD
+connect_bd_net [get_bd_ports btnU] [get_bd_pins debouncer_1/input_signal]
+connect_bd_net [get_bd_ports btnD] [get_bd_pins debouncer_0/input_signal]
+regenerate_bd_layout
+generate_target all [get_files  {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}]
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block packetizer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block depacketizer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block debouncer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block debouncer_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block edge_detector_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block edge_detector_1 .
+Exporting to file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+export_ip_user_files -of_objects [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}]
+launch_runs bd_DAW_packetizer_0_0_synth_1 bd_DAW_depacketizer_0_0_synth_1 bd_DAW_volume_controller_0_0_synth_1 bd_DAW_debouncer_0_0_synth_1 bd_DAW_debouncer_1_0_synth_1 bd_DAW_edge_detector_0_0_synth_1 bd_DAW_edge_detector_1_0_synth_1 -jobs 2
+[Mon May 17 18:21:51 2021] Launched bd_DAW_packetizer_0_0_synth_1, bd_DAW_depacketizer_0_0_synth_1, bd_DAW_volume_controller_0_0_synth_1, bd_DAW_debouncer_0_0_synth_1, bd_DAW_debouncer_1_0_synth_1, bd_DAW_edge_detector_0_0_synth_1, bd_DAW_edge_detector_1_0_synth_1...
+Run output will be captured here:
+bd_DAW_packetizer_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_packetizer_0_0_synth_1/runme.log
+bd_DAW_depacketizer_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_depacketizer_0_0_synth_1/runme.log
+bd_DAW_volume_controller_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_volume_controller_0_0_synth_1/runme.log
+bd_DAW_debouncer_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_debouncer_0_0_synth_1/runme.log
+bd_DAW_debouncer_1_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_debouncer_1_0_synth_1/runme.log
+bd_DAW_edge_detector_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_edge_detector_0_0_synth_1/runme.log
+bd_DAW_edge_detector_1_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_edge_detector_1_0_synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 2797.988 ; gain = 0.000
+export_simulation -of_objects [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -directory {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.ip_user_files/sim_scripts} -ip_user_files_dir {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.ip_user_files} -ipstatic_source_dir {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.ip_user_files/ipstatic} -lib_map_path [list {modelsim=D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.cache/compile_simlib/modelsim} {questa=D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.cache/compile_simlib/questa} {riviera=D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.cache/compile_simlib/riviera} {activehdl=D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1
+
+launch_runs impl_1 -jobs 2
+[Mon May 17 18:24:14 2021] Launched bd_DAW_volume_controller_0_0_synth_1, bd_DAW_debouncer_0_0_synth_1, bd_DAW_debouncer_1_0_synth_1, bd_DAW_edge_detector_0_0_synth_1, bd_DAW_edge_detector_1_0_synth_1, synth_1...
+Run output will be captured here:
+bd_DAW_volume_controller_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_volume_controller_0_0_synth_1/runme.log
+bd_DAW_debouncer_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_debouncer_0_0_synth_1/runme.log
+bd_DAW_debouncer_1_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_debouncer_1_0_synth_1/runme.log
+bd_DAW_edge_detector_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_edge_detector_0_0_synth_1/runme.log
+bd_DAW_edge_detector_1_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_edge_detector_1_0_synth_1/runme.log
+synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Mon May 17 18:24:19 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 2797.988 ; gain = 0.000
+WARNING: [Common 17-9] Error reading message records.
+WARNING: [Common 17-9] Error reading message records.
+WARNING: [Common 17-9] Error reading message records.
+WARNING: [Common 17-9] Error reading message records.
+WARNING: [Common 17-9] Error reading message records.
+WARNING: [Common 17-9] Error reading message records.
+WARNING: [Common 17-9] Error reading message records.
+WARNING: [Common 17-9] Error reading message records.
+CRITICAL WARNING: [HDL 9-806] Syntax error near "end". [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/volume_controller.vhd:49]
+update_module_reference bd_DAW_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:37 . Memory (MB): peak = 2811.434 ; gain = 6.461
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon May 17 18:54:52 2021...

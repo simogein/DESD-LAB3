@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1621361154">
+  <File Type="PA-TCL" Name="bd_DAW_wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="bd_DAW_wrapper_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="bd_DAW_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="bd_DAW_wrapper.vds"/>
+  <File Type="RDS-UTIL" Name="bd_DAW_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="bd_DAW_wrapper_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="bd_DAW_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="bd_DAW_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="bd_DAW_wrapper_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/packetizer.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/depacketizer.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/edge_detector.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/debouncer.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/mute_controller.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/volume_controller.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/moving_average_filter.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/bd_DAW/bd_DAW.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PGENDIR/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="bd_DAW_wrapper"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/pins.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/pins.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Flow_RuntimeOptimized" Flow="Vivado Synthesis 2020"/>
+    <Step Id="synth_design">
+      <Option Id="Directive">0</Option>
+      <Option Id="FlattenHierarchy">1</Option>
+      <Option Id="FsmExtraction">0</Option>
+    </Step>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_moving_average_filter_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_AXI4Stream_UART_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_depacketizer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_debouncer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_edge_detector_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_proc_sys_reset_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_edge_detector_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_proc_sys_reset_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_debouncer_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_packetizer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_mute_controller_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_volume_controller_0_0"/>
+</GenRun>
