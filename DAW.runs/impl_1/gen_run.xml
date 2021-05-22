@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1621361154">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1621703930">
   <File Type="BITSTR-BMM" Name="bd_DAW_wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="bd_DAW_wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="bd_DAW_wrapper_timing_summary_init.rpt"/>
@@ -157,20 +157,16 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Flow_RuntimeOptimized" Flow="Vivado Implementation 2020"/>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
     <Step Id="init_design"/>
-    <Step Id="opt_design">
-      <Option Id="Directive">4</Option>
-    </Step>
+    <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
-    <Step Id="place_design">
-      <Option Id="Directive">15</Option>
-    </Step>
+    <Step Id="place_design"/>
     <Step Id="post_place_power_opt_design"/>
-    <Step Id="phys_opt_design" EnableStepBool="0"/>
-    <Step Id="route_design">
-      <Option Id="Directive">5</Option>
-    </Step>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
@@ -185,6 +181,6 @@
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_proc_sys_reset_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_debouncer_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_packetizer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_mute_controller_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_volume_controller_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_mute_controller_0_0"/>
 </GenRun>

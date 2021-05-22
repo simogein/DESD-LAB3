@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Tue May 18 20:05:24 2021
+--Date        : Sat May 22 19:09:31 2021
 --Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 --Command     : generate_target bd_DAW.bd
 --Design      : bd_DAW
@@ -347,8 +347,8 @@ mute_controller_0: component bd_DAW_mute_controller_0_0
       m_axis_tlast => mute_controller_0_m_axis_TLAST,
       m_axis_tready => mute_controller_0_m_axis_TREADY,
       m_axis_tvalid => mute_controller_0_m_axis_TVALID,
-      mute_left => btnL_1,
-      mute_right => btnR_1,
+      mute_left => btnR_1,
+      mute_right => btnL_1,
       s_axis_tdata(15 downto 0) => volume_controller_0_m_axis_TDATA(15 downto 0),
       s_axis_tlast => volume_controller_0_m_axis_TLAST,
       s_axis_tready => volume_controller_0_m_axis_TREADY,

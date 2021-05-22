@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue May 18 20:05:25 2021" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat May 22 19:09:31 2021" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:basys3:part0:1.1" DEVICE="7a35t" NAME="bd_DAW" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -18,12 +18,12 @@
     </PORT>
     <PORT DIR="I" NAME="btnR" SIGIS="undef" SIGNAME="External_Ports_btnR">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="mute_controller_0" PORT="mute_right"/>
+        <CONNECTION INSTANCE="mute_controller_0" PORT="mute_left"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="btnL" SIGIS="undef" SIGNAME="External_Ports_btnL">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="mute_controller_0" PORT="mute_left"/>
+        <CONNECTION INSTANCE="mute_controller_0" PORT="mute_right"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="btnU" SIGIS="undef" SIGNAME="External_Ports_btnU">
@@ -1214,14 +1214,14 @@
             <CONNECTION INSTANCE="packetizer_0" PORT="s_axis_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="mute_left" SIGIS="undef" SIGNAME="External_Ports_btnL">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="btnL"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="mute_right" SIGIS="undef" SIGNAME="External_Ports_btnR">
+        <PORT DIR="I" NAME="mute_left" SIGIS="undef" SIGNAME="External_Ports_btnR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="btnR"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mute_right" SIGIS="undef" SIGNAME="External_Ports_btnL">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnL"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

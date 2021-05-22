@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Tue May 18 16:21:16 2021
+// Date        : Sat May 22 16:57:07 2021
 // Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim {d:/Documenti/LEZIONI/Digital Electronic System
 //               Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_mute_controller_0_0/bd_DAW_mute_controller_0_0_sim_netlist.v}

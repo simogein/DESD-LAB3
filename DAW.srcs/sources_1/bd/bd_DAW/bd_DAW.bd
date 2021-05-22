@@ -1370,16 +1370,10 @@
       }
     },
     "interface_nets": {
-      "AXI4Stream_UART_0_UART": {
+      "mute_controller_0_m_axis": {
         "interface_ports": [
-          "usb_uart",
-          "AXI4Stream_UART_0/UART"
-        ]
-      },
-      "moving_average_filter_0_m_axis": {
-        "interface_ports": [
-          "moving_average_filter_0/m_axis",
-          "volume_controller_0/s_axis"
+          "mute_controller_0/m_axis",
+          "packetizer_0/s_axis"
         ]
       },
       "volume_controller_0_m_axis": {
@@ -1388,10 +1382,16 @@
           "mute_controller_0/s_axis"
         ]
       },
-      "AXI4Stream_UART_0_M00_AXIS_RX": {
+      "packetizer_0_m_axis": {
         "interface_ports": [
-          "AXI4Stream_UART_0/M00_AXIS_RX",
-          "depacketizer_0/s_axis"
+          "AXI4Stream_UART_0/S00_AXIS_TX",
+          "packetizer_0/m_axis"
+        ]
+      },
+      "AXI4Stream_UART_0_UART": {
+        "interface_ports": [
+          "usb_uart",
+          "AXI4Stream_UART_0/UART"
         ]
       },
       "depacketizer_0_m_axis": {
@@ -1400,16 +1400,16 @@
           "moving_average_filter_0/s_axis"
         ]
       },
-      "packetizer_0_m_axis": {
+      "AXI4Stream_UART_0_M00_AXIS_RX": {
         "interface_ports": [
-          "AXI4Stream_UART_0/S00_AXIS_TX",
-          "packetizer_0/m_axis"
+          "AXI4Stream_UART_0/M00_AXIS_RX",
+          "depacketizer_0/s_axis"
         ]
       },
-      "mute_controller_0_m_axis": {
+      "moving_average_filter_0_m_axis": {
         "interface_ports": [
-          "mute_controller_0/m_axis",
-          "packetizer_0/s_axis"
+          "moving_average_filter_0/m_axis",
+          "volume_controller_0/s_axis"
         ]
       }
     },
@@ -1440,18 +1440,6 @@
           "clk_wiz_0/clk_out2",
           "proc_sys_reset_1/slowest_sync_clk",
           "AXI4Stream_UART_0/clk_uart"
-        ]
-      },
-      "btnL_1": {
-        "ports": [
-          "btnL",
-          "mute_controller_0/mute_left"
-        ]
-      },
-      "btnR_1": {
-        "ports": [
-          "btnR",
-          "mute_controller_0/mute_right"
         ]
       },
       "proc_sys_reset_1_peripheral_reset": {
@@ -1544,6 +1532,18 @@
         "ports": [
           "sw0",
           "moving_average_filter_0/filter_enable"
+        ]
+      },
+      "btnR_1": {
+        "ports": [
+          "btnR",
+          "mute_controller_0/mute_left"
+        ]
+      },
+      "btnL_1": {
+        "ports": [
+          "btnL",
+          "mute_controller_0/mute_right"
         ]
       }
     }

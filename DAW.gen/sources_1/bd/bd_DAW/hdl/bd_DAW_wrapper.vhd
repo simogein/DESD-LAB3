@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Tue May 18 20:05:24 2021
+--Date        : Sat May 22 19:09:31 2021
 --Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 --Command     : generate_target bd_DAW_wrapper.bd
 --Design      : bd_DAW_wrapper

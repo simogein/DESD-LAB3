@@ -335,8 +335,8 @@ proc create_root_design { parentCell } {
   # Create port connections
   connect_bd_net -net Net [get_bd_pins debouncer_0/reset] [get_bd_pins debouncer_1/reset] [get_bd_pins edge_detector_0/reset] [get_bd_pins edge_detector_1/reset] [get_bd_pins proc_sys_reset_0/peripheral_reset]
   connect_bd_net -net btnD_1 [get_bd_ports btnD] [get_bd_pins debouncer_1/input_signal]
-  connect_bd_net -net btnL_1 [get_bd_ports btnL] [get_bd_pins mute_controller_0/mute_left]
-  connect_bd_net -net btnR_1 [get_bd_ports btnR] [get_bd_pins mute_controller_0/mute_right]
+  connect_bd_net -net btnL_1 [get_bd_ports btnL] [get_bd_pins mute_controller_0/mute_right]
+  connect_bd_net -net btnR_1 [get_bd_ports btnR] [get_bd_pins mute_controller_0/mute_left]
   connect_bd_net -net btnU_1 [get_bd_ports btnU] [get_bd_pins debouncer_0/input_signal]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aclk] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aclk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins debouncer_0/clk] [get_bd_pins debouncer_1/clk] [get_bd_pins depacketizer_0/aclk] [get_bd_pins edge_detector_0/clk] [get_bd_pins edge_detector_1/clk] [get_bd_pins moving_average_filter_0/aclk] [get_bd_pins mute_controller_0/aclk] [get_bd_pins packetizer_0/aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins volume_controller_0/aclk]
   connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins AXI4Stream_UART_0/clk_uart] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins proc_sys_reset_1/slowest_sync_clk]

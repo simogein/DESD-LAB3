@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed May 19 12:24:43 2021
+# Process ID: 10904
+# Current directory: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11064 D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.xpr
+# Log file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/vivado.log
+# Journal file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:29 ; elapsed = 00:00:15 . Memory (MB): peak = 1089.309 ; gain = 0.000
+update_compile_order -fileset sources_1
+set_property -name {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} -value -quick -objects [get_runs synth_1]
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Wed May 19 12:27:11 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Wed May 19 12:28:38 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+set_property strategy Flow_Quick [get_runs impl_1]
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed May 19 12:30:50 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+set_property {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} {} [get_runs synth_1]
+set_property strategy Flow_RuntimeOptimized [get_runs impl_1]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed May 19 12:33:58 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Wed May 19 12:33:58 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed May 19 12:41:19 2021...

@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Tue May 18 20:06:56 2021
+// Date        : Sat May 22 19:10:54 2021
 // Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ bd_DAW_moving_average_filter_0_0_sim_netlist.v
@@ -70,1066 +70,180 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_moving_average_filter
     s_axis_tready,
     m_axis_tdata,
     m_axis_tlast,
-    aresetn,
     aclk,
-    filter_enable,
     s_axis_tlast,
     s_axis_tdata,
+    filter_enable,
+    m_axis_tready,
     s_axis_tvalid,
-    m_axis_tready);
+    aresetn);
   output m_axis_tvalid;
   output s_axis_tready;
   output [15:0]m_axis_tdata;
   output m_axis_tlast;
-  input aresetn;
   input aclk;
-  input filter_enable;
   input s_axis_tlast;
   input [15:0]s_axis_tdata;
-  input s_axis_tvalid;
+  input filter_enable;
   input m_axis_tready;
+  input s_axis_tvalid;
+  input aresetn;
 
   wire \FSM_onehot_state[1]_i_1_n_0 ;
   wire \FSM_onehot_state[1]_i_2_n_0 ;
-  wire \FSM_onehot_state[1]_i_3_n_0 ;
-  wire \FSM_onehot_state_reg_n_0_[0] ;
   wire \FSM_onehot_state_reg_n_0_[2] ;
   wire aclk;
   wire aresetn;
-  wire \filter_buffer_L[0][0]_i_1_n_0 ;
-  wire \filter_buffer_L[0][10]_i_1_n_0 ;
-  wire \filter_buffer_L[0][11]_i_1_n_0 ;
-  wire \filter_buffer_L[0][12]_i_1_n_0 ;
-  wire \filter_buffer_L[0][13]_i_1_n_0 ;
-  wire \filter_buffer_L[0][14]_i_1_n_0 ;
-  wire \filter_buffer_L[0][15]_i_1_n_0 ;
-  wire \filter_buffer_L[0][15]_i_3_n_0 ;
-  wire \filter_buffer_L[0][1]_i_1_n_0 ;
-  wire \filter_buffer_L[0][2]_i_1_n_0 ;
-  wire \filter_buffer_L[0][3]_i_1_n_0 ;
-  wire \filter_buffer_L[0][4]_i_1_n_0 ;
-  wire \filter_buffer_L[0][5]_i_1_n_0 ;
-  wire \filter_buffer_L[0][6]_i_1_n_0 ;
-  wire \filter_buffer_L[0][7]_i_1_n_0 ;
-  wire \filter_buffer_L[0][8]_i_1_n_0 ;
-  wire \filter_buffer_L[0][9]_i_1_n_0 ;
-  wire \filter_buffer_L[30][15]_i_1_n_0 ;
-  wire \filter_buffer_L_reg[0]0 ;
-  wire [15:0]\filter_buffer_L_reg[0]_0 ;
-  wire [15:15]\filter_buffer_L_reg[30]_2 ;
-  wire \filter_buffer_R_reg[0]0 ;
-  wire [15:0]\filter_buffer_R_reg[0]_1 ;
+  wire [20:0]filter_accumulator_L;
+  wire filter_accumulator_L0;
+  wire [20:0]filter_accumulator_R;
+  wire [20:0]filter_accumulator_R0;
+  wire filter_accumulator_R0_1;
+  wire filter_accumulator_R0_carry__0_i_1_n_0;
+  wire filter_accumulator_R0_carry__0_i_2_n_0;
+  wire filter_accumulator_R0_carry__0_i_3_n_0;
+  wire filter_accumulator_R0_carry__0_i_4_n_0;
+  wire filter_accumulator_R0_carry__0_n_0;
+  wire filter_accumulator_R0_carry__0_n_1;
+  wire filter_accumulator_R0_carry__0_n_2;
+  wire filter_accumulator_R0_carry__0_n_3;
+  wire filter_accumulator_R0_carry__1_i_1_n_0;
+  wire filter_accumulator_R0_carry__1_i_2_n_0;
+  wire filter_accumulator_R0_carry__1_i_3_n_0;
+  wire filter_accumulator_R0_carry__1_i_4_n_0;
+  wire filter_accumulator_R0_carry__1_n_0;
+  wire filter_accumulator_R0_carry__1_n_1;
+  wire filter_accumulator_R0_carry__1_n_2;
+  wire filter_accumulator_R0_carry__1_n_3;
+  wire filter_accumulator_R0_carry__2_i_1_n_0;
+  wire filter_accumulator_R0_carry__2_i_2_n_0;
+  wire filter_accumulator_R0_carry__2_i_3_n_0;
+  wire filter_accumulator_R0_carry__2_i_4_n_0;
+  wire filter_accumulator_R0_carry__2_n_0;
+  wire filter_accumulator_R0_carry__2_n_1;
+  wire filter_accumulator_R0_carry__2_n_2;
+  wire filter_accumulator_R0_carry__2_n_3;
+  wire filter_accumulator_R0_carry__3_i_1_n_0;
+  wire filter_accumulator_R0_carry__3_i_2_n_0;
+  wire filter_accumulator_R0_carry__3_i_3_n_0;
+  wire filter_accumulator_R0_carry__3_i_4_n_0;
+  wire filter_accumulator_R0_carry__3_i_5_n_0;
+  wire filter_accumulator_R0_carry__3_n_0;
+  wire filter_accumulator_R0_carry__3_n_1;
+  wire filter_accumulator_R0_carry__3_n_2;
+  wire filter_accumulator_R0_carry__3_n_3;
+  wire filter_accumulator_R0_carry__4_i_1_n_0;
+  wire filter_accumulator_R0_carry_i_1_n_0;
+  wire filter_accumulator_R0_carry_i_2_n_0;
+  wire filter_accumulator_R0_carry_i_3_n_0;
+  wire filter_accumulator_R0_carry_i_4_n_0;
+  wire filter_accumulator_R0_carry_n_0;
+  wire filter_accumulator_R0_carry_n_1;
+  wire filter_accumulator_R0_carry_n_2;
+  wire filter_accumulator_R0_carry_n_3;
+  wire \filter_buffer_L[31][0]_i_1_n_0 ;
+  wire \filter_buffer_L[31]_0 ;
+  wire \filter_buffer_L_reg[31] ;
   wire filter_enable;
   wire filter_enable_int;
-  wire i___0_carry__0_i_1_n_0;
-  wire i___0_carry__0_i_2_n_0;
-  wire i___0_carry__0_i_3_n_0;
-  wire i___0_carry__0_i_4_n_0;
-  wire i___0_carry__0_i_5_n_0;
-  wire i___0_carry__0_i_6_n_0;
-  wire i___0_carry__0_i_7_n_0;
-  wire i___0_carry__0_i_8_n_0;
-  wire i___0_carry__1_i_1_n_0;
-  wire i___0_carry__1_i_2_n_0;
-  wire i___0_carry__1_i_3_n_0;
-  wire i___0_carry__1_i_4_n_0;
-  wire i___0_carry__1_i_5_n_0;
-  wire i___0_carry__1_i_6_n_0;
-  wire i___0_carry__1_i_7_n_0;
-  wire i___0_carry__1_i_8_n_0;
-  wire i___0_carry__2_i_1_n_0;
-  wire i___0_carry__2_i_2_n_0;
-  wire i___0_carry__2_i_3_n_0;
-  wire i___0_carry__2_i_4_n_0;
-  wire i___0_carry__2_i_5_n_0;
-  wire i___0_carry__2_i_6_n_0;
-  wire i___0_carry__2_i_7_n_0;
-  wire i___0_carry__2_i_8_n_0;
-  wire i___0_carry__3_i_1_n_0;
-  wire i___0_carry__3_i_2_n_0;
-  wire i___0_carry_i_1_n_0;
-  wire i___0_carry_i_2_n_0;
-  wire i___0_carry_i_3_n_0;
-  wire i___0_carry_i_4_n_0;
-  wire i___0_carry_i_5_n_0;
-  wire i___0_carry_i_6_n_0;
-  wire i___0_carry_i_7_n_0;
-  wire i___140_carry__0_i_1_n_0;
-  wire i___140_carry__0_i_2_n_0;
-  wire i___140_carry__0_i_3_n_0;
-  wire i___140_carry__0_i_4_n_0;
-  wire i___140_carry__1_i_1_n_0;
-  wire i___140_carry__1_i_2_n_0;
-  wire i___140_carry__1_i_3_n_0;
-  wire i___140_carry__1_i_4_n_0;
-  wire i___140_carry__2_i_1_n_0;
-  wire i___140_carry__2_i_2_n_0;
-  wire i___140_carry__2_i_3_n_0;
-  wire i___140_carry__2_i_4_n_0;
-  wire i___140_carry__3_i_1_n_0;
-  wire i___140_carry__3_i_2_n_0;
-  wire i___140_carry__3_i_3_n_0;
-  wire i___140_carry__3_i_4_n_0;
-  wire i___140_carry__4_i_1_n_0;
-  wire i___140_carry_i_1_n_0;
-  wire i___140_carry_i_2_n_0;
-  wire i___140_carry_i_3_n_0;
-  wire i___140_carry_i_4_n_0;
-  wire i___140_carry_i_5_n_0;
-  wire i___185_carry__0_i_1_n_0;
-  wire i___185_carry__0_i_2_n_0;
-  wire i___185_carry__0_i_3_n_0;
-  wire i___185_carry__0_i_4_n_0;
-  wire i___185_carry__1_i_1_n_0;
-  wire i___185_carry__1_i_2_n_0;
-  wire i___185_carry__1_i_3_n_0;
-  wire i___185_carry__1_i_4_n_0;
-  wire i___185_carry__2_i_1_n_0;
-  wire i___185_carry__2_i_2_n_0;
-  wire i___185_carry__2_i_3_n_0;
-  wire i___185_carry__2_i_4_n_0;
-  wire i___185_carry__3_i_1_n_0;
-  wire i___185_carry__3_i_2_n_0;
-  wire i___185_carry__3_i_3_n_0;
-  wire i___185_carry__3_i_4_n_0;
-  wire i___185_carry__4_i_1_n_0;
-  wire i___185_carry_i_1_n_0;
-  wire i___185_carry_i_2_n_0;
-  wire i___185_carry_i_3_n_0;
-  wire i___185_carry_i_4_n_0;
-  wire i___185_carry_i_5_n_0;
-  wire i___230_carry__0_i_1_n_0;
-  wire i___230_carry__0_i_2_n_0;
-  wire i___230_carry__0_i_3_n_0;
-  wire i___230_carry__0_i_4_n_0;
-  wire i___230_carry__1_i_1_n_0;
-  wire i___230_carry__1_i_2_n_0;
-  wire i___230_carry__1_i_3_n_0;
-  wire i___230_carry__1_i_4_n_0;
-  wire i___230_carry__2_i_1_n_0;
-  wire i___230_carry__2_i_2_n_0;
-  wire i___230_carry__2_i_3_n_0;
-  wire i___230_carry__2_i_4_n_0;
-  wire i___230_carry__3_i_1_n_0;
-  wire i___230_carry__3_i_2_n_0;
-  wire i___230_carry__3_i_3_n_0;
-  wire i___230_carry__3_i_4_n_0;
-  wire i___230_carry__4_i_1_n_0;
-  wire i___230_carry_i_1_n_0;
-  wire i___230_carry_i_2_n_0;
-  wire i___230_carry_i_3_n_0;
-  wire i___230_carry_i_4_n_0;
-  wire i___230_carry_i_5_n_0;
-  wire i___277_carry__0_i_10_n_0;
-  wire i___277_carry__0_i_11_n_0;
-  wire i___277_carry__0_i_12_n_0;
-  wire i___277_carry__0_i_1_n_0;
-  wire i___277_carry__0_i_2_n_0;
-  wire i___277_carry__0_i_3_n_0;
-  wire i___277_carry__0_i_4_n_0;
-  wire i___277_carry__0_i_5_n_0;
-  wire i___277_carry__0_i_6_n_0;
-  wire i___277_carry__0_i_7_n_0;
-  wire i___277_carry__0_i_8_n_0;
-  wire i___277_carry__0_i_9_n_0;
-  wire i___277_carry__1_i_10_n_0;
-  wire i___277_carry__1_i_11_n_0;
-  wire i___277_carry__1_i_12_n_0;
-  wire i___277_carry__1_i_1_n_0;
-  wire i___277_carry__1_i_2_n_0;
-  wire i___277_carry__1_i_3_n_0;
-  wire i___277_carry__1_i_4_n_0;
-  wire i___277_carry__1_i_5_n_0;
-  wire i___277_carry__1_i_6_n_0;
-  wire i___277_carry__1_i_7_n_0;
-  wire i___277_carry__1_i_8_n_0;
-  wire i___277_carry__1_i_9_n_0;
-  wire i___277_carry__2_i_10_n_0;
-  wire i___277_carry__2_i_11_n_0;
-  wire i___277_carry__2_i_12_n_0;
-  wire i___277_carry__2_i_1_n_0;
-  wire i___277_carry__2_i_2_n_0;
-  wire i___277_carry__2_i_3_n_0;
-  wire i___277_carry__2_i_4_n_0;
-  wire i___277_carry__2_i_5_n_0;
-  wire i___277_carry__2_i_6_n_0;
-  wire i___277_carry__2_i_7_n_0;
-  wire i___277_carry__2_i_8_n_0;
-  wire i___277_carry__2_i_9_n_0;
-  wire i___277_carry__3_i_10_n_0;
-  wire i___277_carry__3_i_11_n_0;
-  wire i___277_carry__3_i_12_n_0;
-  wire i___277_carry__3_i_1_n_0;
-  wire i___277_carry__3_i_2_n_0;
-  wire i___277_carry__3_i_3_n_0;
-  wire i___277_carry__3_i_4_n_0;
-  wire i___277_carry__3_i_5_n_0;
-  wire i___277_carry__3_i_6_n_0;
-  wire i___277_carry__3_i_7_n_0;
-  wire i___277_carry__3_i_8_n_0;
-  wire i___277_carry__3_i_9_n_0;
-  wire i___277_carry__4_i_1_n_0;
-  wire i___277_carry__4_i_2_n_0;
-  wire i___277_carry__4_i_3_n_0;
-  wire i___277_carry_i_1_n_0;
-  wire i___277_carry_i_2_n_0;
-  wire i___277_carry_i_3_n_0;
-  wire i___277_carry_i_4_n_0;
-  wire i___277_carry_i_5_n_0;
-  wire i___277_carry_i_6_n_0;
-  wire i___277_carry_i_7_n_0;
-  wire i___277_carry_i_8_n_0;
-  wire i___277_carry_i_9_n_0;
-  wire i___50_carry_i_1_n_0;
-  wire i___54_carry_i_1_n_0;
-  wire i___58_carry_i_1_n_0;
-  wire i___62_carry_i_1_n_0;
-  wire i___66_carry_i_1_n_0;
-  wire i___70_carry_i_1_n_0;
-  wire i___74_carry_i_1_n_0;
-  wire i___78_carry_i_1_n_0;
-  wire i___82_carry_i_1_n_0;
-  wire i___86_carry__0_i_1_n_0;
-  wire i___86_carry__0_i_2_n_0;
-  wire i___86_carry__0_i_3_n_0;
-  wire i___86_carry__0_i_4_n_0;
-  wire i___86_carry__1_i_1_n_0;
-  wire i___86_carry__1_i_2_n_0;
-  wire i___86_carry__1_i_3_n_0;
-  wire i___86_carry__1_i_4_n_0;
-  wire i___86_carry__2_i_1_n_0;
-  wire i___86_carry__2_i_2_n_0;
-  wire i___86_carry__2_i_3_n_0;
-  wire i___86_carry__2_i_4_n_0;
-  wire i___86_carry__3_i_1_n_0;
-  wire i___86_carry__3_i_2_n_0;
-  wire i___86_carry__3_i_3_n_0;
-  wire i___86_carry_i_1_n_0;
-  wire i___86_carry_i_2_n_0;
-  wire i___86_carry_i_3_n_0;
   wire [15:0]m_axis_tdata;
   wire m_axis_tdata0;
-  wire [20:5]m_axis_tdata1;
-  wire m_axis_tdata1__0_carry__0_i_1_n_0;
-  wire m_axis_tdata1__0_carry__0_i_2_n_0;
-  wire m_axis_tdata1__0_carry__0_i_3_n_0;
-  wire m_axis_tdata1__0_carry__0_i_4_n_0;
-  wire m_axis_tdata1__0_carry__0_i_5_n_0;
-  wire m_axis_tdata1__0_carry__0_i_6_n_0;
-  wire m_axis_tdata1__0_carry__0_i_7_n_0;
-  wire m_axis_tdata1__0_carry__0_i_8_n_0;
-  wire m_axis_tdata1__0_carry__0_n_0;
-  wire m_axis_tdata1__0_carry__0_n_1;
-  wire m_axis_tdata1__0_carry__0_n_2;
-  wire m_axis_tdata1__0_carry__0_n_3;
-  wire m_axis_tdata1__0_carry__0_n_4;
-  wire m_axis_tdata1__0_carry__0_n_5;
-  wire m_axis_tdata1__0_carry__0_n_6;
-  wire m_axis_tdata1__0_carry__0_n_7;
-  wire m_axis_tdata1__0_carry__1_i_1_n_0;
-  wire m_axis_tdata1__0_carry__1_i_2_n_0;
-  wire m_axis_tdata1__0_carry__1_i_3_n_0;
-  wire m_axis_tdata1__0_carry__1_i_4_n_0;
-  wire m_axis_tdata1__0_carry__1_i_5_n_0;
-  wire m_axis_tdata1__0_carry__1_i_6_n_0;
-  wire m_axis_tdata1__0_carry__1_i_7_n_0;
-  wire m_axis_tdata1__0_carry__1_i_8_n_0;
-  wire m_axis_tdata1__0_carry__1_n_0;
-  wire m_axis_tdata1__0_carry__1_n_1;
-  wire m_axis_tdata1__0_carry__1_n_2;
-  wire m_axis_tdata1__0_carry__1_n_3;
-  wire m_axis_tdata1__0_carry__1_n_4;
-  wire m_axis_tdata1__0_carry__1_n_5;
-  wire m_axis_tdata1__0_carry__1_n_6;
-  wire m_axis_tdata1__0_carry__1_n_7;
-  wire m_axis_tdata1__0_carry__2_i_1_n_0;
-  wire m_axis_tdata1__0_carry__2_i_2_n_0;
-  wire m_axis_tdata1__0_carry__2_i_3_n_0;
-  wire m_axis_tdata1__0_carry__2_i_4_n_0;
-  wire m_axis_tdata1__0_carry__2_i_5_n_0;
-  wire m_axis_tdata1__0_carry__2_i_6_n_0;
-  wire m_axis_tdata1__0_carry__2_i_7_n_0;
-  wire m_axis_tdata1__0_carry__2_i_8_n_0;
-  wire m_axis_tdata1__0_carry__2_n_0;
-  wire m_axis_tdata1__0_carry__2_n_1;
-  wire m_axis_tdata1__0_carry__2_n_2;
-  wire m_axis_tdata1__0_carry__2_n_3;
-  wire m_axis_tdata1__0_carry__2_n_4;
-  wire m_axis_tdata1__0_carry__2_n_5;
-  wire m_axis_tdata1__0_carry__2_n_6;
-  wire m_axis_tdata1__0_carry__2_n_7;
-  wire m_axis_tdata1__0_carry__3_i_1_n_0;
-  wire m_axis_tdata1__0_carry__3_i_2_n_0;
-  wire m_axis_tdata1__0_carry__3_n_2;
-  wire m_axis_tdata1__0_carry__3_n_7;
-  wire m_axis_tdata1__0_carry_i_1_n_0;
-  wire m_axis_tdata1__0_carry_i_2_n_0;
-  wire m_axis_tdata1__0_carry_i_3_n_0;
-  wire m_axis_tdata1__0_carry_i_4_n_0;
-  wire m_axis_tdata1__0_carry_i_5_n_0;
-  wire m_axis_tdata1__0_carry_i_6_n_0;
-  wire m_axis_tdata1__0_carry_i_7_n_0;
-  wire m_axis_tdata1__0_carry_n_0;
-  wire m_axis_tdata1__0_carry_n_1;
-  wire m_axis_tdata1__0_carry_n_2;
-  wire m_axis_tdata1__0_carry_n_3;
-  wire m_axis_tdata1__0_carry_n_4;
-  wire m_axis_tdata1__0_carry_n_5;
-  wire m_axis_tdata1__0_carry_n_6;
-  wire m_axis_tdata1__0_carry_n_7;
-  wire m_axis_tdata1__140_carry__0_i_1_n_0;
-  wire m_axis_tdata1__140_carry__0_i_2_n_0;
-  wire m_axis_tdata1__140_carry__0_i_3_n_0;
-  wire m_axis_tdata1__140_carry__0_i_4_n_0;
-  wire m_axis_tdata1__140_carry__0_n_0;
-  wire m_axis_tdata1__140_carry__0_n_1;
-  wire m_axis_tdata1__140_carry__0_n_2;
-  wire m_axis_tdata1__140_carry__0_n_3;
-  wire m_axis_tdata1__140_carry__0_n_4;
-  wire m_axis_tdata1__140_carry__0_n_5;
-  wire m_axis_tdata1__140_carry__0_n_6;
-  wire m_axis_tdata1__140_carry__0_n_7;
-  wire m_axis_tdata1__140_carry__1_i_1_n_0;
-  wire m_axis_tdata1__140_carry__1_i_2_n_0;
-  wire m_axis_tdata1__140_carry__1_i_3_n_0;
-  wire m_axis_tdata1__140_carry__1_i_4_n_0;
-  wire m_axis_tdata1__140_carry__1_n_0;
-  wire m_axis_tdata1__140_carry__1_n_1;
-  wire m_axis_tdata1__140_carry__1_n_2;
-  wire m_axis_tdata1__140_carry__1_n_3;
-  wire m_axis_tdata1__140_carry__1_n_4;
-  wire m_axis_tdata1__140_carry__1_n_5;
-  wire m_axis_tdata1__140_carry__1_n_6;
-  wire m_axis_tdata1__140_carry__1_n_7;
-  wire m_axis_tdata1__140_carry__2_i_1_n_0;
-  wire m_axis_tdata1__140_carry__2_i_2_n_0;
-  wire m_axis_tdata1__140_carry__2_i_3_n_0;
-  wire m_axis_tdata1__140_carry__2_i_4_n_0;
-  wire m_axis_tdata1__140_carry__2_n_0;
-  wire m_axis_tdata1__140_carry__2_n_1;
-  wire m_axis_tdata1__140_carry__2_n_2;
-  wire m_axis_tdata1__140_carry__2_n_3;
-  wire m_axis_tdata1__140_carry__2_n_4;
-  wire m_axis_tdata1__140_carry__2_n_5;
-  wire m_axis_tdata1__140_carry__2_n_6;
-  wire m_axis_tdata1__140_carry__2_n_7;
-  wire m_axis_tdata1__140_carry__3_i_1_n_0;
-  wire m_axis_tdata1__140_carry__3_i_2_n_0;
-  wire m_axis_tdata1__140_carry__3_i_3_n_0;
-  wire m_axis_tdata1__140_carry__3_i_4_n_0;
-  wire m_axis_tdata1__140_carry__3_n_0;
-  wire m_axis_tdata1__140_carry__3_n_1;
-  wire m_axis_tdata1__140_carry__3_n_2;
-  wire m_axis_tdata1__140_carry__3_n_3;
-  wire m_axis_tdata1__140_carry__3_n_4;
-  wire m_axis_tdata1__140_carry__3_n_5;
-  wire m_axis_tdata1__140_carry__3_n_6;
-  wire m_axis_tdata1__140_carry__3_n_7;
-  wire m_axis_tdata1__140_carry__4_i_1_n_0;
-  wire m_axis_tdata1__140_carry__4_n_7;
-  wire m_axis_tdata1__140_carry_i_1_n_0;
-  wire m_axis_tdata1__140_carry_i_2_n_0;
-  wire m_axis_tdata1__140_carry_i_3_n_0;
-  wire m_axis_tdata1__140_carry_i_4_n_0;
-  wire m_axis_tdata1__140_carry_i_5_n_0;
-  wire m_axis_tdata1__140_carry_n_0;
-  wire m_axis_tdata1__140_carry_n_1;
-  wire m_axis_tdata1__140_carry_n_2;
-  wire m_axis_tdata1__140_carry_n_3;
-  wire m_axis_tdata1__140_carry_n_4;
-  wire m_axis_tdata1__140_carry_n_5;
-  wire m_axis_tdata1__140_carry_n_6;
-  wire m_axis_tdata1__140_carry_n_7;
-  wire m_axis_tdata1__185_carry__0_i_1_n_0;
-  wire m_axis_tdata1__185_carry__0_i_2_n_0;
-  wire m_axis_tdata1__185_carry__0_i_3_n_0;
-  wire m_axis_tdata1__185_carry__0_i_4_n_0;
-  wire m_axis_tdata1__185_carry__0_n_0;
-  wire m_axis_tdata1__185_carry__0_n_1;
-  wire m_axis_tdata1__185_carry__0_n_2;
-  wire m_axis_tdata1__185_carry__0_n_3;
-  wire m_axis_tdata1__185_carry__0_n_4;
-  wire m_axis_tdata1__185_carry__0_n_5;
-  wire m_axis_tdata1__185_carry__0_n_6;
-  wire m_axis_tdata1__185_carry__0_n_7;
-  wire m_axis_tdata1__185_carry__1_i_1_n_0;
-  wire m_axis_tdata1__185_carry__1_i_2_n_0;
-  wire m_axis_tdata1__185_carry__1_i_3_n_0;
-  wire m_axis_tdata1__185_carry__1_i_4_n_0;
-  wire m_axis_tdata1__185_carry__1_n_0;
-  wire m_axis_tdata1__185_carry__1_n_1;
-  wire m_axis_tdata1__185_carry__1_n_2;
-  wire m_axis_tdata1__185_carry__1_n_3;
-  wire m_axis_tdata1__185_carry__1_n_4;
-  wire m_axis_tdata1__185_carry__1_n_5;
-  wire m_axis_tdata1__185_carry__1_n_6;
-  wire m_axis_tdata1__185_carry__1_n_7;
-  wire m_axis_tdata1__185_carry__2_i_1_n_0;
-  wire m_axis_tdata1__185_carry__2_i_2_n_0;
-  wire m_axis_tdata1__185_carry__2_i_3_n_0;
-  wire m_axis_tdata1__185_carry__2_i_4_n_0;
-  wire m_axis_tdata1__185_carry__2_n_0;
-  wire m_axis_tdata1__185_carry__2_n_1;
-  wire m_axis_tdata1__185_carry__2_n_2;
-  wire m_axis_tdata1__185_carry__2_n_3;
-  wire m_axis_tdata1__185_carry__2_n_4;
-  wire m_axis_tdata1__185_carry__2_n_5;
-  wire m_axis_tdata1__185_carry__2_n_6;
-  wire m_axis_tdata1__185_carry__2_n_7;
-  wire m_axis_tdata1__185_carry__3_i_1_n_0;
-  wire m_axis_tdata1__185_carry__3_i_2_n_0;
-  wire m_axis_tdata1__185_carry__3_i_3_n_0;
-  wire m_axis_tdata1__185_carry__3_i_4_n_0;
-  wire m_axis_tdata1__185_carry__3_n_0;
-  wire m_axis_tdata1__185_carry__3_n_1;
-  wire m_axis_tdata1__185_carry__3_n_2;
-  wire m_axis_tdata1__185_carry__3_n_3;
-  wire m_axis_tdata1__185_carry__3_n_4;
-  wire m_axis_tdata1__185_carry__3_n_5;
-  wire m_axis_tdata1__185_carry__3_n_6;
-  wire m_axis_tdata1__185_carry__3_n_7;
-  wire m_axis_tdata1__185_carry__4_i_1_n_0;
-  wire m_axis_tdata1__185_carry__4_n_7;
-  wire m_axis_tdata1__185_carry_i_1_n_0;
-  wire m_axis_tdata1__185_carry_i_2_n_0;
-  wire m_axis_tdata1__185_carry_i_3_n_0;
-  wire m_axis_tdata1__185_carry_i_4_n_0;
-  wire m_axis_tdata1__185_carry_i_5_n_0;
-  wire m_axis_tdata1__185_carry_n_0;
-  wire m_axis_tdata1__185_carry_n_1;
-  wire m_axis_tdata1__185_carry_n_2;
-  wire m_axis_tdata1__185_carry_n_3;
-  wire m_axis_tdata1__185_carry_n_4;
-  wire m_axis_tdata1__185_carry_n_5;
-  wire m_axis_tdata1__185_carry_n_6;
-  wire m_axis_tdata1__185_carry_n_7;
-  wire m_axis_tdata1__230_carry__0_i_1_n_0;
-  wire m_axis_tdata1__230_carry__0_i_2_n_0;
-  wire m_axis_tdata1__230_carry__0_i_3_n_0;
-  wire m_axis_tdata1__230_carry__0_i_4_n_0;
-  wire m_axis_tdata1__230_carry__0_n_0;
-  wire m_axis_tdata1__230_carry__0_n_1;
-  wire m_axis_tdata1__230_carry__0_n_2;
-  wire m_axis_tdata1__230_carry__0_n_3;
-  wire m_axis_tdata1__230_carry__0_n_4;
-  wire m_axis_tdata1__230_carry__0_n_5;
-  wire m_axis_tdata1__230_carry__0_n_6;
-  wire m_axis_tdata1__230_carry__0_n_7;
-  wire m_axis_tdata1__230_carry__1_i_1_n_0;
-  wire m_axis_tdata1__230_carry__1_i_2_n_0;
-  wire m_axis_tdata1__230_carry__1_i_3_n_0;
-  wire m_axis_tdata1__230_carry__1_i_4_n_0;
-  wire m_axis_tdata1__230_carry__1_n_0;
-  wire m_axis_tdata1__230_carry__1_n_1;
-  wire m_axis_tdata1__230_carry__1_n_2;
-  wire m_axis_tdata1__230_carry__1_n_3;
-  wire m_axis_tdata1__230_carry__1_n_4;
-  wire m_axis_tdata1__230_carry__1_n_5;
-  wire m_axis_tdata1__230_carry__1_n_6;
-  wire m_axis_tdata1__230_carry__1_n_7;
-  wire m_axis_tdata1__230_carry__2_i_1_n_0;
-  wire m_axis_tdata1__230_carry__2_i_2_n_0;
-  wire m_axis_tdata1__230_carry__2_i_3_n_0;
-  wire m_axis_tdata1__230_carry__2_i_4_n_0;
-  wire m_axis_tdata1__230_carry__2_n_0;
-  wire m_axis_tdata1__230_carry__2_n_1;
-  wire m_axis_tdata1__230_carry__2_n_2;
-  wire m_axis_tdata1__230_carry__2_n_3;
-  wire m_axis_tdata1__230_carry__2_n_4;
-  wire m_axis_tdata1__230_carry__2_n_5;
-  wire m_axis_tdata1__230_carry__2_n_6;
-  wire m_axis_tdata1__230_carry__2_n_7;
-  wire m_axis_tdata1__230_carry__3_i_1_n_0;
-  wire m_axis_tdata1__230_carry__3_i_2_n_0;
-  wire m_axis_tdata1__230_carry__3_i_3_n_0;
-  wire m_axis_tdata1__230_carry__3_i_4_n_0;
-  wire m_axis_tdata1__230_carry__3_n_0;
-  wire m_axis_tdata1__230_carry__3_n_1;
-  wire m_axis_tdata1__230_carry__3_n_2;
-  wire m_axis_tdata1__230_carry__3_n_3;
-  wire m_axis_tdata1__230_carry__3_n_4;
-  wire m_axis_tdata1__230_carry__3_n_5;
-  wire m_axis_tdata1__230_carry__3_n_6;
-  wire m_axis_tdata1__230_carry__3_n_7;
-  wire m_axis_tdata1__230_carry__4_i_1_n_0;
-  wire m_axis_tdata1__230_carry__4_n_7;
-  wire m_axis_tdata1__230_carry_i_1_n_0;
-  wire m_axis_tdata1__230_carry_i_2_n_0;
-  wire m_axis_tdata1__230_carry_i_3_n_0;
-  wire m_axis_tdata1__230_carry_i_4_n_0;
-  wire m_axis_tdata1__230_carry_i_5_n_0;
-  wire m_axis_tdata1__230_carry_n_0;
-  wire m_axis_tdata1__230_carry_n_1;
-  wire m_axis_tdata1__230_carry_n_2;
-  wire m_axis_tdata1__230_carry_n_3;
-  wire m_axis_tdata1__230_carry_n_4;
-  wire m_axis_tdata1__230_carry_n_5;
-  wire m_axis_tdata1__230_carry_n_6;
-  wire m_axis_tdata1__230_carry_n_7;
-  wire m_axis_tdata1__277_carry__0_i_10_n_0;
-  wire m_axis_tdata1__277_carry__0_i_11_n_0;
-  wire m_axis_tdata1__277_carry__0_i_12_n_0;
-  wire m_axis_tdata1__277_carry__0_i_1_n_0;
-  wire m_axis_tdata1__277_carry__0_i_2_n_0;
-  wire m_axis_tdata1__277_carry__0_i_3_n_0;
-  wire m_axis_tdata1__277_carry__0_i_4_n_0;
-  wire m_axis_tdata1__277_carry__0_i_5_n_0;
-  wire m_axis_tdata1__277_carry__0_i_6_n_0;
-  wire m_axis_tdata1__277_carry__0_i_7_n_0;
-  wire m_axis_tdata1__277_carry__0_i_8_n_0;
-  wire m_axis_tdata1__277_carry__0_i_9_n_0;
-  wire m_axis_tdata1__277_carry__0_n_0;
-  wire m_axis_tdata1__277_carry__0_n_1;
-  wire m_axis_tdata1__277_carry__0_n_2;
-  wire m_axis_tdata1__277_carry__0_n_3;
-  wire m_axis_tdata1__277_carry__0_n_4;
-  wire m_axis_tdata1__277_carry__0_n_5;
-  wire m_axis_tdata1__277_carry__0_n_6;
-  wire m_axis_tdata1__277_carry__1_i_10_n_0;
-  wire m_axis_tdata1__277_carry__1_i_11_n_0;
-  wire m_axis_tdata1__277_carry__1_i_12_n_0;
-  wire m_axis_tdata1__277_carry__1_i_1_n_0;
-  wire m_axis_tdata1__277_carry__1_i_2_n_0;
-  wire m_axis_tdata1__277_carry__1_i_3_n_0;
-  wire m_axis_tdata1__277_carry__1_i_4_n_0;
-  wire m_axis_tdata1__277_carry__1_i_5_n_0;
-  wire m_axis_tdata1__277_carry__1_i_6_n_0;
-  wire m_axis_tdata1__277_carry__1_i_7_n_0;
-  wire m_axis_tdata1__277_carry__1_i_8_n_0;
-  wire m_axis_tdata1__277_carry__1_i_9_n_0;
-  wire m_axis_tdata1__277_carry__1_n_0;
-  wire m_axis_tdata1__277_carry__1_n_1;
-  wire m_axis_tdata1__277_carry__1_n_2;
-  wire m_axis_tdata1__277_carry__1_n_3;
-  wire m_axis_tdata1__277_carry__1_n_4;
-  wire m_axis_tdata1__277_carry__1_n_5;
-  wire m_axis_tdata1__277_carry__1_n_6;
-  wire m_axis_tdata1__277_carry__1_n_7;
-  wire m_axis_tdata1__277_carry__2_i_10_n_0;
-  wire m_axis_tdata1__277_carry__2_i_11_n_0;
-  wire m_axis_tdata1__277_carry__2_i_12_n_0;
-  wire m_axis_tdata1__277_carry__2_i_1_n_0;
-  wire m_axis_tdata1__277_carry__2_i_2_n_0;
-  wire m_axis_tdata1__277_carry__2_i_3_n_0;
-  wire m_axis_tdata1__277_carry__2_i_4_n_0;
-  wire m_axis_tdata1__277_carry__2_i_5_n_0;
-  wire m_axis_tdata1__277_carry__2_i_6_n_0;
-  wire m_axis_tdata1__277_carry__2_i_7_n_0;
-  wire m_axis_tdata1__277_carry__2_i_8_n_0;
-  wire m_axis_tdata1__277_carry__2_i_9_n_0;
-  wire m_axis_tdata1__277_carry__2_n_0;
-  wire m_axis_tdata1__277_carry__2_n_1;
-  wire m_axis_tdata1__277_carry__2_n_2;
-  wire m_axis_tdata1__277_carry__2_n_3;
-  wire m_axis_tdata1__277_carry__2_n_4;
-  wire m_axis_tdata1__277_carry__2_n_5;
-  wire m_axis_tdata1__277_carry__2_n_6;
-  wire m_axis_tdata1__277_carry__2_n_7;
-  wire m_axis_tdata1__277_carry__3_i_10_n_0;
-  wire m_axis_tdata1__277_carry__3_i_11_n_0;
-  wire m_axis_tdata1__277_carry__3_i_12_n_0;
-  wire m_axis_tdata1__277_carry__3_i_1_n_0;
-  wire m_axis_tdata1__277_carry__3_i_2_n_0;
-  wire m_axis_tdata1__277_carry__3_i_3_n_0;
-  wire m_axis_tdata1__277_carry__3_i_4_n_0;
-  wire m_axis_tdata1__277_carry__3_i_5_n_0;
-  wire m_axis_tdata1__277_carry__3_i_6_n_0;
-  wire m_axis_tdata1__277_carry__3_i_7_n_0;
-  wire m_axis_tdata1__277_carry__3_i_8_n_0;
-  wire m_axis_tdata1__277_carry__3_i_9_n_0;
-  wire m_axis_tdata1__277_carry__3_n_0;
-  wire m_axis_tdata1__277_carry__3_n_1;
-  wire m_axis_tdata1__277_carry__3_n_2;
-  wire m_axis_tdata1__277_carry__3_n_3;
-  wire m_axis_tdata1__277_carry__3_n_4;
-  wire m_axis_tdata1__277_carry__3_n_5;
-  wire m_axis_tdata1__277_carry__3_n_6;
-  wire m_axis_tdata1__277_carry__3_n_7;
-  wire m_axis_tdata1__277_carry__4_i_1_n_0;
-  wire m_axis_tdata1__277_carry__4_i_2_n_0;
-  wire m_axis_tdata1__277_carry__4_i_3_n_0;
-  wire m_axis_tdata1__277_carry__4_n_7;
-  wire m_axis_tdata1__277_carry_i_1_n_0;
-  wire m_axis_tdata1__277_carry_i_2_n_0;
-  wire m_axis_tdata1__277_carry_i_3_n_0;
-  wire m_axis_tdata1__277_carry_i_4_n_0;
-  wire m_axis_tdata1__277_carry_i_5_n_0;
-  wire m_axis_tdata1__277_carry_i_6_n_0;
-  wire m_axis_tdata1__277_carry_i_7_n_0;
-  wire m_axis_tdata1__277_carry_i_8_n_0;
-  wire m_axis_tdata1__277_carry_i_9_n_0;
-  wire m_axis_tdata1__277_carry_n_0;
-  wire m_axis_tdata1__277_carry_n_1;
-  wire m_axis_tdata1__277_carry_n_2;
-  wire m_axis_tdata1__277_carry_n_3;
-  wire m_axis_tdata1__50_carry_i_1_n_0;
-  wire m_axis_tdata1__50_carry_n_1;
-  wire m_axis_tdata1__50_carry_n_3;
-  wire m_axis_tdata1__50_carry_n_6;
-  wire m_axis_tdata1__50_carry_n_7;
-  wire m_axis_tdata1__54_carry_i_1_n_0;
-  wire m_axis_tdata1__54_carry_n_1;
-  wire m_axis_tdata1__54_carry_n_3;
-  wire m_axis_tdata1__54_carry_n_6;
-  wire m_axis_tdata1__58_carry_i_1_n_0;
-  wire m_axis_tdata1__58_carry_n_1;
-  wire m_axis_tdata1__58_carry_n_3;
-  wire m_axis_tdata1__58_carry_n_6;
-  wire m_axis_tdata1__62_carry_i_1_n_0;
-  wire m_axis_tdata1__62_carry_n_1;
-  wire m_axis_tdata1__62_carry_n_3;
-  wire m_axis_tdata1__62_carry_n_6;
-  wire m_axis_tdata1__66_carry_i_1_n_0;
-  wire m_axis_tdata1__66_carry_n_1;
-  wire m_axis_tdata1__66_carry_n_3;
-  wire m_axis_tdata1__66_carry_n_6;
-  wire m_axis_tdata1__70_carry_i_1_n_0;
-  wire m_axis_tdata1__70_carry_n_1;
-  wire m_axis_tdata1__70_carry_n_3;
-  wire m_axis_tdata1__70_carry_n_6;
-  wire m_axis_tdata1__74_carry_i_1_n_0;
-  wire m_axis_tdata1__74_carry_n_1;
-  wire m_axis_tdata1__74_carry_n_3;
-  wire m_axis_tdata1__74_carry_n_6;
-  wire m_axis_tdata1__78_carry_i_1_n_0;
-  wire m_axis_tdata1__78_carry_n_1;
-  wire m_axis_tdata1__78_carry_n_3;
-  wire m_axis_tdata1__78_carry_n_6;
-  wire m_axis_tdata1__82_carry_i_1_n_0;
-  wire m_axis_tdata1__82_carry_n_1;
-  wire m_axis_tdata1__82_carry_n_3;
-  wire m_axis_tdata1__82_carry_n_6;
-  wire m_axis_tdata1__86_carry__0_i_1_n_0;
-  wire m_axis_tdata1__86_carry__0_i_2_n_0;
-  wire m_axis_tdata1__86_carry__0_i_3_n_0;
-  wire m_axis_tdata1__86_carry__0_i_4_n_0;
-  wire m_axis_tdata1__86_carry__0_n_0;
-  wire m_axis_tdata1__86_carry__0_n_1;
-  wire m_axis_tdata1__86_carry__0_n_2;
-  wire m_axis_tdata1__86_carry__0_n_3;
-  wire m_axis_tdata1__86_carry__0_n_4;
-  wire m_axis_tdata1__86_carry__0_n_5;
-  wire m_axis_tdata1__86_carry__0_n_6;
-  wire m_axis_tdata1__86_carry__0_n_7;
-  wire m_axis_tdata1__86_carry__1_i_1_n_0;
-  wire m_axis_tdata1__86_carry__1_i_2_n_0;
-  wire m_axis_tdata1__86_carry__1_i_3_n_0;
-  wire m_axis_tdata1__86_carry__1_i_4_n_0;
-  wire m_axis_tdata1__86_carry__1_n_0;
-  wire m_axis_tdata1__86_carry__1_n_1;
-  wire m_axis_tdata1__86_carry__1_n_2;
-  wire m_axis_tdata1__86_carry__1_n_3;
-  wire m_axis_tdata1__86_carry__1_n_4;
-  wire m_axis_tdata1__86_carry__1_n_5;
-  wire m_axis_tdata1__86_carry__1_n_6;
-  wire m_axis_tdata1__86_carry__1_n_7;
-  wire m_axis_tdata1__86_carry__2_i_1_n_0;
-  wire m_axis_tdata1__86_carry__2_i_2_n_0;
-  wire m_axis_tdata1__86_carry__2_i_3_n_0;
-  wire m_axis_tdata1__86_carry__2_i_4_n_0;
-  wire m_axis_tdata1__86_carry__2_n_0;
-  wire m_axis_tdata1__86_carry__2_n_1;
-  wire m_axis_tdata1__86_carry__2_n_2;
-  wire m_axis_tdata1__86_carry__2_n_3;
-  wire m_axis_tdata1__86_carry__2_n_4;
-  wire m_axis_tdata1__86_carry__2_n_5;
-  wire m_axis_tdata1__86_carry__2_n_6;
-  wire m_axis_tdata1__86_carry__2_n_7;
-  wire m_axis_tdata1__86_carry__3_i_1_n_0;
-  wire m_axis_tdata1__86_carry__3_i_2_n_0;
-  wire m_axis_tdata1__86_carry__3_i_3_n_0;
-  wire m_axis_tdata1__86_carry__3_n_1;
-  wire m_axis_tdata1__86_carry__3_n_3;
-  wire m_axis_tdata1__86_carry__3_n_6;
-  wire m_axis_tdata1__86_carry__3_n_7;
-  wire m_axis_tdata1__86_carry_i_1_n_0;
-  wire m_axis_tdata1__86_carry_i_2_n_0;
-  wire m_axis_tdata1__86_carry_i_3_n_0;
-  wire m_axis_tdata1__86_carry_n_0;
-  wire m_axis_tdata1__86_carry_n_1;
-  wire m_axis_tdata1__86_carry_n_2;
-  wire m_axis_tdata1__86_carry_n_3;
-  wire m_axis_tdata1__86_carry_n_4;
-  wire m_axis_tdata1__86_carry_n_5;
-  wire m_axis_tdata1__86_carry_n_6;
-  wire m_axis_tdata1__86_carry_n_7;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__0_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__0_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__0_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__0_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__0_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__0_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__0_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__0_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__1_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__1_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__1_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__1_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__1_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__1_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__1_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__1_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__2_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__2_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__2_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__2_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__2_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__2_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__2_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__2_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__3_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry__3_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___0_carry_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__0_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__0_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__0_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__0_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__0_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__0_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__0_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__0_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__1_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__1_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__1_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__1_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__1_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__1_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__1_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__1_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__2_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__2_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__2_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__2_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__2_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__2_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__2_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__2_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__3_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__3_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__3_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__3_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__3_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__3_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__3_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__3_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry__4_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___140_carry_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__0_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__0_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__0_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__0_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__0_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__0_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__0_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__0_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__1_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__1_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__1_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__1_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__1_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__1_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__1_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__1_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__2_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__2_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__2_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__2_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__2_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__2_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__2_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__2_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__3_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__3_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__3_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__3_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__3_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__3_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__3_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__3_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry__4_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___185_carry_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__0_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__0_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__0_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__0_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__0_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__0_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__0_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__0_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__1_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__1_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__1_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__1_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__1_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__1_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__1_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__1_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__2_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__2_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__2_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__2_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__2_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__2_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__2_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__2_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__3_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__3_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__3_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__3_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__3_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__3_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__3_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__3_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry__4_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___230_carry_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__0_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__0_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__0_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__0_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__1_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__1_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__1_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__1_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__2_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__2_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__2_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__2_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__3_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__3_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__3_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry__3_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___277_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___50_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___50_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___50_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___54_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___54_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___54_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___58_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___58_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___58_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___62_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___62_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___62_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___66_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___66_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___66_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___70_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___70_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___70_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___74_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___74_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___74_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___78_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___78_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___78_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___82_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___82_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___82_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__0_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__0_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__0_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__0_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__0_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__0_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__0_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__0_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__1_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__1_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__1_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__1_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__1_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__1_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__1_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__1_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__2_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__2_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__2_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__2_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__2_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__2_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__2_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__2_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__3_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__3_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__3_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry__3_n_7 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry_n_0 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry_n_1 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry_n_2 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry_n_3 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry_n_4 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry_n_5 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry_n_6 ;
-  wire \m_axis_tdata1_inferred__0/i___86_carry_n_7 ;
-  wire \m_axis_tdata[0]_i_1_n_0 ;
-  wire \m_axis_tdata[10]_i_1_n_0 ;
-  wire \m_axis_tdata[11]_i_1_n_0 ;
-  wire \m_axis_tdata[12]_i_1_n_0 ;
-  wire \m_axis_tdata[13]_i_1_n_0 ;
-  wire \m_axis_tdata[14]_i_1_n_0 ;
-  wire \m_axis_tdata[15]_i_2_n_0 ;
-  wire \m_axis_tdata[1]_i_1_n_0 ;
-  wire \m_axis_tdata[2]_i_1_n_0 ;
-  wire \m_axis_tdata[3]_i_1_n_0 ;
-  wire \m_axis_tdata[4]_i_1_n_0 ;
-  wire \m_axis_tdata[5]_i_1_n_0 ;
-  wire \m_axis_tdata[6]_i_1_n_0 ;
-  wire \m_axis_tdata[7]_i_1_n_0 ;
-  wire \m_axis_tdata[8]_i_1_n_0 ;
-  wire \m_axis_tdata[9]_i_1_n_0 ;
+  wire [20:0]m_axis_tdata1;
+  wire m_axis_tdata1_carry__0_i_1_n_0;
+  wire m_axis_tdata1_carry__0_i_2_n_0;
+  wire m_axis_tdata1_carry__0_i_3_n_0;
+  wire m_axis_tdata1_carry__0_i_4_n_0;
+  wire m_axis_tdata1_carry__0_n_0;
+  wire m_axis_tdata1_carry__0_n_1;
+  wire m_axis_tdata1_carry__0_n_2;
+  wire m_axis_tdata1_carry__0_n_3;
+  wire m_axis_tdata1_carry__1_i_1_n_0;
+  wire m_axis_tdata1_carry__1_i_2_n_0;
+  wire m_axis_tdata1_carry__1_i_3_n_0;
+  wire m_axis_tdata1_carry__1_i_4_n_0;
+  wire m_axis_tdata1_carry__1_n_0;
+  wire m_axis_tdata1_carry__1_n_1;
+  wire m_axis_tdata1_carry__1_n_2;
+  wire m_axis_tdata1_carry__1_n_3;
+  wire m_axis_tdata1_carry__2_i_1_n_0;
+  wire m_axis_tdata1_carry__2_i_2_n_0;
+  wire m_axis_tdata1_carry__2_i_3_n_0;
+  wire m_axis_tdata1_carry__2_i_4_n_0;
+  wire m_axis_tdata1_carry__2_n_0;
+  wire m_axis_tdata1_carry__2_n_1;
+  wire m_axis_tdata1_carry__2_n_2;
+  wire m_axis_tdata1_carry__2_n_3;
+  wire m_axis_tdata1_carry__3_i_1_n_0;
+  wire m_axis_tdata1_carry__3_i_2_n_0;
+  wire m_axis_tdata1_carry__3_i_3_n_0;
+  wire m_axis_tdata1_carry__3_i_4_n_0;
+  wire m_axis_tdata1_carry__3_i_5_n_0;
+  wire m_axis_tdata1_carry__3_n_0;
+  wire m_axis_tdata1_carry__3_n_1;
+  wire m_axis_tdata1_carry__3_n_2;
+  wire m_axis_tdata1_carry__3_n_3;
+  wire m_axis_tdata1_carry__4_i_1_n_0;
+  wire m_axis_tdata1_carry_i_1_n_0;
+  wire m_axis_tdata1_carry_i_2_n_0;
+  wire m_axis_tdata1_carry_i_3_n_0;
+  wire m_axis_tdata1_carry_i_4_n_0;
+  wire m_axis_tdata1_carry_n_0;
+  wire m_axis_tdata1_carry_n_1;
+  wire m_axis_tdata1_carry_n_2;
+  wire m_axis_tdata1_carry_n_3;
   wire m_axis_tlast;
   wire m_axis_tready;
   wire m_axis_tvalid;
+  wire [15:0]p_0_in;
   wire [15:0]s_axis_tdata;
   wire s_axis_tlast;
   wire s_axis_tready;
   wire s_axis_tvalid;
-  wire [15:0]tdata_int__0;
+  wire state_n_0;
+  wire [15:0]tdata_int;
   wire tlast_int0;
   wire tlast_int_reg_n_0;
-  wire [3:0]NLW_m_axis_tdata1__0_carry__3_CO_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__0_carry__3_O_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__140_carry__4_CO_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__140_carry__4_O_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__185_carry__4_CO_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__185_carry__4_O_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__230_carry__4_CO_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__230_carry__4_O_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__277_carry_O_UNCONNECTED;
-  wire [0:0]NLW_m_axis_tdata1__277_carry__0_O_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__277_carry__4_CO_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__277_carry__4_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__50_carry_CO_UNCONNECTED;
-  wire [3:2]NLW_m_axis_tdata1__50_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__54_carry_CO_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__54_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__58_carry_CO_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__58_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__62_carry_CO_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__62_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__66_carry_CO_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__66_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__70_carry_CO_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__70_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__74_carry_CO_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__74_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__78_carry_CO_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__78_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__82_carry_CO_UNCONNECTED;
-  wire [3:0]NLW_m_axis_tdata1__82_carry_O_UNCONNECTED;
-  wire [3:1]NLW_m_axis_tdata1__86_carry__3_CO_UNCONNECTED;
-  wire [3:2]NLW_m_axis_tdata1__86_carry__3_O_UNCONNECTED;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___0_carry__3_CO_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___0_carry__3_O_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___140_carry__4_CO_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___140_carry__4_O_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___185_carry__4_CO_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___185_carry__4_O_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___230_carry__4_CO_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___230_carry__4_O_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___277_carry_O_UNCONNECTED ;
-  wire [0:0]\NLW_m_axis_tdata1_inferred__0/i___277_carry__0_O_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___277_carry__4_CO_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___277_carry__4_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___50_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___50_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___54_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___54_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___58_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___58_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___62_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___62_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___66_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___66_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___70_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___70_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___74_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___74_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___78_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___78_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___82_carry_CO_UNCONNECTED ;
-  wire [3:0]\NLW_m_axis_tdata1_inferred__0/i___82_carry_O_UNCONNECTED ;
-  wire [3:1]\NLW_m_axis_tdata1_inferred__0/i___86_carry__3_CO_UNCONNECTED ;
-  wire [3:2]\NLW_m_axis_tdata1_inferred__0/i___86_carry__3_O_UNCONNECTED ;
+  wire [3:0]NLW_filter_accumulator_R0_carry__4_CO_UNCONNECTED;
+  wire [3:1]NLW_filter_accumulator_R0_carry__4_O_UNCONNECTED;
+  wire [3:0]NLW_m_axis_tdata1_carry__4_CO_UNCONNECTED;
+  wire [3:1]NLW_m_axis_tdata1_carry__4_O_UNCONNECTED;
 
-  LUT6 #(
-    .INIT(64'hFFFFFEEEFEEEFEEE)) 
-    \FSM_onehot_state[1]_i_1 
-       (.I0(\FSM_onehot_state_reg_n_0_[0] ),
-        .I1(\FSM_onehot_state_reg_n_0_[2] ),
-        .I2(m_axis_tvalid),
-        .I3(m_axis_tready),
-        .I4(s_axis_tready),
-        .I5(s_axis_tvalid),
-        .O(\FSM_onehot_state[1]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hE)) 
-    \FSM_onehot_state[1]_i_2 
-       (.I0(\FSM_onehot_state_reg_n_0_[0] ),
+    \FSM_onehot_state[1]_i_1 
+       (.I0(\filter_buffer_L[31]_0 ),
         .I1(m_axis_tvalid),
-        .O(\FSM_onehot_state[1]_i_2_n_0 ));
+        .O(\FSM_onehot_state[1]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \FSM_onehot_state[1]_i_3 
+    \FSM_onehot_state[1]_i_2 
        (.I0(aresetn),
-        .O(\FSM_onehot_state[1]_i_3_n_0 ));
+        .O(\FSM_onehot_state[1]_i_2_n_0 ));
   (* FSM_ENCODED_STATES = "idle:0001,receive:0010,filter:0100,send:1000" *) 
   FDPE #(
     .INIT(1'b1)) 
     \FSM_onehot_state_reg[0] 
        (.C(aclk),
-        .CE(\FSM_onehot_state[1]_i_1_n_0 ),
+        .CE(state_n_0),
         .D(1'b0),
-        .PRE(\FSM_onehot_state[1]_i_3_n_0 ),
-        .Q(\FSM_onehot_state_reg_n_0_[0] ));
+        .PRE(\FSM_onehot_state[1]_i_2_n_0 ),
+        .Q(\filter_buffer_L[31]_0 ));
   (* FSM_ENCODED_STATES = "idle:0001,receive:0010,filter:0100,send:1000" *) 
   FDCE #(
     .INIT(1'b0)) 
     \FSM_onehot_state_reg[1] 
        (.C(aclk),
-        .CE(\FSM_onehot_state[1]_i_1_n_0 ),
-        .CLR(\FSM_onehot_state[1]_i_3_n_0 ),
-        .D(\FSM_onehot_state[1]_i_2_n_0 ),
+        .CE(state_n_0),
+        .CLR(\FSM_onehot_state[1]_i_2_n_0 ),
+        .D(\FSM_onehot_state[1]_i_1_n_0 ),
         .Q(s_axis_tready));
   (* FSM_ENCODED_STATES = "idle:0001,receive:0010,filter:0100,send:1000" *) 
   FDCE #(
     .INIT(1'b0)) 
     \FSM_onehot_state_reg[2] 
        (.C(aclk),
-        .CE(\FSM_onehot_state[1]_i_1_n_0 ),
-        .CLR(\FSM_onehot_state[1]_i_3_n_0 ),
+        .CE(state_n_0),
+        .CLR(\FSM_onehot_state[1]_i_2_n_0 ),
         .D(s_axis_tready),
         .Q(\FSM_onehot_state_reg_n_0_[2] ));
   (* FSM_ENCODED_STATES = "idle:0001,receive:0010,filter:0100,send:1000" *) 
@@ -1137,4303 +251,971 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_moving_average_filter
     .INIT(1'b0)) 
     \FSM_onehot_state_reg[3] 
        (.C(aclk),
-        .CE(\FSM_onehot_state[1]_i_1_n_0 ),
-        .CLR(\FSM_onehot_state[1]_i_3_n_0 ),
+        .CE(state_n_0),
+        .CLR(\FSM_onehot_state[1]_i_2_n_0 ),
         .D(\FSM_onehot_state_reg_n_0_[2] ),
         .Q(m_axis_tvalid));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][0]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[0]),
-        .O(\filter_buffer_L[0][0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][10]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[10]),
-        .O(\filter_buffer_L[0][10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][11]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[11]),
-        .O(\filter_buffer_L[0][11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][12]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[12]),
-        .O(\filter_buffer_L[0][12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][13]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[13]),
-        .O(\filter_buffer_L[0][13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][14]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[14]),
-        .O(\filter_buffer_L[0][14]_i_1_n_0 ));
   LUT3 #(
-    .INIT(8'h08)) 
-    \filter_buffer_L[0][15]_i_1 
-       (.I0(\FSM_onehot_state_reg_n_0_[0] ),
-        .I1(aresetn),
+    .INIT(8'h20)) 
+    \filter_accumulator_L[20]_i_1 
+       (.I0(aresetn),
+        .I1(tlast_int_reg_n_0),
         .I2(\FSM_onehot_state_reg_n_0_[2] ),
-        .O(\filter_buffer_L[0][15]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hAAAA0888)) 
-    \filter_buffer_L[0][15]_i_2 
-       (.I0(aresetn),
-        .I1(\FSM_onehot_state_reg_n_0_[2] ),
-        .I2(tlast_int_reg_n_0),
-        .I3(filter_enable_int),
-        .I4(\FSM_onehot_state_reg_n_0_[0] ),
-        .O(\filter_buffer_L_reg[0]0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][15]_i_3 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[15]),
-        .O(\filter_buffer_L[0][15]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][1]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[1]),
-        .O(\filter_buffer_L[0][1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][2]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[2]),
-        .O(\filter_buffer_L[0][2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][3]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[3]),
-        .O(\filter_buffer_L[0][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][4]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[4]),
-        .O(\filter_buffer_L[0][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][5]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[5]),
-        .O(\filter_buffer_L[0][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][6]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[6]),
-        .O(\filter_buffer_L[0][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][7]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[7]),
-        .O(\filter_buffer_L[0][7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][8]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[8]),
-        .O(\filter_buffer_L[0][8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \filter_buffer_L[0][9]_i_1 
-       (.I0(filter_enable_int),
-        .I1(tdata_int__0[9]),
-        .O(\filter_buffer_L[0][9]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h55F70000)) 
-    \filter_buffer_L[30][15]_i_1 
-       (.I0(aresetn),
-        .I1(\FSM_onehot_state_reg_n_0_[2] ),
-        .I2(filter_enable_int),
-        .I3(\FSM_onehot_state_reg_n_0_[0] ),
-        .I4(\filter_buffer_L_reg[30]_2 ),
-        .O(\filter_buffer_L[30][15]_i_1_n_0 ));
+        .O(filter_accumulator_L0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][0] 
+    \filter_accumulator_L_reg[0] 
        (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][0]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [0]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][10] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][10]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [10]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][11] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][11]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [11]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][12] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][12]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [12]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][13] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][13]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [13]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][14] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][14]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [14]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][15] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][15]_i_3_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [15]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][1] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][1]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [1]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][2] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][2]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [2]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][3] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][3]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [3]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][4] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][4]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [4]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][5] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][5]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [5]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][6] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][6]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [6]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][7] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][7]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [7]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][8] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][8]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [8]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[0][9] 
-       (.C(aclk),
-        .CE(\filter_buffer_L_reg[0]0 ),
-        .D(\filter_buffer_L[0][9]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[0]_0 [9]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \filter_buffer_L_reg[30][15] 
-       (.C(aclk),
-        .CE(1'b1),
-        .D(\filter_buffer_L[30][15]_i_1_n_0 ),
-        .Q(\filter_buffer_L_reg[30]_2 ),
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[0]),
+        .Q(filter_accumulator_L[0]),
         .R(1'b0));
-  LUT5 #(
-    .INIT(32'hAAAA8808)) 
-    \filter_buffer_R[0][15]_i_1 
-       (.I0(aresetn),
-        .I1(\FSM_onehot_state_reg_n_0_[2] ),
-        .I2(filter_enable_int),
-        .I3(tlast_int_reg_n_0),
-        .I4(\FSM_onehot_state_reg_n_0_[0] ),
-        .O(\filter_buffer_R_reg[0]0 ));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][0] 
+    \filter_accumulator_L_reg[10] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][0]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [0]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[10]),
+        .Q(filter_accumulator_L[10]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][10] 
+    \filter_accumulator_L_reg[11] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][10]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [10]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[11]),
+        .Q(filter_accumulator_L[11]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][11] 
+    \filter_accumulator_L_reg[12] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][11]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [11]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[12]),
+        .Q(filter_accumulator_L[12]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][12] 
+    \filter_accumulator_L_reg[13] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][12]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [12]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[13]),
+        .Q(filter_accumulator_L[13]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][13] 
+    \filter_accumulator_L_reg[14] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][13]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [13]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[14]),
+        .Q(filter_accumulator_L[14]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][14] 
+    \filter_accumulator_L_reg[15] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][14]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [14]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[15]),
+        .Q(filter_accumulator_L[15]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][15] 
+    \filter_accumulator_L_reg[16] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][15]_i_3_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [15]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[16]),
+        .Q(filter_accumulator_L[16]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][1] 
+    \filter_accumulator_L_reg[17] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][1]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [1]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[17]),
+        .Q(filter_accumulator_L[17]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][2] 
+    \filter_accumulator_L_reg[18] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][2]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [2]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[18]),
+        .Q(filter_accumulator_L[18]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][3] 
+    \filter_accumulator_L_reg[19] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][3]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [3]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[19]),
+        .Q(filter_accumulator_L[19]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][4] 
+    \filter_accumulator_L_reg[1] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][4]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [4]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[1]),
+        .Q(filter_accumulator_L[1]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][5] 
+    \filter_accumulator_L_reg[20] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][5]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [5]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[20]),
+        .Q(filter_accumulator_L[20]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][6] 
+    \filter_accumulator_L_reg[2] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][6]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [6]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[2]),
+        .Q(filter_accumulator_L[2]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][7] 
+    \filter_accumulator_L_reg[3] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][7]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [7]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[3]),
+        .Q(filter_accumulator_L[3]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][8] 
+    \filter_accumulator_L_reg[4] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][8]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [8]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[4]),
+        .Q(filter_accumulator_L[4]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \filter_buffer_R_reg[0][9] 
+    \filter_accumulator_L_reg[5] 
        (.C(aclk),
-        .CE(\filter_buffer_R_reg[0]0 ),
-        .D(\filter_buffer_L[0][9]_i_1_n_0 ),
-        .Q(\filter_buffer_R_reg[0]_1 [9]),
-        .R(\filter_buffer_L[0][15]_i_1_n_0 ));
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[5]),
+        .Q(filter_accumulator_L[5]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_L_reg[6] 
+       (.C(aclk),
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[6]),
+        .Q(filter_accumulator_L[6]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_L_reg[7] 
+       (.C(aclk),
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[7]),
+        .Q(filter_accumulator_L[7]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_L_reg[8] 
+       (.C(aclk),
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[8]),
+        .Q(filter_accumulator_L[8]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_L_reg[9] 
+       (.C(aclk),
+        .CE(filter_accumulator_L0),
+        .D(m_axis_tdata1[9]),
+        .Q(filter_accumulator_L[9]),
+        .R(1'b0));
+  CARRY4 filter_accumulator_R0_carry
+       (.CI(1'b0),
+        .CO({filter_accumulator_R0_carry_n_0,filter_accumulator_R0_carry_n_1,filter_accumulator_R0_carry_n_2,filter_accumulator_R0_carry_n_3}),
+        .CYINIT(tdata_int[0]),
+        .DI(filter_accumulator_R[3:0]),
+        .O(filter_accumulator_R0[3:0]),
+        .S({filter_accumulator_R0_carry_i_1_n_0,filter_accumulator_R0_carry_i_2_n_0,filter_accumulator_R0_carry_i_3_n_0,filter_accumulator_R0_carry_i_4_n_0}));
+  CARRY4 filter_accumulator_R0_carry__0
+       (.CI(filter_accumulator_R0_carry_n_0),
+        .CO({filter_accumulator_R0_carry__0_n_0,filter_accumulator_R0_carry__0_n_1,filter_accumulator_R0_carry__0_n_2,filter_accumulator_R0_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI(filter_accumulator_R[7:4]),
+        .O(filter_accumulator_R0[7:4]),
+        .S({filter_accumulator_R0_carry__0_i_1_n_0,filter_accumulator_R0_carry__0_i_2_n_0,filter_accumulator_R0_carry__0_i_3_n_0,filter_accumulator_R0_carry__0_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__0_i_1
+       (.I0(filter_accumulator_R[7]),
+        .I1(tdata_int[7]),
+        .O(filter_accumulator_R0_carry__0_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__0_i_2
+       (.I0(filter_accumulator_R[6]),
+        .I1(tdata_int[6]),
+        .O(filter_accumulator_R0_carry__0_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__0_i_3
+       (.I0(filter_accumulator_R[5]),
+        .I1(tdata_int[5]),
+        .O(filter_accumulator_R0_carry__0_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__0_i_4
+       (.I0(filter_accumulator_R[4]),
+        .I1(tdata_int[4]),
+        .O(filter_accumulator_R0_carry__0_i_4_n_0));
+  CARRY4 filter_accumulator_R0_carry__1
+       (.CI(filter_accumulator_R0_carry__0_n_0),
+        .CO({filter_accumulator_R0_carry__1_n_0,filter_accumulator_R0_carry__1_n_1,filter_accumulator_R0_carry__1_n_2,filter_accumulator_R0_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI(filter_accumulator_R[11:8]),
+        .O(filter_accumulator_R0[11:8]),
+        .S({filter_accumulator_R0_carry__1_i_1_n_0,filter_accumulator_R0_carry__1_i_2_n_0,filter_accumulator_R0_carry__1_i_3_n_0,filter_accumulator_R0_carry__1_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__1_i_1
+       (.I0(filter_accumulator_R[11]),
+        .I1(tdata_int[11]),
+        .O(filter_accumulator_R0_carry__1_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__1_i_2
+       (.I0(filter_accumulator_R[10]),
+        .I1(tdata_int[10]),
+        .O(filter_accumulator_R0_carry__1_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__1_i_3
+       (.I0(filter_accumulator_R[9]),
+        .I1(tdata_int[9]),
+        .O(filter_accumulator_R0_carry__1_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__1_i_4
+       (.I0(filter_accumulator_R[8]),
+        .I1(tdata_int[8]),
+        .O(filter_accumulator_R0_carry__1_i_4_n_0));
+  CARRY4 filter_accumulator_R0_carry__2
+       (.CI(filter_accumulator_R0_carry__1_n_0),
+        .CO({filter_accumulator_R0_carry__2_n_0,filter_accumulator_R0_carry__2_n_1,filter_accumulator_R0_carry__2_n_2,filter_accumulator_R0_carry__2_n_3}),
+        .CYINIT(1'b0),
+        .DI({tdata_int[15],filter_accumulator_R[14:12]}),
+        .O(filter_accumulator_R0[15:12]),
+        .S({filter_accumulator_R0_carry__2_i_1_n_0,filter_accumulator_R0_carry__2_i_2_n_0,filter_accumulator_R0_carry__2_i_3_n_0,filter_accumulator_R0_carry__2_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__2_i_1
+       (.I0(tdata_int[15]),
+        .I1(filter_accumulator_R[15]),
+        .O(filter_accumulator_R0_carry__2_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__2_i_2
+       (.I0(filter_accumulator_R[14]),
+        .I1(tdata_int[14]),
+        .O(filter_accumulator_R0_carry__2_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__2_i_3
+       (.I0(filter_accumulator_R[13]),
+        .I1(tdata_int[13]),
+        .O(filter_accumulator_R0_carry__2_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__2_i_4
+       (.I0(filter_accumulator_R[12]),
+        .I1(tdata_int[12]),
+        .O(filter_accumulator_R0_carry__2_i_4_n_0));
+  CARRY4 filter_accumulator_R0_carry__3
+       (.CI(filter_accumulator_R0_carry__2_n_0),
+        .CO({filter_accumulator_R0_carry__3_n_0,filter_accumulator_R0_carry__3_n_1,filter_accumulator_R0_carry__3_n_2,filter_accumulator_R0_carry__3_n_3}),
+        .CYINIT(1'b0),
+        .DI({filter_accumulator_R[18:16],filter_accumulator_R0_carry__3_i_1_n_0}),
+        .O(filter_accumulator_R0[19:16]),
+        .S({filter_accumulator_R0_carry__3_i_2_n_0,filter_accumulator_R0_carry__3_i_3_n_0,filter_accumulator_R0_carry__3_i_4_n_0,filter_accumulator_R0_carry__3_i_5_n_0}));
+  LUT1 #(
+    .INIT(2'h1)) 
+    filter_accumulator_R0_carry__3_i_1
+       (.I0(tdata_int[15]),
+        .O(filter_accumulator_R0_carry__3_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    filter_accumulator_R0_carry__3_i_2
+       (.I0(filter_accumulator_R[18]),
+        .I1(filter_accumulator_R[19]),
+        .O(filter_accumulator_R0_carry__3_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    filter_accumulator_R0_carry__3_i_3
+       (.I0(filter_accumulator_R[17]),
+        .I1(filter_accumulator_R[18]),
+        .O(filter_accumulator_R0_carry__3_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    filter_accumulator_R0_carry__3_i_4
+       (.I0(filter_accumulator_R[16]),
+        .I1(filter_accumulator_R[17]),
+        .O(filter_accumulator_R0_carry__3_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry__3_i_5
+       (.I0(tdata_int[15]),
+        .I1(filter_accumulator_R[16]),
+        .O(filter_accumulator_R0_carry__3_i_5_n_0));
+  CARRY4 filter_accumulator_R0_carry__4
+       (.CI(filter_accumulator_R0_carry__3_n_0),
+        .CO(NLW_filter_accumulator_R0_carry__4_CO_UNCONNECTED[3:0]),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({NLW_filter_accumulator_R0_carry__4_O_UNCONNECTED[3:1],filter_accumulator_R0[20]}),
+        .S({1'b0,1'b0,1'b0,filter_accumulator_R0_carry__4_i_1_n_0}));
+  LUT2 #(
+    .INIT(4'h9)) 
+    filter_accumulator_R0_carry__4_i_1
+       (.I0(filter_accumulator_R[19]),
+        .I1(filter_accumulator_R[20]),
+        .O(filter_accumulator_R0_carry__4_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry_i_1
+       (.I0(filter_accumulator_R[3]),
+        .I1(tdata_int[3]),
+        .O(filter_accumulator_R0_carry_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry_i_2
+       (.I0(filter_accumulator_R[2]),
+        .I1(tdata_int[2]),
+        .O(filter_accumulator_R0_carry_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry_i_3
+       (.I0(filter_accumulator_R[1]),
+        .I1(tdata_int[1]),
+        .O(filter_accumulator_R0_carry_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    filter_accumulator_R0_carry_i_4
+       (.I0(filter_accumulator_R[0]),
+        .I1(\filter_buffer_L_reg[31] ),
+        .O(filter_accumulator_R0_carry_i_4_n_0));
   LUT3 #(
     .INIT(8'h80)) 
-    filter_enable_int_i_1
+    \filter_accumulator_R[20]_i_1 
        (.I0(aresetn),
-        .I1(s_axis_tvalid),
-        .I2(s_axis_tready),
-        .O(tlast_int0));
+        .I1(tlast_int_reg_n_0),
+        .I2(\FSM_onehot_state_reg_n_0_[2] ),
+        .O(filter_accumulator_R0_1));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[0] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[0]),
+        .Q(filter_accumulator_R[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[10] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[10]),
+        .Q(filter_accumulator_R[10]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[11] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[11]),
+        .Q(filter_accumulator_R[11]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[12] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[12]),
+        .Q(filter_accumulator_R[12]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[13] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[13]),
+        .Q(filter_accumulator_R[13]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[14] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[14]),
+        .Q(filter_accumulator_R[14]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[15] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[15]),
+        .Q(filter_accumulator_R[15]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[16] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[16]),
+        .Q(filter_accumulator_R[16]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[17] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[17]),
+        .Q(filter_accumulator_R[17]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[18] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[18]),
+        .Q(filter_accumulator_R[18]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[19] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[19]),
+        .Q(filter_accumulator_R[19]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[1] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[1]),
+        .Q(filter_accumulator_R[1]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[20] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[20]),
+        .Q(filter_accumulator_R[20]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[2] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[2]),
+        .Q(filter_accumulator_R[2]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[3] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[3]),
+        .Q(filter_accumulator_R[3]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[4] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[4]),
+        .Q(filter_accumulator_R[4]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[5] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[5]),
+        .Q(filter_accumulator_R[5]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[6] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[6]),
+        .Q(filter_accumulator_R[6]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[7] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[7]),
+        .Q(filter_accumulator_R[7]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[8] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[8]),
+        .Q(filter_accumulator_R[8]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_accumulator_R_reg[9] 
+       (.C(aclk),
+        .CE(filter_accumulator_R0_1),
+        .D(filter_accumulator_R0[9]),
+        .Q(filter_accumulator_R[9]),
+        .R(1'b0));
+  LUT3 #(
+    .INIT(8'h70)) 
+    \filter_buffer_L[31][0]_i_1 
+       (.I0(aresetn),
+        .I1(\filter_buffer_L[31]_0 ),
+        .I2(\filter_buffer_L_reg[31] ),
+        .O(\filter_buffer_L[31][0]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \filter_buffer_L_reg[31][0] 
+       (.C(aclk),
+        .CE(1'b1),
+        .D(\filter_buffer_L[31][0]_i_1_n_0 ),
+        .Q(\filter_buffer_L_reg[31] ),
+        .R(1'b0));
   FDRE filter_enable_int_reg
        (.C(aclk),
         .CE(tlast_int0),
         .D(filter_enable),
         .Q(filter_enable_int),
         .R(1'b0));
-  (* HLUTNM = "lutpair26" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__0_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[6]),
-        .I2(\filter_buffer_R_reg[0]_1 [6]),
-        .O(i___0_carry__0_i_1_n_0));
-  (* HLUTNM = "lutpair25" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__0_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[5]),
-        .I2(\filter_buffer_R_reg[0]_1 [5]),
-        .O(i___0_carry__0_i_2_n_0));
-  (* HLUTNM = "lutpair24" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__0_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[4]),
-        .I2(\filter_buffer_R_reg[0]_1 [4]),
-        .O(i___0_carry__0_i_3_n_0));
-  (* HLUTNM = "lutpair23" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__0_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[3]),
-        .I2(\filter_buffer_R_reg[0]_1 [3]),
-        .O(i___0_carry__0_i_4_n_0));
-  (* HLUTNM = "lutpair27" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__0_i_5
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[7]),
-        .I2(\filter_buffer_R_reg[0]_1 [7]),
-        .I3(i___0_carry__0_i_1_n_0),
-        .O(i___0_carry__0_i_5_n_0));
-  (* HLUTNM = "lutpair26" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__0_i_6
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[6]),
-        .I2(\filter_buffer_R_reg[0]_1 [6]),
-        .I3(i___0_carry__0_i_2_n_0),
-        .O(i___0_carry__0_i_6_n_0));
-  (* HLUTNM = "lutpair25" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__0_i_7
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[5]),
-        .I2(\filter_buffer_R_reg[0]_1 [5]),
-        .I3(i___0_carry__0_i_3_n_0),
-        .O(i___0_carry__0_i_7_n_0));
-  (* HLUTNM = "lutpair24" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__0_i_8
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[4]),
-        .I2(\filter_buffer_R_reg[0]_1 [4]),
-        .I3(i___0_carry__0_i_4_n_0),
-        .O(i___0_carry__0_i_8_n_0));
-  (* HLUTNM = "lutpair30" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__1_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[10]),
-        .I2(\filter_buffer_R_reg[0]_1 [10]),
-        .O(i___0_carry__1_i_1_n_0));
-  (* HLUTNM = "lutpair29" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__1_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[9]),
-        .I2(\filter_buffer_R_reg[0]_1 [9]),
-        .O(i___0_carry__1_i_2_n_0));
-  (* HLUTNM = "lutpair28" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__1_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[8]),
-        .I2(\filter_buffer_R_reg[0]_1 [8]),
-        .O(i___0_carry__1_i_3_n_0));
-  (* HLUTNM = "lutpair27" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__1_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[7]),
-        .I2(\filter_buffer_R_reg[0]_1 [7]),
-        .O(i___0_carry__1_i_4_n_0));
-  (* HLUTNM = "lutpair31" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__1_i_5
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[11]),
-        .I2(\filter_buffer_R_reg[0]_1 [11]),
-        .I3(i___0_carry__1_i_1_n_0),
-        .O(i___0_carry__1_i_5_n_0));
-  (* HLUTNM = "lutpair30" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__1_i_6
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[10]),
-        .I2(\filter_buffer_R_reg[0]_1 [10]),
-        .I3(i___0_carry__1_i_2_n_0),
-        .O(i___0_carry__1_i_6_n_0));
-  (* HLUTNM = "lutpair29" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__1_i_7
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[9]),
-        .I2(\filter_buffer_R_reg[0]_1 [9]),
-        .I3(i___0_carry__1_i_3_n_0),
-        .O(i___0_carry__1_i_7_n_0));
-  (* HLUTNM = "lutpair28" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__1_i_8
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[8]),
-        .I2(\filter_buffer_R_reg[0]_1 [8]),
-        .I3(i___0_carry__1_i_4_n_0),
-        .O(i___0_carry__1_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___0_carry__2_i_1
-       (.I0(\filter_buffer_R_reg[0]_1 [15]),
-        .I1(tdata_int__0[15]),
-        .I2(\filter_buffer_L_reg[30]_2 ),
-        .O(i___0_carry__2_i_1_n_0));
-  (* HLUTNM = "lutpair33" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__2_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[13]),
-        .I2(\filter_buffer_R_reg[0]_1 [13]),
-        .O(i___0_carry__2_i_2_n_0));
-  (* HLUTNM = "lutpair32" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__2_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[12]),
-        .I2(\filter_buffer_R_reg[0]_1 [12]),
-        .O(i___0_carry__2_i_3_n_0));
-  (* HLUTNM = "lutpair31" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry__2_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[11]),
-        .I2(\filter_buffer_R_reg[0]_1 [11]),
-        .O(i___0_carry__2_i_4_n_0));
-  LUT5 #(
-    .INIT(32'h66699666)) 
-    i___0_carry__2_i_5
-       (.I0(\filter_buffer_R_reg[0]_1 [15]),
-        .I1(tdata_int__0[15]),
-        .I2(\filter_buffer_R_reg[0]_1 [14]),
-        .I3(tdata_int__0[14]),
-        .I4(\filter_buffer_L_reg[30]_2 ),
-        .O(i___0_carry__2_i_5_n_0));
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__2_i_6
-       (.I0(i___0_carry__2_i_2_n_0),
-        .I1(tdata_int__0[14]),
-        .I2(\filter_buffer_L_reg[30]_2 ),
-        .I3(\filter_buffer_R_reg[0]_1 [14]),
-        .O(i___0_carry__2_i_6_n_0));
-  (* HLUTNM = "lutpair33" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__2_i_7
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[13]),
-        .I2(\filter_buffer_R_reg[0]_1 [13]),
-        .I3(i___0_carry__2_i_3_n_0),
-        .O(i___0_carry__2_i_7_n_0));
-  (* HLUTNM = "lutpair32" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry__2_i_8
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[12]),
-        .I2(\filter_buffer_R_reg[0]_1 [12]),
-        .I3(i___0_carry__2_i_4_n_0),
-        .O(i___0_carry__2_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h09)) 
-    i___0_carry__3_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[15]),
-        .I2(\filter_buffer_R_reg[0]_1 [15]),
-        .O(i___0_carry__3_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h7E)) 
-    i___0_carry__3_i_2
-       (.I0(\filter_buffer_R_reg[0]_1 [15]),
-        .I1(\filter_buffer_L_reg[30]_2 ),
-        .I2(tdata_int__0[15]),
-        .O(i___0_carry__3_i_2_n_0));
-  (* HLUTNM = "lutpair22" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[2]),
-        .I2(\filter_buffer_R_reg[0]_1 [2]),
-        .O(i___0_carry_i_1_n_0));
-  (* HLUTNM = "lutpair21" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[1]),
-        .I2(\filter_buffer_R_reg[0]_1 [1]),
-        .O(i___0_carry_i_2_n_0));
-  (* HLUTNM = "lutpair20" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___0_carry_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[0]),
-        .I2(\filter_buffer_R_reg[0]_1 [0]),
-        .O(i___0_carry_i_3_n_0));
-  (* HLUTNM = "lutpair23" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[3]),
-        .I2(\filter_buffer_R_reg[0]_1 [3]),
-        .I3(i___0_carry_i_1_n_0),
-        .O(i___0_carry_i_4_n_0));
-  (* HLUTNM = "lutpair22" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry_i_5
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[2]),
-        .I2(\filter_buffer_R_reg[0]_1 [2]),
-        .I3(i___0_carry_i_2_n_0),
-        .O(i___0_carry_i_5_n_0));
-  (* HLUTNM = "lutpair21" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___0_carry_i_6
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[1]),
-        .I2(\filter_buffer_R_reg[0]_1 [1]),
-        .I3(i___0_carry_i_3_n_0),
-        .O(i___0_carry_i_6_n_0));
-  (* HLUTNM = "lutpair20" *) 
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___0_carry_i_7
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[0]),
-        .I2(\filter_buffer_R_reg[0]_1 [0]),
-        .O(i___0_carry_i_7_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__0_i_1
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__0_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__0_i_2
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__0_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__0_i_3
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__0_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__0_i_4
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__0_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__1_i_1
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__1_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__1_i_2
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__1_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__1_i_3
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__1_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__1_i_4
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__1_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__2_i_1
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__2_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__2_i_2
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__2_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__2_i_3
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__2_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__2_i_4
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__2_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__3_i_1
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__3_i_1_n_0));
-  (* HLUTNM = "lutpair35" *) 
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__3_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .I3(i___140_carry_i_1_n_0),
-        .O(i___140_carry__3_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__3_i_3
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__3_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__3_i_4
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__3_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry__4_i_1
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry__4_i_1_n_0));
-  (* HLUTNM = "lutpair35" *) 
-  LUT3 #(
-    .INIT(8'h17)) 
-    i___140_carry_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry_i_1_n_0));
-  (* HLUTNM = "lutpair34" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___140_carry_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___58_carry_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___50_carry_n_6 ),
-        .O(i___140_carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry_i_3
-       (.I0(i___140_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___140_carry_i_4
-       (.I0(i___140_carry_i_2_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___58_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___50_carry_n_1 ),
-        .O(i___140_carry_i_4_n_0));
-  (* HLUTNM = "lutpair34" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___140_carry_i_5
-       (.I0(\m_axis_tdata1_inferred__0/i___58_carry_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___54_carry_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___50_carry_n_6 ),
-        .I3(\filter_buffer_L_reg[30]_2 ),
-        .O(i___140_carry_i_5_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__0_i_1
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__0_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__0_i_2
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__0_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__0_i_3
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__0_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__0_i_4
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__0_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__1_i_1
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__1_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__1_i_2
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__1_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__1_i_3
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__1_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__1_i_4
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__1_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__2_i_1
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__2_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__2_i_2
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__2_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__2_i_3
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__2_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__2_i_4
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__2_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__3_i_1
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__3_i_1_n_0));
-  (* HLUTNM = "lutpair37" *) 
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__3_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .I3(i___185_carry_i_1_n_0),
-        .O(i___185_carry__3_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__3_i_3
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__3_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__3_i_4
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__3_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry__4_i_1
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry__4_i_1_n_0));
-  (* HLUTNM = "lutpair37" *) 
-  LUT3 #(
-    .INIT(8'h17)) 
-    i___185_carry_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry_i_1_n_0));
-  (* HLUTNM = "lutpair36" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___185_carry_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___70_carry_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___62_carry_n_6 ),
-        .O(i___185_carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry_i_3
-       (.I0(i___185_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___185_carry_i_4
-       (.I0(i___185_carry_i_2_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___70_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___62_carry_n_1 ),
-        .O(i___185_carry_i_4_n_0));
-  (* HLUTNM = "lutpair36" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___185_carry_i_5
-       (.I0(\m_axis_tdata1_inferred__0/i___70_carry_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___66_carry_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___62_carry_n_6 ),
-        .I3(\filter_buffer_L_reg[30]_2 ),
-        .O(i___185_carry_i_5_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__0_i_1
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__0_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__0_i_2
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__0_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__0_i_3
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__0_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__0_i_4
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__0_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__1_i_1
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__1_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__1_i_2
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__1_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__1_i_3
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__1_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__1_i_4
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__1_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__2_i_1
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__2_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__2_i_2
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__2_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__2_i_3
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__2_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__2_i_4
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__2_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__3_i_1
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__3_i_1_n_0));
-  (* HLUTNM = "lutpair39" *) 
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__3_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .I3(i___230_carry_i_1_n_0),
-        .O(i___230_carry__3_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__3_i_3
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__3_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__3_i_4
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__3_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry__4_i_1
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry__4_i_1_n_0));
-  (* HLUTNM = "lutpair39" *) 
-  LUT3 #(
-    .INIT(8'h17)) 
-    i___230_carry_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry_i_1_n_0));
-  (* HLUTNM = "lutpair38" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___230_carry_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___82_carry_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___74_carry_n_6 ),
-        .O(i___230_carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry_i_3
-       (.I0(i___230_carry_i_1_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___230_carry_i_4
-       (.I0(i___230_carry_i_2_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_1 ),
-        .I2(\m_axis_tdata1_inferred__0/i___82_carry_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___74_carry_n_1 ),
-        .O(i___230_carry_i_4_n_0));
-  (* HLUTNM = "lutpair38" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___230_carry_i_5
-       (.I0(\m_axis_tdata1_inferred__0/i___82_carry_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___78_carry_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___74_carry_n_6 ),
-        .I3(\filter_buffer_L_reg[30]_2 ),
-        .O(i___230_carry_i_5_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__0_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__0_n_5 ),
-        .I1(i___277_carry__0_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__0_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__0_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__0_n_6 ),
-        .O(i___277_carry__0_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__0_i_10
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__0_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__0_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__0_n_6 ),
-        .O(i___277_carry__0_i_10_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__0_i_11
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__0_n_7 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__0_n_7 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__0_n_7 ),
-        .O(i___277_carry__0_i_11_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__0_i_12
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__0_n_4 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__0_n_4 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__0_n_4 ),
-        .O(i___277_carry__0_i_12_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__0_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__0_n_6 ),
-        .I1(i___277_carry__0_i_10_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__0_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__0_n_7 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__0_n_7 ),
-        .O(i___277_carry__0_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__0_i_3
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__0_n_7 ),
-        .I1(i___277_carry__0_i_11_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry_n_4 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry_n_4 ),
-        .O(i___277_carry__0_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__0_i_4
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry_n_4 ),
-        .I1(i___277_carry_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry_n_5 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry_n_5 ),
-        .O(i___277_carry__0_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__0_i_5
-       (.I0(i___277_carry__0_i_1_n_0),
-        .I1(i___277_carry__0_i_12_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__0_n_4 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__0_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__0_n_5 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__0_n_5 ),
-        .O(i___277_carry__0_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__0_i_6
-       (.I0(i___277_carry__0_i_2_n_0),
-        .I1(i___277_carry__0_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__0_n_5 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__0_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__0_n_6 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__0_n_6 ),
-        .O(i___277_carry__0_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__0_i_7
-       (.I0(i___277_carry__0_i_3_n_0),
-        .I1(i___277_carry__0_i_10_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__0_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__0_n_7 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__0_n_7 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__0_n_7 ),
-        .O(i___277_carry__0_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__0_i_8
-       (.I0(i___277_carry__0_i_4_n_0),
-        .I1(i___277_carry__0_i_11_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__0_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry_n_4 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry_n_4 ),
-        .O(i___277_carry__0_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__0_i_9
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__0_n_5 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__0_n_5 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__0_n_5 ),
-        .O(i___277_carry__0_i_9_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__1_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__1_n_5 ),
-        .I1(i___277_carry__1_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__1_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__1_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__1_n_6 ),
-        .O(i___277_carry__1_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__1_i_10
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__1_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__1_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__1_n_6 ),
-        .O(i___277_carry__1_i_10_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__1_i_11
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__1_n_7 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__1_n_7 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__1_n_7 ),
-        .O(i___277_carry__1_i_11_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__1_i_12
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__1_n_4 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__1_n_4 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__1_n_4 ),
-        .O(i___277_carry__1_i_12_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__1_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__1_n_6 ),
-        .I1(i___277_carry__1_i_10_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__1_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__1_n_7 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__1_n_7 ),
-        .O(i___277_carry__1_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__1_i_3
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__1_n_7 ),
-        .I1(i___277_carry__1_i_11_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__0_n_4 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__0_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__0_n_4 ),
-        .O(i___277_carry__1_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__1_i_4
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__0_n_4 ),
-        .I1(i___277_carry__0_i_12_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__0_n_5 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__0_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__0_n_5 ),
-        .O(i___277_carry__1_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__1_i_5
-       (.I0(i___277_carry__1_i_1_n_0),
-        .I1(i___277_carry__1_i_12_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__1_n_4 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__1_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__1_n_5 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__1_n_5 ),
-        .O(i___277_carry__1_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__1_i_6
-       (.I0(i___277_carry__1_i_2_n_0),
-        .I1(i___277_carry__1_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__1_n_5 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__1_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__1_n_6 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__1_n_6 ),
-        .O(i___277_carry__1_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__1_i_7
-       (.I0(i___277_carry__1_i_3_n_0),
-        .I1(i___277_carry__1_i_10_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__1_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__1_n_7 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__1_n_7 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__1_n_7 ),
-        .O(i___277_carry__1_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__1_i_8
-       (.I0(i___277_carry__1_i_4_n_0),
-        .I1(i___277_carry__1_i_11_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__1_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__0_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__0_n_4 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__0_n_4 ),
-        .O(i___277_carry__1_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__1_i_9
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__1_n_5 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__1_n_5 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__1_n_5 ),
-        .O(i___277_carry__1_i_9_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__2_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__2_n_5 ),
-        .I1(i___277_carry__2_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__2_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__2_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__2_n_6 ),
-        .O(i___277_carry__2_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__2_i_10
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__2_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__2_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__2_n_6 ),
-        .O(i___277_carry__2_i_10_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__2_i_11
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__2_n_7 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__2_n_7 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__2_n_7 ),
-        .O(i___277_carry__2_i_11_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__2_i_12
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__2_n_4 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__2_n_4 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__2_n_4 ),
-        .O(i___277_carry__2_i_12_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__2_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__2_n_6 ),
-        .I1(i___277_carry__2_i_10_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__2_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__2_n_7 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__2_n_7 ),
-        .O(i___277_carry__2_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__2_i_3
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__2_n_7 ),
-        .I1(i___277_carry__2_i_11_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__1_n_4 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__1_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__1_n_4 ),
-        .O(i___277_carry__2_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__2_i_4
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__1_n_4 ),
-        .I1(i___277_carry__1_i_12_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__1_n_5 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__1_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__1_n_5 ),
-        .O(i___277_carry__2_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__2_i_5
-       (.I0(i___277_carry__2_i_1_n_0),
-        .I1(i___277_carry__2_i_12_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__2_n_4 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__2_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__2_n_5 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__2_n_5 ),
-        .O(i___277_carry__2_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__2_i_6
-       (.I0(i___277_carry__2_i_2_n_0),
-        .I1(i___277_carry__2_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__2_n_5 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__2_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__2_n_6 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__2_n_6 ),
-        .O(i___277_carry__2_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__2_i_7
-       (.I0(i___277_carry__2_i_3_n_0),
-        .I1(i___277_carry__2_i_10_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__2_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__2_n_7 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__2_n_7 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__2_n_7 ),
-        .O(i___277_carry__2_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__2_i_8
-       (.I0(i___277_carry__2_i_4_n_0),
-        .I1(i___277_carry__2_i_11_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__2_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__1_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__1_n_4 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__1_n_4 ),
-        .O(i___277_carry__2_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__2_i_9
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__2_n_5 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__2_n_5 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__2_n_5 ),
-        .O(i___277_carry__2_i_9_n_0));
-  LUT5 #(
-    .INIT(32'hDDD4D444)) 
-    i___277_carry__3_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__3_n_1 ),
-        .I1(i___277_carry__3_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__3_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__3_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__3_n_6 ),
-        .O(i___277_carry__3_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__3_i_10
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__3_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__3_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__3_n_6 ),
-        .O(i___277_carry__3_i_10_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__3_i_11
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__3_n_7 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__3_n_7 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__3_n_7 ),
-        .O(i___277_carry__3_i_11_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__3_i_12
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__3_n_4 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__3_n_4 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__3_n_4 ),
-        .O(i___277_carry__3_i_12_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__3_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__3_n_6 ),
-        .I1(i___277_carry__3_i_10_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__3_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__3_n_7 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__3_n_7 ),
-        .O(i___277_carry__3_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__3_i_3
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__3_n_7 ),
-        .I1(i___277_carry__3_i_11_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__2_n_4 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__2_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__2_n_4 ),
-        .O(i___277_carry__3_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry__3_i_4
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry__2_n_4 ),
-        .I1(i___277_carry__2_i_12_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__2_n_5 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry__2_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry__2_n_5 ),
-        .O(i___277_carry__3_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h9696966996696969)) 
-    i___277_carry__3_i_5
-       (.I0(i___277_carry__3_i_1_n_0),
-        .I1(i___277_carry__3_i_12_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__3_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__3_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__3_n_5 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__3_n_5 ),
-        .O(i___277_carry__3_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h9696966996696969)) 
-    i___277_carry__3_i_6
-       (.I0(i___277_carry__3_i_2_n_0),
-        .I1(i___277_carry__3_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__3_n_1 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__3_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__3_n_6 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__3_n_6 ),
-        .O(i___277_carry__3_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__3_i_7
-       (.I0(i___277_carry__3_i_3_n_0),
-        .I1(i___277_carry__3_i_10_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__3_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__3_n_7 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__3_n_7 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__3_n_7 ),
-        .O(i___277_carry__3_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry__3_i_8
-       (.I0(i___277_carry__3_i_4_n_0),
-        .I1(i___277_carry__3_i_11_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry__3_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__2_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__2_n_4 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__2_n_4 ),
-        .O(i___277_carry__3_i_8_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry__3_i_9
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry__3_n_5 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__3_n_5 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry__3_n_5 ),
-        .O(i___277_carry__3_i_9_n_0));
-  LUT6 #(
-    .INIT(64'hB42D2D4B2D4B4BD2)) 
-    i___277_carry__4_i_1
-       (.I0(i___277_carry__4_i_2_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___86_carry__3_n_1 ),
-        .I2(i___277_carry__4_i_3_n_0),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry__3_n_4 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry__3_n_4 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry__3_n_4 ),
-        .O(i___277_carry__4_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    i___277_carry__4_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___230_carry__3_n_5 ),
-        .I1(\m_axis_tdata1_inferred__0/i___185_carry__3_n_5 ),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__3_n_5 ),
-        .O(i___277_carry__4_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i___277_carry__4_i_3
-       (.I0(\m_axis_tdata1_inferred__0/i___185_carry__4_n_7 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry__4_n_7 ),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry__4_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___86_carry__3_n_1 ),
-        .O(i___277_carry__4_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    i___277_carry_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___86_carry_n_5 ),
-        .I1(i___277_carry_i_8_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___185_carry_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___230_carry_n_6 ),
-        .O(i___277_carry_i_1_n_0));
-  LUT5 #(
-    .INIT(32'hE81717E8)) 
-    i___277_carry_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___185_carry_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___230_carry_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___86_carry_n_5 ),
-        .I4(i___277_carry_i_8_n_0),
-        .O(i___277_carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___277_carry_i_3
-       (.I0(\m_axis_tdata1_inferred__0/i___185_carry_n_6 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry_n_6 ),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___86_carry_n_6 ),
-        .O(i___277_carry_i_3_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i___277_carry_i_4
-       (.I0(i___277_carry_i_1_n_0),
-        .I1(i___277_carry_i_9_n_0),
-        .I2(\m_axis_tdata1_inferred__0/i___86_carry_n_4 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry_n_5 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry_n_5 ),
-        .I5(\m_axis_tdata1_inferred__0/i___140_carry_n_5 ),
-        .O(i___277_carry_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h6999999699969666)) 
-    i___277_carry_i_5
-       (.I0(i___277_carry_i_8_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___86_carry_n_5 ),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry_n_6 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry_n_6 ),
-        .I4(\m_axis_tdata1_inferred__0/i___185_carry_n_6 ),
-        .I5(\m_axis_tdata1_inferred__0/i___86_carry_n_6 ),
-        .O(i___277_carry_i_5_n_0));
-  LUT4 #(
-    .INIT(16'h566A)) 
-    i___277_carry_i_6
-       (.I0(i___277_carry_i_3_n_0),
-        .I1(\m_axis_tdata1_inferred__0/i___140_carry_n_7 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___230_carry_n_7 ),
-        .O(i___277_carry_i_6_n_0));
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i___277_carry_i_7
-       (.I0(\m_axis_tdata1_inferred__0/i___185_carry_n_7 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry_n_7 ),
-        .I2(\m_axis_tdata1_inferred__0/i___140_carry_n_7 ),
-        .I3(\m_axis_tdata1_inferred__0/i___86_carry_n_7 ),
-        .O(i___277_carry_i_7_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry_i_8
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry_n_5 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry_n_5 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry_n_5 ),
-        .O(i___277_carry_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i___277_carry_i_9
-       (.I0(\m_axis_tdata1_inferred__0/i___140_carry_n_4 ),
-        .I1(\m_axis_tdata1_inferred__0/i___230_carry_n_4 ),
-        .I2(\m_axis_tdata1_inferred__0/i___185_carry_n_4 ),
-        .O(i___277_carry_i_9_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___50_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___50_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___54_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___54_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___58_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___58_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___62_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___62_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___66_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___66_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___70_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___70_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___74_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___74_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___78_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___78_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___82_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(i___82_carry_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__0_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__0_n_4 ),
-        .O(i___86_carry__0_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__0_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__0_n_5 ),
-        .O(i___86_carry__0_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__0_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__0_n_6 ),
-        .O(i___86_carry__0_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__0_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__0_n_7 ),
-        .O(i___86_carry__0_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__1_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__1_n_4 ),
-        .O(i___86_carry__1_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__1_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__1_n_5 ),
-        .O(i___86_carry__1_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__1_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__1_n_6 ),
-        .O(i___86_carry__1_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__1_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__1_n_7 ),
-        .O(i___86_carry__1_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__2_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__2_n_4 ),
-        .O(i___86_carry__2_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__2_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__2_n_5 ),
-        .O(i___86_carry__2_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__2_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__2_n_6 ),
-        .O(i___86_carry__2_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__2_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__2_n_7 ),
-        .O(i___86_carry__2_i_4_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i___86_carry__3_i_1
-       (.I0(\m_axis_tdata1_inferred__0/i___0_carry__3_n_7 ),
-        .O(i___86_carry__3_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__3_i_2
-       (.I0(\m_axis_tdata1_inferred__0/i___0_carry__3_n_7 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry__3_n_2 ),
-        .O(i___86_carry__3_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry__3_i_3
-       (.I0(\m_axis_tdata1_inferred__0/i___0_carry__3_n_7 ),
-        .I1(\filter_buffer_L_reg[30]_2 ),
-        .O(i___86_carry__3_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry_n_4 ),
-        .O(i___86_carry_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry_n_5 ),
-        .O(i___86_carry_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i___86_carry_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(\m_axis_tdata1_inferred__0/i___0_carry_n_6 ),
-        .O(i___86_carry_i_3_n_0));
-  CARRY4 m_axis_tdata1__0_carry
+  CARRY4 m_axis_tdata1_carry
        (.CI(1'b0),
-        .CO({m_axis_tdata1__0_carry_n_0,m_axis_tdata1__0_carry_n_1,m_axis_tdata1__0_carry_n_2,m_axis_tdata1__0_carry_n_3}),
+        .CO({m_axis_tdata1_carry_n_0,m_axis_tdata1_carry_n_1,m_axis_tdata1_carry_n_2,m_axis_tdata1_carry_n_3}),
+        .CYINIT(tdata_int[0]),
+        .DI(filter_accumulator_L[3:0]),
+        .O(m_axis_tdata1[3:0]),
+        .S({m_axis_tdata1_carry_i_1_n_0,m_axis_tdata1_carry_i_2_n_0,m_axis_tdata1_carry_i_3_n_0,m_axis_tdata1_carry_i_4_n_0}));
+  CARRY4 m_axis_tdata1_carry__0
+       (.CI(m_axis_tdata1_carry_n_0),
+        .CO({m_axis_tdata1_carry__0_n_0,m_axis_tdata1_carry__0_n_1,m_axis_tdata1_carry__0_n_2,m_axis_tdata1_carry__0_n_3}),
         .CYINIT(1'b0),
-        .DI({m_axis_tdata1__0_carry_i_1_n_0,m_axis_tdata1__0_carry_i_2_n_0,m_axis_tdata1__0_carry_i_3_n_0,1'b0}),
-        .O({m_axis_tdata1__0_carry_n_4,m_axis_tdata1__0_carry_n_5,m_axis_tdata1__0_carry_n_6,m_axis_tdata1__0_carry_n_7}),
-        .S({m_axis_tdata1__0_carry_i_4_n_0,m_axis_tdata1__0_carry_i_5_n_0,m_axis_tdata1__0_carry_i_6_n_0,m_axis_tdata1__0_carry_i_7_n_0}));
-  CARRY4 m_axis_tdata1__0_carry__0
-       (.CI(m_axis_tdata1__0_carry_n_0),
-        .CO({m_axis_tdata1__0_carry__0_n_0,m_axis_tdata1__0_carry__0_n_1,m_axis_tdata1__0_carry__0_n_2,m_axis_tdata1__0_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__0_carry__0_i_1_n_0,m_axis_tdata1__0_carry__0_i_2_n_0,m_axis_tdata1__0_carry__0_i_3_n_0,m_axis_tdata1__0_carry__0_i_4_n_0}),
-        .O({m_axis_tdata1__0_carry__0_n_4,m_axis_tdata1__0_carry__0_n_5,m_axis_tdata1__0_carry__0_n_6,m_axis_tdata1__0_carry__0_n_7}),
-        .S({m_axis_tdata1__0_carry__0_i_5_n_0,m_axis_tdata1__0_carry__0_i_6_n_0,m_axis_tdata1__0_carry__0_i_7_n_0,m_axis_tdata1__0_carry__0_i_8_n_0}));
-  (* HLUTNM = "lutpair6" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__0_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[6]),
-        .I2(\filter_buffer_L_reg[0]_0 [6]),
-        .O(m_axis_tdata1__0_carry__0_i_1_n_0));
-  (* HLUTNM = "lutpair5" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__0_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[5]),
-        .I2(\filter_buffer_L_reg[0]_0 [5]),
-        .O(m_axis_tdata1__0_carry__0_i_2_n_0));
-  (* HLUTNM = "lutpair4" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__0_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[4]),
-        .I2(\filter_buffer_L_reg[0]_0 [4]),
-        .O(m_axis_tdata1__0_carry__0_i_3_n_0));
-  (* HLUTNM = "lutpair3" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__0_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[3]),
-        .I2(\filter_buffer_L_reg[0]_0 [3]),
-        .O(m_axis_tdata1__0_carry__0_i_4_n_0));
-  (* HLUTNM = "lutpair7" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__0_i_5
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[7]),
-        .I2(\filter_buffer_L_reg[0]_0 [7]),
-        .I3(m_axis_tdata1__0_carry__0_i_1_n_0),
-        .O(m_axis_tdata1__0_carry__0_i_5_n_0));
-  (* HLUTNM = "lutpair6" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__0_i_6
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[6]),
-        .I2(\filter_buffer_L_reg[0]_0 [6]),
-        .I3(m_axis_tdata1__0_carry__0_i_2_n_0),
-        .O(m_axis_tdata1__0_carry__0_i_6_n_0));
-  (* HLUTNM = "lutpair5" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__0_i_7
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[5]),
-        .I2(\filter_buffer_L_reg[0]_0 [5]),
-        .I3(m_axis_tdata1__0_carry__0_i_3_n_0),
-        .O(m_axis_tdata1__0_carry__0_i_7_n_0));
-  (* HLUTNM = "lutpair4" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__0_i_8
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[4]),
-        .I2(\filter_buffer_L_reg[0]_0 [4]),
-        .I3(m_axis_tdata1__0_carry__0_i_4_n_0),
-        .O(m_axis_tdata1__0_carry__0_i_8_n_0));
-  CARRY4 m_axis_tdata1__0_carry__1
-       (.CI(m_axis_tdata1__0_carry__0_n_0),
-        .CO({m_axis_tdata1__0_carry__1_n_0,m_axis_tdata1__0_carry__1_n_1,m_axis_tdata1__0_carry__1_n_2,m_axis_tdata1__0_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__0_carry__1_i_1_n_0,m_axis_tdata1__0_carry__1_i_2_n_0,m_axis_tdata1__0_carry__1_i_3_n_0,m_axis_tdata1__0_carry__1_i_4_n_0}),
-        .O({m_axis_tdata1__0_carry__1_n_4,m_axis_tdata1__0_carry__1_n_5,m_axis_tdata1__0_carry__1_n_6,m_axis_tdata1__0_carry__1_n_7}),
-        .S({m_axis_tdata1__0_carry__1_i_5_n_0,m_axis_tdata1__0_carry__1_i_6_n_0,m_axis_tdata1__0_carry__1_i_7_n_0,m_axis_tdata1__0_carry__1_i_8_n_0}));
-  (* HLUTNM = "lutpair10" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__1_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[10]),
-        .I2(\filter_buffer_L_reg[0]_0 [10]),
-        .O(m_axis_tdata1__0_carry__1_i_1_n_0));
-  (* HLUTNM = "lutpair9" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__1_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[9]),
-        .I2(\filter_buffer_L_reg[0]_0 [9]),
-        .O(m_axis_tdata1__0_carry__1_i_2_n_0));
-  (* HLUTNM = "lutpair8" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__1_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[8]),
-        .I2(\filter_buffer_L_reg[0]_0 [8]),
-        .O(m_axis_tdata1__0_carry__1_i_3_n_0));
-  (* HLUTNM = "lutpair7" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__1_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[7]),
-        .I2(\filter_buffer_L_reg[0]_0 [7]),
-        .O(m_axis_tdata1__0_carry__1_i_4_n_0));
-  (* HLUTNM = "lutpair11" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__1_i_5
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[11]),
-        .I2(\filter_buffer_L_reg[0]_0 [11]),
-        .I3(m_axis_tdata1__0_carry__1_i_1_n_0),
-        .O(m_axis_tdata1__0_carry__1_i_5_n_0));
-  (* HLUTNM = "lutpair10" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__1_i_6
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[10]),
-        .I2(\filter_buffer_L_reg[0]_0 [10]),
-        .I3(m_axis_tdata1__0_carry__1_i_2_n_0),
-        .O(m_axis_tdata1__0_carry__1_i_6_n_0));
-  (* HLUTNM = "lutpair9" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__1_i_7
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[9]),
-        .I2(\filter_buffer_L_reg[0]_0 [9]),
-        .I3(m_axis_tdata1__0_carry__1_i_3_n_0),
-        .O(m_axis_tdata1__0_carry__1_i_7_n_0));
-  (* HLUTNM = "lutpair8" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__1_i_8
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[8]),
-        .I2(\filter_buffer_L_reg[0]_0 [8]),
-        .I3(m_axis_tdata1__0_carry__1_i_4_n_0),
-        .O(m_axis_tdata1__0_carry__1_i_8_n_0));
-  CARRY4 m_axis_tdata1__0_carry__2
-       (.CI(m_axis_tdata1__0_carry__1_n_0),
-        .CO({m_axis_tdata1__0_carry__2_n_0,m_axis_tdata1__0_carry__2_n_1,m_axis_tdata1__0_carry__2_n_2,m_axis_tdata1__0_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__0_carry__2_i_1_n_0,m_axis_tdata1__0_carry__2_i_2_n_0,m_axis_tdata1__0_carry__2_i_3_n_0,m_axis_tdata1__0_carry__2_i_4_n_0}),
-        .O({m_axis_tdata1__0_carry__2_n_4,m_axis_tdata1__0_carry__2_n_5,m_axis_tdata1__0_carry__2_n_6,m_axis_tdata1__0_carry__2_n_7}),
-        .S({m_axis_tdata1__0_carry__2_i_5_n_0,m_axis_tdata1__0_carry__2_i_6_n_0,m_axis_tdata1__0_carry__2_i_7_n_0,m_axis_tdata1__0_carry__2_i_8_n_0}));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__0_carry__2_i_1
-       (.I0(\filter_buffer_L_reg[0]_0 [15]),
-        .I1(tdata_int__0[15]),
-        .I2(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__0_carry__2_i_1_n_0));
-  (* HLUTNM = "lutpair13" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__2_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[13]),
-        .I2(\filter_buffer_L_reg[0]_0 [13]),
-        .O(m_axis_tdata1__0_carry__2_i_2_n_0));
-  (* HLUTNM = "lutpair12" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__2_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[12]),
-        .I2(\filter_buffer_L_reg[0]_0 [12]),
-        .O(m_axis_tdata1__0_carry__2_i_3_n_0));
-  (* HLUTNM = "lutpair11" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry__2_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[11]),
-        .I2(\filter_buffer_L_reg[0]_0 [11]),
-        .O(m_axis_tdata1__0_carry__2_i_4_n_0));
-  LUT5 #(
-    .INIT(32'h66699666)) 
-    m_axis_tdata1__0_carry__2_i_5
-       (.I0(\filter_buffer_L_reg[0]_0 [15]),
-        .I1(tdata_int__0[15]),
-        .I2(\filter_buffer_L_reg[0]_0 [14]),
-        .I3(tdata_int__0[14]),
-        .I4(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__0_carry__2_i_5_n_0));
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__2_i_6
-       (.I0(m_axis_tdata1__0_carry__2_i_2_n_0),
-        .I1(tdata_int__0[14]),
-        .I2(\filter_buffer_L_reg[30]_2 ),
-        .I3(\filter_buffer_L_reg[0]_0 [14]),
-        .O(m_axis_tdata1__0_carry__2_i_6_n_0));
-  (* HLUTNM = "lutpair13" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__2_i_7
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[13]),
-        .I2(\filter_buffer_L_reg[0]_0 [13]),
-        .I3(m_axis_tdata1__0_carry__2_i_3_n_0),
-        .O(m_axis_tdata1__0_carry__2_i_7_n_0));
-  (* HLUTNM = "lutpair12" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry__2_i_8
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[12]),
-        .I2(\filter_buffer_L_reg[0]_0 [12]),
-        .I3(m_axis_tdata1__0_carry__2_i_4_n_0),
-        .O(m_axis_tdata1__0_carry__2_i_8_n_0));
-  CARRY4 m_axis_tdata1__0_carry__3
-       (.CI(m_axis_tdata1__0_carry__2_n_0),
-        .CO({NLW_m_axis_tdata1__0_carry__3_CO_UNCONNECTED[3:2],m_axis_tdata1__0_carry__3_n_2,NLW_m_axis_tdata1__0_carry__3_CO_UNCONNECTED[0]}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,m_axis_tdata1__0_carry__3_i_1_n_0}),
-        .O({NLW_m_axis_tdata1__0_carry__3_O_UNCONNECTED[3:1],m_axis_tdata1__0_carry__3_n_7}),
-        .S({1'b0,1'b0,1'b1,m_axis_tdata1__0_carry__3_i_2_n_0}));
-  LUT3 #(
-    .INIT(8'h09)) 
-    m_axis_tdata1__0_carry__3_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[15]),
-        .I2(\filter_buffer_L_reg[0]_0 [15]),
-        .O(m_axis_tdata1__0_carry__3_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h7E)) 
-    m_axis_tdata1__0_carry__3_i_2
-       (.I0(\filter_buffer_L_reg[0]_0 [15]),
-        .I1(\filter_buffer_L_reg[30]_2 ),
-        .I2(tdata_int__0[15]),
-        .O(m_axis_tdata1__0_carry__3_i_2_n_0));
-  (* HLUTNM = "lutpair2" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[2]),
-        .I2(\filter_buffer_L_reg[0]_0 [2]),
-        .O(m_axis_tdata1__0_carry_i_1_n_0));
-  (* HLUTNM = "lutpair1" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[1]),
-        .I2(\filter_buffer_L_reg[0]_0 [1]),
-        .O(m_axis_tdata1__0_carry_i_2_n_0));
-  (* HLUTNM = "lutpair0" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__0_carry_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[0]),
-        .I2(\filter_buffer_L_reg[0]_0 [0]),
-        .O(m_axis_tdata1__0_carry_i_3_n_0));
-  (* HLUTNM = "lutpair3" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[3]),
-        .I2(\filter_buffer_L_reg[0]_0 [3]),
-        .I3(m_axis_tdata1__0_carry_i_1_n_0),
-        .O(m_axis_tdata1__0_carry_i_4_n_0));
-  (* HLUTNM = "lutpair2" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry_i_5
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[2]),
-        .I2(\filter_buffer_L_reg[0]_0 [2]),
-        .I3(m_axis_tdata1__0_carry_i_2_n_0),
-        .O(m_axis_tdata1__0_carry_i_5_n_0));
-  (* HLUTNM = "lutpair1" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__0_carry_i_6
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[1]),
-        .I2(\filter_buffer_L_reg[0]_0 [1]),
-        .I3(m_axis_tdata1__0_carry_i_3_n_0),
-        .O(m_axis_tdata1__0_carry_i_6_n_0));
-  (* HLUTNM = "lutpair0" *) 
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__0_carry_i_7
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(tdata_int__0[0]),
-        .I2(\filter_buffer_L_reg[0]_0 [0]),
-        .O(m_axis_tdata1__0_carry_i_7_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__140_carry
-       (.CI(1'b0),
-        .CO({m_axis_tdata1__140_carry_n_0,m_axis_tdata1__140_carry_n_1,m_axis_tdata1__140_carry_n_2,m_axis_tdata1__140_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_2_n_0,\filter_buffer_L_reg[30]_2 ,1'b0}),
-        .O({m_axis_tdata1__140_carry_n_4,m_axis_tdata1__140_carry_n_5,m_axis_tdata1__140_carry_n_6,m_axis_tdata1__140_carry_n_7}),
-        .S({m_axis_tdata1__140_carry_i_3_n_0,m_axis_tdata1__140_carry_i_4_n_0,m_axis_tdata1__140_carry_i_5_n_0,m_axis_tdata1__50_carry_n_7}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__140_carry__0
-       (.CI(m_axis_tdata1__140_carry_n_0),
-        .CO({m_axis_tdata1__140_carry__0_n_0,m_axis_tdata1__140_carry__0_n_1,m_axis_tdata1__140_carry__0_n_2,m_axis_tdata1__140_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0}),
-        .O({m_axis_tdata1__140_carry__0_n_4,m_axis_tdata1__140_carry__0_n_5,m_axis_tdata1__140_carry__0_n_6,m_axis_tdata1__140_carry__0_n_7}),
-        .S({m_axis_tdata1__140_carry__0_i_1_n_0,m_axis_tdata1__140_carry__0_i_2_n_0,m_axis_tdata1__140_carry__0_i_3_n_0,m_axis_tdata1__140_carry__0_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__0_i_1
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__0_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__0_i_2
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__0_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__0_i_3
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__0_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__0_i_4
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__0_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__140_carry__1
-       (.CI(m_axis_tdata1__140_carry__0_n_0),
-        .CO({m_axis_tdata1__140_carry__1_n_0,m_axis_tdata1__140_carry__1_n_1,m_axis_tdata1__140_carry__1_n_2,m_axis_tdata1__140_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0}),
-        .O({m_axis_tdata1__140_carry__1_n_4,m_axis_tdata1__140_carry__1_n_5,m_axis_tdata1__140_carry__1_n_6,m_axis_tdata1__140_carry__1_n_7}),
-        .S({m_axis_tdata1__140_carry__1_i_1_n_0,m_axis_tdata1__140_carry__1_i_2_n_0,m_axis_tdata1__140_carry__1_i_3_n_0,m_axis_tdata1__140_carry__1_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__1_i_1
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__1_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__1_i_2
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__1_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__1_i_3
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__1_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__1_i_4
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__1_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__140_carry__2
-       (.CI(m_axis_tdata1__140_carry__1_n_0),
-        .CO({m_axis_tdata1__140_carry__2_n_0,m_axis_tdata1__140_carry__2_n_1,m_axis_tdata1__140_carry__2_n_2,m_axis_tdata1__140_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0}),
-        .O({m_axis_tdata1__140_carry__2_n_4,m_axis_tdata1__140_carry__2_n_5,m_axis_tdata1__140_carry__2_n_6,m_axis_tdata1__140_carry__2_n_7}),
-        .S({m_axis_tdata1__140_carry__2_i_1_n_0,m_axis_tdata1__140_carry__2_i_2_n_0,m_axis_tdata1__140_carry__2_i_3_n_0,m_axis_tdata1__140_carry__2_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__2_i_1
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__2_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__2_i_2
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__2_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__2_i_3
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__2_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__2_i_4
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__2_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__140_carry__3
-       (.CI(m_axis_tdata1__140_carry__2_n_0),
-        .CO({m_axis_tdata1__140_carry__3_n_0,m_axis_tdata1__140_carry__3_n_1,m_axis_tdata1__140_carry__3_n_2,m_axis_tdata1__140_carry__3_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0,m_axis_tdata1__140_carry_i_1_n_0}),
-        .O({m_axis_tdata1__140_carry__3_n_4,m_axis_tdata1__140_carry__3_n_5,m_axis_tdata1__140_carry__3_n_6,m_axis_tdata1__140_carry__3_n_7}),
-        .S({m_axis_tdata1__140_carry__3_i_1_n_0,m_axis_tdata1__140_carry__3_i_2_n_0,m_axis_tdata1__140_carry__3_i_3_n_0,m_axis_tdata1__140_carry__3_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__3_i_1
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__3_i_1_n_0));
-  (* HLUTNM = "lutpair15" *) 
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__3_i_2
-       (.I0(m_axis_tdata1__58_carry_n_1),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__50_carry_n_1),
-        .I3(m_axis_tdata1__140_carry_i_1_n_0),
-        .O(m_axis_tdata1__140_carry__3_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__3_i_3
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__3_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__3_i_4
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__3_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__140_carry__4
-       (.CI(m_axis_tdata1__140_carry__3_n_0),
-        .CO(NLW_m_axis_tdata1__140_carry__4_CO_UNCONNECTED[3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW_m_axis_tdata1__140_carry__4_O_UNCONNECTED[3:1],m_axis_tdata1__140_carry__4_n_7}),
-        .S({1'b0,1'b0,1'b0,m_axis_tdata1__140_carry__4_i_1_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry__4_i_1
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry__4_i_1_n_0));
-  (* HLUTNM = "lutpair15" *) 
-  LUT3 #(
-    .INIT(8'h17)) 
-    m_axis_tdata1__140_carry_i_1
-       (.I0(m_axis_tdata1__58_carry_n_1),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry_i_1_n_0));
-  (* HLUTNM = "lutpair14" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__140_carry_i_2
-       (.I0(m_axis_tdata1__58_carry_n_6),
-        .I1(m_axis_tdata1__54_carry_n_6),
-        .I2(m_axis_tdata1__50_carry_n_6),
-        .O(m_axis_tdata1__140_carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry_i_3
-       (.I0(m_axis_tdata1__140_carry_i_1_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__140_carry_i_4
-       (.I0(m_axis_tdata1__140_carry_i_2_n_0),
-        .I1(m_axis_tdata1__54_carry_n_1),
-        .I2(m_axis_tdata1__58_carry_n_1),
-        .I3(m_axis_tdata1__50_carry_n_1),
-        .O(m_axis_tdata1__140_carry_i_4_n_0));
-  (* HLUTNM = "lutpair14" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__140_carry_i_5
-       (.I0(m_axis_tdata1__58_carry_n_6),
-        .I1(m_axis_tdata1__54_carry_n_6),
-        .I2(m_axis_tdata1__50_carry_n_6),
-        .I3(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__140_carry_i_5_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__185_carry
-       (.CI(1'b0),
-        .CO({m_axis_tdata1__185_carry_n_0,m_axis_tdata1__185_carry_n_1,m_axis_tdata1__185_carry_n_2,m_axis_tdata1__185_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_2_n_0,\filter_buffer_L_reg[30]_2 ,1'b0}),
-        .O({m_axis_tdata1__185_carry_n_4,m_axis_tdata1__185_carry_n_5,m_axis_tdata1__185_carry_n_6,m_axis_tdata1__185_carry_n_7}),
-        .S({m_axis_tdata1__185_carry_i_3_n_0,m_axis_tdata1__185_carry_i_4_n_0,m_axis_tdata1__185_carry_i_5_n_0,\filter_buffer_L_reg[30]_2 }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__185_carry__0
-       (.CI(m_axis_tdata1__185_carry_n_0),
-        .CO({m_axis_tdata1__185_carry__0_n_0,m_axis_tdata1__185_carry__0_n_1,m_axis_tdata1__185_carry__0_n_2,m_axis_tdata1__185_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0}),
-        .O({m_axis_tdata1__185_carry__0_n_4,m_axis_tdata1__185_carry__0_n_5,m_axis_tdata1__185_carry__0_n_6,m_axis_tdata1__185_carry__0_n_7}),
-        .S({m_axis_tdata1__185_carry__0_i_1_n_0,m_axis_tdata1__185_carry__0_i_2_n_0,m_axis_tdata1__185_carry__0_i_3_n_0,m_axis_tdata1__185_carry__0_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__0_i_1
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__0_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__0_i_2
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__0_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__0_i_3
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__0_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__0_i_4
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__0_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__185_carry__1
-       (.CI(m_axis_tdata1__185_carry__0_n_0),
-        .CO({m_axis_tdata1__185_carry__1_n_0,m_axis_tdata1__185_carry__1_n_1,m_axis_tdata1__185_carry__1_n_2,m_axis_tdata1__185_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0}),
-        .O({m_axis_tdata1__185_carry__1_n_4,m_axis_tdata1__185_carry__1_n_5,m_axis_tdata1__185_carry__1_n_6,m_axis_tdata1__185_carry__1_n_7}),
-        .S({m_axis_tdata1__185_carry__1_i_1_n_0,m_axis_tdata1__185_carry__1_i_2_n_0,m_axis_tdata1__185_carry__1_i_3_n_0,m_axis_tdata1__185_carry__1_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__1_i_1
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__1_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__1_i_2
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__1_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__1_i_3
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__1_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__1_i_4
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__1_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__185_carry__2
-       (.CI(m_axis_tdata1__185_carry__1_n_0),
-        .CO({m_axis_tdata1__185_carry__2_n_0,m_axis_tdata1__185_carry__2_n_1,m_axis_tdata1__185_carry__2_n_2,m_axis_tdata1__185_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0}),
-        .O({m_axis_tdata1__185_carry__2_n_4,m_axis_tdata1__185_carry__2_n_5,m_axis_tdata1__185_carry__2_n_6,m_axis_tdata1__185_carry__2_n_7}),
-        .S({m_axis_tdata1__185_carry__2_i_1_n_0,m_axis_tdata1__185_carry__2_i_2_n_0,m_axis_tdata1__185_carry__2_i_3_n_0,m_axis_tdata1__185_carry__2_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__2_i_1
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__2_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__2_i_2
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__2_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__2_i_3
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__2_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__2_i_4
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__2_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__185_carry__3
-       (.CI(m_axis_tdata1__185_carry__2_n_0),
-        .CO({m_axis_tdata1__185_carry__3_n_0,m_axis_tdata1__185_carry__3_n_1,m_axis_tdata1__185_carry__3_n_2,m_axis_tdata1__185_carry__3_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0,m_axis_tdata1__185_carry_i_1_n_0}),
-        .O({m_axis_tdata1__185_carry__3_n_4,m_axis_tdata1__185_carry__3_n_5,m_axis_tdata1__185_carry__3_n_6,m_axis_tdata1__185_carry__3_n_7}),
-        .S({m_axis_tdata1__185_carry__3_i_1_n_0,m_axis_tdata1__185_carry__3_i_2_n_0,m_axis_tdata1__185_carry__3_i_3_n_0,m_axis_tdata1__185_carry__3_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__3_i_1
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__3_i_1_n_0));
-  (* HLUTNM = "lutpair17" *) 
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__3_i_2
-       (.I0(m_axis_tdata1__70_carry_n_1),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__62_carry_n_1),
-        .I3(m_axis_tdata1__185_carry_i_1_n_0),
-        .O(m_axis_tdata1__185_carry__3_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__3_i_3
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__3_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__3_i_4
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__3_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__185_carry__4
-       (.CI(m_axis_tdata1__185_carry__3_n_0),
-        .CO(NLW_m_axis_tdata1__185_carry__4_CO_UNCONNECTED[3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW_m_axis_tdata1__185_carry__4_O_UNCONNECTED[3:1],m_axis_tdata1__185_carry__4_n_7}),
-        .S({1'b0,1'b0,1'b0,m_axis_tdata1__185_carry__4_i_1_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry__4_i_1
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry__4_i_1_n_0));
-  (* HLUTNM = "lutpair17" *) 
-  LUT3 #(
-    .INIT(8'h17)) 
-    m_axis_tdata1__185_carry_i_1
-       (.I0(m_axis_tdata1__70_carry_n_1),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry_i_1_n_0));
-  (* HLUTNM = "lutpair16" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__185_carry_i_2
-       (.I0(m_axis_tdata1__70_carry_n_6),
-        .I1(m_axis_tdata1__66_carry_n_6),
-        .I2(m_axis_tdata1__62_carry_n_6),
-        .O(m_axis_tdata1__185_carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry_i_3
-       (.I0(m_axis_tdata1__185_carry_i_1_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__185_carry_i_4
-       (.I0(m_axis_tdata1__185_carry_i_2_n_0),
-        .I1(m_axis_tdata1__66_carry_n_1),
-        .I2(m_axis_tdata1__70_carry_n_1),
-        .I3(m_axis_tdata1__62_carry_n_1),
-        .O(m_axis_tdata1__185_carry_i_4_n_0));
-  (* HLUTNM = "lutpair16" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__185_carry_i_5
-       (.I0(m_axis_tdata1__70_carry_n_6),
-        .I1(m_axis_tdata1__66_carry_n_6),
-        .I2(m_axis_tdata1__62_carry_n_6),
-        .I3(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__185_carry_i_5_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__230_carry
-       (.CI(1'b0),
-        .CO({m_axis_tdata1__230_carry_n_0,m_axis_tdata1__230_carry_n_1,m_axis_tdata1__230_carry_n_2,m_axis_tdata1__230_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_2_n_0,\filter_buffer_L_reg[30]_2 ,1'b0}),
-        .O({m_axis_tdata1__230_carry_n_4,m_axis_tdata1__230_carry_n_5,m_axis_tdata1__230_carry_n_6,m_axis_tdata1__230_carry_n_7}),
-        .S({m_axis_tdata1__230_carry_i_3_n_0,m_axis_tdata1__230_carry_i_4_n_0,m_axis_tdata1__230_carry_i_5_n_0,\filter_buffer_L_reg[30]_2 }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__230_carry__0
-       (.CI(m_axis_tdata1__230_carry_n_0),
-        .CO({m_axis_tdata1__230_carry__0_n_0,m_axis_tdata1__230_carry__0_n_1,m_axis_tdata1__230_carry__0_n_2,m_axis_tdata1__230_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0}),
-        .O({m_axis_tdata1__230_carry__0_n_4,m_axis_tdata1__230_carry__0_n_5,m_axis_tdata1__230_carry__0_n_6,m_axis_tdata1__230_carry__0_n_7}),
-        .S({m_axis_tdata1__230_carry__0_i_1_n_0,m_axis_tdata1__230_carry__0_i_2_n_0,m_axis_tdata1__230_carry__0_i_3_n_0,m_axis_tdata1__230_carry__0_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__0_i_1
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__0_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__0_i_2
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__0_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__0_i_3
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__0_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__0_i_4
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__0_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__230_carry__1
-       (.CI(m_axis_tdata1__230_carry__0_n_0),
-        .CO({m_axis_tdata1__230_carry__1_n_0,m_axis_tdata1__230_carry__1_n_1,m_axis_tdata1__230_carry__1_n_2,m_axis_tdata1__230_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0}),
-        .O({m_axis_tdata1__230_carry__1_n_4,m_axis_tdata1__230_carry__1_n_5,m_axis_tdata1__230_carry__1_n_6,m_axis_tdata1__230_carry__1_n_7}),
-        .S({m_axis_tdata1__230_carry__1_i_1_n_0,m_axis_tdata1__230_carry__1_i_2_n_0,m_axis_tdata1__230_carry__1_i_3_n_0,m_axis_tdata1__230_carry__1_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__1_i_1
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__1_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__1_i_2
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__1_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__1_i_3
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__1_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__1_i_4
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__1_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__230_carry__2
-       (.CI(m_axis_tdata1__230_carry__1_n_0),
-        .CO({m_axis_tdata1__230_carry__2_n_0,m_axis_tdata1__230_carry__2_n_1,m_axis_tdata1__230_carry__2_n_2,m_axis_tdata1__230_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0}),
-        .O({m_axis_tdata1__230_carry__2_n_4,m_axis_tdata1__230_carry__2_n_5,m_axis_tdata1__230_carry__2_n_6,m_axis_tdata1__230_carry__2_n_7}),
-        .S({m_axis_tdata1__230_carry__2_i_1_n_0,m_axis_tdata1__230_carry__2_i_2_n_0,m_axis_tdata1__230_carry__2_i_3_n_0,m_axis_tdata1__230_carry__2_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__2_i_1
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__2_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__2_i_2
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__2_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__2_i_3
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__2_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__2_i_4
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__2_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__230_carry__3
-       (.CI(m_axis_tdata1__230_carry__2_n_0),
-        .CO({m_axis_tdata1__230_carry__3_n_0,m_axis_tdata1__230_carry__3_n_1,m_axis_tdata1__230_carry__3_n_2,m_axis_tdata1__230_carry__3_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0,m_axis_tdata1__230_carry_i_1_n_0}),
-        .O({m_axis_tdata1__230_carry__3_n_4,m_axis_tdata1__230_carry__3_n_5,m_axis_tdata1__230_carry__3_n_6,m_axis_tdata1__230_carry__3_n_7}),
-        .S({m_axis_tdata1__230_carry__3_i_1_n_0,m_axis_tdata1__230_carry__3_i_2_n_0,m_axis_tdata1__230_carry__3_i_3_n_0,m_axis_tdata1__230_carry__3_i_4_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__3_i_1
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__3_i_1_n_0));
-  (* HLUTNM = "lutpair19" *) 
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__3_i_2
-       (.I0(m_axis_tdata1__82_carry_n_1),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__74_carry_n_1),
-        .I3(m_axis_tdata1__230_carry_i_1_n_0),
-        .O(m_axis_tdata1__230_carry__3_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__3_i_3
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__3_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__3_i_4
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__3_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__230_carry__4
-       (.CI(m_axis_tdata1__230_carry__3_n_0),
-        .CO(NLW_m_axis_tdata1__230_carry__4_CO_UNCONNECTED[3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW_m_axis_tdata1__230_carry__4_O_UNCONNECTED[3:1],m_axis_tdata1__230_carry__4_n_7}),
-        .S({1'b0,1'b0,1'b0,m_axis_tdata1__230_carry__4_i_1_n_0}));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry__4_i_1
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry__4_i_1_n_0));
-  (* HLUTNM = "lutpair19" *) 
-  LUT3 #(
-    .INIT(8'h17)) 
-    m_axis_tdata1__230_carry_i_1
-       (.I0(m_axis_tdata1__82_carry_n_1),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry_i_1_n_0));
-  (* HLUTNM = "lutpair18" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__230_carry_i_2
-       (.I0(m_axis_tdata1__82_carry_n_6),
-        .I1(m_axis_tdata1__78_carry_n_6),
-        .I2(m_axis_tdata1__74_carry_n_6),
-        .O(m_axis_tdata1__230_carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry_i_3
-       (.I0(m_axis_tdata1__230_carry_i_1_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__230_carry_i_4
-       (.I0(m_axis_tdata1__230_carry_i_2_n_0),
-        .I1(m_axis_tdata1__78_carry_n_1),
-        .I2(m_axis_tdata1__82_carry_n_1),
-        .I3(m_axis_tdata1__74_carry_n_1),
-        .O(m_axis_tdata1__230_carry_i_4_n_0));
-  (* HLUTNM = "lutpair18" *) 
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__230_carry_i_5
-       (.I0(m_axis_tdata1__82_carry_n_6),
-        .I1(m_axis_tdata1__78_carry_n_6),
-        .I2(m_axis_tdata1__74_carry_n_6),
-        .I3(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__230_carry_i_5_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__277_carry
-       (.CI(1'b0),
-        .CO({m_axis_tdata1__277_carry_n_0,m_axis_tdata1__277_carry_n_1,m_axis_tdata1__277_carry_n_2,m_axis_tdata1__277_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__277_carry_i_1_n_0,m_axis_tdata1__277_carry_i_2_n_0,m_axis_tdata1__277_carry_i_3_n_0,m_axis_tdata1__86_carry_n_7}),
-        .O(NLW_m_axis_tdata1__277_carry_O_UNCONNECTED[3:0]),
-        .S({m_axis_tdata1__277_carry_i_4_n_0,m_axis_tdata1__277_carry_i_5_n_0,m_axis_tdata1__277_carry_i_6_n_0,m_axis_tdata1__277_carry_i_7_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__277_carry__0
-       (.CI(m_axis_tdata1__277_carry_n_0),
-        .CO({m_axis_tdata1__277_carry__0_n_0,m_axis_tdata1__277_carry__0_n_1,m_axis_tdata1__277_carry__0_n_2,m_axis_tdata1__277_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__277_carry__0_i_1_n_0,m_axis_tdata1__277_carry__0_i_2_n_0,m_axis_tdata1__277_carry__0_i_3_n_0,m_axis_tdata1__277_carry__0_i_4_n_0}),
-        .O({m_axis_tdata1__277_carry__0_n_4,m_axis_tdata1__277_carry__0_n_5,m_axis_tdata1__277_carry__0_n_6,NLW_m_axis_tdata1__277_carry__0_O_UNCONNECTED[0]}),
-        .S({m_axis_tdata1__277_carry__0_i_5_n_0,m_axis_tdata1__277_carry__0_i_6_n_0,m_axis_tdata1__277_carry__0_i_7_n_0,m_axis_tdata1__277_carry__0_i_8_n_0}));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__0_i_1
-       (.I0(m_axis_tdata1__86_carry__0_n_5),
-        .I1(m_axis_tdata1__277_carry__0_i_9_n_0),
-        .I2(m_axis_tdata1__140_carry__0_n_6),
-        .I3(m_axis_tdata1__185_carry__0_n_6),
-        .I4(m_axis_tdata1__230_carry__0_n_6),
-        .O(m_axis_tdata1__277_carry__0_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__0_i_10
-       (.I0(m_axis_tdata1__140_carry__0_n_6),
-        .I1(m_axis_tdata1__230_carry__0_n_6),
-        .I2(m_axis_tdata1__185_carry__0_n_6),
-        .O(m_axis_tdata1__277_carry__0_i_10_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__0_i_11
-       (.I0(m_axis_tdata1__140_carry__0_n_7),
-        .I1(m_axis_tdata1__230_carry__0_n_7),
-        .I2(m_axis_tdata1__185_carry__0_n_7),
-        .O(m_axis_tdata1__277_carry__0_i_11_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__0_i_12
-       (.I0(m_axis_tdata1__140_carry__0_n_4),
-        .I1(m_axis_tdata1__230_carry__0_n_4),
-        .I2(m_axis_tdata1__185_carry__0_n_4),
-        .O(m_axis_tdata1__277_carry__0_i_12_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__0_i_2
-       (.I0(m_axis_tdata1__86_carry__0_n_6),
-        .I1(m_axis_tdata1__277_carry__0_i_10_n_0),
-        .I2(m_axis_tdata1__140_carry__0_n_7),
-        .I3(m_axis_tdata1__185_carry__0_n_7),
-        .I4(m_axis_tdata1__230_carry__0_n_7),
-        .O(m_axis_tdata1__277_carry__0_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__0_i_3
-       (.I0(m_axis_tdata1__86_carry__0_n_7),
-        .I1(m_axis_tdata1__277_carry__0_i_11_n_0),
-        .I2(m_axis_tdata1__140_carry_n_4),
-        .I3(m_axis_tdata1__185_carry_n_4),
-        .I4(m_axis_tdata1__230_carry_n_4),
-        .O(m_axis_tdata1__277_carry__0_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__0_i_4
-       (.I0(m_axis_tdata1__86_carry_n_4),
-        .I1(m_axis_tdata1__277_carry_i_9_n_0),
-        .I2(m_axis_tdata1__140_carry_n_5),
-        .I3(m_axis_tdata1__185_carry_n_5),
-        .I4(m_axis_tdata1__230_carry_n_5),
-        .O(m_axis_tdata1__277_carry__0_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__0_i_5
-       (.I0(m_axis_tdata1__277_carry__0_i_1_n_0),
-        .I1(m_axis_tdata1__277_carry__0_i_12_n_0),
-        .I2(m_axis_tdata1__86_carry__0_n_4),
-        .I3(m_axis_tdata1__230_carry__0_n_5),
-        .I4(m_axis_tdata1__185_carry__0_n_5),
-        .I5(m_axis_tdata1__140_carry__0_n_5),
-        .O(m_axis_tdata1__277_carry__0_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__0_i_6
-       (.I0(m_axis_tdata1__277_carry__0_i_2_n_0),
-        .I1(m_axis_tdata1__277_carry__0_i_9_n_0),
-        .I2(m_axis_tdata1__86_carry__0_n_5),
-        .I3(m_axis_tdata1__230_carry__0_n_6),
-        .I4(m_axis_tdata1__185_carry__0_n_6),
-        .I5(m_axis_tdata1__140_carry__0_n_6),
-        .O(m_axis_tdata1__277_carry__0_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__0_i_7
-       (.I0(m_axis_tdata1__277_carry__0_i_3_n_0),
-        .I1(m_axis_tdata1__277_carry__0_i_10_n_0),
-        .I2(m_axis_tdata1__86_carry__0_n_6),
-        .I3(m_axis_tdata1__230_carry__0_n_7),
-        .I4(m_axis_tdata1__185_carry__0_n_7),
-        .I5(m_axis_tdata1__140_carry__0_n_7),
-        .O(m_axis_tdata1__277_carry__0_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__0_i_8
-       (.I0(m_axis_tdata1__277_carry__0_i_4_n_0),
-        .I1(m_axis_tdata1__277_carry__0_i_11_n_0),
-        .I2(m_axis_tdata1__86_carry__0_n_7),
-        .I3(m_axis_tdata1__230_carry_n_4),
-        .I4(m_axis_tdata1__185_carry_n_4),
-        .I5(m_axis_tdata1__140_carry_n_4),
-        .O(m_axis_tdata1__277_carry__0_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__0_i_9
-       (.I0(m_axis_tdata1__140_carry__0_n_5),
-        .I1(m_axis_tdata1__230_carry__0_n_5),
-        .I2(m_axis_tdata1__185_carry__0_n_5),
-        .O(m_axis_tdata1__277_carry__0_i_9_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__277_carry__1
-       (.CI(m_axis_tdata1__277_carry__0_n_0),
-        .CO({m_axis_tdata1__277_carry__1_n_0,m_axis_tdata1__277_carry__1_n_1,m_axis_tdata1__277_carry__1_n_2,m_axis_tdata1__277_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__277_carry__1_i_1_n_0,m_axis_tdata1__277_carry__1_i_2_n_0,m_axis_tdata1__277_carry__1_i_3_n_0,m_axis_tdata1__277_carry__1_i_4_n_0}),
-        .O({m_axis_tdata1__277_carry__1_n_4,m_axis_tdata1__277_carry__1_n_5,m_axis_tdata1__277_carry__1_n_6,m_axis_tdata1__277_carry__1_n_7}),
-        .S({m_axis_tdata1__277_carry__1_i_5_n_0,m_axis_tdata1__277_carry__1_i_6_n_0,m_axis_tdata1__277_carry__1_i_7_n_0,m_axis_tdata1__277_carry__1_i_8_n_0}));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__1_i_1
-       (.I0(m_axis_tdata1__86_carry__1_n_5),
-        .I1(m_axis_tdata1__277_carry__1_i_9_n_0),
-        .I2(m_axis_tdata1__140_carry__1_n_6),
-        .I3(m_axis_tdata1__185_carry__1_n_6),
-        .I4(m_axis_tdata1__230_carry__1_n_6),
-        .O(m_axis_tdata1__277_carry__1_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__1_i_10
-       (.I0(m_axis_tdata1__140_carry__1_n_6),
-        .I1(m_axis_tdata1__230_carry__1_n_6),
-        .I2(m_axis_tdata1__185_carry__1_n_6),
-        .O(m_axis_tdata1__277_carry__1_i_10_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__1_i_11
-       (.I0(m_axis_tdata1__140_carry__1_n_7),
-        .I1(m_axis_tdata1__230_carry__1_n_7),
-        .I2(m_axis_tdata1__185_carry__1_n_7),
-        .O(m_axis_tdata1__277_carry__1_i_11_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__1_i_12
-       (.I0(m_axis_tdata1__140_carry__1_n_4),
-        .I1(m_axis_tdata1__230_carry__1_n_4),
-        .I2(m_axis_tdata1__185_carry__1_n_4),
-        .O(m_axis_tdata1__277_carry__1_i_12_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__1_i_2
-       (.I0(m_axis_tdata1__86_carry__1_n_6),
-        .I1(m_axis_tdata1__277_carry__1_i_10_n_0),
-        .I2(m_axis_tdata1__140_carry__1_n_7),
-        .I3(m_axis_tdata1__185_carry__1_n_7),
-        .I4(m_axis_tdata1__230_carry__1_n_7),
-        .O(m_axis_tdata1__277_carry__1_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__1_i_3
-       (.I0(m_axis_tdata1__86_carry__1_n_7),
-        .I1(m_axis_tdata1__277_carry__1_i_11_n_0),
-        .I2(m_axis_tdata1__140_carry__0_n_4),
-        .I3(m_axis_tdata1__185_carry__0_n_4),
-        .I4(m_axis_tdata1__230_carry__0_n_4),
-        .O(m_axis_tdata1__277_carry__1_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__1_i_4
-       (.I0(m_axis_tdata1__86_carry__0_n_4),
-        .I1(m_axis_tdata1__277_carry__0_i_12_n_0),
-        .I2(m_axis_tdata1__140_carry__0_n_5),
-        .I3(m_axis_tdata1__185_carry__0_n_5),
-        .I4(m_axis_tdata1__230_carry__0_n_5),
-        .O(m_axis_tdata1__277_carry__1_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__1_i_5
-       (.I0(m_axis_tdata1__277_carry__1_i_1_n_0),
-        .I1(m_axis_tdata1__277_carry__1_i_12_n_0),
-        .I2(m_axis_tdata1__86_carry__1_n_4),
-        .I3(m_axis_tdata1__230_carry__1_n_5),
-        .I4(m_axis_tdata1__185_carry__1_n_5),
-        .I5(m_axis_tdata1__140_carry__1_n_5),
-        .O(m_axis_tdata1__277_carry__1_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__1_i_6
-       (.I0(m_axis_tdata1__277_carry__1_i_2_n_0),
-        .I1(m_axis_tdata1__277_carry__1_i_9_n_0),
-        .I2(m_axis_tdata1__86_carry__1_n_5),
-        .I3(m_axis_tdata1__230_carry__1_n_6),
-        .I4(m_axis_tdata1__185_carry__1_n_6),
-        .I5(m_axis_tdata1__140_carry__1_n_6),
-        .O(m_axis_tdata1__277_carry__1_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__1_i_7
-       (.I0(m_axis_tdata1__277_carry__1_i_3_n_0),
-        .I1(m_axis_tdata1__277_carry__1_i_10_n_0),
-        .I2(m_axis_tdata1__86_carry__1_n_6),
-        .I3(m_axis_tdata1__230_carry__1_n_7),
-        .I4(m_axis_tdata1__185_carry__1_n_7),
-        .I5(m_axis_tdata1__140_carry__1_n_7),
-        .O(m_axis_tdata1__277_carry__1_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__1_i_8
-       (.I0(m_axis_tdata1__277_carry__1_i_4_n_0),
-        .I1(m_axis_tdata1__277_carry__1_i_11_n_0),
-        .I2(m_axis_tdata1__86_carry__1_n_7),
-        .I3(m_axis_tdata1__230_carry__0_n_4),
-        .I4(m_axis_tdata1__185_carry__0_n_4),
-        .I5(m_axis_tdata1__140_carry__0_n_4),
-        .O(m_axis_tdata1__277_carry__1_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__1_i_9
-       (.I0(m_axis_tdata1__140_carry__1_n_5),
-        .I1(m_axis_tdata1__230_carry__1_n_5),
-        .I2(m_axis_tdata1__185_carry__1_n_5),
-        .O(m_axis_tdata1__277_carry__1_i_9_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__277_carry__2
-       (.CI(m_axis_tdata1__277_carry__1_n_0),
-        .CO({m_axis_tdata1__277_carry__2_n_0,m_axis_tdata1__277_carry__2_n_1,m_axis_tdata1__277_carry__2_n_2,m_axis_tdata1__277_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__277_carry__2_i_1_n_0,m_axis_tdata1__277_carry__2_i_2_n_0,m_axis_tdata1__277_carry__2_i_3_n_0,m_axis_tdata1__277_carry__2_i_4_n_0}),
-        .O({m_axis_tdata1__277_carry__2_n_4,m_axis_tdata1__277_carry__2_n_5,m_axis_tdata1__277_carry__2_n_6,m_axis_tdata1__277_carry__2_n_7}),
-        .S({m_axis_tdata1__277_carry__2_i_5_n_0,m_axis_tdata1__277_carry__2_i_6_n_0,m_axis_tdata1__277_carry__2_i_7_n_0,m_axis_tdata1__277_carry__2_i_8_n_0}));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__2_i_1
-       (.I0(m_axis_tdata1__86_carry__2_n_5),
-        .I1(m_axis_tdata1__277_carry__2_i_9_n_0),
-        .I2(m_axis_tdata1__140_carry__2_n_6),
-        .I3(m_axis_tdata1__185_carry__2_n_6),
-        .I4(m_axis_tdata1__230_carry__2_n_6),
-        .O(m_axis_tdata1__277_carry__2_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__2_i_10
-       (.I0(m_axis_tdata1__140_carry__2_n_6),
-        .I1(m_axis_tdata1__230_carry__2_n_6),
-        .I2(m_axis_tdata1__185_carry__2_n_6),
-        .O(m_axis_tdata1__277_carry__2_i_10_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__2_i_11
-       (.I0(m_axis_tdata1__140_carry__2_n_7),
-        .I1(m_axis_tdata1__230_carry__2_n_7),
-        .I2(m_axis_tdata1__185_carry__2_n_7),
-        .O(m_axis_tdata1__277_carry__2_i_11_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__2_i_12
-       (.I0(m_axis_tdata1__140_carry__2_n_4),
-        .I1(m_axis_tdata1__230_carry__2_n_4),
-        .I2(m_axis_tdata1__185_carry__2_n_4),
-        .O(m_axis_tdata1__277_carry__2_i_12_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__2_i_2
-       (.I0(m_axis_tdata1__86_carry__2_n_6),
-        .I1(m_axis_tdata1__277_carry__2_i_10_n_0),
-        .I2(m_axis_tdata1__140_carry__2_n_7),
-        .I3(m_axis_tdata1__185_carry__2_n_7),
-        .I4(m_axis_tdata1__230_carry__2_n_7),
-        .O(m_axis_tdata1__277_carry__2_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__2_i_3
-       (.I0(m_axis_tdata1__86_carry__2_n_7),
-        .I1(m_axis_tdata1__277_carry__2_i_11_n_0),
-        .I2(m_axis_tdata1__140_carry__1_n_4),
-        .I3(m_axis_tdata1__185_carry__1_n_4),
-        .I4(m_axis_tdata1__230_carry__1_n_4),
-        .O(m_axis_tdata1__277_carry__2_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__2_i_4
-       (.I0(m_axis_tdata1__86_carry__1_n_4),
-        .I1(m_axis_tdata1__277_carry__1_i_12_n_0),
-        .I2(m_axis_tdata1__140_carry__1_n_5),
-        .I3(m_axis_tdata1__185_carry__1_n_5),
-        .I4(m_axis_tdata1__230_carry__1_n_5),
-        .O(m_axis_tdata1__277_carry__2_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__2_i_5
-       (.I0(m_axis_tdata1__277_carry__2_i_1_n_0),
-        .I1(m_axis_tdata1__277_carry__2_i_12_n_0),
-        .I2(m_axis_tdata1__86_carry__2_n_4),
-        .I3(m_axis_tdata1__230_carry__2_n_5),
-        .I4(m_axis_tdata1__185_carry__2_n_5),
-        .I5(m_axis_tdata1__140_carry__2_n_5),
-        .O(m_axis_tdata1__277_carry__2_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__2_i_6
-       (.I0(m_axis_tdata1__277_carry__2_i_2_n_0),
-        .I1(m_axis_tdata1__277_carry__2_i_9_n_0),
-        .I2(m_axis_tdata1__86_carry__2_n_5),
-        .I3(m_axis_tdata1__230_carry__2_n_6),
-        .I4(m_axis_tdata1__185_carry__2_n_6),
-        .I5(m_axis_tdata1__140_carry__2_n_6),
-        .O(m_axis_tdata1__277_carry__2_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__2_i_7
-       (.I0(m_axis_tdata1__277_carry__2_i_3_n_0),
-        .I1(m_axis_tdata1__277_carry__2_i_10_n_0),
-        .I2(m_axis_tdata1__86_carry__2_n_6),
-        .I3(m_axis_tdata1__230_carry__2_n_7),
-        .I4(m_axis_tdata1__185_carry__2_n_7),
-        .I5(m_axis_tdata1__140_carry__2_n_7),
-        .O(m_axis_tdata1__277_carry__2_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__2_i_8
-       (.I0(m_axis_tdata1__277_carry__2_i_4_n_0),
-        .I1(m_axis_tdata1__277_carry__2_i_11_n_0),
-        .I2(m_axis_tdata1__86_carry__2_n_7),
-        .I3(m_axis_tdata1__230_carry__1_n_4),
-        .I4(m_axis_tdata1__185_carry__1_n_4),
-        .I5(m_axis_tdata1__140_carry__1_n_4),
-        .O(m_axis_tdata1__277_carry__2_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__2_i_9
-       (.I0(m_axis_tdata1__140_carry__2_n_5),
-        .I1(m_axis_tdata1__230_carry__2_n_5),
-        .I2(m_axis_tdata1__185_carry__2_n_5),
-        .O(m_axis_tdata1__277_carry__2_i_9_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__277_carry__3
-       (.CI(m_axis_tdata1__277_carry__2_n_0),
-        .CO({m_axis_tdata1__277_carry__3_n_0,m_axis_tdata1__277_carry__3_n_1,m_axis_tdata1__277_carry__3_n_2,m_axis_tdata1__277_carry__3_n_3}),
-        .CYINIT(1'b0),
-        .DI({m_axis_tdata1__277_carry__3_i_1_n_0,m_axis_tdata1__277_carry__3_i_2_n_0,m_axis_tdata1__277_carry__3_i_3_n_0,m_axis_tdata1__277_carry__3_i_4_n_0}),
-        .O({m_axis_tdata1__277_carry__3_n_4,m_axis_tdata1__277_carry__3_n_5,m_axis_tdata1__277_carry__3_n_6,m_axis_tdata1__277_carry__3_n_7}),
-        .S({m_axis_tdata1__277_carry__3_i_5_n_0,m_axis_tdata1__277_carry__3_i_6_n_0,m_axis_tdata1__277_carry__3_i_7_n_0,m_axis_tdata1__277_carry__3_i_8_n_0}));
-  LUT5 #(
-    .INIT(32'hDDD4D444)) 
-    m_axis_tdata1__277_carry__3_i_1
-       (.I0(m_axis_tdata1__86_carry__3_n_1),
-        .I1(m_axis_tdata1__277_carry__3_i_9_n_0),
-        .I2(m_axis_tdata1__140_carry__3_n_6),
-        .I3(m_axis_tdata1__185_carry__3_n_6),
-        .I4(m_axis_tdata1__230_carry__3_n_6),
-        .O(m_axis_tdata1__277_carry__3_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__3_i_10
-       (.I0(m_axis_tdata1__140_carry__3_n_6),
-        .I1(m_axis_tdata1__230_carry__3_n_6),
-        .I2(m_axis_tdata1__185_carry__3_n_6),
-        .O(m_axis_tdata1__277_carry__3_i_10_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__3_i_11
-       (.I0(m_axis_tdata1__140_carry__3_n_7),
-        .I1(m_axis_tdata1__230_carry__3_n_7),
-        .I2(m_axis_tdata1__185_carry__3_n_7),
-        .O(m_axis_tdata1__277_carry__3_i_11_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__3_i_12
-       (.I0(m_axis_tdata1__140_carry__3_n_4),
-        .I1(m_axis_tdata1__230_carry__3_n_4),
-        .I2(m_axis_tdata1__185_carry__3_n_4),
-        .O(m_axis_tdata1__277_carry__3_i_12_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__3_i_2
-       (.I0(m_axis_tdata1__86_carry__3_n_6),
-        .I1(m_axis_tdata1__277_carry__3_i_10_n_0),
-        .I2(m_axis_tdata1__140_carry__3_n_7),
-        .I3(m_axis_tdata1__185_carry__3_n_7),
-        .I4(m_axis_tdata1__230_carry__3_n_7),
-        .O(m_axis_tdata1__277_carry__3_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__3_i_3
-       (.I0(m_axis_tdata1__86_carry__3_n_7),
-        .I1(m_axis_tdata1__277_carry__3_i_11_n_0),
-        .I2(m_axis_tdata1__140_carry__2_n_4),
-        .I3(m_axis_tdata1__185_carry__2_n_4),
-        .I4(m_axis_tdata1__230_carry__2_n_4),
-        .O(m_axis_tdata1__277_carry__3_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry__3_i_4
-       (.I0(m_axis_tdata1__86_carry__2_n_4),
-        .I1(m_axis_tdata1__277_carry__2_i_12_n_0),
-        .I2(m_axis_tdata1__140_carry__2_n_5),
-        .I3(m_axis_tdata1__185_carry__2_n_5),
-        .I4(m_axis_tdata1__230_carry__2_n_5),
-        .O(m_axis_tdata1__277_carry__3_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h9696966996696969)) 
-    m_axis_tdata1__277_carry__3_i_5
-       (.I0(m_axis_tdata1__277_carry__3_i_1_n_0),
-        .I1(m_axis_tdata1__277_carry__3_i_12_n_0),
-        .I2(m_axis_tdata1__86_carry__3_n_1),
-        .I3(m_axis_tdata1__230_carry__3_n_5),
-        .I4(m_axis_tdata1__185_carry__3_n_5),
-        .I5(m_axis_tdata1__140_carry__3_n_5),
-        .O(m_axis_tdata1__277_carry__3_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h9696966996696969)) 
-    m_axis_tdata1__277_carry__3_i_6
-       (.I0(m_axis_tdata1__277_carry__3_i_2_n_0),
-        .I1(m_axis_tdata1__277_carry__3_i_9_n_0),
-        .I2(m_axis_tdata1__86_carry__3_n_1),
-        .I3(m_axis_tdata1__230_carry__3_n_6),
-        .I4(m_axis_tdata1__185_carry__3_n_6),
-        .I5(m_axis_tdata1__140_carry__3_n_6),
-        .O(m_axis_tdata1__277_carry__3_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__3_i_7
-       (.I0(m_axis_tdata1__277_carry__3_i_3_n_0),
-        .I1(m_axis_tdata1__277_carry__3_i_10_n_0),
-        .I2(m_axis_tdata1__86_carry__3_n_6),
-        .I3(m_axis_tdata1__230_carry__3_n_7),
-        .I4(m_axis_tdata1__185_carry__3_n_7),
-        .I5(m_axis_tdata1__140_carry__3_n_7),
-        .O(m_axis_tdata1__277_carry__3_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry__3_i_8
-       (.I0(m_axis_tdata1__277_carry__3_i_4_n_0),
-        .I1(m_axis_tdata1__277_carry__3_i_11_n_0),
-        .I2(m_axis_tdata1__86_carry__3_n_7),
-        .I3(m_axis_tdata1__230_carry__2_n_4),
-        .I4(m_axis_tdata1__185_carry__2_n_4),
-        .I5(m_axis_tdata1__140_carry__2_n_4),
-        .O(m_axis_tdata1__277_carry__3_i_8_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry__3_i_9
-       (.I0(m_axis_tdata1__140_carry__3_n_5),
-        .I1(m_axis_tdata1__230_carry__3_n_5),
-        .I2(m_axis_tdata1__185_carry__3_n_5),
-        .O(m_axis_tdata1__277_carry__3_i_9_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 m_axis_tdata1__277_carry__4
-       (.CI(m_axis_tdata1__277_carry__3_n_0),
-        .CO(NLW_m_axis_tdata1__277_carry__4_CO_UNCONNECTED[3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW_m_axis_tdata1__277_carry__4_O_UNCONNECTED[3:1],m_axis_tdata1__277_carry__4_n_7}),
-        .S({1'b0,1'b0,1'b0,m_axis_tdata1__277_carry__4_i_1_n_0}));
-  LUT6 #(
-    .INIT(64'hB42D2D4B2D4B4BD2)) 
-    m_axis_tdata1__277_carry__4_i_1
-       (.I0(m_axis_tdata1__277_carry__4_i_2_n_0),
-        .I1(m_axis_tdata1__86_carry__3_n_1),
-        .I2(m_axis_tdata1__277_carry__4_i_3_n_0),
-        .I3(m_axis_tdata1__230_carry__3_n_4),
-        .I4(m_axis_tdata1__185_carry__3_n_4),
-        .I5(m_axis_tdata1__140_carry__3_n_4),
-        .O(m_axis_tdata1__277_carry__4_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
-  LUT3 #(
-    .INIT(8'hE8)) 
-    m_axis_tdata1__277_carry__4_i_2
-       (.I0(m_axis_tdata1__230_carry__3_n_5),
-        .I1(m_axis_tdata1__185_carry__3_n_5),
-        .I2(m_axis_tdata1__140_carry__3_n_5),
-        .O(m_axis_tdata1__277_carry__4_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    m_axis_tdata1__277_carry__4_i_3
-       (.I0(m_axis_tdata1__185_carry__4_n_7),
-        .I1(m_axis_tdata1__230_carry__4_n_7),
-        .I2(m_axis_tdata1__140_carry__4_n_7),
-        .I3(m_axis_tdata1__86_carry__3_n_1),
-        .O(m_axis_tdata1__277_carry__4_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hEEE8E888)) 
-    m_axis_tdata1__277_carry_i_1
-       (.I0(m_axis_tdata1__86_carry_n_5),
-        .I1(m_axis_tdata1__277_carry_i_8_n_0),
-        .I2(m_axis_tdata1__140_carry_n_6),
-        .I3(m_axis_tdata1__185_carry_n_6),
-        .I4(m_axis_tdata1__230_carry_n_6),
-        .O(m_axis_tdata1__277_carry_i_1_n_0));
-  LUT5 #(
-    .INIT(32'hE81717E8)) 
-    m_axis_tdata1__277_carry_i_2
-       (.I0(m_axis_tdata1__140_carry_n_6),
-        .I1(m_axis_tdata1__185_carry_n_6),
-        .I2(m_axis_tdata1__230_carry_n_6),
-        .I3(m_axis_tdata1__86_carry_n_5),
-        .I4(m_axis_tdata1__277_carry_i_8_n_0),
-        .O(m_axis_tdata1__277_carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__277_carry_i_3
-       (.I0(m_axis_tdata1__185_carry_n_6),
-        .I1(m_axis_tdata1__230_carry_n_6),
-        .I2(m_axis_tdata1__140_carry_n_6),
-        .I3(m_axis_tdata1__86_carry_n_6),
-        .O(m_axis_tdata1__277_carry_i_3_n_0));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    m_axis_tdata1__277_carry_i_4
-       (.I0(m_axis_tdata1__277_carry_i_1_n_0),
-        .I1(m_axis_tdata1__277_carry_i_9_n_0),
-        .I2(m_axis_tdata1__86_carry_n_4),
-        .I3(m_axis_tdata1__230_carry_n_5),
-        .I4(m_axis_tdata1__185_carry_n_5),
-        .I5(m_axis_tdata1__140_carry_n_5),
-        .O(m_axis_tdata1__277_carry_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h6999999699969666)) 
-    m_axis_tdata1__277_carry_i_5
-       (.I0(m_axis_tdata1__277_carry_i_8_n_0),
-        .I1(m_axis_tdata1__86_carry_n_5),
-        .I2(m_axis_tdata1__140_carry_n_6),
-        .I3(m_axis_tdata1__230_carry_n_6),
-        .I4(m_axis_tdata1__185_carry_n_6),
-        .I5(m_axis_tdata1__86_carry_n_6),
-        .O(m_axis_tdata1__277_carry_i_5_n_0));
-  LUT4 #(
-    .INIT(16'h566A)) 
-    m_axis_tdata1__277_carry_i_6
-       (.I0(m_axis_tdata1__277_carry_i_3_n_0),
-        .I1(m_axis_tdata1__140_carry_n_7),
-        .I2(m_axis_tdata1__185_carry_n_7),
-        .I3(m_axis_tdata1__230_carry_n_7),
-        .O(m_axis_tdata1__277_carry_i_6_n_0));
-  LUT4 #(
-    .INIT(16'h6996)) 
-    m_axis_tdata1__277_carry_i_7
-       (.I0(m_axis_tdata1__185_carry_n_7),
-        .I1(m_axis_tdata1__230_carry_n_7),
-        .I2(m_axis_tdata1__140_carry_n_7),
-        .I3(m_axis_tdata1__86_carry_n_7),
-        .O(m_axis_tdata1__277_carry_i_7_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry_i_8
-       (.I0(m_axis_tdata1__140_carry_n_5),
-        .I1(m_axis_tdata1__230_carry_n_5),
-        .I2(m_axis_tdata1__185_carry_n_5),
-        .O(m_axis_tdata1__277_carry_i_8_n_0));
-  LUT3 #(
-    .INIT(8'h96)) 
-    m_axis_tdata1__277_carry_i_9
-       (.I0(m_axis_tdata1__140_carry_n_4),
-        .I1(m_axis_tdata1__230_carry_n_4),
-        .I2(m_axis_tdata1__185_carry_n_4),
-        .O(m_axis_tdata1__277_carry_i_9_n_0));
-  CARRY4 m_axis_tdata1__50_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__50_carry_CO_UNCONNECTED[3],m_axis_tdata1__50_carry_n_1,NLW_m_axis_tdata1__50_carry_CO_UNCONNECTED[1],m_axis_tdata1__50_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__50_carry_O_UNCONNECTED[3:2],m_axis_tdata1__50_carry_n_6,m_axis_tdata1__50_carry_n_7}),
-        .S({1'b0,1'b1,m_axis_tdata1__50_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__50_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__50_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__54_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__54_carry_CO_UNCONNECTED[3],m_axis_tdata1__54_carry_n_1,NLW_m_axis_tdata1__54_carry_CO_UNCONNECTED[1],m_axis_tdata1__54_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__54_carry_O_UNCONNECTED[3:2],m_axis_tdata1__54_carry_n_6,NLW_m_axis_tdata1__54_carry_O_UNCONNECTED[0]}),
-        .S({1'b0,1'b1,m_axis_tdata1__54_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__54_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__54_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__58_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__58_carry_CO_UNCONNECTED[3],m_axis_tdata1__58_carry_n_1,NLW_m_axis_tdata1__58_carry_CO_UNCONNECTED[1],m_axis_tdata1__58_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__58_carry_O_UNCONNECTED[3:2],m_axis_tdata1__58_carry_n_6,NLW_m_axis_tdata1__58_carry_O_UNCONNECTED[0]}),
-        .S({1'b0,1'b1,m_axis_tdata1__58_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__58_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__58_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__62_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__62_carry_CO_UNCONNECTED[3],m_axis_tdata1__62_carry_n_1,NLW_m_axis_tdata1__62_carry_CO_UNCONNECTED[1],m_axis_tdata1__62_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__62_carry_O_UNCONNECTED[3:2],m_axis_tdata1__62_carry_n_6,NLW_m_axis_tdata1__62_carry_O_UNCONNECTED[0]}),
-        .S({1'b0,1'b1,m_axis_tdata1__62_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__62_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__62_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__66_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__66_carry_CO_UNCONNECTED[3],m_axis_tdata1__66_carry_n_1,NLW_m_axis_tdata1__66_carry_CO_UNCONNECTED[1],m_axis_tdata1__66_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__66_carry_O_UNCONNECTED[3:2],m_axis_tdata1__66_carry_n_6,NLW_m_axis_tdata1__66_carry_O_UNCONNECTED[0]}),
-        .S({1'b0,1'b1,m_axis_tdata1__66_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__66_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__66_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__70_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__70_carry_CO_UNCONNECTED[3],m_axis_tdata1__70_carry_n_1,NLW_m_axis_tdata1__70_carry_CO_UNCONNECTED[1],m_axis_tdata1__70_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__70_carry_O_UNCONNECTED[3:2],m_axis_tdata1__70_carry_n_6,NLW_m_axis_tdata1__70_carry_O_UNCONNECTED[0]}),
-        .S({1'b0,1'b1,m_axis_tdata1__70_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__70_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__70_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__74_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__74_carry_CO_UNCONNECTED[3],m_axis_tdata1__74_carry_n_1,NLW_m_axis_tdata1__74_carry_CO_UNCONNECTED[1],m_axis_tdata1__74_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__74_carry_O_UNCONNECTED[3:2],m_axis_tdata1__74_carry_n_6,NLW_m_axis_tdata1__74_carry_O_UNCONNECTED[0]}),
-        .S({1'b0,1'b1,m_axis_tdata1__74_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__74_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__74_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__78_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__78_carry_CO_UNCONNECTED[3],m_axis_tdata1__78_carry_n_1,NLW_m_axis_tdata1__78_carry_CO_UNCONNECTED[1],m_axis_tdata1__78_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__78_carry_O_UNCONNECTED[3:2],m_axis_tdata1__78_carry_n_6,NLW_m_axis_tdata1__78_carry_O_UNCONNECTED[0]}),
-        .S({1'b0,1'b1,m_axis_tdata1__78_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__78_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__78_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__82_carry
-       (.CI(1'b0),
-        .CO({NLW_m_axis_tdata1__82_carry_CO_UNCONNECTED[3],m_axis_tdata1__82_carry_n_1,NLW_m_axis_tdata1__82_carry_CO_UNCONNECTED[1],m_axis_tdata1__82_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({NLW_m_axis_tdata1__82_carry_O_UNCONNECTED[3:2],m_axis_tdata1__82_carry_n_6,NLW_m_axis_tdata1__82_carry_O_UNCONNECTED[0]}),
-        .S({1'b0,1'b1,m_axis_tdata1__82_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__82_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__82_carry_i_1_n_0));
-  CARRY4 m_axis_tdata1__86_carry
-       (.CI(1'b0),
-        .CO({m_axis_tdata1__86_carry_n_0,m_axis_tdata1__86_carry_n_1,m_axis_tdata1__86_carry_n_2,m_axis_tdata1__86_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,1'b0}),
-        .O({m_axis_tdata1__86_carry_n_4,m_axis_tdata1__86_carry_n_5,m_axis_tdata1__86_carry_n_6,m_axis_tdata1__86_carry_n_7}),
-        .S({m_axis_tdata1__86_carry_i_1_n_0,m_axis_tdata1__86_carry_i_2_n_0,m_axis_tdata1__86_carry_i_3_n_0,m_axis_tdata1__0_carry_n_7}));
-  CARRY4 m_axis_tdata1__86_carry__0
-       (.CI(m_axis_tdata1__86_carry_n_0),
-        .CO({m_axis_tdata1__86_carry__0_n_0,m_axis_tdata1__86_carry__0_n_1,m_axis_tdata1__86_carry__0_n_2,m_axis_tdata1__86_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 }),
-        .O({m_axis_tdata1__86_carry__0_n_4,m_axis_tdata1__86_carry__0_n_5,m_axis_tdata1__86_carry__0_n_6,m_axis_tdata1__86_carry__0_n_7}),
-        .S({m_axis_tdata1__86_carry__0_i_1_n_0,m_axis_tdata1__86_carry__0_i_2_n_0,m_axis_tdata1__86_carry__0_i_3_n_0,m_axis_tdata1__86_carry__0_i_4_n_0}));
+        .DI(filter_accumulator_L[7:4]),
+        .O(m_axis_tdata1[7:4]),
+        .S({m_axis_tdata1_carry__0_i_1_n_0,m_axis_tdata1_carry__0_i_2_n_0,m_axis_tdata1_carry__0_i_3_n_0,m_axis_tdata1_carry__0_i_4_n_0}));
   LUT2 #(
     .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__0_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__0_n_4),
-        .O(m_axis_tdata1__86_carry__0_i_1_n_0));
+    m_axis_tdata1_carry__0_i_1
+       (.I0(filter_accumulator_L[7]),
+        .I1(tdata_int[7]),
+        .O(m_axis_tdata1_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__0_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__0_n_5),
-        .O(m_axis_tdata1__86_carry__0_i_2_n_0));
+    m_axis_tdata1_carry__0_i_2
+       (.I0(filter_accumulator_L[6]),
+        .I1(tdata_int[6]),
+        .O(m_axis_tdata1_carry__0_i_2_n_0));
   LUT2 #(
     .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__0_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__0_n_6),
-        .O(m_axis_tdata1__86_carry__0_i_3_n_0));
+    m_axis_tdata1_carry__0_i_3
+       (.I0(filter_accumulator_L[5]),
+        .I1(tdata_int[5]),
+        .O(m_axis_tdata1_carry__0_i_3_n_0));
   LUT2 #(
     .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__0_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__0_n_7),
-        .O(m_axis_tdata1__86_carry__0_i_4_n_0));
-  CARRY4 m_axis_tdata1__86_carry__1
-       (.CI(m_axis_tdata1__86_carry__0_n_0),
-        .CO({m_axis_tdata1__86_carry__1_n_0,m_axis_tdata1__86_carry__1_n_1,m_axis_tdata1__86_carry__1_n_2,m_axis_tdata1__86_carry__1_n_3}),
+    m_axis_tdata1_carry__0_i_4
+       (.I0(filter_accumulator_L[4]),
+        .I1(tdata_int[4]),
+        .O(m_axis_tdata1_carry__0_i_4_n_0));
+  CARRY4 m_axis_tdata1_carry__1
+       (.CI(m_axis_tdata1_carry__0_n_0),
+        .CO({m_axis_tdata1_carry__1_n_0,m_axis_tdata1_carry__1_n_1,m_axis_tdata1_carry__1_n_2,m_axis_tdata1_carry__1_n_3}),
         .CYINIT(1'b0),
-        .DI({\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 }),
-        .O({m_axis_tdata1__86_carry__1_n_4,m_axis_tdata1__86_carry__1_n_5,m_axis_tdata1__86_carry__1_n_6,m_axis_tdata1__86_carry__1_n_7}),
-        .S({m_axis_tdata1__86_carry__1_i_1_n_0,m_axis_tdata1__86_carry__1_i_2_n_0,m_axis_tdata1__86_carry__1_i_3_n_0,m_axis_tdata1__86_carry__1_i_4_n_0}));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__1_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__1_n_4),
-        .O(m_axis_tdata1__86_carry__1_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__1_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__1_n_5),
-        .O(m_axis_tdata1__86_carry__1_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__1_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__1_n_6),
-        .O(m_axis_tdata1__86_carry__1_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__1_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__1_n_7),
-        .O(m_axis_tdata1__86_carry__1_i_4_n_0));
-  CARRY4 m_axis_tdata1__86_carry__2
-       (.CI(m_axis_tdata1__86_carry__1_n_0),
-        .CO({m_axis_tdata1__86_carry__2_n_0,m_axis_tdata1__86_carry__2_n_1,m_axis_tdata1__86_carry__2_n_2,m_axis_tdata1__86_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI({\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 }),
-        .O({m_axis_tdata1__86_carry__2_n_4,m_axis_tdata1__86_carry__2_n_5,m_axis_tdata1__86_carry__2_n_6,m_axis_tdata1__86_carry__2_n_7}),
-        .S({m_axis_tdata1__86_carry__2_i_1_n_0,m_axis_tdata1__86_carry__2_i_2_n_0,m_axis_tdata1__86_carry__2_i_3_n_0,m_axis_tdata1__86_carry__2_i_4_n_0}));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__2_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__2_n_4),
-        .O(m_axis_tdata1__86_carry__2_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__2_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__2_n_5),
-        .O(m_axis_tdata1__86_carry__2_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__2_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__2_n_6),
-        .O(m_axis_tdata1__86_carry__2_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__2_i_4
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry__2_n_7),
-        .O(m_axis_tdata1__86_carry__2_i_4_n_0));
-  CARRY4 m_axis_tdata1__86_carry__3
-       (.CI(m_axis_tdata1__86_carry__2_n_0),
-        .CO({NLW_m_axis_tdata1__86_carry__3_CO_UNCONNECTED[3],m_axis_tdata1__86_carry__3_n_1,NLW_m_axis_tdata1__86_carry__3_CO_UNCONNECTED[1],m_axis_tdata1__86_carry__3_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,m_axis_tdata1__0_carry__3_n_7,m_axis_tdata1__86_carry__3_i_1_n_0}),
-        .O({NLW_m_axis_tdata1__86_carry__3_O_UNCONNECTED[3:2],m_axis_tdata1__86_carry__3_n_6,m_axis_tdata1__86_carry__3_n_7}),
-        .S({1'b0,1'b1,m_axis_tdata1__86_carry__3_i_2_n_0,m_axis_tdata1__86_carry__3_i_3_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    m_axis_tdata1__86_carry__3_i_1
-       (.I0(m_axis_tdata1__0_carry__3_n_7),
-        .O(m_axis_tdata1__86_carry__3_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__3_i_2
-       (.I0(m_axis_tdata1__0_carry__3_n_7),
-        .I1(m_axis_tdata1__0_carry__3_n_2),
-        .O(m_axis_tdata1__86_carry__3_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry__3_i_3
-       (.I0(m_axis_tdata1__0_carry__3_n_7),
-        .I1(\filter_buffer_L_reg[30]_2 ),
-        .O(m_axis_tdata1__86_carry__3_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry_i_1
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry_n_4),
-        .O(m_axis_tdata1__86_carry_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry_i_2
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry_n_5),
-        .O(m_axis_tdata1__86_carry_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    m_axis_tdata1__86_carry_i_3
-       (.I0(\filter_buffer_L_reg[30]_2 ),
-        .I1(m_axis_tdata1__0_carry_n_6),
-        .O(m_axis_tdata1__86_carry_i_3_n_0));
-  CARRY4 \m_axis_tdata1_inferred__0/i___0_carry 
-       (.CI(1'b0),
-        .CO({\m_axis_tdata1_inferred__0/i___0_carry_n_0 ,\m_axis_tdata1_inferred__0/i___0_carry_n_1 ,\m_axis_tdata1_inferred__0/i___0_carry_n_2 ,\m_axis_tdata1_inferred__0/i___0_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___0_carry_i_1_n_0,i___0_carry_i_2_n_0,i___0_carry_i_3_n_0,1'b0}),
-        .O({\m_axis_tdata1_inferred__0/i___0_carry_n_4 ,\m_axis_tdata1_inferred__0/i___0_carry_n_5 ,\m_axis_tdata1_inferred__0/i___0_carry_n_6 ,\m_axis_tdata1_inferred__0/i___0_carry_n_7 }),
-        .S({i___0_carry_i_4_n_0,i___0_carry_i_5_n_0,i___0_carry_i_6_n_0,i___0_carry_i_7_n_0}));
-  CARRY4 \m_axis_tdata1_inferred__0/i___0_carry__0 
-       (.CI(\m_axis_tdata1_inferred__0/i___0_carry_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___0_carry__0_n_0 ,\m_axis_tdata1_inferred__0/i___0_carry__0_n_1 ,\m_axis_tdata1_inferred__0/i___0_carry__0_n_2 ,\m_axis_tdata1_inferred__0/i___0_carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___0_carry__0_i_1_n_0,i___0_carry__0_i_2_n_0,i___0_carry__0_i_3_n_0,i___0_carry__0_i_4_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___0_carry__0_n_4 ,\m_axis_tdata1_inferred__0/i___0_carry__0_n_5 ,\m_axis_tdata1_inferred__0/i___0_carry__0_n_6 ,\m_axis_tdata1_inferred__0/i___0_carry__0_n_7 }),
-        .S({i___0_carry__0_i_5_n_0,i___0_carry__0_i_6_n_0,i___0_carry__0_i_7_n_0,i___0_carry__0_i_8_n_0}));
-  CARRY4 \m_axis_tdata1_inferred__0/i___0_carry__1 
-       (.CI(\m_axis_tdata1_inferred__0/i___0_carry__0_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___0_carry__1_n_0 ,\m_axis_tdata1_inferred__0/i___0_carry__1_n_1 ,\m_axis_tdata1_inferred__0/i___0_carry__1_n_2 ,\m_axis_tdata1_inferred__0/i___0_carry__1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___0_carry__1_i_1_n_0,i___0_carry__1_i_2_n_0,i___0_carry__1_i_3_n_0,i___0_carry__1_i_4_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___0_carry__1_n_4 ,\m_axis_tdata1_inferred__0/i___0_carry__1_n_5 ,\m_axis_tdata1_inferred__0/i___0_carry__1_n_6 ,\m_axis_tdata1_inferred__0/i___0_carry__1_n_7 }),
-        .S({i___0_carry__1_i_5_n_0,i___0_carry__1_i_6_n_0,i___0_carry__1_i_7_n_0,i___0_carry__1_i_8_n_0}));
-  CARRY4 \m_axis_tdata1_inferred__0/i___0_carry__2 
-       (.CI(\m_axis_tdata1_inferred__0/i___0_carry__1_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___0_carry__2_n_0 ,\m_axis_tdata1_inferred__0/i___0_carry__2_n_1 ,\m_axis_tdata1_inferred__0/i___0_carry__2_n_2 ,\m_axis_tdata1_inferred__0/i___0_carry__2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___0_carry__2_i_1_n_0,i___0_carry__2_i_2_n_0,i___0_carry__2_i_3_n_0,i___0_carry__2_i_4_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___0_carry__2_n_4 ,\m_axis_tdata1_inferred__0/i___0_carry__2_n_5 ,\m_axis_tdata1_inferred__0/i___0_carry__2_n_6 ,\m_axis_tdata1_inferred__0/i___0_carry__2_n_7 }),
-        .S({i___0_carry__2_i_5_n_0,i___0_carry__2_i_6_n_0,i___0_carry__2_i_7_n_0,i___0_carry__2_i_8_n_0}));
-  CARRY4 \m_axis_tdata1_inferred__0/i___0_carry__3 
-       (.CI(\m_axis_tdata1_inferred__0/i___0_carry__2_n_0 ),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___0_carry__3_CO_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___0_carry__3_n_2 ,\NLW_m_axis_tdata1_inferred__0/i___0_carry__3_CO_UNCONNECTED [0]}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,i___0_carry__3_i_1_n_0}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___0_carry__3_O_UNCONNECTED [3:1],\m_axis_tdata1_inferred__0/i___0_carry__3_n_7 }),
-        .S({1'b0,1'b0,1'b1,i___0_carry__3_i_2_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___140_carry 
-       (.CI(1'b0),
-        .CO({\m_axis_tdata1_inferred__0/i___140_carry_n_0 ,\m_axis_tdata1_inferred__0/i___140_carry_n_1 ,\m_axis_tdata1_inferred__0/i___140_carry_n_2 ,\m_axis_tdata1_inferred__0/i___140_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___140_carry_i_1_n_0,i___140_carry_i_2_n_0,\filter_buffer_L_reg[30]_2 ,1'b0}),
-        .O({\m_axis_tdata1_inferred__0/i___140_carry_n_4 ,\m_axis_tdata1_inferred__0/i___140_carry_n_5 ,\m_axis_tdata1_inferred__0/i___140_carry_n_6 ,\m_axis_tdata1_inferred__0/i___140_carry_n_7 }),
-        .S({i___140_carry_i_3_n_0,i___140_carry_i_4_n_0,i___140_carry_i_5_n_0,\filter_buffer_L_reg[30]_2 }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___140_carry__0 
-       (.CI(\m_axis_tdata1_inferred__0/i___140_carry_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___140_carry__0_n_0 ,\m_axis_tdata1_inferred__0/i___140_carry__0_n_1 ,\m_axis_tdata1_inferred__0/i___140_carry__0_n_2 ,\m_axis_tdata1_inferred__0/i___140_carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___140_carry_i_1_n_0,i___140_carry_i_1_n_0,i___140_carry_i_1_n_0,i___140_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___140_carry__0_n_4 ,\m_axis_tdata1_inferred__0/i___140_carry__0_n_5 ,\m_axis_tdata1_inferred__0/i___140_carry__0_n_6 ,\m_axis_tdata1_inferred__0/i___140_carry__0_n_7 }),
-        .S({i___140_carry__0_i_1_n_0,i___140_carry__0_i_2_n_0,i___140_carry__0_i_3_n_0,i___140_carry__0_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___140_carry__1 
-       (.CI(\m_axis_tdata1_inferred__0/i___140_carry__0_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___140_carry__1_n_0 ,\m_axis_tdata1_inferred__0/i___140_carry__1_n_1 ,\m_axis_tdata1_inferred__0/i___140_carry__1_n_2 ,\m_axis_tdata1_inferred__0/i___140_carry__1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___140_carry_i_1_n_0,i___140_carry_i_1_n_0,i___140_carry_i_1_n_0,i___140_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___140_carry__1_n_4 ,\m_axis_tdata1_inferred__0/i___140_carry__1_n_5 ,\m_axis_tdata1_inferred__0/i___140_carry__1_n_6 ,\m_axis_tdata1_inferred__0/i___140_carry__1_n_7 }),
-        .S({i___140_carry__1_i_1_n_0,i___140_carry__1_i_2_n_0,i___140_carry__1_i_3_n_0,i___140_carry__1_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___140_carry__2 
-       (.CI(\m_axis_tdata1_inferred__0/i___140_carry__1_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___140_carry__2_n_0 ,\m_axis_tdata1_inferred__0/i___140_carry__2_n_1 ,\m_axis_tdata1_inferred__0/i___140_carry__2_n_2 ,\m_axis_tdata1_inferred__0/i___140_carry__2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___140_carry_i_1_n_0,i___140_carry_i_1_n_0,i___140_carry_i_1_n_0,i___140_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___140_carry__2_n_4 ,\m_axis_tdata1_inferred__0/i___140_carry__2_n_5 ,\m_axis_tdata1_inferred__0/i___140_carry__2_n_6 ,\m_axis_tdata1_inferred__0/i___140_carry__2_n_7 }),
-        .S({i___140_carry__2_i_1_n_0,i___140_carry__2_i_2_n_0,i___140_carry__2_i_3_n_0,i___140_carry__2_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___140_carry__3 
-       (.CI(\m_axis_tdata1_inferred__0/i___140_carry__2_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___140_carry__3_n_0 ,\m_axis_tdata1_inferred__0/i___140_carry__3_n_1 ,\m_axis_tdata1_inferred__0/i___140_carry__3_n_2 ,\m_axis_tdata1_inferred__0/i___140_carry__3_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___140_carry_i_1_n_0,i___140_carry_i_1_n_0,i___140_carry_i_1_n_0,i___140_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___140_carry__3_n_4 ,\m_axis_tdata1_inferred__0/i___140_carry__3_n_5 ,\m_axis_tdata1_inferred__0/i___140_carry__3_n_6 ,\m_axis_tdata1_inferred__0/i___140_carry__3_n_7 }),
-        .S({i___140_carry__3_i_1_n_0,i___140_carry__3_i_2_n_0,i___140_carry__3_i_3_n_0,i___140_carry__3_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___140_carry__4 
-       (.CI(\m_axis_tdata1_inferred__0/i___140_carry__3_n_0 ),
-        .CO(\NLW_m_axis_tdata1_inferred__0/i___140_carry__4_CO_UNCONNECTED [3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___140_carry__4_O_UNCONNECTED [3:1],\m_axis_tdata1_inferred__0/i___140_carry__4_n_7 }),
-        .S({1'b0,1'b0,1'b0,i___140_carry__4_i_1_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___185_carry 
-       (.CI(1'b0),
-        .CO({\m_axis_tdata1_inferred__0/i___185_carry_n_0 ,\m_axis_tdata1_inferred__0/i___185_carry_n_1 ,\m_axis_tdata1_inferred__0/i___185_carry_n_2 ,\m_axis_tdata1_inferred__0/i___185_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___185_carry_i_1_n_0,i___185_carry_i_2_n_0,\filter_buffer_L_reg[30]_2 ,1'b0}),
-        .O({\m_axis_tdata1_inferred__0/i___185_carry_n_4 ,\m_axis_tdata1_inferred__0/i___185_carry_n_5 ,\m_axis_tdata1_inferred__0/i___185_carry_n_6 ,\m_axis_tdata1_inferred__0/i___185_carry_n_7 }),
-        .S({i___185_carry_i_3_n_0,i___185_carry_i_4_n_0,i___185_carry_i_5_n_0,\filter_buffer_L_reg[30]_2 }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___185_carry__0 
-       (.CI(\m_axis_tdata1_inferred__0/i___185_carry_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___185_carry__0_n_0 ,\m_axis_tdata1_inferred__0/i___185_carry__0_n_1 ,\m_axis_tdata1_inferred__0/i___185_carry__0_n_2 ,\m_axis_tdata1_inferred__0/i___185_carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___185_carry_i_1_n_0,i___185_carry_i_1_n_0,i___185_carry_i_1_n_0,i___185_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___185_carry__0_n_4 ,\m_axis_tdata1_inferred__0/i___185_carry__0_n_5 ,\m_axis_tdata1_inferred__0/i___185_carry__0_n_6 ,\m_axis_tdata1_inferred__0/i___185_carry__0_n_7 }),
-        .S({i___185_carry__0_i_1_n_0,i___185_carry__0_i_2_n_0,i___185_carry__0_i_3_n_0,i___185_carry__0_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___185_carry__1 
-       (.CI(\m_axis_tdata1_inferred__0/i___185_carry__0_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___185_carry__1_n_0 ,\m_axis_tdata1_inferred__0/i___185_carry__1_n_1 ,\m_axis_tdata1_inferred__0/i___185_carry__1_n_2 ,\m_axis_tdata1_inferred__0/i___185_carry__1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___185_carry_i_1_n_0,i___185_carry_i_1_n_0,i___185_carry_i_1_n_0,i___185_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___185_carry__1_n_4 ,\m_axis_tdata1_inferred__0/i___185_carry__1_n_5 ,\m_axis_tdata1_inferred__0/i___185_carry__1_n_6 ,\m_axis_tdata1_inferred__0/i___185_carry__1_n_7 }),
-        .S({i___185_carry__1_i_1_n_0,i___185_carry__1_i_2_n_0,i___185_carry__1_i_3_n_0,i___185_carry__1_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___185_carry__2 
-       (.CI(\m_axis_tdata1_inferred__0/i___185_carry__1_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___185_carry__2_n_0 ,\m_axis_tdata1_inferred__0/i___185_carry__2_n_1 ,\m_axis_tdata1_inferred__0/i___185_carry__2_n_2 ,\m_axis_tdata1_inferred__0/i___185_carry__2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___185_carry_i_1_n_0,i___185_carry_i_1_n_0,i___185_carry_i_1_n_0,i___185_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___185_carry__2_n_4 ,\m_axis_tdata1_inferred__0/i___185_carry__2_n_5 ,\m_axis_tdata1_inferred__0/i___185_carry__2_n_6 ,\m_axis_tdata1_inferred__0/i___185_carry__2_n_7 }),
-        .S({i___185_carry__2_i_1_n_0,i___185_carry__2_i_2_n_0,i___185_carry__2_i_3_n_0,i___185_carry__2_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___185_carry__3 
-       (.CI(\m_axis_tdata1_inferred__0/i___185_carry__2_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___185_carry__3_n_0 ,\m_axis_tdata1_inferred__0/i___185_carry__3_n_1 ,\m_axis_tdata1_inferred__0/i___185_carry__3_n_2 ,\m_axis_tdata1_inferred__0/i___185_carry__3_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___185_carry_i_1_n_0,i___185_carry_i_1_n_0,i___185_carry_i_1_n_0,i___185_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___185_carry__3_n_4 ,\m_axis_tdata1_inferred__0/i___185_carry__3_n_5 ,\m_axis_tdata1_inferred__0/i___185_carry__3_n_6 ,\m_axis_tdata1_inferred__0/i___185_carry__3_n_7 }),
-        .S({i___185_carry__3_i_1_n_0,i___185_carry__3_i_2_n_0,i___185_carry__3_i_3_n_0,i___185_carry__3_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___185_carry__4 
-       (.CI(\m_axis_tdata1_inferred__0/i___185_carry__3_n_0 ),
-        .CO(\NLW_m_axis_tdata1_inferred__0/i___185_carry__4_CO_UNCONNECTED [3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___185_carry__4_O_UNCONNECTED [3:1],\m_axis_tdata1_inferred__0/i___185_carry__4_n_7 }),
-        .S({1'b0,1'b0,1'b0,i___185_carry__4_i_1_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___230_carry 
-       (.CI(1'b0),
-        .CO({\m_axis_tdata1_inferred__0/i___230_carry_n_0 ,\m_axis_tdata1_inferred__0/i___230_carry_n_1 ,\m_axis_tdata1_inferred__0/i___230_carry_n_2 ,\m_axis_tdata1_inferred__0/i___230_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___230_carry_i_1_n_0,i___230_carry_i_2_n_0,\filter_buffer_L_reg[30]_2 ,1'b0}),
-        .O({\m_axis_tdata1_inferred__0/i___230_carry_n_4 ,\m_axis_tdata1_inferred__0/i___230_carry_n_5 ,\m_axis_tdata1_inferred__0/i___230_carry_n_6 ,\m_axis_tdata1_inferred__0/i___230_carry_n_7 }),
-        .S({i___230_carry_i_3_n_0,i___230_carry_i_4_n_0,i___230_carry_i_5_n_0,\filter_buffer_L_reg[30]_2 }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___230_carry__0 
-       (.CI(\m_axis_tdata1_inferred__0/i___230_carry_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___230_carry__0_n_0 ,\m_axis_tdata1_inferred__0/i___230_carry__0_n_1 ,\m_axis_tdata1_inferred__0/i___230_carry__0_n_2 ,\m_axis_tdata1_inferred__0/i___230_carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___230_carry_i_1_n_0,i___230_carry_i_1_n_0,i___230_carry_i_1_n_0,i___230_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___230_carry__0_n_4 ,\m_axis_tdata1_inferred__0/i___230_carry__0_n_5 ,\m_axis_tdata1_inferred__0/i___230_carry__0_n_6 ,\m_axis_tdata1_inferred__0/i___230_carry__0_n_7 }),
-        .S({i___230_carry__0_i_1_n_0,i___230_carry__0_i_2_n_0,i___230_carry__0_i_3_n_0,i___230_carry__0_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___230_carry__1 
-       (.CI(\m_axis_tdata1_inferred__0/i___230_carry__0_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___230_carry__1_n_0 ,\m_axis_tdata1_inferred__0/i___230_carry__1_n_1 ,\m_axis_tdata1_inferred__0/i___230_carry__1_n_2 ,\m_axis_tdata1_inferred__0/i___230_carry__1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___230_carry_i_1_n_0,i___230_carry_i_1_n_0,i___230_carry_i_1_n_0,i___230_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___230_carry__1_n_4 ,\m_axis_tdata1_inferred__0/i___230_carry__1_n_5 ,\m_axis_tdata1_inferred__0/i___230_carry__1_n_6 ,\m_axis_tdata1_inferred__0/i___230_carry__1_n_7 }),
-        .S({i___230_carry__1_i_1_n_0,i___230_carry__1_i_2_n_0,i___230_carry__1_i_3_n_0,i___230_carry__1_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___230_carry__2 
-       (.CI(\m_axis_tdata1_inferred__0/i___230_carry__1_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___230_carry__2_n_0 ,\m_axis_tdata1_inferred__0/i___230_carry__2_n_1 ,\m_axis_tdata1_inferred__0/i___230_carry__2_n_2 ,\m_axis_tdata1_inferred__0/i___230_carry__2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___230_carry_i_1_n_0,i___230_carry_i_1_n_0,i___230_carry_i_1_n_0,i___230_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___230_carry__2_n_4 ,\m_axis_tdata1_inferred__0/i___230_carry__2_n_5 ,\m_axis_tdata1_inferred__0/i___230_carry__2_n_6 ,\m_axis_tdata1_inferred__0/i___230_carry__2_n_7 }),
-        .S({i___230_carry__2_i_1_n_0,i___230_carry__2_i_2_n_0,i___230_carry__2_i_3_n_0,i___230_carry__2_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___230_carry__3 
-       (.CI(\m_axis_tdata1_inferred__0/i___230_carry__2_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___230_carry__3_n_0 ,\m_axis_tdata1_inferred__0/i___230_carry__3_n_1 ,\m_axis_tdata1_inferred__0/i___230_carry__3_n_2 ,\m_axis_tdata1_inferred__0/i___230_carry__3_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___230_carry_i_1_n_0,i___230_carry_i_1_n_0,i___230_carry_i_1_n_0,i___230_carry_i_1_n_0}),
-        .O({\m_axis_tdata1_inferred__0/i___230_carry__3_n_4 ,\m_axis_tdata1_inferred__0/i___230_carry__3_n_5 ,\m_axis_tdata1_inferred__0/i___230_carry__3_n_6 ,\m_axis_tdata1_inferred__0/i___230_carry__3_n_7 }),
-        .S({i___230_carry__3_i_1_n_0,i___230_carry__3_i_2_n_0,i___230_carry__3_i_3_n_0,i___230_carry__3_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___230_carry__4 
-       (.CI(\m_axis_tdata1_inferred__0/i___230_carry__3_n_0 ),
-        .CO(\NLW_m_axis_tdata1_inferred__0/i___230_carry__4_CO_UNCONNECTED [3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___230_carry__4_O_UNCONNECTED [3:1],\m_axis_tdata1_inferred__0/i___230_carry__4_n_7 }),
-        .S({1'b0,1'b0,1'b0,i___230_carry__4_i_1_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___277_carry 
-       (.CI(1'b0),
-        .CO({\m_axis_tdata1_inferred__0/i___277_carry_n_0 ,\m_axis_tdata1_inferred__0/i___277_carry_n_1 ,\m_axis_tdata1_inferred__0/i___277_carry_n_2 ,\m_axis_tdata1_inferred__0/i___277_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___277_carry_i_1_n_0,i___277_carry_i_2_n_0,i___277_carry_i_3_n_0,\m_axis_tdata1_inferred__0/i___86_carry_n_7 }),
-        .O(\NLW_m_axis_tdata1_inferred__0/i___277_carry_O_UNCONNECTED [3:0]),
-        .S({i___277_carry_i_4_n_0,i___277_carry_i_5_n_0,i___277_carry_i_6_n_0,i___277_carry_i_7_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___277_carry__0 
-       (.CI(\m_axis_tdata1_inferred__0/i___277_carry_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___277_carry__0_n_0 ,\m_axis_tdata1_inferred__0/i___277_carry__0_n_1 ,\m_axis_tdata1_inferred__0/i___277_carry__0_n_2 ,\m_axis_tdata1_inferred__0/i___277_carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___277_carry__0_i_1_n_0,i___277_carry__0_i_2_n_0,i___277_carry__0_i_3_n_0,i___277_carry__0_i_4_n_0}),
-        .O({m_axis_tdata1[7:5],\NLW_m_axis_tdata1_inferred__0/i___277_carry__0_O_UNCONNECTED [0]}),
-        .S({i___277_carry__0_i_5_n_0,i___277_carry__0_i_6_n_0,i___277_carry__0_i_7_n_0,i___277_carry__0_i_8_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___277_carry__1 
-       (.CI(\m_axis_tdata1_inferred__0/i___277_carry__0_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___277_carry__1_n_0 ,\m_axis_tdata1_inferred__0/i___277_carry__1_n_1 ,\m_axis_tdata1_inferred__0/i___277_carry__1_n_2 ,\m_axis_tdata1_inferred__0/i___277_carry__1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({i___277_carry__1_i_1_n_0,i___277_carry__1_i_2_n_0,i___277_carry__1_i_3_n_0,i___277_carry__1_i_4_n_0}),
+        .DI(filter_accumulator_L[11:8]),
         .O(m_axis_tdata1[11:8]),
-        .S({i___277_carry__1_i_5_n_0,i___277_carry__1_i_6_n_0,i___277_carry__1_i_7_n_0,i___277_carry__1_i_8_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___277_carry__2 
-       (.CI(\m_axis_tdata1_inferred__0/i___277_carry__1_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___277_carry__2_n_0 ,\m_axis_tdata1_inferred__0/i___277_carry__2_n_1 ,\m_axis_tdata1_inferred__0/i___277_carry__2_n_2 ,\m_axis_tdata1_inferred__0/i___277_carry__2_n_3 }),
+        .S({m_axis_tdata1_carry__1_i_1_n_0,m_axis_tdata1_carry__1_i_2_n_0,m_axis_tdata1_carry__1_i_3_n_0,m_axis_tdata1_carry__1_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__1_i_1
+       (.I0(filter_accumulator_L[11]),
+        .I1(tdata_int[11]),
+        .O(m_axis_tdata1_carry__1_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__1_i_2
+       (.I0(filter_accumulator_L[10]),
+        .I1(tdata_int[10]),
+        .O(m_axis_tdata1_carry__1_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__1_i_3
+       (.I0(filter_accumulator_L[9]),
+        .I1(tdata_int[9]),
+        .O(m_axis_tdata1_carry__1_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__1_i_4
+       (.I0(filter_accumulator_L[8]),
+        .I1(tdata_int[8]),
+        .O(m_axis_tdata1_carry__1_i_4_n_0));
+  CARRY4 m_axis_tdata1_carry__2
+       (.CI(m_axis_tdata1_carry__1_n_0),
+        .CO({m_axis_tdata1_carry__2_n_0,m_axis_tdata1_carry__2_n_1,m_axis_tdata1_carry__2_n_2,m_axis_tdata1_carry__2_n_3}),
         .CYINIT(1'b0),
-        .DI({i___277_carry__2_i_1_n_0,i___277_carry__2_i_2_n_0,i___277_carry__2_i_3_n_0,i___277_carry__2_i_4_n_0}),
+        .DI({tdata_int[15],filter_accumulator_L[14:12]}),
         .O(m_axis_tdata1[15:12]),
-        .S({i___277_carry__2_i_5_n_0,i___277_carry__2_i_6_n_0,i___277_carry__2_i_7_n_0,i___277_carry__2_i_8_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___277_carry__3 
-       (.CI(\m_axis_tdata1_inferred__0/i___277_carry__2_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___277_carry__3_n_0 ,\m_axis_tdata1_inferred__0/i___277_carry__3_n_1 ,\m_axis_tdata1_inferred__0/i___277_carry__3_n_2 ,\m_axis_tdata1_inferred__0/i___277_carry__3_n_3 }),
+        .S({m_axis_tdata1_carry__2_i_1_n_0,m_axis_tdata1_carry__2_i_2_n_0,m_axis_tdata1_carry__2_i_3_n_0,m_axis_tdata1_carry__2_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__2_i_1
+       (.I0(tdata_int[15]),
+        .I1(filter_accumulator_L[15]),
+        .O(m_axis_tdata1_carry__2_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__2_i_2
+       (.I0(filter_accumulator_L[14]),
+        .I1(tdata_int[14]),
+        .O(m_axis_tdata1_carry__2_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__2_i_3
+       (.I0(filter_accumulator_L[13]),
+        .I1(tdata_int[13]),
+        .O(m_axis_tdata1_carry__2_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__2_i_4
+       (.I0(filter_accumulator_L[12]),
+        .I1(tdata_int[12]),
+        .O(m_axis_tdata1_carry__2_i_4_n_0));
+  CARRY4 m_axis_tdata1_carry__3
+       (.CI(m_axis_tdata1_carry__2_n_0),
+        .CO({m_axis_tdata1_carry__3_n_0,m_axis_tdata1_carry__3_n_1,m_axis_tdata1_carry__3_n_2,m_axis_tdata1_carry__3_n_3}),
         .CYINIT(1'b0),
-        .DI({i___277_carry__3_i_1_n_0,i___277_carry__3_i_2_n_0,i___277_carry__3_i_3_n_0,i___277_carry__3_i_4_n_0}),
+        .DI({filter_accumulator_L[18:16],m_axis_tdata1_carry__3_i_1_n_0}),
         .O(m_axis_tdata1[19:16]),
-        .S({i___277_carry__3_i_5_n_0,i___277_carry__3_i_6_n_0,i___277_carry__3_i_7_n_0,i___277_carry__3_i_8_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \m_axis_tdata1_inferred__0/i___277_carry__4 
-       (.CI(\m_axis_tdata1_inferred__0/i___277_carry__3_n_0 ),
-        .CO(\NLW_m_axis_tdata1_inferred__0/i___277_carry__4_CO_UNCONNECTED [3:0]),
+        .S({m_axis_tdata1_carry__3_i_2_n_0,m_axis_tdata1_carry__3_i_3_n_0,m_axis_tdata1_carry__3_i_4_n_0,m_axis_tdata1_carry__3_i_5_n_0}));
+  LUT1 #(
+    .INIT(2'h1)) 
+    m_axis_tdata1_carry__3_i_1
+       (.I0(tdata_int[15]),
+        .O(m_axis_tdata1_carry__3_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    m_axis_tdata1_carry__3_i_2
+       (.I0(filter_accumulator_L[18]),
+        .I1(filter_accumulator_L[19]),
+        .O(m_axis_tdata1_carry__3_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    m_axis_tdata1_carry__3_i_3
+       (.I0(filter_accumulator_L[17]),
+        .I1(filter_accumulator_L[18]),
+        .O(m_axis_tdata1_carry__3_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    m_axis_tdata1_carry__3_i_4
+       (.I0(filter_accumulator_L[16]),
+        .I1(filter_accumulator_L[17]),
+        .O(m_axis_tdata1_carry__3_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry__3_i_5
+       (.I0(tdata_int[15]),
+        .I1(filter_accumulator_L[16]),
+        .O(m_axis_tdata1_carry__3_i_5_n_0));
+  CARRY4 m_axis_tdata1_carry__4
+       (.CI(m_axis_tdata1_carry__3_n_0),
+        .CO(NLW_m_axis_tdata1_carry__4_CO_UNCONNECTED[3:0]),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___277_carry__4_O_UNCONNECTED [3:1],m_axis_tdata1[20]}),
-        .S({1'b0,1'b0,1'b0,i___277_carry__4_i_1_n_0}));
-  CARRY4 \m_axis_tdata1_inferred__0/i___50_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___50_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___50_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___50_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___50_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___50_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___50_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___50_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___50_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___54_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___54_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___54_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___54_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___54_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___54_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___54_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___54_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___54_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___58_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___58_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___58_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___58_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___58_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___58_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___58_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___58_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___58_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___62_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___62_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___62_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___62_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___62_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___62_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___62_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___62_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___62_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___66_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___66_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___66_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___66_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___66_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___66_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___66_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___66_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___66_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___70_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___70_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___70_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___70_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___70_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___70_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___70_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___70_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___70_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___74_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___74_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___74_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___74_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___74_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___74_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___74_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___74_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___74_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___78_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___78_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___78_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___78_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___78_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___78_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___78_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___78_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___78_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___82_carry 
-       (.CI(1'b0),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___82_carry_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___82_carry_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___82_carry_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___82_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___82_carry_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___82_carry_n_6 ,\NLW_m_axis_tdata1_inferred__0/i___82_carry_O_UNCONNECTED [0]}),
-        .S({1'b0,1'b1,i___82_carry_i_1_n_0,\filter_buffer_L_reg[30]_2 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___86_carry 
-       (.CI(1'b0),
-        .CO({\m_axis_tdata1_inferred__0/i___86_carry_n_0 ,\m_axis_tdata1_inferred__0/i___86_carry_n_1 ,\m_axis_tdata1_inferred__0/i___86_carry_n_2 ,\m_axis_tdata1_inferred__0/i___86_carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,1'b0}),
-        .O({\m_axis_tdata1_inferred__0/i___86_carry_n_4 ,\m_axis_tdata1_inferred__0/i___86_carry_n_5 ,\m_axis_tdata1_inferred__0/i___86_carry_n_6 ,\m_axis_tdata1_inferred__0/i___86_carry_n_7 }),
-        .S({i___86_carry_i_1_n_0,i___86_carry_i_2_n_0,i___86_carry_i_3_n_0,\m_axis_tdata1_inferred__0/i___0_carry_n_7 }));
-  CARRY4 \m_axis_tdata1_inferred__0/i___86_carry__0 
-       (.CI(\m_axis_tdata1_inferred__0/i___86_carry_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___86_carry__0_n_0 ,\m_axis_tdata1_inferred__0/i___86_carry__0_n_1 ,\m_axis_tdata1_inferred__0/i___86_carry__0_n_2 ,\m_axis_tdata1_inferred__0/i___86_carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 }),
-        .O({\m_axis_tdata1_inferred__0/i___86_carry__0_n_4 ,\m_axis_tdata1_inferred__0/i___86_carry__0_n_5 ,\m_axis_tdata1_inferred__0/i___86_carry__0_n_6 ,\m_axis_tdata1_inferred__0/i___86_carry__0_n_7 }),
-        .S({i___86_carry__0_i_1_n_0,i___86_carry__0_i_2_n_0,i___86_carry__0_i_3_n_0,i___86_carry__0_i_4_n_0}));
-  CARRY4 \m_axis_tdata1_inferred__0/i___86_carry__1 
-       (.CI(\m_axis_tdata1_inferred__0/i___86_carry__0_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___86_carry__1_n_0 ,\m_axis_tdata1_inferred__0/i___86_carry__1_n_1 ,\m_axis_tdata1_inferred__0/i___86_carry__1_n_2 ,\m_axis_tdata1_inferred__0/i___86_carry__1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 }),
-        .O({\m_axis_tdata1_inferred__0/i___86_carry__1_n_4 ,\m_axis_tdata1_inferred__0/i___86_carry__1_n_5 ,\m_axis_tdata1_inferred__0/i___86_carry__1_n_6 ,\m_axis_tdata1_inferred__0/i___86_carry__1_n_7 }),
-        .S({i___86_carry__1_i_1_n_0,i___86_carry__1_i_2_n_0,i___86_carry__1_i_3_n_0,i___86_carry__1_i_4_n_0}));
-  CARRY4 \m_axis_tdata1_inferred__0/i___86_carry__2 
-       (.CI(\m_axis_tdata1_inferred__0/i___86_carry__1_n_0 ),
-        .CO({\m_axis_tdata1_inferred__0/i___86_carry__2_n_0 ,\m_axis_tdata1_inferred__0/i___86_carry__2_n_1 ,\m_axis_tdata1_inferred__0/i___86_carry__2_n_2 ,\m_axis_tdata1_inferred__0/i___86_carry__2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 ,\filter_buffer_L_reg[30]_2 }),
-        .O({\m_axis_tdata1_inferred__0/i___86_carry__2_n_4 ,\m_axis_tdata1_inferred__0/i___86_carry__2_n_5 ,\m_axis_tdata1_inferred__0/i___86_carry__2_n_6 ,\m_axis_tdata1_inferred__0/i___86_carry__2_n_7 }),
-        .S({i___86_carry__2_i_1_n_0,i___86_carry__2_i_2_n_0,i___86_carry__2_i_3_n_0,i___86_carry__2_i_4_n_0}));
-  CARRY4 \m_axis_tdata1_inferred__0/i___86_carry__3 
-       (.CI(\m_axis_tdata1_inferred__0/i___86_carry__2_n_0 ),
-        .CO({\NLW_m_axis_tdata1_inferred__0/i___86_carry__3_CO_UNCONNECTED [3],\m_axis_tdata1_inferred__0/i___86_carry__3_n_1 ,\NLW_m_axis_tdata1_inferred__0/i___86_carry__3_CO_UNCONNECTED [1],\m_axis_tdata1_inferred__0/i___86_carry__3_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,\m_axis_tdata1_inferred__0/i___0_carry__3_n_7 ,i___86_carry__3_i_1_n_0}),
-        .O({\NLW_m_axis_tdata1_inferred__0/i___86_carry__3_O_UNCONNECTED [3:2],\m_axis_tdata1_inferred__0/i___86_carry__3_n_6 ,\m_axis_tdata1_inferred__0/i___86_carry__3_n_7 }),
-        .S({1'b0,1'b1,i___86_carry__3_i_2_n_0,i___86_carry__3_i_3_n_0}));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+        .O({NLW_m_axis_tdata1_carry__4_O_UNCONNECTED[3:1],m_axis_tdata1[20]}),
+        .S({1'b0,1'b0,1'b0,m_axis_tdata1_carry__4_i_1_n_0}));
+  LUT2 #(
+    .INIT(4'h9)) 
+    m_axis_tdata1_carry__4_i_1
+       (.I0(filter_accumulator_L[19]),
+        .I1(filter_accumulator_L[20]),
+        .O(m_axis_tdata1_carry__4_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry_i_1
+       (.I0(filter_accumulator_L[3]),
+        .I1(tdata_int[3]),
+        .O(m_axis_tdata1_carry_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry_i_2
+       (.I0(filter_accumulator_L[2]),
+        .I1(tdata_int[2]),
+        .O(m_axis_tdata1_carry_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry_i_3
+       (.I0(filter_accumulator_L[1]),
+        .I1(tdata_int[1]),
+        .O(m_axis_tdata1_carry_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    m_axis_tdata1_carry_i_4
+       (.I0(filter_accumulator_L[0]),
+        .I1(\filter_buffer_L_reg[31] ),
+        .O(m_axis_tdata1_carry_i_4_n_0));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[0]_i_1 
-       (.I0(m_axis_tdata1[5]),
+       (.I0(filter_accumulator_R0[5]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__0_n_6),
+        .I2(m_axis_tdata1[5]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[0]),
-        .O(\m_axis_tdata[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+        .I4(tdata_int[0]),
+        .O(p_0_in[0]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[10]_i_1 
-       (.I0(m_axis_tdata1[15]),
+       (.I0(filter_accumulator_R0[15]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__2_n_4),
+        .I2(m_axis_tdata1[15]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[10]),
-        .O(\m_axis_tdata[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+        .I4(tdata_int[10]),
+        .O(p_0_in[10]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[11]_i_1 
-       (.I0(m_axis_tdata1[16]),
+       (.I0(filter_accumulator_R0[16]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__3_n_7),
+        .I2(m_axis_tdata1[16]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[11]),
-        .O(\m_axis_tdata[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+        .I4(tdata_int[11]),
+        .O(p_0_in[11]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[12]_i_1 
-       (.I0(m_axis_tdata1[17]),
+       (.I0(filter_accumulator_R0[17]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__3_n_6),
+        .I2(m_axis_tdata1[17]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[12]),
-        .O(\m_axis_tdata[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+        .I4(tdata_int[12]),
+        .O(p_0_in[12]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[13]_i_1 
-       (.I0(m_axis_tdata1[18]),
+       (.I0(filter_accumulator_R0[18]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__3_n_5),
+        .I2(m_axis_tdata1[18]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[13]),
-        .O(\m_axis_tdata[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+        .I4(tdata_int[13]),
+        .O(p_0_in[13]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[14]_i_1 
-       (.I0(m_axis_tdata1[19]),
+       (.I0(filter_accumulator_R0[19]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__3_n_4),
+        .I2(m_axis_tdata1[19]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[14]),
-        .O(\m_axis_tdata[14]_i_1_n_0 ));
+        .I4(tdata_int[14]),
+        .O(p_0_in[14]));
   LUT2 #(
     .INIT(4'h8)) 
     \m_axis_tdata[15]_i_1 
        (.I0(aresetn),
         .I1(\FSM_onehot_state_reg_n_0_[2] ),
         .O(m_axis_tdata0));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[15]_i_2 
-       (.I0(m_axis_tdata1[20]),
+       (.I0(filter_accumulator_R0[20]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__4_n_7),
+        .I2(m_axis_tdata1[20]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[15]),
-        .O(\m_axis_tdata[15]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+        .I4(tdata_int[15]),
+        .O(p_0_in[15]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[1]_i_1 
-       (.I0(m_axis_tdata1[6]),
+       (.I0(filter_accumulator_R0[6]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__0_n_5),
+        .I2(m_axis_tdata1[6]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[1]),
-        .O(\m_axis_tdata[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+        .I4(tdata_int[1]),
+        .O(p_0_in[1]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[2]_i_1 
-       (.I0(m_axis_tdata1[7]),
+       (.I0(filter_accumulator_R0[7]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__0_n_4),
+        .I2(m_axis_tdata1[7]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[2]),
-        .O(\m_axis_tdata[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+        .I4(tdata_int[2]),
+        .O(p_0_in[2]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[3]_i_1 
-       (.I0(m_axis_tdata1[8]),
+       (.I0(filter_accumulator_R0[8]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__1_n_7),
+        .I2(m_axis_tdata1[8]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[3]),
-        .O(\m_axis_tdata[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+        .I4(tdata_int[3]),
+        .O(p_0_in[3]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[4]_i_1 
-       (.I0(m_axis_tdata1[9]),
+       (.I0(filter_accumulator_R0[9]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__1_n_6),
+        .I2(m_axis_tdata1[9]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[4]),
-        .O(\m_axis_tdata[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+        .I4(tdata_int[4]),
+        .O(p_0_in[4]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[5]_i_1 
-       (.I0(m_axis_tdata1[10]),
+       (.I0(filter_accumulator_R0[10]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__1_n_5),
+        .I2(m_axis_tdata1[10]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[5]),
-        .O(\m_axis_tdata[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+        .I4(tdata_int[5]),
+        .O(p_0_in[5]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[6]_i_1 
-       (.I0(m_axis_tdata1[11]),
+       (.I0(filter_accumulator_R0[11]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__1_n_4),
+        .I2(m_axis_tdata1[11]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[6]),
-        .O(\m_axis_tdata[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+        .I4(tdata_int[6]),
+        .O(p_0_in[6]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[7]_i_1 
-       (.I0(m_axis_tdata1[12]),
+       (.I0(filter_accumulator_R0[12]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__2_n_7),
+        .I2(m_axis_tdata1[12]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[7]),
-        .O(\m_axis_tdata[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+        .I4(tdata_int[7]),
+        .O(p_0_in[7]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[8]_i_1 
-       (.I0(m_axis_tdata1[13]),
+       (.I0(filter_accumulator_R0[13]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__2_n_6),
+        .I2(m_axis_tdata1[13]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[8]),
-        .O(\m_axis_tdata[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+        .I4(tdata_int[8]),
+        .O(p_0_in[8]));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     \m_axis_tdata[9]_i_1 
-       (.I0(m_axis_tdata1[14]),
+       (.I0(filter_accumulator_R0[14]),
         .I1(tlast_int_reg_n_0),
-        .I2(m_axis_tdata1__277_carry__2_n_5),
+        .I2(m_axis_tdata1[14]),
         .I3(filter_enable_int),
-        .I4(tdata_int__0[9]),
-        .O(\m_axis_tdata[9]_i_1_n_0 ));
+        .I4(tdata_int[9]),
+        .O(p_0_in[9]));
   FDRE \m_axis_tdata_reg[0] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[0]_i_1_n_0 ),
+        .D(p_0_in[0]),
         .Q(m_axis_tdata[0]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[10] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[10]_i_1_n_0 ),
+        .D(p_0_in[10]),
         .Q(m_axis_tdata[10]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[11] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[11]_i_1_n_0 ),
+        .D(p_0_in[11]),
         .Q(m_axis_tdata[11]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[12] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[12]_i_1_n_0 ),
+        .D(p_0_in[12]),
         .Q(m_axis_tdata[12]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[13] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[13]_i_1_n_0 ),
+        .D(p_0_in[13]),
         .Q(m_axis_tdata[13]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[14] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[14]_i_1_n_0 ),
+        .D(p_0_in[14]),
         .Q(m_axis_tdata[14]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[15] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[15]_i_2_n_0 ),
+        .D(p_0_in[15]),
         .Q(m_axis_tdata[15]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[1] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[1]_i_1_n_0 ),
+        .D(p_0_in[1]),
         .Q(m_axis_tdata[1]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[2] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[2]_i_1_n_0 ),
+        .D(p_0_in[2]),
         .Q(m_axis_tdata[2]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[3] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[3]_i_1_n_0 ),
+        .D(p_0_in[3]),
         .Q(m_axis_tdata[3]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[4] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[4]_i_1_n_0 ),
+        .D(p_0_in[4]),
         .Q(m_axis_tdata[4]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[5] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[5]_i_1_n_0 ),
+        .D(p_0_in[5]),
         .Q(m_axis_tdata[5]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[6] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[6]_i_1_n_0 ),
+        .D(p_0_in[6]),
         .Q(m_axis_tdata[6]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[7] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[7]_i_1_n_0 ),
+        .D(p_0_in[7]),
         .Q(m_axis_tdata[7]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[8] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[8]_i_1_n_0 ),
+        .D(p_0_in[8]),
         .Q(m_axis_tdata[8]),
         .R(1'b0));
   FDRE \m_axis_tdata_reg[9] 
        (.C(aclk),
         .CE(m_axis_tdata0),
-        .D(\m_axis_tdata[9]_i_1_n_0 ),
+        .D(p_0_in[9]),
         .Q(m_axis_tdata[9]),
         .R(1'b0));
   FDRE m_axis_tlast_reg
@@ -5442,102 +1224,119 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_moving_average_filter
         .D(tlast_int_reg_n_0),
         .Q(m_axis_tlast),
         .R(1'b0));
+  LUT6 #(
+    .INIT(64'hFFFFFEEEFEEEFEEE)) 
+    state
+       (.I0(\filter_buffer_L[31]_0 ),
+        .I1(\FSM_onehot_state_reg_n_0_[2] ),
+        .I2(m_axis_tvalid),
+        .I3(m_axis_tready),
+        .I4(s_axis_tready),
+        .I5(s_axis_tvalid),
+        .O(state_n_0));
   FDRE \tdata_int_reg[0] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[0]),
-        .Q(tdata_int__0[0]),
+        .Q(tdata_int[0]),
         .R(1'b0));
   FDRE \tdata_int_reg[10] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[10]),
-        .Q(tdata_int__0[10]),
+        .Q(tdata_int[10]),
         .R(1'b0));
   FDRE \tdata_int_reg[11] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[11]),
-        .Q(tdata_int__0[11]),
+        .Q(tdata_int[11]),
         .R(1'b0));
   FDRE \tdata_int_reg[12] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[12]),
-        .Q(tdata_int__0[12]),
+        .Q(tdata_int[12]),
         .R(1'b0));
   FDRE \tdata_int_reg[13] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[13]),
-        .Q(tdata_int__0[13]),
+        .Q(tdata_int[13]),
         .R(1'b0));
   FDRE \tdata_int_reg[14] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[14]),
-        .Q(tdata_int__0[14]),
+        .Q(tdata_int[14]),
         .R(1'b0));
   FDRE \tdata_int_reg[15] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[15]),
-        .Q(tdata_int__0[15]),
+        .Q(tdata_int[15]),
         .R(1'b0));
   FDRE \tdata_int_reg[1] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[1]),
-        .Q(tdata_int__0[1]),
+        .Q(tdata_int[1]),
         .R(1'b0));
   FDRE \tdata_int_reg[2] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[2]),
-        .Q(tdata_int__0[2]),
+        .Q(tdata_int[2]),
         .R(1'b0));
   FDRE \tdata_int_reg[3] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[3]),
-        .Q(tdata_int__0[3]),
+        .Q(tdata_int[3]),
         .R(1'b0));
   FDRE \tdata_int_reg[4] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[4]),
-        .Q(tdata_int__0[4]),
+        .Q(tdata_int[4]),
         .R(1'b0));
   FDRE \tdata_int_reg[5] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[5]),
-        .Q(tdata_int__0[5]),
+        .Q(tdata_int[5]),
         .R(1'b0));
   FDRE \tdata_int_reg[6] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[6]),
-        .Q(tdata_int__0[6]),
+        .Q(tdata_int[6]),
         .R(1'b0));
   FDRE \tdata_int_reg[7] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[7]),
-        .Q(tdata_int__0[7]),
+        .Q(tdata_int[7]),
         .R(1'b0));
   FDRE \tdata_int_reg[8] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[8]),
-        .Q(tdata_int__0[8]),
+        .Q(tdata_int[8]),
         .R(1'b0));
   FDRE \tdata_int_reg[9] 
        (.C(aclk),
         .CE(tlast_int0),
         .D(s_axis_tdata[9]),
-        .Q(tdata_int__0[9]),
+        .Q(tdata_int[9]),
         .R(1'b0));
+  LUT3 #(
+    .INIT(8'h80)) 
+    tlast_int_i_1
+       (.I0(aresetn),
+        .I1(s_axis_tvalid),
+        .I2(s_axis_tready),
+        .O(tlast_int0));
   FDRE tlast_int_reg
        (.C(aclk),
         .CE(tlast_int0),
