@@ -1,0 +1,1007 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed May 19 17:59:53 2021
+# Process ID: 8844
+# Current directory: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1684 C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.xpr
+# Log file: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/vivado.log
+# Journal file: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB2/project_3' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:28 ; elapsed = 00:00:14 . Memory (MB): peak = 1002.824 ; gain = 0.000
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+Reading block design file <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:module_ref:AXI4StreamDataOut:1.0 - AXI4StreamDataOut_0
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
+Adding component instance block -- DigiLAB:ip:AXI4Stream_UART:1.1 - AXI4Stream_UART_0
+Adding component instance block -- xilinx.com:ip:system_ila:1.1 - system_ila_0
+Adding component instance block -- xilinx.com:module_ref:AXI4StreamDataIn:1.0 - AXI4StreamDataIn_0
+Successfully read diagram <design_1> from block design file <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:22 . Memory (MB): peak = 1002.824 ; gain = 0.000
+delete_bd_objs [get_bd_intf_nets AXI4StreamDataIn_0_m_02_axis] [get_bd_intf_nets AXI4Stream_UART_0_M00_AXIS_RX] [get_bd_intf_nets AXI4StreamDataOut_0_m_01_axis] [get_bd_cells AXI4StreamDataIn_0] [get_bd_cells AXI4StreamDataOut_0] [get_bd_cells system_ila_0]
+connect_bd_intf_net [get_bd_intf_pins AXI4Stream_UART_0/M00_AXIS_RX] [get_bd_intf_pins AXI4Stream_UART_0/S00_AXIS_TX]
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+regenerate_bd_layout
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 18:01:36 2021] Launched synth_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 18:01:36 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1074.855 ; gain = 72.031
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1186.953 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 45 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 1867.297 ; gain = 0.000
+open_run: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1867.297 ; gain = 792.441
+INFO: [Common 17-344] 'open_run' was cancelled
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.2
+  **** Build date : Nov 18 2020 at 10:01:48
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2020.2
+  ****** Build date   : Nov 03 2020-22:02:56
+    **** Build number : 2020.2.1604437376
+      ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:02 ; elapsed = 00:00:18 . Memory (MB): peak = 1867.297 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AB3C8FA
+open_hw_target: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 3264.062 ; gain = 1396.766
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_intf_nets AXI4Stream_UART_0_M00_AXIS_RX]
+export_ip_user_files -of_objects  [get_files C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/AXI4StreamDataIn.vhd] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/AXI4StreamDataOut.vhd] -no_script -reset -force -quiet
+remove_files  {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/AXI4StreamDataIn.vhd C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/AXI4StreamDataOut.vhd}
+add_files -norecurse {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/depacketizer.vhd C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/packetizer.vhd}
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference depacketizer depacketizer_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+create_bd_cell -type module -reference packetizer packetizer_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+set_property location {3.5 935 117} [get_bd_cells AXI4Stream_UART_0]
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_out1]
+connect_bd_intf_net [get_bd_intf_pins packetizer_0/m_axis] [get_bd_intf_pins AXI4Stream_UART_0/S00_AXIS_TX]
+connect_bd_intf_net [get_bd_intf_pins packetizer_0/s_axis] [get_bd_intf_pins depacketizer_0/m_axis]
+connect_bd_intf_net [get_bd_intf_pins depacketizer_0/s_axis] [get_bd_intf_pins AXI4Stream_UART_0/M00_AXIS_RX]
+connect_bd_net [get_bd_pins packetizer_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins depacketizer_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+startgroup
+set_property -dict [list CONFIG.CLKOUT2_USED {true} CONFIG.CLK_OUT1_PORT {sys_clk} CONFIG.CLK_OUT2_PORT {uart_clk} CONFIG.MMCM_CLKOUT1_DIVIDE {10} CONFIG.NUM_OUT_CLKS {2} CONFIG.CLKOUT2_JITTER {130.958} CONFIG.CLKOUT2_PHASE_ERROR {98.575}] [get_bd_cells clk_wiz_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {96.000} CONFIG.MMCM_CLKFBOUT_MULT_F {8.625} CONFIG.MMCM_CLKOUT0_DIVIDE_F {8.625} CONFIG.MMCM_CLKOUT1_DIVIDE {9} CONFIG.CLKOUT1_JITTER {137.895} CONFIG.CLKOUT1_PHASE_ERROR {107.948} CONFIG.CLKOUT2_JITTER {139.122} CONFIG.CLKOUT2_PHASE_ERROR {107.948}] [get_bd_cells clk_wiz_0]
+endgroup
+connect_bd_net [get_bd_pins clk_wiz_0/sys_clk] [get_bd_pins depacketizer_0/aclk]
+connect_bd_net [get_bd_pins clk_wiz_0/sys_clk] [get_bd_pins packetizer_0/aclk]
+connect_bd_net [get_bd_pins clk_wiz_0/uart_clk] [get_bd_pins AXI4Stream_UART_0/clk_uart]
+connect_bd_net [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aclk] [get_bd_pins clk_wiz_0/sys_clk]
+connect_bd_net [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aclk] [get_bd_pins clk_wiz_0/sys_clk]
+regenerate_bd_layout
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_compile_order -fileset sources_1
+reset_run synth_1
+reset_run design_1_clk_wiz_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+ERROR: [BD 41-758] The following clock pins are not connected to a valid clock source: 
+/proc_sys_reset_0/slowest_sync_clk
+
+ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd 
+ERROR: [Vivado 12-4756] Launch of runs aborted due to earlier errors while preparing sub-designs for run execution.
+connect_bd_net [get_bd_pins clk_wiz_0/sys_clk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk]
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+CRITICAL WARNING: [BD 41-1343] Reset pin /AXI4Stream_UART_0/rst (associated clock /AXI4Stream_UART_0/clk_uart) is connected to reset source /proc_sys_reset_0/peripheral_reset (synchronous to clock source /clk_wiz_0/sys_clk).
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clk_wiz_0/uart_clk.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI4Stream_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block depacketizer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block packetizer_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_AXI4Stream_UART_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_clk_wiz_0_0
+[Wed May 19 18:14:24 2021] Launched design_1_AXI4Stream_UART_0_0_synth_1, design_1_clk_wiz_0_0_synth_1, design_1_depacketizer_0_0_synth_1, design_1_packetizer_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_AXI4Stream_UART_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_AXI4Stream_UART_0_0_synth_1/runme.log
+design_1_clk_wiz_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_clk_wiz_0_0_synth_1/runme.log
+design_1_depacketizer_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_depacketizer_0_0_synth_1/runme.log
+design_1_packetizer_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_packetizer_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 18:14:24 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 3371.926 ; gain = 2.953
+delete_bd_objs [get_bd_nets proc_sys_reset_0_peripheral_reset]
+copy_bd_objs /  [get_bd_cells {proc_sys_reset_0}]
+set_property location {4 1001 446} [get_bd_cells proc_sys_reset_1]
+connect_bd_net [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins clk_wiz_0/uart_clk]
+connect_bd_net [get_bd_ports reset] [get_bd_pins proc_sys_reset_1/ext_reset_in]
+connect_bd_net [get_bd_pins proc_sys_reset_1/dcm_locked] [get_bd_pins clk_wiz_0/locked]
+connect_bd_net [get_bd_pins proc_sys_reset_1/peripheral_reset] [get_bd_pins AXI4Stream_UART_0/rst]
+regenerate_bd_layout
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_1 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 18:17:33 2021] Launched design_1_depacketizer_0_0_synth_1, design_1_packetizer_0_0_synth_1, design_1_proc_sys_reset_0_1_synth_1, synth_1...
+Run output will be captured here:
+design_1_depacketizer_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_depacketizer_0_0_synth_1/runme.log
+design_1_packetizer_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_packetizer_0_0_synth_1/runme.log
+design_1_proc_sys_reset_0_1_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_proc_sys_reset_0_1_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 18:17:33 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:14 . Memory (MB): peak = 3379.031 ; gain = 5.285
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw_manager
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3414] Connected to existing cs_server.
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AB3C8FA
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/LAB3_daw.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw_manager
+startgroup
+set_property -dict [list CONFIG.UART_BAUD_RATE {2000000}] [get_bd_cells AXI4Stream_UART_0]
+endgroup
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_AXI4Stream_UART_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI4Stream_UART_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 18:46:00 2021] Launched design_1_AXI4Stream_UART_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_AXI4Stream_UART_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_AXI4Stream_UART_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 18:46:01 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 3409.309 ; gain = 0.977
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.2
+  **** Build date : Nov 18 2020 at 10:01:48
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2020.2
+  ****** Build date   : Nov 03 2020-22:02:56
+    **** Build number : 2020.2.1604437376
+      ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:13 . Memory (MB): peak = 3409.309 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AB3C8FA
+set_property PROGRAM.FILE {C:\Users\SimoGein\Desktop\LAB3_daw.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+close [ open C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/mute_controller.vhd w ]
+add_files C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/mute_controller.vhd
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference mute_controller mute_controller_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+set_property location {3 458 60} [get_bd_cells mute_controller_0]
+delete_bd_objs [get_bd_intf_nets depacketizer_0_m_axis]
+connect_bd_intf_net [get_bd_intf_pins depacketizer_0/m_axis] [get_bd_intf_pins mute_controller_0/s_axis]
+connect_bd_intf_net [get_bd_intf_pins mute_controller_0/m_axis] [get_bd_intf_pins packetizer_0/s_axis]
+regenerate_bd_layout
+connect_bd_net [get_bd_pins mute_controller_0/clk] [get_bd_pins clk_wiz_0/sys_clk]
+connect_bd_net [get_bd_pins mute_controller_0/reset] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+update_module_reference design_1_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'clk'
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'reset'
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'aclk' (xilinx.com:signal:clock:1.0)
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'aresetn' (xilinx.com:signal:reset:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'design_1_mute_controller_0_0'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'clk'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'reset'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'aclk'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'aresetn'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_mute_controller_0_0'. These changes may impact your design.
+CRITICAL WARNING: [BD 41-1167] The pin 'clk' is not found on the upgraded version of the cell '/mute_controller_0'. Its connection to the net 'clk_wiz_0_sys_clk' has been removed.
+CRITICAL WARNING: [BD 41-1167] The pin 'reset' is not found on the upgraded version of the cell '/mute_controller_0'. Its connection to the net 'Net' has been removed.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'design_1_mute_controller_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 3415.488 ; gain = 3.711
+connect_bd_net [get_bd_pins mute_controller_0/aclk] [get_bd_pins clk_wiz_0/sys_clk]
+update_compile_order -fileset sources_1
+connect_bd_net [get_bd_pins mute_controller_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+startgroup
+make_bd_pins_external  [get_bd_pins mute_controller_0/mute_left]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins mute_controller_0/mute_right]
+endgroup
+regenerate_bd_layout
+set_property name btnR [get_bd_ports mute_left_0]
+set_property name btnL [get_bd_ports mute_right_0]
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_module_reference design_1_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 19:33:14 2021] Launched design_1_mute_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_mute_controller_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_mute_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 19:33:14 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 3451.789 ; gain = 0.000
+update_module_reference design_1_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm01_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'm_axis'
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 's_axis'
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'm01_axis' (xilinx.com:interface:axis:1.0)
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 's01_axis' (xilinx.com:interface:axis:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'design_1_mute_controller_0_0'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tdata'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tlast'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tvalid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tdata'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tlast'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tvalid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm01_axis_tdata'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm01_axis_tlast'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm01_axis_tready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm01_axis_tvalid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's01_axis_tdata'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's01_axis_tlast'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's01_axis_tready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's01_axis_tvalid'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_mute_controller_0_0'. These changes may impact your design.
+CRITICAL WARNING: [BD 41-1165] The interface pin 'm_axis' with bus definition 'xilinx.com:interface:axis:1.0' is not found on the upgraded version of the cell '/mute_controller_0'. Its connection to the interface net 'mute_controller_0_m_axis' has been removed. 
+CRITICAL WARNING: [BD 41-1165] The interface pin 's_axis' with bus definition 'xilinx.com:interface:axis:1.0' is not found on the upgraded version of the cell '/mute_controller_0'. Its connection to the interface net 'depacketizer_0_m_axis' has been removed. 
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'design_1_mute_controller_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 3452.926 ; gain = 1.137
+connect_bd_intf_net [get_bd_intf_pins depacketizer_0/m_axis] [get_bd_intf_pins mute_controller_0/s01_axis]
+connect_bd_intf_net [get_bd_intf_pins mute_controller_0/m01_axis] [get_bd_intf_pins packetizer_0/s_axis]
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 19:39:40 2021] Launched design_1_mute_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_mute_controller_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_mute_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 19:39:40 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 3452.926 ; gain = 0.000
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Wed May 19 19:47:27 2021] Launched synth_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Wed May 19 19:49:25 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+update_module_reference design_1_packetizer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm04_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's04_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm04_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_packetizer_0_0 from packetizer_v1_0 1.0 to packetizer_v1_0 1.0
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'm_axis'
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 's_axis'
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'm04_axis' (xilinx.com:interface:axis:1.0)
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 's04_axis' (xilinx.com:interface:axis:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'design_1_packetizer_0_0'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tdata'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tvalid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tdata'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tlast'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tvalid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm04_axis_tdata'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm04_axis_tready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm04_axis_tvalid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's04_axis_tdata'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's04_axis_tlast'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's04_axis_tready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's04_axis_tvalid'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_packetizer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [BD 41-1165] The interface pin 'm_axis' with bus definition 'xilinx.com:interface:axis:1.0' is not found on the upgraded version of the cell '/packetizer_0'. Its connection to the interface net 'packetizer_0_m_axis' has been removed. 
+CRITICAL WARNING: [BD 41-1165] The interface pin 's_axis' with bus definition 'xilinx.com:interface:axis:1.0' is not found on the upgraded version of the cell '/packetizer_0'. Its connection to the interface net 'mute_controller_0_m_axis' has been removed. 
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'design_1_packetizer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 3455.062 ; gain = 2.137
+update_module_reference design_1_depacketizer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm05_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's05_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm05_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_depacketizer_0_0 from depacketizer_v1_0 1.0 to depacketizer_v1_0 1.0
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'm_axis'
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 's_axis'
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'm05_axis' (xilinx.com:interface:axis:1.0)
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 's05_axis' (xilinx.com:interface:axis:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'design_1_depacketizer_0_0'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tdata'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tlast'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_axis_tvalid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tdata'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_axis_tvalid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm05_axis_tdata'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm05_axis_tlast'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm05_axis_tready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'm05_axis_tvalid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's05_axis_tdata'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's05_axis_tready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 's05_axis_tvalid'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_depacketizer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [BD 41-1165] The interface pin 'm_axis' with bus definition 'xilinx.com:interface:axis:1.0' is not found on the upgraded version of the cell '/depacketizer_0'. Its connection to the interface net 'depacketizer_0_m_axis' has been removed. 
+CRITICAL WARNING: [BD 41-1165] The interface pin 's_axis' with bus definition 'xilinx.com:interface:axis:1.0' is not found on the upgraded version of the cell '/depacketizer_0'. Its connection to the interface net 'AXI4Stream_UART_0_M00_AXIS_RX' has been removed. 
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'design_1_depacketizer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 3455.121 ; gain = 0.059
+connect_bd_intf_net [get_bd_intf_pins AXI4Stream_UART_0/M00_AXIS_RX] [get_bd_intf_pins depacketizer_0/s05_axis]
+connect_bd_intf_net [get_bd_intf_pins depacketizer_0/m05_axis] [get_bd_intf_pins mute_controller_0/s01_axis]
+connect_bd_intf_net [get_bd_intf_pins mute_controller_0/m01_axis] [get_bd_intf_pins packetizer_0/s04_axis]
+connect_bd_intf_net [get_bd_intf_pins packetizer_0/m04_axis] [get_bd_intf_pins AXI4Stream_UART_0/S00_AXIS_TX]
+regenerate_bd_layout
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block depacketizer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block packetizer_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 19:54:46 2021] Launched design_1_depacketizer_0_0_synth_1, design_1_packetizer_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_depacketizer_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_depacketizer_0_0_synth_1/runme.log
+design_1_packetizer_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_packetizer_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 19:54:46 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 3455.121 ; gain = 0.000
+update_module_reference design_1_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm01_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference design_1_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm01_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 20:01:41 2021] Launched design_1_mute_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_mute_controller_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_mute_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 20:01:41 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 3457.473 ; gain = 0.000
+add_files -fileset constrs_1 -norecurse C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/basys3_master_xdc.xdc
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed May 19 20:07:19 2021] Launched synth_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 20:07:19 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm01_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 20:21:54 2021] Launched design_1_mute_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_mute_controller_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_mute_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 20:21:54 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 3461.020 ; gain = 0.000
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AB3C8FA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AB3C8FA
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 system_ila_0
+create_bd_cell: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 3511.383 ; gain = 50.031
+endgroup
+set_property location {6 1687 -150} [get_bd_cells system_ila_0]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {AXI4Stream_UART_0_M00_AXIS_RX}]
+true
+apply_bd_automation -rule xilinx.com:bd_rule:debug -dict [list \
+                                                          [get_bd_intf_nets AXI4Stream_UART_0_M00_AXIS_RX] {AXIS_SIGNALS "Data and Trigger" CLK_SRC "/clk_wiz_0/sys_clk" SYSTEM_ILA "Auto" APC_EN "0" } \
+                                                         ]
+Debug Automation : Re-customizing System ILA block '/system_ila_0' to mode INTERFACE, with 0 new slot interface pins and 0 new probe pins. Also setting parameters on this block, corresponding to newly enabled interface pins and probe pins as specified via Debug Automation.
+Debug Automation : Connecting source clock pin /clk_wiz_0/sys_clk to the following sink clock pins :
+/system_ila_0/clk
+Debug Automation : Connecting source reset pin /proc_sys_reset_0/peripheral_aresetn to the following sink reset pins :
+/system_ila_0/resetn
+Debug Automation : Connecting interface connection /AXI4Stream_UART_0_M00_AXIS_RX, to System ILA slot interface pin /system_ila_0/SLOT_0_AXIS for debug.
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {depacketizer_0_m_axis}]
+true
+apply_bd_automation -rule xilinx.com:bd_rule:debug -dict [list \
+                                                          [get_bd_intf_nets depacketizer_0_m_axis] {AXIS_SIGNALS "Data and Trigger" CLK_SRC "/clk_wiz_0/sys_clk" SYSTEM_ILA "Auto" APC_EN "0" } \
+                                                         ]
+Debug Automation : Re-customizing System ILA block '/system_ila_0' to mode INTERFACE, with 1 new slot interface pins and 0 new probe pins. Also setting parameters on this block, corresponding to newly enabled interface pins and probe pins as specified via Debug Automation.
+Debug Automation : Connecting interface connection /depacketizer_0_m_axis, to System ILA slot interface pin /system_ila_0/SLOT_1_AXIS for debug.
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {mute_controller_0_m_axis}]
+true
+apply_bd_automation -rule xilinx.com:bd_rule:debug -dict [list \
+                                                          [get_bd_intf_nets mute_controller_0_m_axis] {AXIS_SIGNALS "Data and Trigger" CLK_SRC "/clk_wiz_0/sys_clk" SYSTEM_ILA "Auto" APC_EN "0" } \
+                                                         ]
+Debug Automation : Re-customizing System ILA block '/system_ila_0' to mode INTERFACE, with 1 new slot interface pins and 0 new probe pins. Also setting parameters on this block, corresponding to newly enabled interface pins and probe pins as specified via Debug Automation.
+Debug Automation : Connecting interface connection /mute_controller_0_m_axis, to System ILA slot interface pin /system_ila_0/SLOT_2_AXIS for debug.
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_0_AXIS_tdata'(32) to pin: '/AXI4Stream_UART_0/m00_axis_rx_tdata'(8) - Only lower order bits will be connected.
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_0_AXIS_tdata'(32) to pin: '/AXI4Stream_UART_0/m00_axis_rx_tdata'(8) - Only lower order bits will be connected.
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/hw_handoff/design_1_system_ila_0_0.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/hw_handoff/design_1_system_ila_0_0_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/synth/design_1_system_ila_0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block system_ila_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 22:14:16 2021] Launched design_1_system_ila_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_system_ila_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_system_ila_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 22:14:16 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 3624.621 ; gain = 48.711
+set_property PROBES.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+refresh_hw_device: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 3673.484 ; gain = 44.625
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+Processing Interface AXI4Stream_UART_0_M00_AXIS_RX_ila1_slot0
+Processing Interface depacketizer_0_m_axis_ila1_slot1
+Processing Interface mute_controller_0_m_axis_ila1_slot2
+set_property PROBES.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+Processed interface AXI4Stream_UART_0_M00_AXIS_RX_ila1_slot0
+Processed interface depacketizer_0_m_axis_ila1_slot1
+Processed interface mute_controller_0_m_axis_ila1_slot2
+set_property TRIGGER_COMPARE_VALUE eq1'h1 [get_hw_probes design_1_i/system_ila_0/U0/net_slot_2_axis_tvalid -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2021-May-19 22:42:55
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {design_1_i/system_ila_0/U0/net_slot_2_axis_tvalid} }
+set_property NAME.CUSTOM {slot_2 : mute_controller_0_m_axis : TVALID} [get_hw_probes design_1_i/system_ila_0/U0/net_slot_2_axis_tvalid] 
+set_property CONTROL.WINDOW_COUNT 1 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+set_property CONTROL.DATA_DEPTH 512 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+set_property CONTROL.TRIGGER_POSITION 256 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2021-May-19 22:45:39
+WARNING: [Labtools 27-157] hw_ila [hw_ila_1] stopped. No data to upload.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2021-May-19 22:45:41
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2021-May-19 22:46:49
+Processed interface AXI4Stream_UART_0_M00_AXIS_RX_ila1_slot0
+Processed interface depacketizer_0_m_axis_ila1_slot1
+Processed interface mute_controller_0_m_axis_ila1_slot2
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+startgroup 
+set_property CONTROL.DATA_DEPTH 256 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+set_property CONTROL.TRIGGER_POSITION 255 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+set_property CONTROL.WINDOW_COUNT 4 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+endgroup
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2021-May-19 22:50:05
+set_property CONTROL.TRIGGER_POSITION 128 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2021-May-19 22:50:28
+WARNING: [Labtools 27-157] hw_ila [hw_ila_1] stopped. No data to upload.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2021-May-19 22:50:32
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '4' windows, at 2021-May-19 22:50:44.
+Processed interface AXI4Stream_UART_0_M00_AXIS_RX_ila1_slot0
+Processed interface depacketizer_0_m_axis_ila1_slot1
+Processed interface mute_controller_0_m_axis_ila1_slot2
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2021-May-19 22:56:21
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2021-May-19 22:56:22
+WARNING: [Labtools 27-157] hw_ila [hw_ila_1] stopped. No data to upload.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2021-May-19 22:56:24
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2021-May-19 22:56:42
+WARNING: [Labtools 27-157] hw_ila [hw_ila_1] stopped. No data to upload.
+set_property CONTROL.WINDOW_COUNT 2 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2021-May-19 22:56:52
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '2' windows, at 2021-May-19 22:59:21.
+Processed interface AXI4Stream_UART_0_M00_AXIS_RX_ila1_slot0
+Processed interface depacketizer_0_m_axis_ila1_slot1
+Processed interface mute_controller_0_m_axis_ila1_slot2
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {packetizer_0_m_axis}]
+true
+apply_bd_automation -rule xilinx.com:bd_rule:debug -dict [list \
+                                                          [get_bd_intf_nets packetizer_0_m_axis] {AXIS_SIGNALS "Data and Trigger" CLK_SRC "/clk_wiz_0/sys_clk" SYSTEM_ILA "Auto" APC_EN "0" } \
+                                                         ]
+Debug Automation : Re-customizing System ILA block '/system_ila_0' to mode INTERFACE, with 1 new slot interface pins and 0 new probe pins. Also setting parameters on this block, corresponding to newly enabled interface pins and probe pins as specified via Debug Automation.
+Debug Automation : Connecting interface connection /packetizer_0_m_axis, to System ILA slot interface pin /system_ila_0/SLOT_3_AXIS for debug.
+save_bd_design
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_system_ila_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_3_AXIS_tdata'(32) to pin: '/packetizer_0/m04_axis_tdata'(8) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_0_AXIS_tdata'(32) to pin: '/AXI4Stream_UART_0/m00_axis_rx_tdata'(8) - Only lower order bits will be connected.
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_3_AXIS_tdata'(32) to pin: '/packetizer_0/m04_axis_tdata'(8) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_0_AXIS_tdata'(32) to pin: '/AXI4Stream_UART_0/m00_axis_rx_tdata'(8) - Only lower order bits will be connected.
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/hw_handoff/design_1_system_ila_0_0.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/hw_handoff/design_1_system_ila_0_0_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/synth/design_1_system_ila_0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block system_ila_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Wed May 19 23:44:18 2021] Launched design_1_system_ila_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_system_ila_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_system_ila_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Wed May 19 23:44:18 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:11 ; elapsed = 00:00:24 . Memory (MB): peak = 3813.738 ; gain = 0.047
+set_property PROBES.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+Processing Interface AXI4Stream_UART_0_M00_AXIS_RX_ila1_slot0
+Processing Interface depacketizer_0_m_axis_ila1_slot1
+Processing Interface mute_controller_0_m_axis_ila1_slot2
+Processing Interface packetizer_0_m_axis_ila1_slot3
+set_property CONTROL.DATA_DEPTH 512 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+set_property CONTROL.TRIGGER_POSITION 256 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2021-May-19 23:55:56
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '2' windows, at 2021-May-19 23:56:43.
+Processed interface AXI4Stream_UART_0_M00_AXIS_RX_ila1_slot0
+Processed interface depacketizer_0_m_axis_ila1_slot1
+Processed interface mute_controller_0_m_axis_ila1_slot2
+Processed interface packetizer_0_m_axis_ila1_slot3
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+regenerate_bd_layout
+regenerate_bd_layout
+update_module_reference design_1_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's01_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm01_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+regenerate_bd_layout
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_3_AXIS_tdata'(32) to pin: '/packetizer_0/m04_axis_tdata'(8) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_0_AXIS_tdata'(32) to pin: '/AXI4Stream_UART_0/m00_axis_rx_tdata'(8) - Only lower order bits will be connected.
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_3_AXIS_tdata'(32) to pin: '/packetizer_0/m04_axis_tdata'(8) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/system_ila_0/SLOT_0_AXIS_tdata'(32) to pin: '/AXI4Stream_UART_0/m00_axis_rx_tdata'(8) - Only lower order bits will be connected.
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/hw_handoff/design_1_system_ila_0_0.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/hw_handoff/design_1_system_ila_0_0_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_0/bd_0/synth/design_1_system_ila_0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block system_ila_0 .
+Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_system_ila_0_0, cache-ID = a6964ed90d8a4450; cache size = 32.789 MB.
+config_ip_cache: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 3825.691 ; gain = 0.000
+[Thu May 20 00:15:23 2021] Launched design_1_mute_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_mute_controller_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_mute_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
+[Thu May 20 00:15:24 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:26 ; elapsed = 00:00:31 . Memory (MB): peak = 3825.691 ; gain = 10.965
+set_property PROBES.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+Processing Interface AXI4Stream_UART_0_M00_AXIS_RX_ila1_slot0
+Processing Interface depacketizer_0_m_axis_ila1_slot1
+Processing Interface mute_controller_0_m_axis_ila1_slot2
+Processing Interface packetizer_0_m_axis_ila1_slot3
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+save_wave_config {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu May 20 00:32:34 2021...
