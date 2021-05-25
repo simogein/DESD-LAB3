@@ -2,21 +2,24 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun May 23 20:18:47 2021
-# Process ID: 8580
-# Current directory: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20556 C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.xpr
-# Log file: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/vivado.log
-# Journal file: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3\vivado.jou
+# Start of session at: Tue May 25 22:03:46 2021
+# Process ID: 6024
+# Current directory: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14104 C:\Users\SimoGein\Desktop\DESD\DESD-LAB3\project_3.xpr
+# Log file: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/vivado.log
+# Journal file: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.xpr
+open_project C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3' since last save.
+INFO: [filemgmt 56-1] Board Part Repository Path: Directory not found as 'C:/AppData/Roaming/Xilinx/Vivado/2020.2/xhub/board_store/xilinx_board_store'; using path 'C:/Users/SimoGein/AppData/Roaming/Xilinx/Vivado/2020.2/xhub/board_store/xilinx_board_store' instead.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/lib'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
-open_project: Time (s): cpu = 00:00:25 ; elapsed = 00:00:12 . Memory (MB): peak = 1007.469 ; gain = 0.000
+open_project: Time (s): cpu = 00:00:26 ; elapsed = 00:00:13 . Memory (MB): peak = 1003.594 ; gain = 0.000
+update_compile_order -fileset sources_1
 open_hw_manager
 connect_hw_server -allow_non_jtag
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
@@ -40,25 +43,23 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:02 ; elapsed = 00:00:15 . Memory (MB): peak = 1007.469 ; gain = 0.000
+connect_hw_server: Time (s): cpu = 00:00:02 ; elapsed = 00:00:14 . Memory (MB): peak = 1003.594 ; gain = 0.000
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AB3C8FA
-open_hw_target: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2298.176 ; gain = 1290.707
-set_property PROGRAM.FILE {C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\LAB3_daw.bit} [get_hw_devices xc7a35t_0]
+open_hw_target: Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 2346.855 ; gain = 1343.262
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
 current_hw_device [get_hw_devices xc7a35t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-update_compile_order -fileset sources_1
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
 program_hw_devices [get_hw_devices xc7a35t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-CRITICAL WARNING: [HDL 9-806] Syntax error near "else". [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/new/mobile_mean_filter.vhd:111]
-open_bd_design {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
-Reading block design file <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd>...
+open_bd_design {C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.srcs/sources_1/bd/design_1/design_1.bd}
+Reading block design file <C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.srcs/sources_1/bd/design_1/design_1.bd>...
 Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
 Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
 Adding component instance block -- DigiLAB:ip:AXI4Stream_UART:1.1 - AXI4Stream_UART_0
@@ -72,8 +73,8 @@ Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edg
 Adding component instance block -- xilinx.com:module_ref:mute_controller:1.0 - mute_controller_0
 Adding component instance block -- xilinx.com:module_ref:volume_controller:1.0 - volume_controller_0
 Adding component instance block -- xilinx.com:module_ref:mobile_mean_filter:1.0 - mobile_mean_filter_0
-Successfully read diagram <design_1> from block design file <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd>
-open_bd_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:19 . Memory (MB): peak = 2518.492 ; gain = 145.918
+Successfully read diagram <design_1> from block design file <C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2482.422 ; gain = 103.500
 update_module_reference design_1_mobile_mean_filter_0_0
 INFO: [IP_Flow 19-5107] Inferred bus interface 'm03_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
 INFO: [IP_Flow 19-5107] Inferred bus interface 's03_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
@@ -83,88 +84,29 @@ INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLA
 INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm03_axis'.
 INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
-Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/lib'.
+Upgrading 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
 INFO: [IP_Flow 19-1972] Upgraded design_1_mobile_mean_filter_0_0 from mobile_mean_filter_v1_0 1.0 to mobile_mean_filter_v1_0 1.0
-Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
-Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
-update_module_reference: Time (s): cpu = 00:00:04 ; elapsed = 00:00:20 . Memory (MB): peak = 2534.254 ; gain = 15.691
-update_module_reference design_1_volume_controller_0_0
-INFO: [IP_Flow 19-5107] Inferred bus interface 'm02_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 's02_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
-INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm02_axis'.
-INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
-Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
-INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
-Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
-Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
-update_module_reference: Time (s): cpu = 00:00:03 ; elapsed = 00:00:18 . Memory (MB): peak = 2536.906 ; gain = 2.652
-update_module_reference design_1_mobile_mean_filter_0_0
-INFO: [IP_Flow 19-5107] Inferred bus interface 'm03_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 's03_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
-INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm03_axis'.
-INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
-Upgrading 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/design_1.bd'
-INFO: [IP_Flow 19-1972] Upgraded design_1_mobile_mean_filter_0_0 from mobile_mean_filter_v1_0 1.0 to mobile_mean_filter_v1_0 1.0
-Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
-Wrote  : <C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\DESD-LAB3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:04 ; elapsed = 00:00:26 . Memory (MB): peak = 2526.379 ; gain = 6.254
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 2
 INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
-Wrote  : <C:\Users\SimoGein\Desktop\DESD\VHDL_Project_Local\LAB3\project_3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
-VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
-VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
-VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
-INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+Wrote  : <C:\Users\SimoGein\Desktop\DESD\DESD-LAB3\project_3.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
 INFO: [BD 41-1029] Generation completed for the IP Integrator block mobile_mean_filter_0 .
-Exporting to file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
-Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
-Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
-[Sun May 23 20:53:44 2021] Launched design_1_volume_controller_0_0_synth_1, design_1_mobile_mean_filter_0_0_synth_1, synth_1...
+Exporting to file c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Tue May 25 22:49:32 2021] Launched design_1_mobile_mean_filter_0_0_synth_1, synth_1...
 Run output will be captured here:
-design_1_volume_controller_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_volume_controller_0_0_synth_1/runme.log
-design_1_mobile_mean_filter_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/design_1_mobile_mean_filter_0_0_synth_1/runme.log
-synth_1: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/runme.log
-[Sun May 23 20:53:45 2021] Launched impl_1...
-Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/runme.log
-launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:28 . Memory (MB): peak = 2686.168 ; gain = 137.383
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-open_run impl_1
-INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 2837.762 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 76 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2020.2
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:01 . Memory (MB): peak = 3521.652 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:01 . Memory (MB): peak = 3521.652 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3521.652 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 3636.906 ; gain = 930.531
-WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+design_1_mobile_mean_filter_0_0_synth_1: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/design_1_mobile_mean_filter_0_0_synth_1/runme.log
+synth_1: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/runme.log
+[Tue May 25 22:49:32 2021] Launched impl_1...
+Run output will be captured here: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:25 . Memory (MB): peak = 2681.488 ; gain = 155.109
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue May 25 22:58:33 2021...

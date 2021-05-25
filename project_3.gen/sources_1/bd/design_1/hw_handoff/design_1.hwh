@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun May 23 20:53:22 2021" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue May 25 22:49:13 2021" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:basys3:part0:1.1" DEVICE="7a35t" NAME="design_1" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 

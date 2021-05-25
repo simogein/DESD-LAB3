@@ -29,7 +29,7 @@ architecture Behavioral of mobile_mean_filter is
 	
 	signal state 	:  state_type;
 	
-	type fifo_type is array(31 DOWNTO 0) of std_logic_vector(15 DOWNTO 0);
+	type fifo_type is array(31 DOWNTO 0) of signed(15 DOWNTO 0);
 	
 	signal fifo_L, fifo_R : fifo_type := (others => (others => '0'));
 	
@@ -55,15 +55,15 @@ begin
 
 	process(aclk)
 	
-	variable MeanR : integer := 0;
-	variable MeanL : integer := 0;
+	variable MeanR : signed(15 DOWNTO 0);
+	variable MeanL : signed(15 DOWNTO 0);
 	
 	begin
 		
 		if aresetn = '0' then
 			
-			MeanL := 0;
-			MeanR := 0;
+			MeanL := (others => '0');
+			MeanR := (others => '0');
 			state <= IDLE;
 		
 		elsif rising_edge(aclk) then 
@@ -84,20 +84,18 @@ begin
 						if s03_axis_tlast = '0' then
 						
 							fifo_L(30 DOWNTO 0) <= fifo_L(31 DOWNTO 1);				     --append on top last element
-							fifo_L(31)          <= s03_axis_tdata;	
+							fifo_L(31)          <= signed(s03_axis_tdata);	
 						
 						else 
 						
 							fifo_R(30 DOWNTO 0) <= fifo_R(31 DOWNTO 1);				     --append on top last element
-							fifo_R(31)          <= s03_axis_tdata;
+							fifo_R(31)          <= signed(s03_axis_tdata);
 						
 						end if;
 						
 						state <= WORKING;
 					
 					end if;
-				
-				
 				
 				when WORKING => 														
 						
@@ -106,13 +104,11 @@ begin
 						
 						if s03_axis_tlast_int = '0' then
 						
-							MeanL := MeanL + to_integer(signed(fifo_L(31))) - to_integer(signed(fifo_L(0)));	-- sum last added and cancel the oldest data
-							MeanL := to_integer(shift_right(to_signed(MeanL,16),5));
+							MeanL := MeanL + shift_right(fifo_L(31),5) - shift_right(fifo_L(0),5);	-- sum last added and cancel the oldest data
 						
 						else 
 						
-							MeanR := MeanR + to_integer(signed(fifo_L(31))) - to_integer(signed(fifo_L(0)));	-- sum last added and cancel the oldest data
-							MeanR := to_integer(shift_right(to_signed(MeanR,16),5));
+							MeanR := MeanR + shift_right(fifo_R(31),5) - shift_right(fifo_R(0),5);	-- sum last added and cancel the oldest data
 						
 						end if;
 						
@@ -120,11 +116,11 @@ begin
 						
 							if s03_axis_tlast_int = '0' then								--filter the last Left value and set the output
 								
-								m03_axis_tdata <= std_logic_vector(to_signed(MeanL, m03_axis_tdata'length));
+								m03_axis_tdata <= std_logic_vector(MeanL);
 							
 							else															--filter the last Right value and set the output
 							
-								m03_axis_tdata <= std_logic_vector(to_signed(MeanR, m03_axis_tdata'length));
+								m03_axis_tdata <= std_logic_vector(MeanR);
 							
 							end if;
 								

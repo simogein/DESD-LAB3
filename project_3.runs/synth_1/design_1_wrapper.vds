@@ -2,20 +2,18 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun May 23 20:55:35 2021
-# Process ID: 14308
-# Current directory: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1
+# Start of session at: Tue May 25 22:50:48 2021
+# Process ID: 32644
+# Current directory: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1
 # Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
-# Log file: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/design_1_wrapper.vds
-# Journal file: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1\vivado.jou
+# Log file: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/design_1_wrapper.vds
+# Journal file: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/lib'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/lib'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
-WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
-Current IP cache path is c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.cache/ip 
-add_files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:18 . Memory (MB): peak = 1002.988 ; gain = 0.000
+add_files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:16 . Memory (MB): peak = 1003.695 ; gain = 0.000
 Command: synth_design -top design_1_wrapper -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
@@ -23,115 +21,110 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 11304
+INFO: [Synth 8-7075] Helper process launched with PID 32200
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:29]
-INFO: [Synth 8-3491] module 'design_1' declared at 'c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:14' bound to instance 'design_1_i' of component 'design_1' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:45]
-INFO: [Synth 8-638] synthesizing module 'design_1' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:33]
-INFO: [Synth 8-3491] module 'design_1_AXI4Stream_UART_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_AXI4Stream_UART_0_0_stub.vhdl:5' bound to instance 'AXI4Stream_UART_0' of component 'design_1_AXI4Stream_UART_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:263]
-INFO: [Synth 8-638] synthesizing module 'design_1_AXI4Stream_UART_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_AXI4Stream_UART_0_0_stub.vhdl:25]
-INFO: [Synth 8-3491] module 'design_1_clk_wiz_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'design_1_clk_wiz_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:280]
-INFO: [Synth 8-638] synthesizing module 'design_1_clk_wiz_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_clk_wiz_0_0_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'design_1_debouncer_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_debouncer_0_0_stub.vhdl:5' bound to instance 'debouncer_0' of component 'design_1_debouncer_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:288]
-INFO: [Synth 8-638] synthesizing module 'design_1_debouncer_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_debouncer_0_0_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'design_1_debouncer_0_1' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_debouncer_0_1_stub.vhdl:5' bound to instance 'debouncer_1' of component 'design_1_debouncer_0_1' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:295]
-INFO: [Synth 8-638] synthesizing module 'design_1_debouncer_0_1' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_debouncer_0_1_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'design_1_depacketizer_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_depacketizer_0_0_stub.vhdl:5' bound to instance 'depacketizer_0' of component 'design_1_depacketizer_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:302]
-INFO: [Synth 8-638] synthesizing module 'design_1_depacketizer_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_depacketizer_0_0_stub.vhdl:20]
-INFO: [Synth 8-3491] module 'design_1_edge_detector_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_edge_detector_0_0_stub.vhdl:5' bound to instance 'edge_detector_0' of component 'design_1_edge_detector_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:314]
-INFO: [Synth 8-638] synthesizing module 'design_1_edge_detector_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_edge_detector_0_0_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'design_1_edge_detector_0_1' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_edge_detector_0_1_stub.vhdl:5' bound to instance 'edge_detector_1' of component 'design_1_edge_detector_0_1' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:321]
-INFO: [Synth 8-638] synthesizing module 'design_1_edge_detector_0_1' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_edge_detector_0_1_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'design_1_mobile_mean_filter_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_mobile_mean_filter_0_0_stub.vhdl:5' bound to instance 'mobile_mean_filter_0' of component 'design_1_mobile_mean_filter_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:328]
-INFO: [Synth 8-638] synthesizing module 'design_1_mobile_mean_filter_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_mobile_mean_filter_0_0_stub.vhdl:22]
-INFO: [Synth 8-3491] module 'design_1_mute_controller_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_mute_controller_0_0_stub.vhdl:5' bound to instance 'mute_controller_0' of component 'design_1_mute_controller_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:342]
-INFO: [Synth 8-638] synthesizing module 'design_1_mute_controller_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_mute_controller_0_0_stub.vhdl:23]
-INFO: [Synth 8-3491] module 'design_1_packetizer_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_packetizer_0_0_stub.vhdl:5' bound to instance 'packetizer_0' of component 'design_1_packetizer_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:357]
-INFO: [Synth 8-638] synthesizing module 'design_1_packetizer_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_packetizer_0_0_stub.vhdl:20]
-INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:369]
-INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_1' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_proc_sys_reset_0_1_stub.vhdl:5' bound to instance 'proc_sys_reset_1' of component 'design_1_proc_sys_reset_0_1' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:382]
-INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_1' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_proc_sys_reset_0_1_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'design_1_volume_controller_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_volume_controller_0_0_stub.vhdl:5' bound to instance 'volume_controller_0' of component 'design_1_volume_controller_0_0' [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:395]
-INFO: [Synth 8-638] synthesizing module 'design_1_volume_controller_0_0' [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/.Xil/Vivado-14308-DESKTOP-6KTOIJJ/realtime/design_1_volume_controller_0_0_stub.vhdl:24]
-INFO: [Synth 8-256] done synthesizing module 'design_1' (1#1) [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:33]
-INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (2#1) [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:29]
+INFO: [Synth 8-3491] module 'design_1' declared at 'c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:14' bound to instance 'design_1_i' of component 'design_1' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'design_1' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:33]
+INFO: [Synth 8-3491] module 'design_1_AXI4Stream_UART_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_AXI4Stream_UART_0_0_stub.vhdl:5' bound to instance 'AXI4Stream_UART_0' of component 'design_1_AXI4Stream_UART_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:263]
+INFO: [Synth 8-638] synthesizing module 'design_1_AXI4Stream_UART_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_AXI4Stream_UART_0_0_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'design_1_clk_wiz_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'design_1_clk_wiz_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:280]
+INFO: [Synth 8-638] synthesizing module 'design_1_clk_wiz_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_clk_wiz_0_0_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'design_1_debouncer_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_debouncer_0_0_stub.vhdl:5' bound to instance 'debouncer_0' of component 'design_1_debouncer_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:288]
+INFO: [Synth 8-638] synthesizing module 'design_1_debouncer_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_debouncer_0_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'design_1_debouncer_0_1' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_debouncer_0_1_stub.vhdl:5' bound to instance 'debouncer_1' of component 'design_1_debouncer_0_1' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:295]
+INFO: [Synth 8-638] synthesizing module 'design_1_debouncer_0_1' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_debouncer_0_1_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'design_1_depacketizer_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_depacketizer_0_0_stub.vhdl:5' bound to instance 'depacketizer_0' of component 'design_1_depacketizer_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:302]
+INFO: [Synth 8-638] synthesizing module 'design_1_depacketizer_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_depacketizer_0_0_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'design_1_edge_detector_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_edge_detector_0_0_stub.vhdl:5' bound to instance 'edge_detector_0' of component 'design_1_edge_detector_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:314]
+INFO: [Synth 8-638] synthesizing module 'design_1_edge_detector_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_edge_detector_0_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'design_1_edge_detector_0_1' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_edge_detector_0_1_stub.vhdl:5' bound to instance 'edge_detector_1' of component 'design_1_edge_detector_0_1' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:321]
+INFO: [Synth 8-638] synthesizing module 'design_1_edge_detector_0_1' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_edge_detector_0_1_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'design_1_mobile_mean_filter_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_mobile_mean_filter_0_0_stub.vhdl:5' bound to instance 'mobile_mean_filter_0' of component 'design_1_mobile_mean_filter_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:328]
+INFO: [Synth 8-638] synthesizing module 'design_1_mobile_mean_filter_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_mobile_mean_filter_0_0_stub.vhdl:22]
+INFO: [Synth 8-3491] module 'design_1_mute_controller_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_mute_controller_0_0_stub.vhdl:5' bound to instance 'mute_controller_0' of component 'design_1_mute_controller_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:342]
+INFO: [Synth 8-638] synthesizing module 'design_1_mute_controller_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_mute_controller_0_0_stub.vhdl:23]
+INFO: [Synth 8-3491] module 'design_1_packetizer_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_packetizer_0_0_stub.vhdl:5' bound to instance 'packetizer_0' of component 'design_1_packetizer_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:357]
+INFO: [Synth 8-638] synthesizing module 'design_1_packetizer_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_packetizer_0_0_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:369]
+INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_1' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_proc_sys_reset_0_1_stub.vhdl:5' bound to instance 'proc_sys_reset_1' of component 'design_1_proc_sys_reset_0_1' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:382]
+INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_1' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_proc_sys_reset_0_1_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'design_1_volume_controller_0_0' declared at 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_volume_controller_0_0_stub.vhdl:5' bound to instance 'volume_controller_0' of component 'design_1_volume_controller_0_0' [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:395]
+INFO: [Synth 8-638] synthesizing module 'design_1_volume_controller_0_0' [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/.Xil/Vivado-32644-DESKTOP-6KTOIJJ/realtime/design_1_volume_controller_0_0_stub.vhdl:24]
+INFO: [Synth 8-256] done synthesizing module 'design_1' (1#1) [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/synth/design_1.vhd:33]
+INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (2#1) [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:29]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1003.695 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_in_context.xdc] for cell 'design_1_i/proc_sys_reset_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_in_context.xdc] for cell 'design_1_i/proc_sys_reset_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_AXI4Stream_UART_0_0/design_1_AXI4Stream_UART_0_0/design_1_AXI4Stream_UART_0_0_in_context.xdc] for cell 'design_1_i/AXI4Stream_UART_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_AXI4Stream_UART_0_0/design_1_AXI4Stream_UART_0_0/design_1_AXI4Stream_UART_0_0_in_context.xdc] for cell 'design_1_i/AXI4Stream_UART_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1_in_context.xdc] for cell 'design_1_i/proc_sys_reset_1'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1_in_context.xdc] for cell 'design_1_i/proc_sys_reset_1'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_packetizer_0_0/design_1_packetizer_0_0/design_1_packetizer_0_0_in_context.xdc] for cell 'design_1_i/packetizer_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_packetizer_0_0/design_1_packetizer_0_0/design_1_packetizer_0_0_in_context.xdc] for cell 'design_1_i/packetizer_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_depacketizer_0_0/design_1_depacketizer_0_0/design_1_depacketizer_0_0_in_context.xdc] for cell 'design_1_i/depacketizer_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_depacketizer_0_0/design_1_depacketizer_0_0/design_1_depacketizer_0_0_in_context.xdc] for cell 'design_1_i/depacketizer_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_debouncer_0_0/design_1_debouncer_0_0/design_1_debouncer_0_0_in_context.xdc] for cell 'design_1_i/debouncer_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_debouncer_0_0/design_1_debouncer_0_0/design_1_debouncer_0_0_in_context.xdc] for cell 'design_1_i/debouncer_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_edge_detector_0_0/design_1_edge_detector_0_0/design_1_edge_detector_0_0_in_context.xdc] for cell 'design_1_i/edge_detector_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_edge_detector_0_0/design_1_edge_detector_0_0/design_1_edge_detector_0_0_in_context.xdc] for cell 'design_1_i/edge_detector_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_debouncer_0_1/design_1_debouncer_0_1/design_1_debouncer_0_1_in_context.xdc] for cell 'design_1_i/debouncer_1'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_debouncer_0_1/design_1_debouncer_0_1/design_1_debouncer_0_1_in_context.xdc] for cell 'design_1_i/debouncer_1'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_edge_detector_0_1/design_1_edge_detector_0_1/design_1_edge_detector_0_1_in_context.xdc] for cell 'design_1_i/edge_detector_1'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_edge_detector_0_1/design_1_edge_detector_0_1/design_1_edge_detector_0_1_in_context.xdc] for cell 'design_1_i/edge_detector_1'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_mute_controller_0_0/design_1_mute_controller_0_0/design_1_mute_controller_0_0_in_context.xdc] for cell 'design_1_i/mute_controller_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_mute_controller_0_0/design_1_mute_controller_0_0/design_1_mute_controller_0_0_in_context.xdc] for cell 'design_1_i/mute_controller_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_volume_controller_0_0/design_1_volume_controller_0_0/design_1_volume_controller_0_0_in_context.xdc] for cell 'design_1_i/volume_controller_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_volume_controller_0_0/design_1_volume_controller_0_0/design_1_volume_controller_0_0_in_context.xdc] for cell 'design_1_i/volume_controller_0'
-Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_mobile_mean_filter_0_0/design_1_mobile_mean_filter_0_0/design_1_mobile_mean_filter_0_0_in_context.xdc] for cell 'design_1_i/mobile_mean_filter_0'
-Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_mobile_mean_filter_0_0/design_1_mobile_mean_filter_0_0/design_1_mobile_mean_filter_0_0_in_context.xdc] for cell 'design_1_i/mobile_mean_filter_0'
-Parsing XDC File [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/basys3_master_xdc.xdc]
-WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/basys3_master_xdc.xdc:113]
-WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/basys3_master_xdc.xdc:114]
-Finished Parsing XDC File [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/basys3_master_xdc.xdc]
-WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/basys3_master_xdc.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/design_1_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/basys3_master_xdc.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/dont_touch.xdc]
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_in_context.xdc] for cell 'design_1_i/proc_sys_reset_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_in_context.xdc] for cell 'design_1_i/proc_sys_reset_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_AXI4Stream_UART_0_0/design_1_AXI4Stream_UART_0_0/design_1_AXI4Stream_UART_0_0_in_context.xdc] for cell 'design_1_i/AXI4Stream_UART_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_AXI4Stream_UART_0_0/design_1_AXI4Stream_UART_0_0/design_1_AXI4Stream_UART_0_0_in_context.xdc] for cell 'design_1_i/AXI4Stream_UART_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1_in_context.xdc] for cell 'design_1_i/proc_sys_reset_1'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1_in_context.xdc] for cell 'design_1_i/proc_sys_reset_1'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_packetizer_0_0/design_1_packetizer_0_0/design_1_packetizer_0_0_in_context.xdc] for cell 'design_1_i/packetizer_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_packetizer_0_0/design_1_packetizer_0_0/design_1_packetizer_0_0_in_context.xdc] for cell 'design_1_i/packetizer_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_depacketizer_0_0/design_1_depacketizer_0_0/design_1_depacketizer_0_0_in_context.xdc] for cell 'design_1_i/depacketizer_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_depacketizer_0_0/design_1_depacketizer_0_0/design_1_depacketizer_0_0_in_context.xdc] for cell 'design_1_i/depacketizer_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_debouncer_0_0/design_1_debouncer_0_0/design_1_debouncer_0_0_in_context.xdc] for cell 'design_1_i/debouncer_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_debouncer_0_0/design_1_debouncer_0_0/design_1_debouncer_0_0_in_context.xdc] for cell 'design_1_i/debouncer_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_edge_detector_0_0/design_1_edge_detector_0_0/design_1_edge_detector_0_0_in_context.xdc] for cell 'design_1_i/edge_detector_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_edge_detector_0_0/design_1_edge_detector_0_0/design_1_edge_detector_0_0_in_context.xdc] for cell 'design_1_i/edge_detector_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_debouncer_0_1/design_1_debouncer_0_1/design_1_debouncer_0_1_in_context.xdc] for cell 'design_1_i/debouncer_1'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_debouncer_0_1/design_1_debouncer_0_1/design_1_debouncer_0_1_in_context.xdc] for cell 'design_1_i/debouncer_1'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_edge_detector_0_1/design_1_edge_detector_0_1/design_1_edge_detector_0_1_in_context.xdc] for cell 'design_1_i/edge_detector_1'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_edge_detector_0_1/design_1_edge_detector_0_1/design_1_edge_detector_0_1_in_context.xdc] for cell 'design_1_i/edge_detector_1'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_mute_controller_0_0/design_1_mute_controller_0_0/design_1_mute_controller_0_0_in_context.xdc] for cell 'design_1_i/mute_controller_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_mute_controller_0_0/design_1_mute_controller_0_0/design_1_mute_controller_0_0_in_context.xdc] for cell 'design_1_i/mute_controller_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_volume_controller_0_0/design_1_volume_controller_0_0/design_1_volume_controller_0_0_in_context.xdc] for cell 'design_1_i/volume_controller_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_volume_controller_0_0/design_1_volume_controller_0_0/design_1_volume_controller_0_0_in_context.xdc] for cell 'design_1_i/volume_controller_0'
+Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_mobile_mean_filter_0_0/design_1_mobile_mean_filter_0_0/design_1_mobile_mean_filter_0_0_in_context.xdc] for cell 'design_1_i/mobile_mean_filter_0'
+Finished Parsing XDC File [c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_mobile_mean_filter_0_0/design_1_mobile_mean_filter_0_0/design_1_mobile_mean_filter_0_0_in_context.xdc] for cell 'design_1_i/mobile_mean_filter_0'
+Parsing XDC File [C:/Users/SimoGein/Desktop/DESD/basys3_master_xdc.xdc]
+Finished Parsing XDC File [C:/Users/SimoGein/Desktop/DESD/basys3_master_xdc.xdc]
+Parsing XDC File [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1003.695 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for sys_clock. (constraint file  c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_clock. (constraint file  c:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for sys_clock. (constraint file  c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_clock. (constraint file  c:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc, line 5).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/clk_wiz_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/proc_sys_reset_0. (constraint file  auto generated constraint).
@@ -147,10 +140,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/mute_controller_0. (co
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/volume_controller_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/mobile_mean_filter_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -172,25 +165,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -208,37 +201,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -284,23 +277,23 @@ Report Cell Usage:
 |15    |OBUF                                 |    17|
 +------+-------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1003.695 ; gain = 0.000
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:34 . Memory (MB): peak = 1002.988 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:41 . Memory (MB): peak = 1003.695 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1003.695 ; gain = 0.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1003.695 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1002.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1003.695 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-47 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+46 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 1002.988 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/synth_1/design_1_wrapper.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:57 . Memory (MB): peak = 1003.695 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May 23 20:56:49 2021...
+INFO: [Common 17-206] Exiting Vivado at Tue May 25 22:52:07 2021...

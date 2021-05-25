@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun May 23 20:56:58 2021
-# Process ID: 1496
-# Current directory: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1
+# Start of session at: Tue May 25 22:52:17 2021
+# Process ID: 31836
+# Current directory: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/impl_1
 # Command line: vivado.exe -log design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
-# Log file: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1/design_1_wrapper.vdi
-# Journal file: C:/Users/SimoGein/Desktop/DESD/VHDL_Project_Local/LAB3/project_3/project_3.runs/impl_1\vivado.jou
+# Log file: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/impl_1/design_1_wrapper.vdi
+# Journal file: C:/Users/SimoGein/Desktop/DESD/DESD-LAB3/project_3.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace

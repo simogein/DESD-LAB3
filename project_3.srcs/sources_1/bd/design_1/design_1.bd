@@ -1362,16 +1362,28 @@
       }
     },
     "interface_nets": {
+      "volume_controller_0_m02_axis": {
+        "interface_ports": [
+          "volume_controller_0/m02_axis",
+          "mute_controller_0/s01_axis"
+        ]
+      },
       "AXI4Stream_UART_0_UART": {
         "interface_ports": [
           "usb_uart",
           "AXI4Stream_UART_0/UART"
         ]
       },
-      "mute_controller_0_m_axis": {
+      "packetizer_0_m_axis": {
         "interface_ports": [
-          "mute_controller_0/m01_axis",
-          "packetizer_0/s04_axis"
+          "packetizer_0/m04_axis",
+          "AXI4Stream_UART_0/S00_AXIS_TX"
+        ]
+      },
+      "depacketizer_0_m05_axis": {
+        "interface_ports": [
+          "depacketizer_0/m05_axis",
+          "mobile_mean_filter_0/s03_axis"
         ]
       },
       "mobile_mean_filter_0_m03_axis": {
@@ -1386,22 +1398,10 @@
           "AXI4Stream_UART_0/M00_AXIS_RX"
         ]
       },
-      "packetizer_0_m_axis": {
+      "mute_controller_0_m_axis": {
         "interface_ports": [
-          "packetizer_0/m04_axis",
-          "AXI4Stream_UART_0/S00_AXIS_TX"
-        ]
-      },
-      "volume_controller_0_m02_axis": {
-        "interface_ports": [
-          "volume_controller_0/m02_axis",
-          "mute_controller_0/s01_axis"
-        ]
-      },
-      "depacketizer_0_m05_axis": {
-        "interface_ports": [
-          "depacketizer_0/m05_axis",
-          "mobile_mean_filter_0/s03_axis"
+          "mute_controller_0/m01_axis",
+          "packetizer_0/s04_axis"
         ]
       }
     },
