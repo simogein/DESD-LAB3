@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# debouncer, debouncer, depacketizer, edge_detector, edge_detector, moving_average_filter, mute_controller, packetizer, volume_controller
+# AXI4_S_interface_FSM, debouncer, debouncer, depacketizer, edge_detector, edge_detector, mute_controller, packetizer, volume_controller
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -190,16 +190,28 @@ proc create_root_design { parentCell } {
    CONFIG.USE_BOARD_FLOW {true} \
  ] $AXI4Stream_UART_0
 
+  # Create instance: AXI4_S_interface_FSM_0, and set properties
+  set block_name AXI4_S_interface_FSM
+  set block_cell_name AXI4_S_interface_FSM_0
+  if { [catch {set AXI4_S_interface_FSM_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $AXI4_S_interface_FSM_0 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: clk_wiz_0, and set properties
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
    CONFIG.CLKOUT1_DRIVES {BUFG} \
-   CONFIG.CLKOUT1_JITTER {137.681} \
-   CONFIG.CLKOUT1_PHASE_ERROR {105.461} \
+   CONFIG.CLKOUT1_JITTER {129.006} \
+   CONFIG.CLKOUT1_PHASE_ERROR {152.899} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {64} \
    CONFIG.CLKOUT2_DRIVES {BUFG} \
-   CONFIG.CLKOUT2_JITTER {151.026} \
-   CONFIG.CLKOUT2_PHASE_ERROR {105.461} \
-   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {64.28571} \
+   CONFIG.CLKOUT2_JITTER {106.329} \
+   CONFIG.CLKOUT2_PHASE_ERROR {152.899} \
+   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {250} \
    CONFIG.CLKOUT2_USED {true} \
    CONFIG.CLKOUT3_DRIVES {BUFG} \
    CONFIG.CLKOUT4_DRIVES {BUFG} \
@@ -208,10 +220,11 @@ proc create_root_design { parentCell } {
    CONFIG.CLKOUT7_DRIVES {BUFG} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sys_clock} \
    CONFIG.MMCM_BANDWIDTH {OPTIMIZED} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {9} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {9} \
-   CONFIG.MMCM_CLKOUT1_DIVIDE {14} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {46} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {24} \
+   CONFIG.MMCM_CLKOUT1_DIVIDE {6} \
    CONFIG.MMCM_COMPENSATION {ZHOLD} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {3} \
    CONFIG.NUM_OUT_CLKS {2} \
    CONFIG.PRIMITIVE {PLL} \
    CONFIG.RESET_BOARD_INTERFACE {reset} \
@@ -273,17 +286,6 @@ proc create_root_design { parentCell } {
      return 1
    }
   
-  # Create instance: moving_average_filter_0, and set properties
-  set block_name moving_average_filter
-  set block_cell_name moving_average_filter_0
-  if { [catch {set moving_average_filter_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $moving_average_filter_0 eq "" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-  
   # Create instance: mute_controller_0, and set properties
   set block_name mute_controller
   set block_cell_name mute_controller_0
@@ -326,8 +328,8 @@ proc create_root_design { parentCell } {
   # Create interface connections
   connect_bd_intf_net -intf_net AXI4Stream_UART_0_M00_AXIS_RX [get_bd_intf_pins AXI4Stream_UART_0/M00_AXIS_RX] [get_bd_intf_pins depacketizer_0/s_axis]
   connect_bd_intf_net -intf_net AXI4Stream_UART_0_UART [get_bd_intf_ports usb_uart] [get_bd_intf_pins AXI4Stream_UART_0/UART]
-  connect_bd_intf_net -intf_net depacketizer_0_m_axis [get_bd_intf_pins depacketizer_0/m_axis] [get_bd_intf_pins moving_average_filter_0/s_axis]
-  connect_bd_intf_net -intf_net moving_average_filter_0_m_axis [get_bd_intf_pins moving_average_filter_0/m_axis] [get_bd_intf_pins volume_controller_0/s_axis]
+  connect_bd_intf_net -intf_net AXI4_S_interface_FSM_0_m_axis [get_bd_intf_pins AXI4_S_interface_FSM_0/m_axis] [get_bd_intf_pins volume_controller_0/s_axis]
+  connect_bd_intf_net -intf_net depacketizer_0_m_axis [get_bd_intf_pins AXI4_S_interface_FSM_0/s_axis] [get_bd_intf_pins depacketizer_0/m_axis]
   connect_bd_intf_net -intf_net mute_controller_0_m_axis [get_bd_intf_pins mute_controller_0/m_axis] [get_bd_intf_pins packetizer_0/s_axis]
   connect_bd_intf_net -intf_net packetizer_0_m_axis [get_bd_intf_pins AXI4Stream_UART_0/S00_AXIS_TX] [get_bd_intf_pins packetizer_0/m_axis]
   connect_bd_intf_net -intf_net volume_controller_0_m_axis [get_bd_intf_pins mute_controller_0/s_axis] [get_bd_intf_pins volume_controller_0/m_axis]
@@ -338,17 +340,17 @@ proc create_root_design { parentCell } {
   connect_bd_net -net btnL_1 [get_bd_ports btnL] [get_bd_pins mute_controller_0/mute_right]
   connect_bd_net -net btnR_1 [get_bd_ports btnR] [get_bd_pins mute_controller_0/mute_left]
   connect_bd_net -net btnU_1 [get_bd_ports btnU] [get_bd_pins debouncer_0/input_signal]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aclk] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aclk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins debouncer_0/clk] [get_bd_pins debouncer_1/clk] [get_bd_pins depacketizer_0/aclk] [get_bd_pins edge_detector_0/clk] [get_bd_pins edge_detector_1/clk] [get_bd_pins moving_average_filter_0/aclk] [get_bd_pins mute_controller_0/aclk] [get_bd_pins packetizer_0/aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins volume_controller_0/aclk]
-  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins AXI4Stream_UART_0/clk_uart] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins proc_sys_reset_1/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins AXI4Stream_UART_0/clk_uart] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_1/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aclk] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aclk] [get_bd_pins AXI4_S_interface_FSM_0/aclk] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins debouncer_0/clk] [get_bd_pins debouncer_1/clk] [get_bd_pins depacketizer_0/aclk] [get_bd_pins edge_detector_0/clk] [get_bd_pins edge_detector_1/clk] [get_bd_pins mute_controller_0/aclk] [get_bd_pins packetizer_0/aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins volume_controller_0/aclk]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked] [get_bd_pins proc_sys_reset_1/dcm_locked]
   connect_bd_net -net debouncer_0_debounced [get_bd_pins debouncer_0/debounced] [get_bd_pins edge_detector_0/input_signal]
   connect_bd_net -net debouncer_1_debounced [get_bd_pins debouncer_1/debounced] [get_bd_pins edge_detector_1/input_signal]
   connect_bd_net -net edge_detector_0_edge_detected [get_bd_pins edge_detector_0/edge_detected] [get_bd_pins volume_controller_0/volume_up]
   connect_bd_net -net edge_detector_1_edge_detected [get_bd_pins edge_detector_1/edge_detected] [get_bd_pins volume_controller_0/volume_down]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aresetn] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aresetn] [get_bd_pins depacketizer_0/aresetn] [get_bd_pins moving_average_filter_0/aresetn] [get_bd_pins mute_controller_0/aresetn] [get_bd_pins packetizer_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins volume_controller_0/aresetn]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aresetn] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aresetn] [get_bd_pins AXI4_S_interface_FSM_0/resetn] [get_bd_pins depacketizer_0/aresetn] [get_bd_pins mute_controller_0/aresetn] [get_bd_pins packetizer_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins volume_controller_0/aresetn]
   connect_bd_net -net proc_sys_reset_1_peripheral_reset [get_bd_pins AXI4Stream_UART_0/rst] [get_bd_pins proc_sys_reset_1/peripheral_reset]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz_0/reset] [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in]
-  connect_bd_net -net sw0_1 [get_bd_ports sw0] [get_bd_pins moving_average_filter_0/filter_enable]
+  connect_bd_net -net sw0_1 [get_bd_ports sw0] [get_bd_pins AXI4_S_interface_FSM_0/enable_filter]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]
   connect_bd_net -net volume_controller_0_volume_level [get_bd_ports led] [get_bd_pins volume_controller_0/volume_level]
 

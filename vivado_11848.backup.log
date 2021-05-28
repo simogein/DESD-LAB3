@@ -1,0 +1,53 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed May 26 19:41:38 2021
+# Process ID: 11848
+# Current directory: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11612 D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.xpr
+# Log file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/vivado.log
+# Journal file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 1094.965 ; gain = 0.000
+update_compile_order -fileset sources_1
+update_module_reference bd_DAW_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Reading block design file <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd>...
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_1
+Adding component instance block -- DigiLAB:ip:AXI4Stream_UART:1.1 - AXI4Stream_UART_0
+Adding component instance block -- xilinx.com:module_ref:packetizer:1.0 - packetizer_0
+Adding component instance block -- xilinx.com:module_ref:depacketizer:1.0 - depacketizer_0
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_0
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_0
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_1
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_1
+Adding component instance block -- xilinx.com:module_ref:mute_controller:1.0 - mute_controller_0
+Adding component instance block -- xilinx.com:module_ref:volume_controller:1.0 - volume_controller_0
+Adding component instance block -- xilinx.com:module_ref:moving_average_filter:1.0 - moving_average_filter_0
+Successfully read diagram <bd_DAW> from block design file <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd>
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+upgrade_ip: Time (s): cpu = 00:00:26 ; elapsed = 00:00:21 . Memory (MB): peak = 1110.195 ; gain = 15.230
+update_module_reference: Time (s): cpu = 00:00:28 ; elapsed = 00:00:22 . Memory (MB): peak = 1110.195 ; gain = 15.230
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed May 26 19:54:48 2021...

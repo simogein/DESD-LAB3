@@ -130,7 +130,7 @@ begin
 
 						--Move to output the computed filtered value or the original value depending on filter_enable_int state
 						if filter_enable_int = '1' then		
-							m_axis_tdata <= (std_logic_vector(to_signed(filter_accumulator_R / FILTER_ORDER,16)));
+							m_axis_tdata <= (std_logic_vector(to_signed(to_integer(shift_right(to_signed(filter_accumulator_R,32,5));
 						else
 							m_axis_tdata <= tdata_int;
 						end if;			

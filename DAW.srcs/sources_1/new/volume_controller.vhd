@@ -29,7 +29,7 @@ entity volume_controller is
 		m_axis_tlast	: out 	std_logic;
 		m_axis_tready	: in 	std_logic;
 
-		volume_level	: out	std_logic_vector(15 downto 0);
+		volume_level	: out	std_logic_vector(VOLUME_MAX downto VOLUME_MIN);
 		volume_down 	: in 	std_logic;		--Input port to decrease volume
 		volume_up 		: in 	std_logic 		--Input port to increase volume
 	);
@@ -42,7 +42,7 @@ end volume_controller;
 architecture Behavioral of volume_controller is
 
 ----------------------------TYPE DECLARATION---------------------------------
-type state_type is (IDLE, RECEIVE, CLAMP, SEND);
+type state_type is (IDLE, RECEIVE, COMPUTE, CLAMP, SEND);
 -----------------------------------------------------------------------------
 
 
@@ -67,12 +67,14 @@ begin
 	with state select s_axis_tready <=
 		'0' when IDLE,
 		'1' when RECEIVE,
+		'0' when COMPUTE,
 		'0' when CLAMP,
 		'0' when SEND;
 
 	with state select m_axis_tvalid <=
 		'0' when IDLE,
 		'0' when RECEIVE,
+		'0' when COMPUTE,
 		'0' when CLAMP,
 		'1' when SEND;
 -----------------------------------------------------------------------------
@@ -103,7 +105,7 @@ begin
 				when RECEIVE =>		--State RECEIVE
 					
 					if s_axis_tvalid = '1' then		--Sample data and move to CLAMP state when the input data are valid
-						state <= CLAMP;
+						state <= COMPUTE;
 
 						tdata_int <= s_axis_tdata;
 						tlast_int <= s_axis_tlast;
@@ -113,9 +115,9 @@ begin
 
 
 
-				when CLAMP =>		--State CLAMP
+				when COMPUTE =>		--State COMPUTE
 
-					state <= SEND;
+					state <= CLAMP;
 					m_axis_tlast <= tlast_int;		--Directly move tlast data to output
 
 					amplified_data := to_integer(signed(tdata_int));		--Convert to integer the input data
@@ -128,6 +130,11 @@ begin
 						amplified_data := to_integer(shift_left(to_signed(amplified_data,24),current_volume_int - VOLUME_INIT));
 					end if;
 
+
+
+				when CLAMP =>	--State CLAMP
+
+					state <= SEND;
 
 					if (amplified_data > MAX_DATA) then
 						amplified_data := MAX_DATA;		--Clamp data to maximum positive value in 16bit signed if higher than it

@@ -42,7 +42,7 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bd_DAW_mute
 # IP: bd/bd_DAW/ip/bd_DAW_volume_controller_0_0/bd_DAW_volume_controller_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bd_DAW_volume_controller_0_0 || ORIG_REF_NAME==bd_DAW_volume_controller_0_0} -quiet] -quiet
 
-# IP: bd/bd_DAW/ip/bd_DAW_moving_average_filter_0_0/bd_DAW_moving_average_filter_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bd_DAW_moving_average_filter_0_0 || ORIG_REF_NAME==bd_DAW_moving_average_filter_0_0} -quiet] -quiet
+# IP: bd/bd_DAW/ip/bd_DAW_AXI4_S_interface_FSM_0_0/bd_DAW_AXI4_S_interface_FSM_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bd_DAW_AXI4_S_interface_FSM_0_0 || ORIG_REF_NAME==bd_DAW_AXI4_S_interface_FSM_0_0} -quiet] -quiet
 
 # XDC: d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/bd_DAW_ooc.xdc

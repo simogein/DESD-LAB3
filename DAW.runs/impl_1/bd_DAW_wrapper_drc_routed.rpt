@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Sat May 22 19:20:38 2021
+| Date         : Fri May 28 19:22:40 2021
 | Host         : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 | Command      : report_drc -file bd_DAW_wrapper_drc_routed.rpt -pb bd_DAW_wrapper_drc_routed.pb -rpx bd_DAW_wrapper_drc_routed.rpx
 | Design       : bd_DAW_wrapper

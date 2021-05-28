@@ -13,7 +13,7 @@ source bd_DAW_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2020.2/data/ip'.
-add_files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:17 . Memory (MB): peak = 1112.262 ; gain = 0.000
+add_files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:13 . Memory (MB): peak = 1095.188 ; gain = 0.000
 Command: synth_design -top bd_DAW_wrapper -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
@@ -21,54 +21,54 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15612
+INFO: [Synth 8-7075] Helper process launched with PID 14544
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1112.262 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1095.188 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'bd_DAW_wrapper' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd:29]
 INFO: [Synth 8-3491] module 'bd_DAW' declared at 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:14' bound to instance 'bd_DAW_i' of component 'bd_DAW' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd:45]
 INFO: [Synth 8-638] synthesizing module 'bd_DAW' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:33]
-INFO: [Synth 8-3491] module 'bd_DAW_AXI4Stream_UART_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_AXI4Stream_UART_0_0_stub.vhdl:5' bound to instance 'AXI4Stream_UART_0' of component 'bd_DAW_AXI4Stream_UART_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:263]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_AXI4Stream_UART_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_AXI4Stream_UART_0_0_stub.vhdl:25]
-INFO: [Synth 8-3491] module 'bd_DAW_clk_wiz_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'bd_DAW_clk_wiz_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:280]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_clk_wiz_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_clk_wiz_0_0_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'bd_DAW_debouncer_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_debouncer_0_0_stub.vhdl:5' bound to instance 'debouncer_0' of component 'bd_DAW_debouncer_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:288]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_debouncer_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_debouncer_0_0_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'bd_DAW_debouncer_1_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_debouncer_1_0_stub.vhdl:5' bound to instance 'debouncer_1' of component 'bd_DAW_debouncer_1_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:295]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_debouncer_1_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_debouncer_1_0_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'bd_DAW_depacketizer_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_depacketizer_0_0_stub.vhdl:5' bound to instance 'depacketizer_0' of component 'bd_DAW_depacketizer_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:302]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_depacketizer_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_depacketizer_0_0_stub.vhdl:20]
-INFO: [Synth 8-3491] module 'bd_DAW_edge_detector_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_edge_detector_0_0_stub.vhdl:5' bound to instance 'edge_detector_0' of component 'bd_DAW_edge_detector_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:314]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_edge_detector_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_edge_detector_0_0_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'bd_DAW_edge_detector_1_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_edge_detector_1_0_stub.vhdl:5' bound to instance 'edge_detector_1' of component 'bd_DAW_edge_detector_1_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:321]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_edge_detector_1_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_edge_detector_1_0_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'bd_DAW_moving_average_filter_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_moving_average_filter_0_0_stub.vhdl:5' bound to instance 'moving_average_filter_0' of component 'bd_DAW_moving_average_filter_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:328]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_moving_average_filter_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_moving_average_filter_0_0_stub.vhdl:22]
-INFO: [Synth 8-3491] module 'bd_DAW_mute_controller_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_mute_controller_0_0_stub.vhdl:5' bound to instance 'mute_controller_0' of component 'bd_DAW_mute_controller_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:342]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_mute_controller_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_mute_controller_0_0_stub.vhdl:23]
-INFO: [Synth 8-3491] module 'bd_DAW_packetizer_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_packetizer_0_0_stub.vhdl:5' bound to instance 'packetizer_0' of component 'bd_DAW_packetizer_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:357]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_packetizer_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_packetizer_0_0_stub.vhdl:20]
-INFO: [Synth 8-3491] module 'bd_DAW_proc_sys_reset_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'bd_DAW_proc_sys_reset_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:369]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_proc_sys_reset_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_proc_sys_reset_0_0_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'bd_DAW_proc_sys_reset_1_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_proc_sys_reset_1_0_stub.vhdl:5' bound to instance 'proc_sys_reset_1' of component 'bd_DAW_proc_sys_reset_1_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:382]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_proc_sys_reset_1_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_proc_sys_reset_1_0_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'bd_DAW_volume_controller_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_volume_controller_0_0_stub.vhdl:5' bound to instance 'volume_controller_0' of component 'bd_DAW_volume_controller_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:395]
-INFO: [Synth 8-638] synthesizing module 'bd_DAW_volume_controller_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-12616-DESKTOP-RD2OQRJ/realtime/bd_DAW_volume_controller_0_0_stub.vhdl:24]
+INFO: [Synth 8-3491] module 'bd_DAW_AXI4Stream_UART_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_AXI4Stream_UART_0_0_stub.vhdl:5' bound to instance 'AXI4Stream_UART_0' of component 'bd_DAW_AXI4Stream_UART_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:263]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_AXI4Stream_UART_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_AXI4Stream_UART_0_0_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'bd_DAW_AXI4_S_interface_FSM_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_AXI4_S_interface_FSM_0_0_stub.vhdl:5' bound to instance 'AXI4_S_interface_FSM_0' of component 'bd_DAW_AXI4_S_interface_FSM_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:280]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_AXI4_S_interface_FSM_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_AXI4_S_interface_FSM_0_0_stub.vhdl:22]
+INFO: [Synth 8-3491] module 'bd_DAW_clk_wiz_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'bd_DAW_clk_wiz_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:294]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_clk_wiz_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_clk_wiz_0_0_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'bd_DAW_debouncer_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_debouncer_0_0_stub.vhdl:5' bound to instance 'debouncer_0' of component 'bd_DAW_debouncer_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:302]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_debouncer_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_debouncer_0_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'bd_DAW_debouncer_1_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_debouncer_1_0_stub.vhdl:5' bound to instance 'debouncer_1' of component 'bd_DAW_debouncer_1_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:309]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_debouncer_1_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_debouncer_1_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'bd_DAW_depacketizer_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_depacketizer_0_0_stub.vhdl:5' bound to instance 'depacketizer_0' of component 'bd_DAW_depacketizer_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:316]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_depacketizer_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_depacketizer_0_0_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'bd_DAW_edge_detector_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_edge_detector_0_0_stub.vhdl:5' bound to instance 'edge_detector_0' of component 'bd_DAW_edge_detector_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:328]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_edge_detector_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_edge_detector_0_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'bd_DAW_edge_detector_1_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_edge_detector_1_0_stub.vhdl:5' bound to instance 'edge_detector_1' of component 'bd_DAW_edge_detector_1_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:335]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_edge_detector_1_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_edge_detector_1_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'bd_DAW_mute_controller_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_mute_controller_0_0_stub.vhdl:5' bound to instance 'mute_controller_0' of component 'bd_DAW_mute_controller_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:342]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_mute_controller_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_mute_controller_0_0_stub.vhdl:23]
+INFO: [Synth 8-3491] module 'bd_DAW_packetizer_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_packetizer_0_0_stub.vhdl:5' bound to instance 'packetizer_0' of component 'bd_DAW_packetizer_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:357]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_packetizer_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_packetizer_0_0_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'bd_DAW_proc_sys_reset_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'bd_DAW_proc_sys_reset_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:369]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_proc_sys_reset_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'bd_DAW_proc_sys_reset_1_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_proc_sys_reset_1_0_stub.vhdl:5' bound to instance 'proc_sys_reset_1' of component 'bd_DAW_proc_sys_reset_1_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:382]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_proc_sys_reset_1_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_proc_sys_reset_1_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'bd_DAW_volume_controller_0_0' declared at 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_volume_controller_0_0_stub.vhdl:5' bound to instance 'volume_controller_0' of component 'bd_DAW_volume_controller_0_0' [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:395]
+INFO: [Synth 8-638] synthesizing module 'bd_DAW_volume_controller_0_0' [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/.Xil/Vivado-9396-DESKTOP-RD2OQRJ/realtime/bd_DAW_volume_controller_0_0_stub.vhdl:24]
 INFO: [Synth 8-256] done synthesizing module 'bd_DAW' (1#1) [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd:33]
 INFO: [Synth 8-256] done synthesizing module 'bd_DAW_wrapper' (2#1) [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd:29]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1121.156 ; gain = 8.895
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1122.527 ; gain = 27.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1121.156 ; gain = 8.895
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1122.527 ; gain = 27.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1121.156 ; gain = 8.895
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1122.527 ; gain = 27.340
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1121.156 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1122.527 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -95,10 +95,10 @@ Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/
 Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_debouncer_1_0/bd_DAW_debouncer_1_0/bd_DAW_debouncer_1_0_in_context.xdc] for cell 'bd_DAW_i/debouncer_1'
 Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_mute_controller_0_0/bd_DAW_mute_controller_0_0/bd_DAW_mute_controller_0_0_in_context.xdc] for cell 'bd_DAW_i/mute_controller_0'
 Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_mute_controller_0_0/bd_DAW_mute_controller_0_0/bd_DAW_mute_controller_0_0_in_context.xdc] for cell 'bd_DAW_i/mute_controller_0'
+Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_AXI4_S_interface_FSM_0_0/bd_DAW_AXI4_S_interface_FSM_0_0/bd_DAW_AXI4_S_interface_FSM_0_0_in_context.xdc] for cell 'bd_DAW_i/AXI4_S_interface_FSM_0'
+Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_AXI4_S_interface_FSM_0_0/bd_DAW_AXI4_S_interface_FSM_0_0/bd_DAW_AXI4_S_interface_FSM_0_0_in_context.xdc] for cell 'bd_DAW_i/AXI4_S_interface_FSM_0'
 Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_volume_controller_0_0/bd_DAW_volume_controller_0_0/bd_DAW_volume_controller_0_0_in_context.xdc] for cell 'bd_DAW_i/volume_controller_0'
 Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_volume_controller_0_0/bd_DAW_volume_controller_0_0/bd_DAW_volume_controller_0_0_in_context.xdc] for cell 'bd_DAW_i/volume_controller_0'
-Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_moving_average_filter_0_0/bd_DAW_moving_average_filter_0_0/bd_DAW_moving_average_filter_0_0_in_context.xdc] for cell 'bd_DAW_i/moving_average_filter_0'
-Finished Parsing XDC File [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_moving_average_filter_0_0/bd_DAW_moving_average_filter_0_0/bd_DAW_moving_average_filter_0_0_in_context.xdc] for cell 'bd_DAW_i/moving_average_filter_0'
 Parsing XDC File [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/constrs_1/new/pins.xdc]
 CRITICAL WARNING: [Designutils 20-1307] Command '--' is not supported in the xdc constraint file. [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/constrs_1/new/pins.xdc:10]
 Finished Parsing XDC File [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/constrs_1/new/pins.xdc]
@@ -108,20 +108,20 @@ Parsing XDC File [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/
 Finished Parsing XDC File [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1150.996 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1149.676 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1150.996 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1149.676 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1150.996 ; gain = 38.734
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1149.676 ; gain = 54.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1150.996 ; gain = 38.734
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1149.676 ; gain = 54.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -140,13 +140,13 @@ Applied set_property KEEP_HIERARCHY = SOFT for bd_DAW_i/debouncer_0. (constraint
 Applied set_property KEEP_HIERARCHY = SOFT for bd_DAW_i/edge_detector_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for bd_DAW_i/debouncer_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for bd_DAW_i/mute_controller_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for bd_DAW_i/AXI4_S_interface_FSM_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for bd_DAW_i/volume_controller_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for bd_DAW_i/moving_average_filter_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1150.996 ; gain = 38.734
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1149.676 ; gain = 54.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1150.996 ; gain = 38.734
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1149.676 ; gain = 54.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -168,25 +168,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1150.996 ; gain = 38.734
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1149.676 ; gain = 54.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1193.973 ; gain = 81.711
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1193.828 ; gain = 98.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1193.973 ; gain = 81.711
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1193.828 ; gain = 98.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1213.578 ; gain = 101.316
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1212.938 ; gain = 117.750
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -204,100 +204,100 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1220.336 ; gain = 108.074
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1218.719 ; gain = 123.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1220.336 ; gain = 108.074
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1218.719 ; gain = 123.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1220.336 ; gain = 108.074
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1218.719 ; gain = 123.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1220.336 ; gain = 108.074
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1218.719 ; gain = 123.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1220.336 ; gain = 108.074
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1218.719 ; gain = 123.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1220.336 ; gain = 108.074
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1218.719 ; gain = 123.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+------+---------------------------------+----------+
-|      |BlackBox name                    |Instances |
-+------+---------------------------------+----------+
-|1     |bd_DAW_AXI4Stream_UART_0_0       |         1|
-|2     |bd_DAW_clk_wiz_0_0               |         1|
-|3     |bd_DAW_debouncer_0_0             |         1|
-|4     |bd_DAW_debouncer_1_0             |         1|
-|5     |bd_DAW_depacketizer_0_0          |         1|
-|6     |bd_DAW_edge_detector_0_0         |         1|
-|7     |bd_DAW_edge_detector_1_0         |         1|
-|8     |bd_DAW_moving_average_filter_0_0 |         1|
-|9     |bd_DAW_mute_controller_0_0       |         1|
-|10    |bd_DAW_packetizer_0_0            |         1|
-|11    |bd_DAW_proc_sys_reset_0_0        |         1|
-|12    |bd_DAW_proc_sys_reset_1_0        |         1|
-|13    |bd_DAW_volume_controller_0_0     |         1|
-+------+---------------------------------+----------+
++------+--------------------------------+----------+
+|      |BlackBox name                   |Instances |
++------+--------------------------------+----------+
+|1     |bd_DAW_AXI4Stream_UART_0_0      |         1|
+|2     |bd_DAW_AXI4_S_interface_FSM_0_0 |         1|
+|3     |bd_DAW_clk_wiz_0_0              |         1|
+|4     |bd_DAW_debouncer_0_0            |         1|
+|5     |bd_DAW_debouncer_1_0            |         1|
+|6     |bd_DAW_depacketizer_0_0         |         1|
+|7     |bd_DAW_edge_detector_0_0        |         1|
+|8     |bd_DAW_edge_detector_1_0        |         1|
+|9     |bd_DAW_mute_controller_0_0      |         1|
+|10    |bd_DAW_packetizer_0_0           |         1|
+|11    |bd_DAW_proc_sys_reset_0_0       |         1|
+|12    |bd_DAW_proc_sys_reset_1_0       |         1|
+|13    |bd_DAW_volume_controller_0_0    |         1|
++------+--------------------------------+----------+
 
 Report Cell Usage: 
-+------+--------------------------------------+------+
-|      |Cell                                  |Count |
-+------+--------------------------------------+------+
-|1     |bd_DAW_AXI4Stream_UART_0_0_bbox       |     1|
-|2     |bd_DAW_clk_wiz_0_0_bbox               |     1|
-|3     |bd_DAW_debouncer_0_0_bbox             |     1|
-|4     |bd_DAW_debouncer_1_0_bbox             |     1|
-|5     |bd_DAW_depacketizer_0_0_bbox          |     1|
-|6     |bd_DAW_edge_detector_0_0_bbox         |     1|
-|7     |bd_DAW_edge_detector_1_0_bbox         |     1|
-|8     |bd_DAW_moving_average_filter_0_0_bbox |     1|
-|9     |bd_DAW_mute_controller_0_0_bbox       |     1|
-|10    |bd_DAW_packetizer_0_0_bbox            |     1|
-|11    |bd_DAW_proc_sys_reset_0_0_bbox        |     1|
-|12    |bd_DAW_proc_sys_reset_1_0_bbox        |     1|
-|13    |bd_DAW_volume_controller_0_0_bbox     |     1|
-|14    |IBUF                                  |     7|
-|15    |OBUF                                  |    17|
-+------+--------------------------------------+------+
++------+-------------------------------------+------+
+|      |Cell                                 |Count |
++------+-------------------------------------+------+
+|1     |bd_DAW_AXI4Stream_UART_0_0_bbox      |     1|
+|2     |bd_DAW_AXI4_S_interface_FSM_0_0_bbox |     1|
+|3     |bd_DAW_clk_wiz_0_0_bbox              |     1|
+|4     |bd_DAW_debouncer_0_0_bbox            |     1|
+|5     |bd_DAW_debouncer_1_0_bbox            |     1|
+|6     |bd_DAW_depacketizer_0_0_bbox         |     1|
+|7     |bd_DAW_edge_detector_0_0_bbox        |     1|
+|8     |bd_DAW_edge_detector_1_0_bbox        |     1|
+|9     |bd_DAW_mute_controller_0_0_bbox      |     1|
+|10    |bd_DAW_packetizer_0_0_bbox           |     1|
+|11    |bd_DAW_proc_sys_reset_0_0_bbox       |     1|
+|12    |bd_DAW_proc_sys_reset_1_0_bbox       |     1|
+|13    |bd_DAW_volume_controller_0_0_bbox    |     1|
+|14    |IBUF                                 |     7|
+|15    |OBUF                                 |    17|
++------+-------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1220.336 ; gain = 108.074
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1218.719 ; gain = 123.531
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 1220.336 ; gain = 78.234
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1220.336 ; gain = 108.074
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:44 . Memory (MB): peak = 1218.719 ; gain = 96.383
+Synthesis Optimization Complete : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1218.719 ; gain = 123.531
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1232.406 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1230.734 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1238.320 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1237.055 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 47 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 1238.320 ; gain = 126.059
+synth_design: Time (s): cpu = 00:00:53 ; elapsed = 00:00:59 . Memory (MB): peak = 1237.055 ; gain = 141.867
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/bd_DAW_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file bd_DAW_wrapper_utilization_synth.rpt -pb bd_DAW_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat May 22 19:12:08 2021...
+INFO: [Common 17-206] Exiting Vivado at Fri May 28 19:19:27 2021...

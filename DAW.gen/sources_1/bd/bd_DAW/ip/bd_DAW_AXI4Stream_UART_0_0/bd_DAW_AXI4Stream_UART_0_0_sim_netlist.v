@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Mon May 17 17:15:43 2021
+// Date        : Fri May 28 19:18:01 2021
 // Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim {d:/Documenti/LEZIONI/Digital Electronic System
 //               Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_AXI4Stream_UART_0_0/bd_DAW_AXI4Stream_UART_0_0_sim_netlist.v}
@@ -29,18 +29,18 @@ module bd_DAW_AXI4Stream_UART_0_0
     s00_axis_tx_tready,
     s00_axis_tx_tdata,
     s00_axis_tx_tvalid);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 ClockUART CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME ClockUART, ASSOCIATED_BUSIF UART, ASSOCIATED_RESET rst, FREQ_HZ 64285714, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk_uart;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 ClockUART CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME ClockUART, ASSOCIATED_BUSIF UART, ASSOCIATED_RESET rst, FREQ_HZ 63888888, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk_uart;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
   (* x_interface_info = "xilinx.com:interface:uart:1.0 UART TxD" *) (* x_interface_parameter = "XIL_INTERFACENAME UART, BOARD.ASSOCIATED_PARAM UART_BOARD_INTERFACE" *) output UART_TX;
   (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RxD" *) input UART_RX;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 M00_AXIS_RX_CLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME M00_AXIS_RX_CLK, ASSOCIATED_BUSIF M00_AXIS_RX, ASSOCIATED_RESET m00_axis_rx_aresetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input m00_axis_rx_aclk;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 M00_AXIS_RX_CLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME M00_AXIS_RX_CLK, ASSOCIATED_BUSIF M00_AXIS_RX, ASSOCIATED_RESET m00_axis_rx_aresetn, FREQ_HZ 255555555, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input m00_axis_rx_aclk;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 M00_AXIS_RX_RST RST" *) (* x_interface_parameter = "XIL_INTERFACENAME M00_AXIS_RX_RST, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input m00_axis_rx_aresetn;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 M00_AXIS_RX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME M00_AXIS_RX, WIZ_DATA_WIDTH 32, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output m00_axis_rx_tvalid;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 M00_AXIS_RX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME M00_AXIS_RX, WIZ_DATA_WIDTH 32, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 255555555, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output m00_axis_rx_tvalid;
   (* x_interface_info = "xilinx.com:interface:axis:1.0 M00_AXIS_RX TDATA" *) output [7:0]m00_axis_rx_tdata;
   (* x_interface_info = "xilinx.com:interface:axis:1.0 M00_AXIS_RX TREADY" *) input m00_axis_rx_tready;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 S00_AXIS_TX_CLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXIS_TX_CLK, ASSOCIATED_BUSIF S00_AXIS_TX, ASSOCIATED_RESET s00_axis_tx_aresetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input s00_axis_tx_aclk;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 S00_AXIS_TX_CLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXIS_TX_CLK, ASSOCIATED_BUSIF S00_AXIS_TX, ASSOCIATED_RESET s00_axis_tx_aresetn, FREQ_HZ 255555555, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input s00_axis_tx_aclk;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 S00_AXIS_TX_RST RST" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXIS_TX_RST, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input s00_axis_tx_aresetn;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 S00_AXIS_TX TREADY" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXIS_TX, WIZ_DATA_WIDTH 32, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output s00_axis_tx_tready;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 S00_AXIS_TX TREADY" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXIS_TX, WIZ_DATA_WIDTH 32, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 255555555, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output s00_axis_tx_tready;
   (* x_interface_info = "xilinx.com:interface:axis:1.0 S00_AXIS_TX TDATA" *) input [7:0]s00_axis_tx_tdata;
   (* x_interface_info = "xilinx.com:interface:axis:1.0 S00_AXIS_TX TVALID" *) input s00_axis_tx_tvalid;
 
@@ -62,7 +62,7 @@ module bd_DAW_AXI4Stream_UART_0_0
   (* C_M00_AXIS_RX_TDATA_WIDTH = "8" *) 
   (* C_S00_AXIS_TX_TDATA_WIDTH = "8" *) 
   (* UART_BAUD_RATE = "2000000" *) 
-  (* UART_CLOCK_FREQUENCY = "64285714" *) 
+  (* UART_CLOCK_FREQUENCY = "63888888" *) 
   bd_DAW_AXI4Stream_UART_0_0_AXI4Stream_UART_v1_0 U0
        (.UART_RX(UART_RX),
         .UART_TX(UART_TX),
@@ -81,7 +81,7 @@ module bd_DAW_AXI4Stream_UART_0_0
 endmodule
 
 (* C_M00_AXIS_RX_TDATA_WIDTH = "8" *) (* C_S00_AXIS_TX_TDATA_WIDTH = "8" *) (* ORIG_REF_NAME = "AXI4Stream_UART_v1_0" *) 
-(* UART_BAUD_RATE = "2000000" *) (* UART_CLOCK_FREQUENCY = "64285714" *) 
+(* UART_BAUD_RATE = "2000000" *) (* UART_CLOCK_FREQUENCY = "63888888" *) 
 module bd_DAW_AXI4Stream_UART_0_0_AXI4Stream_UART_v1_0
    (clk_uart,
     rst,
