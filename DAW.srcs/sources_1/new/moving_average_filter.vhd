@@ -6,164 +6,234 @@ use IEEE.NUMERIC_STD.ALL;
 
 
 
-entity moving_average_filter is
-	Generic(
-		FILTER_ORDER 	: natural := 32		--Order of filter
-	);
-  	Port (
-		aclk			: in 	std_logic;
-		aresetn			: in 	std_logic;
+entity moving_average_filter is 
+    Generic(
+        MM_MEAN        : positive         := 5;  --2**MM_MEAN = number of elements to weight
+        WORD_BIT       : positive         := 16;  --Length in bit of the words in input
+        MM_INIT_VAL    : integer          := 0   --Initial Value of the filter, just if for some reason we do not want to begin with 0.
+    );
+    Port(
+        aclk            : in std_logic;
+        resetn          : in std_logic;
 
-		s_axis_tvalid	: in 	std_logic;
-		s_axis_tdata	: in 	std_logic_vector(15 downto 0);
-		s_axis_tlast	: in 	std_logic;
-		s_axis_tready	: out 	std_logic;
+        enable_filter   : in std_logic;
 
-		m_axis_tvalid	: out 	std_logic;
-		m_axis_tdata	: out 	std_logic_vector(15 downto 0);
-		m_axis_tlast	: out 	std_logic;
-		m_axis_tready	: in 	std_logic;
-
-		filter_enable	: in 	std_logic 		--Input port to enable filtering action
-	);
+        --AXI4-S Interface pins
+        --SLAVE_interface
+        s_axis_tvalid   : in  std_logic;        s_axis_tready   : out std_logic;
+        s_axis_tdata    : in  std_logic_vector(WORD_BIT-1 downto 0);
+        s_axis_tlast    : in  std_logic;
+        
+        --MASTER_interface
+        m_axis_tvalid   : out std_logic;
+        m_axis_tready   : in  std_logic;
+        m_axis_tdata    : out std_logic_vector(WORD_BIT-1 downto 0);
+        m_axis_tlast    : out std_logic
+    );
 end moving_average_filter;
 
 
 
 
 
-architecture Behavioral of moving_average_filter is
+architecture Behavioral of moving_average_filter is 
+   
+    component MM_filter is 
+        Generic (
+            TO_EXTEND   : positive      := 5; 
+            WORD_BIT    : positive      := 2;
+            INIT        : integer       := 0
+        );
+        Port (
+            clk         : in    std_logic;
+            reset       : in    std_logic;
+
+            CE          : in    std_logic;
+
+            Data_in     : in    std_logic_vector(WORD_BIT-1 downto 0);
+            Data_out    : out   std_logic_vector(WORD_BIT-1 downto 0)
+        );
+    end component;
 
 ----------------------------TYPE DECLARATION---------------------------------
-type state_type is (IDLE, RECEIVE, FILTER, SEND);
-
-type filter_buffer_type is array (FILTER_ORDER-1 downto 0) of std_logic_vector(15 downto 0);
+    type FSM_STATE is (IDLE, READING, WAIT_MM, SENDING) ;
 -----------------------------------------------------------------------------
 
 
 ---------------------------SIGNAL DECLARATION--------------------------------
-signal state 	: 	state_type;
+    signal STATUS : FSM_STATE := IDLE;
 
-signal tdata_int	:	std_logic_vector(15 downto 0);
-signal tlast_int 	: 	std_logic;
+    signal Data_in_SX : std_logic_vector(WORD_BIT-1 downto 0);
+    signal Data_in_DX : std_logic_vector(WORD_BIT-1 downto 0);
+      
+    signal chip_en_SX   : std_logic := '0';
+    signal chip_en_DX   : std_logic := '0';
 
-signal filter_enable_int 	: 	std_logic;
+    signal SX_MM_Dout  : std_logic_vector(WORD_BIT-1 downto 0);
+    signal DX_MM_Dout  : std_logic_vector(WORD_BIT-1 downto 0);
 
+    --  "Flow control signals"
+    signal count                    : unsigned(1 downto 0)   := "00"; 
+    signal m_axis_tlast_sampled     : std_logic;
 
-signal filter_buffer_L : filter_buffer_type := (others => (others => '0'));		--Buffer initialized full of zero value samples
-signal filter_buffer_R : filter_buffer_type := (others => (others => '0'));
------------------------------------------------------------------------------
+    signal reset        : std_logic;
+----------------------------------------------------------------------------- 
 
 begin
 
 --------------------------------DATA FLOW------------------------------------
+    reset <= not resetn; 
+-----------------------------------------------------------------------------
 
+
+----------------------------MODULE INSTANTIATION-----------------------------    
+    MM_filter_SX_CHANNEL : MM_filter    --INSTANTIATE THE FIRST MM FILTER  (for the first audio channel)
+    Generic map(
+        TO_EXTEND       => MM_MEAN,
+        WORD_BIT        => WORD_BIT,
+        INIT            => MM_INIT_VAL
+    )
+    Port map(
+        clk             => aclk,
+        reset           => reset,
+
+        CE              => chip_en_SX,
+
+        Data_in         => Data_in_SX,
+        Data_out        => SX_MM_Dout
+    );
+
+    
+    MM_filter_DX_CHANNEL : MM_filter    --INSTANTIATE THE SECOND MM FILTER  (for the second audio channel)
+    Generic map(
+        TO_EXTEND       => MM_MEAN,
+        WORD_BIT        => WORD_BIT,
+        INIT            => MM_INIT_VAL
+    )
+    Port map(
+        clk             => aclk,
+        reset           => reset,
+
+        CE              => chip_en_DX,
+
+        Data_in         => Data_in_DX,
+        Data_out        => DX_MM_Dout
+    );
 -----------------------------------------------------------------------------
 
 
 -------------------------------FSM OUTPUTS-----------------------------------
-	with state select s_axis_tready <=
-		'0' when IDLE,
-		'1' when RECEIVE,
-		'0' when FILTER,
-		'0' when SEND;
+    with STATUS select s_axis_tready <=
+        '0' when IDLE,
+        '1' when READING,
+        '0' when WAIT_MM,
+        '0' when SENDING;
 
-	with state select m_axis_tvalid <=
-		'0' when IDLE,
-		'0' when RECEIVE,
-		'0' when FILTER,
-		'1' when SEND;
+    with STATUS select m_axis_tvalid <=
+        '0' when IDLE,
+        '0' when READING,
+        '0' when WAIT_MM,
+        '1' when SENDING;
 -----------------------------------------------------------------------------
 
 
 -----------------------------------FSM---------------------------------------
-	process (aclk,aresetn)
+    FSM_ENGINE : process (aclk,resetn)
 
----------------------------VARIABLE DECLARATION------------------------------
-	variable 	filter_accumulator_R : integer := 0;
-	variable 	filter_accumulator_L : integer := 0;
------------------------------------------------------------------------------
+    begin
+        if resetn = '0' then
+            STATUS  <= IDLE;
+            count   <= "00";
 
-	begin
+        elsif rising_edge(aclk) then 
+            
+            case STATUS is
 
-		if aresetn = '0' then		--Reset condition
-			state		<= IDLE;
-
-
-		elsif rising_edge(aclk) then		--Normal operation
-
-			case state is
-
-				when IDLE =>		--State IDLE
-
-					state <= RECEIVE;
-					filter_buffer_L <= (others => (others => '0'));		--Reset buffers to zero value samples
-					filter_buffer_R <= (others => (others => '0'));
+                when IDLE =>
+                    STATUS <= READING;
 
 
 
-				when RECEIVE =>		--State RECEIVE
+                when READING =>
+                    if s_axis_tvalid = '1' then
 
-					if s_axis_tvalid = '1' then		--Sample data and move to FILTER state when the input data are valid
-						state <= FILTER;
+                        if enable_filter = '1' then
+                            m_axis_tlast_sampled <= s_axis_tlast;
+                            STATUS          <= WAIT_MM;
+                        else 
+                            m_axis_tlast    <= s_axis_tlast;
+                            m_axis_tdata    <= s_axis_tdata;
+                            STATUS          <= SENDING;                        
+                        end if;
+                        
+                        case s_axis_tlast is 
 
-						tdata_int <= s_axis_tdata;
-						tlast_int <= s_axis_tlast;
-						filter_enable_int <= filter_enable;		--Sample the filter_enable port
+                            when '0' =>
+                                Data_in_SX  <= s_axis_tdata;   --in this way, the next cycle the MM filter will consider the new input as something
+                                chip_en_SX  <= '1';            --to weight and, the cycle after will not.
+                            
+                            when '1' =>
+                                Data_in_DX  <= s_axis_tdata;   --Same as before for the SX filter.
+                                chip_en_DX  <= '1';
 
-					end if;
+                            when others =>
+                                --Do nothing
+                        end case;
+
+                    else 
+                        
+                    end if;
+                
+
+    
+                when WAIT_MM =>     --THE MMS NEED TWO ACLK CYCLEs TO PROVIDE THE CORRECT OUTPUT       
+                    
+                    chip_en_SX <= '0';
+                    chip_en_DX <= '0';
+
+                    m_axis_tlast <= m_axis_tlast_sampled;  
+                    
+                    if count <= "01" then
+                        STATUS <= WAIT_MM;
+                        count <= count + 1;
+                    else 
+                        count <= "00";
+                        STATUS <= SENDING;
+
+                        case m_axis_tlast_sampled is
+                            
+                            when '0' =>
+                                m_axis_tdata <= SX_MM_Dout;
+                                                            
+                            when '1' =>
+                                m_axis_tdata <= DX_MM_Dout;
+                                
+                            when others =>
+                                --Do nothing
+
+                        end case;
+                    end if;
+                
+
+
+                when SENDING =>
+
+                    chip_en_SX <= '0';
+                    chip_en_DX <= '0';
+     
+                    if m_axis_tready = '1' then 
+                        STATUS <= READING;
+                    end if;
 
 
 
-				when FILTER =>
-
-					state <= SEND;
-					m_axis_tlast <= tlast_int;		--Directly move tlast data to output
-
-
-					if tlast_int = '1' then		--Compute the accumulator value for right channel
-
-						filter_accumulator_R := filter_accumulator_R + to_integer(signed(tdata_int)) - to_integer(signed(filter_buffer_R(FILTER_ORDER-1)));
-
-						--Shift the current value into the right channel buffer 
-						filter_buffer_R <= (filter_buffer_R(FILTER_ORDER-1 downto 1) & tdata_int);
-
-						--Move to output the computed filtered value or the original value depending on filter_enable_int state
-						if filter_enable_int = '1' then		
-							m_axis_tdata <= (std_logic_vector(to_signed(to_integer(shift_right(to_signed(filter_accumulator_R,32,5));
-						else
-							m_axis_tdata <= tdata_int;
-						end if;			
-
-					else		--Compute the accumulator valure for left channel
-
-						filter_accumulator_L := filter_accumulator_L + to_integer(signed(tdata_int)) - to_integer(signed(filter_buffer_L(FILTER_ORDER-1)));
-
-						--Shift the current value into the right channel buffer 
-						filter_buffer_L <= (filter_buffer_L(FILTER_ORDER-1 downto 1) & tdata_int);
-
-						--Move to output the computed filtered value or the original value depending on filter_enable_int state
-						if filter_enable_int = '1' then		
-							m_axis_tdata <= (std_logic_vector(to_signed(filter_accumulator_L / FILTER_ORDER,16)));
-						else
-							m_axis_tdata <= tdata_int;
-						end if;
-
-					end if;
+            end case;
 
 
 
-				when SEND =>		--State SEND
+        end if;
 
-					if m_axis_tready = '1' then		--Move to RECEIVE state when the next AXIS module ha received the data
-						state <= RECEIVE;
-					end if;
-
-			end case;
-
-		end if;
-
-	end process;
+    end process;
 -----------------------------------------------------------------------------
 
 

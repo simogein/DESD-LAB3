@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
 -- Date        : Fri May 28 19:16:32 2021
 -- Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim {d:/Documenti/LEZIONI/Digital Electronic System
---               Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0_sim_netlist.vhdl}
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_DAW_clk_wiz_0_0 -prefix
+--               bd_DAW_clk_wiz_0_0_ bd_DAW_clk_wiz_0_0_sim_netlist.vhdl
 -- Design      : bd_DAW_clk_wiz_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -22,8 +22,6 @@ entity bd_DAW_clk_wiz_0_0_bd_DAW_clk_wiz_0_0_clk_wiz is
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_DAW_clk_wiz_0_0_bd_DAW_clk_wiz_0_0_clk_wiz : entity is "bd_DAW_clk_wiz_0_0_clk_wiz";
 end bd_DAW_clk_wiz_0_0_bd_DAW_clk_wiz_0_0_clk_wiz;
 
 architecture STRUCTURE of bd_DAW_clk_wiz_0_0_bd_DAW_clk_wiz_0_0_clk_wiz is

@@ -56,16 +56,16 @@ USE ieee.numeric_std.ALL;
 ENTITY bd_DAW_moving_average_filter_0_0 IS
   PORT (
     aclk : IN STD_LOGIC;
-    aresetn : IN STD_LOGIC;
+    resetn : IN STD_LOGIC;
+    enable_filter : IN STD_LOGIC;
     s_axis_tvalid : IN STD_LOGIC;
+    s_axis_tready : OUT STD_LOGIC;
     s_axis_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     s_axis_tlast : IN STD_LOGIC;
-    s_axis_tready : OUT STD_LOGIC;
     m_axis_tvalid : OUT STD_LOGIC;
-    m_axis_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    m_axis_tlast : OUT STD_LOGIC;
     m_axis_tready : IN STD_LOGIC;
-    filter_enable : IN STD_LOGIC
+    m_axis_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    m_axis_tlast : OUT STD_LOGIC
   );
 END bd_DAW_moving_average_filter_0_0;
 
@@ -74,20 +74,22 @@ ARCHITECTURE bd_DAW_moving_average_filter_0_0_arch OF bd_DAW_moving_average_filt
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF bd_DAW_moving_average_filter_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT moving_average_filter IS
     GENERIC (
-      FILTER_ORDER : INTEGER
+      MM_MEAN : INTEGER;
+      WORD_BIT : INTEGER;
+      MM_INIT_VAL : INTEGER
     );
     PORT (
       aclk : IN STD_LOGIC;
-      aresetn : IN STD_LOGIC;
+      resetn : IN STD_LOGIC;
+      enable_filter : IN STD_LOGIC;
       s_axis_tvalid : IN STD_LOGIC;
+      s_axis_tready : OUT STD_LOGIC;
       s_axis_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       s_axis_tlast : IN STD_LOGIC;
-      s_axis_tready : OUT STD_LOGIC;
       m_axis_tvalid : OUT STD_LOGIC;
-      m_axis_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      m_axis_tlast : OUT STD_LOGIC;
       m_axis_tready : IN STD_LOGIC;
-      filter_enable : IN STD_LOGIC
+      m_axis_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      m_axis_tlast : OUT STD_LOGIC
     );
   END COMPONENT moving_average_filter;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -95,41 +97,43 @@ ARCHITECTURE bd_DAW_moving_average_filter_0_0_arch OF bd_DAW_moving_average_filt
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF bd_DAW_moving_average_filter_0_0_arch : ARCHITECTURE IS "bd_DAW_moving_average_filter_0_0,moving_average_filter,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF bd_DAW_moving_average_filter_0_0_arch: ARCHITECTURE IS "bd_DAW_moving_average_filter_0_0,moving_average_filter,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=moving_average_filter,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,FILTER_ORDER=32}";
+  ATTRIBUTE CORE_GENERATION_INFO OF bd_DAW_moving_average_filter_0_0_arch: ARCHITECTURE IS "bd_DAW_moving_average_filter_0_0,moving_average_filter,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=moving_average_filter,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,MM_MEAN=5,WORD_BIT=16,MM_INIT_VAL=0}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF bd_DAW_moving_average_filter_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_INFO OF m_axis_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 m_axis TREADY";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 m_axis TLAST";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 m_axis TDATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_tvalid: SIGNAL IS "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 m_axis TREADY";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_tvalid: SIGNAL IS "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 255555555, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 m_axis TVALID";
-  ATTRIBUTE X_INTERFACE_INFO OF s_axis_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 s_axis TREADY";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 s_axis TLAST";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 s_axis TDATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_tvalid: SIGNAL IS "XIL_INTERFACENAME s_axis, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 s_axis TREADY";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_tvalid: SIGNAL IS "XIL_INTERFACENAME s_axis, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 255555555, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 s_axis TVALID";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF aresetn: SIGNAL IS "XIL_INTERFACENAME aresetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF aresetn: SIGNAL IS "xilinx.com:signal:reset:1.0 aresetn RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF aclk: SIGNAL IS "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis:s_axis, ASSOCIATED_RESET aresetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF resetn: SIGNAL IS "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF resetn: SIGNAL IS "xilinx.com:signal:reset:1.0 resetn RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF aclk: SIGNAL IS "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis:s_axis, ASSOCIATED_RESET resetn, FREQ_HZ 255555555, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 aclk CLK";
 BEGIN
   U0 : moving_average_filter
     GENERIC MAP (
-      FILTER_ORDER => 32
+      MM_MEAN => 5,
+      WORD_BIT => 16,
+      MM_INIT_VAL => 0
     )
     PORT MAP (
       aclk => aclk,
-      aresetn => aresetn,
+      resetn => resetn,
+      enable_filter => enable_filter,
       s_axis_tvalid => s_axis_tvalid,
+      s_axis_tready => s_axis_tready,
       s_axis_tdata => s_axis_tdata,
       s_axis_tlast => s_axis_tlast,
-      s_axis_tready => s_axis_tready,
       m_axis_tvalid => m_axis_tvalid,
-      m_axis_tdata => m_axis_tdata,
-      m_axis_tlast => m_axis_tlast,
       m_axis_tready => m_axis_tready,
-      filter_enable => filter_enable
+      m_axis_tdata => m_axis_tdata,
+      m_axis_tlast => m_axis_tlast
     );
 END bd_DAW_moving_average_filter_0_0_arch;

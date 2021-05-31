@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Sat May 22 19:10:54 2021
+| Date         : Mon May 31 18:14:55 2021
 | Host         : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 | Command      : report_utilization -file bd_DAW_moving_average_filter_0_0_utilization_synth.rpt -pb bd_DAW_moving_average_filter_0_0_utilization_synth.pb
 | Design       : bd_DAW_moving_average_filter_0_0
@@ -27,18 +27,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+-------------------------+------+-------+-----------+-------+
-|        Site Type        | Used | Fixed | Available | Util% |
-+-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   66 |     0 |     20800 |  0.32 |
-|   LUT as Logic          |   66 |     0 |     20800 |  0.32 |
-|   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   82 |     0 |     41600 |  0.20 |
-|   Register as Flip Flop |   82 |     0 |     41600 |  0.20 |
-|   Register as Latch     |    0 |     0 |     41600 |  0.00 |
-| F7 Muxes                |    0 |     0 |     16300 |  0.00 |
-| F8 Muxes                |    0 |     0 |      8150 |  0.00 |
-+-------------------------+------+-------+-----------+-------+
++----------------------------+------+-------+-----------+-------+
+|          Site Type         | Used | Fixed | Available | Util% |
++----------------------------+------+-------+-----------+-------+
+| Slice LUTs*                |  124 |     0 |     20800 |  0.60 |
+|   LUT as Logic             |   92 |     0 |     20800 |  0.44 |
+|   LUT as Memory            |   32 |     0 |      9600 |  0.33 |
+|     LUT as Distributed RAM |    0 |     0 |           |       |
+|     LUT as Shift Register  |   32 |     0 |           |       |
+| Slice Registers            |  258 |     0 |     41600 |  0.62 |
+|   Register as Flip Flop    |  258 |     0 |     41600 |  0.62 |
+|   Register as Latch        |    0 |     0 |     41600 |  0.00 |
+| F7 Muxes                   |    0 |     0 |     16300 |  0.00 |
+| F8 Muxes                   |    0 |     0 |      8150 |  0.00 |
++----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
 
@@ -55,9 +57,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 1     |          Yes |           - |          Set |
-| 3     |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 78    |          Yes |       Reset |            - |
+| 141   |          Yes |           - |        Reset |
+| 16    |          Yes |         Set |            - |
+| 100   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,14 +151,17 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   78 |        Flop & Latch |
-| LUT2     |   44 |                 LUT |
-| LUT5     |   16 |                 LUT |
+| FDCE     |  141 |        Flop & Latch |
+| FDRE     |  100 |        Flop & Latch |
+| LUT2     |   49 |                 LUT |
+| LUT4     |   36 |                 LUT |
+| LUT3     |   35 |                 LUT |
+| SRLC32E  |   32 |  Distributed Memory |
+| LUT6     |   21 |                 LUT |
+| FDSE     |   16 |        Flop & Latch |
 | CARRY4   |   12 |          CarryLogic |
-| LUT3     |    4 |                 LUT |
-| LUT1     |    3 |                 LUT |
-| FDCE     |    3 |        Flop & Latch |
-| LUT6     |    1 |                 LUT |
+| LUT5     |    2 |                 LUT |
+| LUT1     |    1 |                 LUT |
 | FDPE     |    1 |        Flop & Latch |
 +----------+------+---------------------+
 

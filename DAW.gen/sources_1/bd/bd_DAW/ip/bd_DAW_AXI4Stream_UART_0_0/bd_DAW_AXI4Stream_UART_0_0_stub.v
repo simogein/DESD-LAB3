@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Fri May 28 19:18:01 2021
+// Date        : Fri May 28 19:18:00 2021
 // Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub {d:/Documenti/LEZIONI/Digital Electronic System
-//               Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_AXI4Stream_UART_0_0/bd_DAW_AXI4Stream_UART_0_0_stub.v}
+// Command     : write_verilog -force -mode synth_stub -rename_top bd_DAW_AXI4Stream_UART_0_0 -prefix
+//               bd_DAW_AXI4Stream_UART_0_0_ bd_DAW_AXI4Stream_UART_0_0_stub.v
 // Design      : bd_DAW_AXI4Stream_UART_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

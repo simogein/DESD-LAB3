@@ -7,8 +7,6 @@ set_property src_info {type:XDC file:1 line:5 export:INPUT save:INPUT read:READ}
 set_property PACKAGE_PIN T17 [get_ports btnR]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN U17 [get_ports btnD]
-set_property src_info {type:XDC file:1 line:10 export:INPUT save:INPUT read:READ} [current_design]
--- LEDs
 set_property src_info {type:XDC file:1 line:11 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN U16 [get_ports {led[0]}]
 set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]

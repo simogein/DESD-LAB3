@@ -1,0 +1,254 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon May 31 15:33:22 2021
+# Process ID: 240
+# Current directory: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9704 D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.xpr
+# Log file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/vivado.log
+# Journal file: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:30 ; elapsed = 00:00:18 . Memory (MB): peak = 1089.434 ; gain = 0.000
+update_module_reference bd_DAW_mute_controller_0_0
+CRITICAL WARNING: [HDL 9-806] Syntax error near ")". [d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/mute_controller.vhd:11]
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/mute_controller.vhd'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file 'd:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/mute_controller.vhd'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'mute_controller'.
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:12 . Memory (MB): peak = 1089.434 ; gain = 0.000
+ERROR: [Common 17-39] 'update_module_reference' failed due to earlier errors.
+update_compile_order -fileset sources_1
+CRITICAL WARNING: [HDL 9-806] Syntax error near ")". [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/mute_controller.vhd:11]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ")". [D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/mute_controller.vhd:11]
+update_module_reference bd_DAW_mute_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Xilinx/Vivado/IPs'.
+Reading block design file <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd>...
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_1
+Adding component instance block -- DigiLAB:ip:AXI4Stream_UART:1.1 - AXI4Stream_UART_0
+Adding component instance block -- xilinx.com:module_ref:packetizer:1.0 - packetizer_0
+Adding component instance block -- xilinx.com:module_ref:depacketizer:1.0 - depacketizer_0
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_0
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_0
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_1
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_1
+Adding component instance block -- xilinx.com:module_ref:mute_controller:1.0 - mute_controller_0
+Adding component instance block -- xilinx.com:module_ref:AXI4_S_interface_FSM:1.0 - AXI4_S_interface_FSM_0
+Adding component instance block -- xilinx.com:module_ref:volume_controller:1.0 - volume_controller_0
+Successfully read diagram <bd_DAW> from block design file <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd>
+Upgrading 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd'
+INFO: [IP_Flow 19-1972] Upgraded bd_DAW_mute_controller_0_0 from mute_controller_v1_0 1.0 to mute_controller_v1_0 1.0
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+upgrade_ip: Time (s): cpu = 00:00:31 ; elapsed = 00:00:23 . Memory (MB): peak = 1125.141 ; gain = 35.707
+update_module_reference: Time (s): cpu = 00:00:35 ; elapsed = 00:00:44 . Memory (MB): peak = 1125.141 ; gain = 35.707
+export_ip_user_files -of_objects  [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd}}] -no_script -reset -force -quiet
+remove_files  {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd}}
+remove_files  {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd}}
+WARNING: [Vivado 12-818] No files matched 'D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd'
+file delete -force {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd}
+regenerate_bd_layout
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_controller_0 .
+Exporting to file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+[Mon May 31 15:41:04 2021] Launched bd_DAW_mute_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+bd_DAW_mute_controller_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_mute_controller_0_0_synth_1/runme.log
+synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Mon May 31 15:41:04 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:28 . Memory (MB): peak = 1288.105 ; gain = 154.465
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1433.180 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 73 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.260 . Memory (MB): peak = 2120.203 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.260 . Memory (MB): peak = 2120.203 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2120.594 ; gain = 0.391
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:43 ; elapsed = 00:00:36 . Memory (MB): peak = 2234.340 ; gain = 946.035
+open_report: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2250.594 ; gain = 10.895
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {64.0} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {265} CONFIG.MMCM_DIVCLK_DIVIDE {2} CONFIG.MMCM_CLKFBOUT_MULT_F {27} CONFIG.MMCM_CLKOUT0_DIVIDE_F {21} CONFIG.MMCM_CLKOUT1_DIVIDE {5} CONFIG.CLKOUT1_JITTER {132.200} CONFIG.CLKOUT1_PHASE_ERROR {142.582} CONFIG.CLKOUT2_JITTER {104.700} CONFIG.CLKOUT2_PHASE_ERROR {142.582}] [get_bd_cells clk_wiz_0]
+endgroup
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+reset_run synth_1
+reset_run bd_DAW_clk_wiz_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI4Stream_UART_0 .
+Exporting to file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_AXI4Stream_UART_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_clk_wiz_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_1_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_AXI4Stream_UART_0_0, cache-ID = bc5ebb6e8dc26f6c; cache size = 11.392 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_proc_sys_reset_0_0, cache-ID = 9e9a04f9f92f22cf; cache size = 11.392 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_proc_sys_reset_1_0, cache-ID = 530f7924830f954f; cache size = 11.392 MB.
+[Mon May 31 15:56:58 2021] Launched bd_DAW_clk_wiz_0_0_synth_1, synth_1...
+Run output will be captured here:
+bd_DAW_clk_wiz_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_clk_wiz_0_0_synth_1/runme.log
+synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Mon May 31 15:56:59 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 2409.320 ; gain = 2.598
+set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING true [get_runs synth_1]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Mon May 31 16:02:27 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Mon May 31 16:02:28 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}]
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 2446.793 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 73 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.220 . Memory (MB): peak = 2446.793 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.221 . Memory (MB): peak = 2446.793 ; gain = 0.000
+refresh_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 2454.836 ; gain = 16.902
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+open_bd_design {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}
+startgroup
+set_property -dict [list CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {256} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {64} CONFIG.MMCM_CLKOUT0_DIVIDE_F {20} CONFIG.MMCM_CLKOUT1_DIVIDE {5} CONFIG.CLKOUT1_JITTER {199.301} CONFIG.CLKOUT1_PHASE_ERROR {320.726} CONFIG.CLKOUT2_JITTER {165.846} CONFIG.CLKOUT2_PHASE_ERROR {320.726}] [get_bd_cells clk_wiz_0]
+endgroup
+make_wrapper -files [get_files {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/bd_DAW.bd}}] -top
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+Wrote  : <D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ui/bd_560dd93d.ui> 
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+reset_run synth_1
+reset_run bd_DAW_clk_wiz_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+INFO: [BD 41-1662] The design 'bd_DAW.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI4Stream_UART_0 .
+Exporting to file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_AXI4Stream_UART_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_clk_wiz_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_1_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_AXI4Stream_UART_0_0, cache-ID = 96b57aa4570bd8df; cache size = 11.453 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_proc_sys_reset_0_0, cache-ID = aed634b98604fcc5; cache size = 11.453 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_proc_sys_reset_1_0, cache-ID = c40a5170b20386aa; cache size = 11.453 MB.
+launch_runs: Time (s): cpu = 00:00:05 ; elapsed = 00:00:20 . Memory (MB): peak = 2539.160 ; gain = 0.969
+INFO: [Common 17-344] 'launch_runs' was cancelled
+set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING false [get_runs synth_1]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Mon May 31 16:15:22 2021] Launched bd_DAW_clk_wiz_0_0_synth_1, synth_1...
+Run output will be captured here:
+bd_DAW_clk_wiz_0_0_synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/bd_DAW_clk_wiz_0_0_synth_1/runme.log
+synth_1: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Mon May 31 16:15:22 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {64} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {250} CONFIG.MMCM_DIVCLK_DIVIDE {3} CONFIG.MMCM_CLKFBOUT_MULT_F {46} CONFIG.MMCM_CLKOUT0_DIVIDE_F {24} CONFIG.MMCM_CLKOUT1_DIVIDE {6} CONFIG.CLKOUT1_JITTER {129.006} CONFIG.CLKOUT1_PHASE_ERROR {152.899} CONFIG.CLKOUT2_JITTER {106.329} CONFIG.CLKOUT2_PHASE_ERROR {152.899}] [get_bd_cells clk_wiz_0]
+endgroup
+save_bd_design
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+reset_run synth_1
+reset_run bd_DAW_clk_wiz_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <D:\Documenti\LEZIONI\Digital Electronic System Design\Project\DAW\DAW.srcs\sources_1\bd\bd_DAW\bd_DAW.bd> 
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/sim/bd_DAW.vhd
+VHDL Output written to : d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI4Stream_UART_0 .
+Exporting to file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW.hwh
+Generated Block Design Tcl file d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/hw_handoff/bd_DAW_bd.tcl
+Generated Hardware Definition File d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/synth/bd_DAW.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_AXI4Stream_UART_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_clk_wiz_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP bd_DAW_proc_sys_reset_1_0
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_AXI4Stream_UART_0_0, cache-ID = 83a29ff0d5d354d3; cache size = 11.514 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_clk_wiz_0_0, cache-ID = 240ddbb0835d676e; cache size = 11.514 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_proc_sys_reset_0_0, cache-ID = 1d4f879af4c77c8b; cache size = 11.514 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP bd_DAW_proc_sys_reset_1_0, cache-ID = 5ddd09287976e18b; cache size = 11.514 MB.
+[Mon May 31 16:22:48 2021] Launched synth_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/synth_1/runme.log
+[Mon May 31 16:22:48 2021] Launched impl_1...
+Run output will be captured here: D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:09 ; elapsed = 00:00:37 . Memory (MB): peak = 2568.281 ; gain = 10.352
+open_hw_manager
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon May 31 16:27:24 2021...

@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date             : Fri May 28 19:22:44 2021
+| Date             : Mon May 31 18:18:12 2021
 | Host             : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 | Command          : report_power -file bd_DAW_wrapper_power_routed.rpt -pb bd_DAW_wrapper_power_summary_routed.pb -rpx bd_DAW_wrapper_power_routed.rpx
 | Design           : bd_DAW_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.237        |
+| Total On-Chip Power (W)  | 0.235        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.165        |
+| Dynamic (W)              | 0.163        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 83.8         |
@@ -52,19 +52,19 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.008 |        6 |       --- |             --- |
-| Slice Logic             |     0.005 |     1993 |       --- |             --- |
-|   LUT as Logic          |     0.004 |      593 |     20800 |            2.85 |
-|   CARRY4                |    <0.001 |       70 |      8150 |            0.86 |
-|   Register              |    <0.001 |      991 |     41600 |            2.38 |
+| Clocks                  |     0.007 |        6 |       --- |             --- |
+| Slice Logic             |     0.004 |     1951 |       --- |             --- |
+|   LUT as Logic          |     0.003 |      579 |     20800 |            2.78 |
+|   CARRY4                |    <0.001 |       68 |      8150 |            0.83 |
+|   Register              |    <0.001 |      967 |     41600 |            2.32 |
 |   LUT as Shift Register |    <0.001 |       50 |      9600 |            0.52 |
 |   Others                |     0.000 |      103 |       --- |             --- |
-| Signals                 |     0.006 |     1341 |       --- |             --- |
+| Signals                 |     0.005 |     1323 |       --- |             --- |
 | Block RAM               |    <0.001 |        1 |        50 |            2.00 |
 | PLL                     |     0.137 |        1 |         5 |           20.00 |
 | I/O                     |     0.009 |       25 |       106 |           23.58 |
 | Static Power            |     0.072 |          |           |                 |
-| Total                   |     0.237 |          |           |                 |
+| Total                   |     0.235 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.043 |       0.033 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.041 |       0.031 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.081 |       0.069 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -143,25 +143,25 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+----------------------------+-----------+
-| Name                       | Power (W) |
-+----------------------------+-----------+
-| bd_DAW_wrapper             |     0.165 |
-|   bd_DAW_i                 |     0.156 |
-|     AXI4Stream_UART_0      |     0.007 |
-|       U0                   |     0.007 |
-|     AXI4_S_interface_FSM_0 |     0.004 |
-|       U0                   |     0.004 |
-|     clk_wiz_0              |     0.137 |
-|       inst                 |     0.137 |
-|     debouncer_0            |     0.001 |
-|       U0                   |     0.001 |
-|     debouncer_1            |     0.001 |
-|       U0                   |     0.001 |
-|     depacketizer_0         |     0.001 |
-|       U0                   |     0.001 |
-|     volume_controller_0    |     0.003 |
-|       U0                   |     0.003 |
-+----------------------------+-----------+
++-----------------------------+-----------+
+| Name                        | Power (W) |
++-----------------------------+-----------+
+| bd_DAW_wrapper              |     0.163 |
+|   bd_DAW_i                  |     0.154 |
+|     AXI4Stream_UART_0       |     0.006 |
+|       U0                    |     0.006 |
+|     clk_wiz_0               |     0.137 |
+|       inst                  |     0.137 |
+|     debouncer_0             |     0.001 |
+|       U0                    |     0.001 |
+|     debouncer_1             |     0.001 |
+|       U0                    |     0.001 |
+|     depacketizer_0          |     0.001 |
+|       U0                    |     0.001 |
+|     moving_average_filter_0 |     0.003 |
+|       U0                    |     0.003 |
+|     volume_controller_0     |     0.002 |
+|       U0                    |     0.002 |
++-----------------------------+-----------+
 
 

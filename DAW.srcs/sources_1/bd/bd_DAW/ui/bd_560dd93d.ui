@@ -1,18 +1,18 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.679913",
-   "Default View_TopLeft":"-116,344",
+   "Default View_ScaleFactor":"0.477228",
+   "Default View_TopLeft":"-302,0",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
 preplace port usb_uart -pg 1 -lvl 6 -x 1630 -y 850 -defaultsOSRD
-preplace port sys_clock -pg 1 -lvl 0 -x -10 -y 640 -defaultsOSRD
-preplace port reset -pg 1 -lvl 0 -x -10 -y 550 -defaultsOSRD
-preplace port btnR -pg 1 -lvl 0 -x -10 -y 470 -defaultsOSRD
-preplace port btnL -pg 1 -lvl 0 -x -10 -y 500 -defaultsOSRD
-preplace port btnU -pg 1 -lvl 0 -x -10 -y 120 -defaultsOSRD
-preplace port btnD -pg 1 -lvl 0 -x -10 -y 290 -defaultsOSRD
-preplace port sw0 -pg 1 -lvl 0 -x -10 -y 710 -defaultsOSRD
+preplace port sys_clock -pg 1 -lvl 0 -x 0 -y 640 -defaultsOSRD
+preplace port reset -pg 1 -lvl 0 -x 0 -y 550 -defaultsOSRD
+preplace port btnR -pg 1 -lvl 0 -x 0 -y 470 -defaultsOSRD
+preplace port btnL -pg 1 -lvl 0 -x 0 -y 500 -defaultsOSRD
+preplace port btnU -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace port btnD -pg 1 -lvl 0 -x 0 -y 290 -defaultsOSRD
+preplace port sw0 -pg 1 -lvl 0 -x 0 -y 710 -defaultsOSRD
 preplace portBus led -pg 1 -lvl 6 -x 1630 -y 460 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 630 -defaultsOSRD
 preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x 400 -y 610 -defaultsOSRD
@@ -24,11 +24,11 @@ preplace inst edge_detector_0 -pg 1 -lvl 4 -x 1090 -y 80 -defaultsOSRD
 preplace inst debouncer_0 -pg 1 -lvl 3 -x 740 -y 100 -defaultsOSRD
 preplace inst edge_detector_1 -pg 1 -lvl 4 -x 1090 -y 250 -defaultsOSRD
 preplace inst debouncer_1 -pg 1 -lvl 3 -x 740 -y 270 -defaultsOSRD
-preplace inst mute_controller_0 -pg 1 -lvl 3 -x 740 -y 450 -defaultsOSRD
-preplace inst AXI4_S_interface_FSM_0 -pg 1 -lvl 4 -x 1090 -y 630 -defaultsOSRD
 preplace inst volume_controller_0 -pg 1 -lvl 5 -x 1460 -y 450 -defaultsOSRD
+preplace inst mute_controller_0 -pg 1 -lvl 3 -x 740 -y 450 -defaultsOSRD
+preplace inst moving_average_filter_0 -pg 1 -lvl 4 -x 1090 -y 630 -defaultsOSRD
 preplace netloc sys_clock_1 1 0 1 NJ 640
-preplace netloc reset_1 1 0 4 10 550 210 510 580J 550 880J
+preplace netloc reset_1 1 0 4 20 550 210 510 580J 550 880J
 preplace netloc clk_wiz_0_locked 1 1 3 220 950 NJ 950 NJ
 preplace netloc proc_sys_reset_1_peripheral_reset 1 4 1 1300 820n
 preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 3 600 710 890 390 1260
@@ -41,19 +41,19 @@ preplace netloc edge_detector_1_edge_detected 1 4 1 1300 250n
 preplace netloc edge_detector_0_edge_detected 1 4 1 1310 80n
 preplace netloc volume_controller_0_volume_level 1 5 1 NJ 460
 preplace netloc btnR_1 1 0 3 NJ 470 NJ 470 NJ
-preplace netloc btnL_1 1 0 3 10J 490 NJ 490 NJ
-preplace netloc sw0_1 1 0 4 NJ 710 200J 960 NJ 960 910J
-preplace netloc clk_wiz_0_clk_out1 1 1 4 210J 730 NJ 730 870 800 N
+preplace netloc btnL_1 1 0 3 20J 490 NJ 490 NJ
+preplace netloc clk_wiz_0_clk_out1 1 1 4 210 730 NJ 730 870 800 NJ
 preplace netloc clk_wiz_0_clk_out2 1 1 4 230 710 590 20 910 380 1280
+preplace netloc sw0_1 1 0 4 NJ 710 200J 960 NJ 960 910J
+preplace netloc AXI4Stream_UART_0_UART 1 5 1 NJ 850
 preplace netloc packetizer_0_m_axis 1 4 1 1270 470n
 preplace netloc mute_controller_0_m_axis 1 3 1 N 450
-preplace netloc AXI4Stream_UART_0_UART 1 5 1 NJ 850
-preplace netloc AXI4Stream_UART_0_M00_AXIS_RX 1 2 4 610 720 NJ 720 NJ 720 1610
 preplace netloc volume_controller_0_m_axis 1 2 4 600 350 NJ 350 NJ 350 1610
+preplace netloc AXI4Stream_UART_0_M00_AXIS_RX 1 2 4 610 720 NJ 720 NJ 720 1610
 preplace netloc depacketizer_0_m_axis 1 3 1 900 600n
-preplace netloc AXI4_S_interface_FSM_0_m_axis 1 4 1 1290 410n
-levelinfo -pg 1 -10 110 400 740 1090 1460 1630
-pagesize -pg 1 -db -bbox -sgen -120 0 1740 1010
+preplace netloc moving_average_filter_0_m_axis 1 4 1 1290 410n
+levelinfo -pg 1 0 110 400 740 1090 1460 1630
+pagesize -pg 1 -db -bbox -sgen -110 0 1740 1010
 "
 }
 {

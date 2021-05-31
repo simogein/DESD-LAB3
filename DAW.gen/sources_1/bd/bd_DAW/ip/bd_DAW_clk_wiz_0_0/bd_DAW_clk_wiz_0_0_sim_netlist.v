@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
 // Date        : Fri May 28 19:16:32 2021
 // Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim {d:/Documenti/LEZIONI/Digital Electronic System
-//               Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_clk_wiz_0_0/bd_DAW_clk_wiz_0_0_sim_netlist.v}
+// Command     : write_verilog -force -mode funcsim -rename_top bd_DAW_clk_wiz_0_0 -prefix
+//               bd_DAW_clk_wiz_0_0_ bd_DAW_clk_wiz_0_0_sim_netlist.v
 // Design      : bd_DAW_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -39,7 +39,6 @@ module bd_DAW_clk_wiz_0_0
         .reset(reset));
 endmodule
 
-(* ORIG_REF_NAME = "bd_DAW_clk_wiz_0_0_clk_wiz" *) 
 module bd_DAW_clk_wiz_0_0_bd_DAW_clk_wiz_0_0_clk_wiz
    (clk_out1,
     clk_out2,

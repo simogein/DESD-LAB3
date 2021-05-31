@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Fri May 28 19:14:40 2021
+--Date        : Mon May 31 18:12:14 2021
 --Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
 --Command     : generate_target bd_DAW.bd
 --Design      : bd_DAW
@@ -144,37 +144,6 @@ architecture STRUCTURE of bd_DAW is
     debounced : out STD_LOGIC
   );
   end component bd_DAW_debouncer_1_0;
-  component bd_DAW_mute_controller_0_0 is
-  port (
-    aclk : in STD_LOGIC;
-    aresetn : in STD_LOGIC;
-    s_axis_tvalid : in STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    s_axis_tlast : in STD_LOGIC;
-    s_axis_tready : out STD_LOGIC;
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    m_axis_tlast : out STD_LOGIC;
-    m_axis_tready : in STD_LOGIC;
-    mute_left : in STD_LOGIC;
-    mute_right : in STD_LOGIC
-  );
-  end component bd_DAW_mute_controller_0_0;
-  component bd_DAW_AXI4_S_interface_FSM_0_0 is
-  port (
-    aclk : in STD_LOGIC;
-    resetn : in STD_LOGIC;
-    enable_filter : in STD_LOGIC;
-    s_axis_tvalid : in STD_LOGIC;
-    s_axis_tready : out STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    s_axis_tlast : in STD_LOGIC;
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tready : in STD_LOGIC;
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    m_axis_tlast : out STD_LOGIC
-  );
-  end component bd_DAW_AXI4_S_interface_FSM_0_0;
   component bd_DAW_volume_controller_0_0 is
   port (
     aclk : in STD_LOGIC;
@@ -192,15 +161,42 @@ architecture STRUCTURE of bd_DAW is
     volume_up : in STD_LOGIC
   );
   end component bd_DAW_volume_controller_0_0;
+  component bd_DAW_mute_controller_0_0 is
+  port (
+    aclk : in STD_LOGIC;
+    aresetn : in STD_LOGIC;
+    s_axis_tvalid : in STD_LOGIC;
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    s_axis_tlast : in STD_LOGIC;
+    s_axis_tready : out STD_LOGIC;
+    m_axis_tvalid : out STD_LOGIC;
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    m_axis_tlast : out STD_LOGIC;
+    m_axis_tready : in STD_LOGIC;
+    mute_left : in STD_LOGIC;
+    mute_right : in STD_LOGIC
+  );
+  end component bd_DAW_mute_controller_0_0;
+  component bd_DAW_moving_average_filter_0_0 is
+  port (
+    aclk : in STD_LOGIC;
+    resetn : in STD_LOGIC;
+    enable_filter : in STD_LOGIC;
+    s_axis_tvalid : in STD_LOGIC;
+    s_axis_tready : out STD_LOGIC;
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    s_axis_tlast : in STD_LOGIC;
+    m_axis_tvalid : out STD_LOGIC;
+    m_axis_tready : in STD_LOGIC;
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    m_axis_tlast : out STD_LOGIC
+  );
+  end component bd_DAW_moving_average_filter_0_0;
   signal AXI4Stream_UART_0_M00_AXIS_RX_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal AXI4Stream_UART_0_M00_AXIS_RX_TREADY : STD_LOGIC;
   signal AXI4Stream_UART_0_M00_AXIS_RX_TVALID : STD_LOGIC;
   signal AXI4Stream_UART_0_UART_RxD : STD_LOGIC;
   signal AXI4Stream_UART_0_UART_TxD : STD_LOGIC;
-  signal AXI4_S_interface_FSM_0_m_axis_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal AXI4_S_interface_FSM_0_m_axis_TLAST : STD_LOGIC;
-  signal AXI4_S_interface_FSM_0_m_axis_TREADY : STD_LOGIC;
-  signal AXI4_S_interface_FSM_0_m_axis_TVALID : STD_LOGIC;
   signal Net : STD_LOGIC_VECTOR ( 0 to 0 );
   signal btnD_1 : STD_LOGIC;
   signal btnL_1 : STD_LOGIC;
@@ -217,6 +213,10 @@ architecture STRUCTURE of bd_DAW is
   signal depacketizer_0_m_axis_TVALID : STD_LOGIC;
   signal edge_detector_0_edge_detected : STD_LOGIC;
   signal edge_detector_1_edge_detected : STD_LOGIC;
+  signal moving_average_filter_0_m_axis_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal moving_average_filter_0_m_axis_TLAST : STD_LOGIC;
+  signal moving_average_filter_0_m_axis_TREADY : STD_LOGIC;
+  signal moving_average_filter_0_m_axis_TVALID : STD_LOGIC;
   signal mute_controller_0_m_axis_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mute_controller_0_m_axis_TLAST : STD_LOGIC;
   signal mute_controller_0_m_axis_TREADY : STD_LOGIC;
@@ -277,20 +277,6 @@ AXI4Stream_UART_0: component bd_DAW_AXI4Stream_UART_0_0
       s00_axis_tx_tready => packetizer_0_m_axis_TREADY,
       s00_axis_tx_tvalid => packetizer_0_m_axis_TVALID
     );
-AXI4_S_interface_FSM_0: component bd_DAW_AXI4_S_interface_FSM_0_0
-     port map (
-      aclk => clk_wiz_0_clk_out2,
-      enable_filter => sw0_1,
-      m_axis_tdata(15 downto 0) => AXI4_S_interface_FSM_0_m_axis_TDATA(15 downto 0),
-      m_axis_tlast => AXI4_S_interface_FSM_0_m_axis_TLAST,
-      m_axis_tready => AXI4_S_interface_FSM_0_m_axis_TREADY,
-      m_axis_tvalid => AXI4_S_interface_FSM_0_m_axis_TVALID,
-      resetn => proc_sys_reset_0_peripheral_aresetn(0),
-      s_axis_tdata(15 downto 0) => depacketizer_0_m_axis_TDATA(15 downto 0),
-      s_axis_tlast => depacketizer_0_m_axis_TLAST,
-      s_axis_tready => depacketizer_0_m_axis_TREADY,
-      s_axis_tvalid => depacketizer_0_m_axis_TVALID
-    );
 clk_wiz_0: component bd_DAW_clk_wiz_0_0
      port map (
       clk_in1 => sys_clock_1,
@@ -338,6 +324,20 @@ edge_detector_1: component bd_DAW_edge_detector_1_0
       edge_detected => edge_detector_1_edge_detected,
       input_signal => debouncer_1_debounced,
       reset => Net(0)
+    );
+moving_average_filter_0: component bd_DAW_moving_average_filter_0_0
+     port map (
+      aclk => clk_wiz_0_clk_out2,
+      enable_filter => sw0_1,
+      m_axis_tdata(15 downto 0) => moving_average_filter_0_m_axis_TDATA(15 downto 0),
+      m_axis_tlast => moving_average_filter_0_m_axis_TLAST,
+      m_axis_tready => moving_average_filter_0_m_axis_TREADY,
+      m_axis_tvalid => moving_average_filter_0_m_axis_TVALID,
+      resetn => proc_sys_reset_0_peripheral_aresetn(0),
+      s_axis_tdata(15 downto 0) => depacketizer_0_m_axis_TDATA(15 downto 0),
+      s_axis_tlast => depacketizer_0_m_axis_TLAST,
+      s_axis_tready => depacketizer_0_m_axis_TREADY,
+      s_axis_tvalid => depacketizer_0_m_axis_TVALID
     );
 mute_controller_0: component bd_DAW_mute_controller_0_0
      port map (
@@ -400,10 +400,10 @@ volume_controller_0: component bd_DAW_volume_controller_0_0
       m_axis_tlast => volume_controller_0_m_axis_TLAST,
       m_axis_tready => volume_controller_0_m_axis_TREADY,
       m_axis_tvalid => volume_controller_0_m_axis_TVALID,
-      s_axis_tdata(15 downto 0) => AXI4_S_interface_FSM_0_m_axis_TDATA(15 downto 0),
-      s_axis_tlast => AXI4_S_interface_FSM_0_m_axis_TLAST,
-      s_axis_tready => AXI4_S_interface_FSM_0_m_axis_TREADY,
-      s_axis_tvalid => AXI4_S_interface_FSM_0_m_axis_TVALID,
+      s_axis_tdata(15 downto 0) => moving_average_filter_0_m_axis_TDATA(15 downto 0),
+      s_axis_tlast => moving_average_filter_0_m_axis_TLAST,
+      s_axis_tready => moving_average_filter_0_m_axis_TREADY,
+      s_axis_tvalid => moving_average_filter_0_m_axis_TVALID,
       volume_down => edge_detector_1_edge_detected,
       volume_level(15 downto 0) => volume_controller_0_volume_level(15 downto 0),
       volume_up => edge_detector_0_edge_detected

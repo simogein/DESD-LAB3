@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
 -- Date        : Fri May 28 19:16:38 2021
 -- Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub {d:/Documenti/LEZIONI/Digital Electronic System
---               Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_1_0/bd_DAW_proc_sys_reset_1_0_stub.vhdl}
+-- Command     : write_vhdl -force -mode synth_stub -rename_top bd_DAW_proc_sys_reset_1_0 -prefix
+--               bd_DAW_proc_sys_reset_1_0_ bd_DAW_proc_sys_reset_1_0_stub.vhdl
 -- Design      : bd_DAW_proc_sys_reset_1_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a35tcpg236-1

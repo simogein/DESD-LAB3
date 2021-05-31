@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "bd_DAW_moving_average_filter_0_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 1
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
@@ -90,8 +91,11 @@ set_property ip_output_repo {d:/Documenti/LEZIONI/Digital Electronic System Desi
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd}}
-read_ip -quiet {{D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ip/bd_DAW_moving_average_filter_0_0/bd_DAW_moving_average_filter_0_0.xci}}
+read_vhdl -library xil_defaultlib {
+  {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/MM_filter.vhd}
+  {D:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/new/moving_average_filter.vhd}
+}
+read_ip -quiet {{d:/Documenti/LEZIONI/Digital Electronic System Design/Project/DAW/DAW.srcs/sources_1/bd/bd_DAW/ip/bd_DAW_moving_average_filter_0_0/bd_DAW_moving_average_filter_0_0.xci}}
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

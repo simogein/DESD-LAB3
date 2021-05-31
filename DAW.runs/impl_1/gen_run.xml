@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1622222102">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1622477556">
   <File Type="BITSTR-BMM" Name="bd_DAW_wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="bd_DAW_wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="bd_DAW_wrapper_timing_summary_init.rpt"/>
@@ -101,25 +101,25 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/mute_controller.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/volume_controller.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/IIR.vhd">
+    <File Path="$PSRCDIR/sources_1/new/mute_controller.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/AXI4_S_enableIIR.vhd">
+    <File Path="$PSRCDIR/sources_1/new/MM_filter.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/moving_average_filter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -134,13 +134,6 @@
     </File>
     <File Path="$PGENDIR/sources_1/bd/bd_DAW/hdl/bd_DAW_wrapper.vhd">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/moving_average_filter.vhd">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -181,17 +174,13 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_AXI4Stream_UART_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_depacketizer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_clk_wiz_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_mute_controller_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_packetizer_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_debouncer_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_depacketizer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_moving_average_filter_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_edge_detector_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_volume_controller_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_debouncer_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_DAW_edge_detector_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_AXI4_S_interface_FSM_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_volume_controller_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_proc_sys_reset_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bd_DAW_proc_sys_reset_0_0"/>
 </GenRun>

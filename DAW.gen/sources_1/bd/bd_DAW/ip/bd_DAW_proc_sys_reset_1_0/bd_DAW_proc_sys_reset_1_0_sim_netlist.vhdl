@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
 -- Date        : Fri May 28 19:16:38 2021
 -- Host        : DESKTOP-RD2OQRJ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim {d:/Documenti/LEZIONI/Digital Electronic System
---               Design/Project/DAW/DAW.gen/sources_1/bd/bd_DAW/ip/bd_DAW_proc_sys_reset_1_0/bd_DAW_proc_sys_reset_1_0_sim_netlist.vhdl}
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_DAW_proc_sys_reset_1_0 -prefix
+--               bd_DAW_proc_sys_reset_1_0_ bd_DAW_proc_sys_reset_1_0_sim_netlist.vhdl
 -- Design      : bd_DAW_proc_sys_reset_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,8 +26,6 @@ entity bd_DAW_proc_sys_reset_1_0_cdc_sync is
     mb_debug_sys_rst : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_DAW_proc_sys_reset_1_0_cdc_sync : entity is "cdc_sync";
 end bd_DAW_proc_sys_reset_1_0_cdc_sync;
 
 architecture STRUCTURE of bd_DAW_proc_sys_reset_1_0_cdc_sync is
@@ -237,8 +235,6 @@ entity bd_DAW_proc_sys_reset_1_0_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_DAW_proc_sys_reset_1_0_upcnt_n : entity is "upcnt_n";
 end bd_DAW_proc_sys_reset_1_0_upcnt_n;
 
 architecture STRUCTURE of bd_DAW_proc_sys_reset_1_0_upcnt_n is
@@ -403,8 +399,6 @@ entity bd_DAW_proc_sys_reset_1_0_lpf is
     mb_debug_sys_rst : in STD_LOGIC;
     aux_reset_in : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_DAW_proc_sys_reset_1_0_lpf : entity is "lpf";
 end bd_DAW_proc_sys_reset_1_0_lpf;
 
 architecture STRUCTURE of bd_DAW_proc_sys_reset_1_0_lpf is
@@ -591,8 +585,6 @@ entity bd_DAW_proc_sys_reset_1_0_sequence_psr is
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_DAW_proc_sys_reset_1_0_sequence_psr : entity is "sequence_psr";
 end bd_DAW_proc_sys_reset_1_0_sequence_psr;
 
 architecture STRUCTURE of bd_DAW_proc_sys_reset_1_0_sequence_psr is
@@ -931,8 +923,6 @@ entity bd_DAW_proc_sys_reset_1_0_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of bd_DAW_proc_sys_reset_1_0_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of bd_DAW_proc_sys_reset_1_0_proc_sys_reset : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_DAW_proc_sys_reset_1_0_proc_sys_reset : entity is "proc_sys_reset";
 end bd_DAW_proc_sys_reset_1_0_proc_sys_reset;
 
 architecture STRUCTURE of bd_DAW_proc_sys_reset_1_0_proc_sys_reset is

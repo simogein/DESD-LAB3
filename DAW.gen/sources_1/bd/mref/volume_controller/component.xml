@@ -145,7 +145,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dc74197b</spirit:value>
+            <spirit:value>452be211</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -158,7 +158,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dc74197b</spirit:value>
+            <spirit:value>452be211</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -216,7 +216,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.WORD_BIT&apos;)) - 1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -278,7 +278,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.WORD_BIT&apos;)) - 1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -365,9 +365,14 @@
     </spirit:ports>
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
-        <spirit:name>VOLUME_INIT</spirit:name>
-        <spirit:displayName>Volume Init</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VOLUME_INIT" spirit:minimum="0">7</spirit:value>
+        <spirit:name>WORD_BIT</spirit:name>
+        <spirit:displayName>Word Bit</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.WORD_BIT" spirit:minimum="0">16</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>VOLUME_0DB</spirit:name>
+        <spirit:displayName>Volume 0db</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VOLUME_0DB" spirit:minimum="0">7</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>VOLUME_MAX</spirit:name>
@@ -378,16 +383,6 @@
         <spirit:name>VOLUME_MIN</spirit:name>
         <spirit:displayName>Volume Min</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VOLUME_MIN" spirit:minimum="0">0</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>MAX_DATA</spirit:name>
-        <spirit:displayName>Max Data</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MAX_DATA">32767</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>MIN_DATA</spirit:name>
-        <spirit:displayName>Min Data</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MIN_DATA">-32768</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -404,7 +399,7 @@
       <spirit:file>
         <spirit:name>xgui/volume_controller_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_00608ca1</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a1b456ee</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -412,9 +407,14 @@
   <spirit:description>xilinx.com:module_ref:volume_controller:1.0</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
-      <spirit:name>VOLUME_INIT</spirit:name>
-      <spirit:displayName>Volume Init</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VOLUME_INIT" spirit:minimum="0" spirit:rangeType="long">7</spirit:value>
+      <spirit:name>WORD_BIT</spirit:name>
+      <spirit:displayName>Word Bit</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.WORD_BIT" spirit:minimum="0" spirit:rangeType="long">16</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>VOLUME_0DB</spirit:name>
+      <spirit:displayName>Volume 0db</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VOLUME_0DB" spirit:minimum="0" spirit:rangeType="long">7</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>VOLUME_MAX</spirit:name>
@@ -425,16 +425,6 @@
       <spirit:name>VOLUME_MIN</spirit:name>
       <spirit:displayName>Volume Min</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VOLUME_MIN" spirit:minimum="0" spirit:rangeType="long">0</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>MAX_DATA</spirit:name>
-      <spirit:displayName>Max Data</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MAX_DATA">32767</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>MIN_DATA</spirit:name>
-      <spirit:displayName>Min Data</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MIN_DATA">-32768</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -456,7 +446,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-05-28T15:33:32Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-05-31T16:03:51Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>

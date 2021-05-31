@@ -6,17 +6,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 
 entity mute_controller is
+	Generic(
+		WORD_BIT        : positive := 16
+	);
 	Port (
 		aclk			: in 	std_logic;
 		aresetn			: in 	std_logic;
 
 		s_axis_tvalid	: in 	std_logic;
-		s_axis_tdata	: in 	std_logic_vector(15 downto 0);
+		s_axis_tdata	: in 	std_logic_vector(WORD_BIT-1 downto 0);
 		s_axis_tlast	: in 	std_logic;
 		s_axis_tready	: out 	std_logic;
 
 		m_axis_tvalid	: out 	std_logic;
-		m_axis_tdata	: out 	std_logic_vector(15 downto 0);
+		m_axis_tdata	: out 	std_logic_vector(WORD_BIT-1 downto 0);
 		m_axis_tlast	: out 	std_logic;
 		m_axis_tready	: in 	std_logic;
 
@@ -39,7 +42,7 @@ type state_type is (IDLE, RECEIVE, MUTE, SEND);		--FSM Type
 ---------------------------SIGNAL DECLARATION--------------------------------
 signal state 	: 	state_type;
 
-signal tdata_int	:	std_logic_vector(15 downto 0);
+signal tdata_int	:	std_logic_vector(WORD_BIT-1 downto 0);
 signal tlast_int 	: 	std_logic;
 
 signal mute_left_int 	: 	std_logic;
@@ -107,9 +110,9 @@ begin
 					m_axis_tlast <= tlast_int;		--Directly move tlast data to output
 
 					if (tlast_int = '1') and (mute_right_int = '1') then		--Selectively mute right channel, left channel or both
-						m_axis_tdata <= x"0000";
+						m_axis_tdata <= (others => '0') ;
 					elsif (tlast_int = '0') and (mute_left_int = '1') then
-						m_axis_tdata <= x"0000";
+						m_axis_tdata <= (others => '0');
 					else
 						m_axis_tdata <= tdata_int;		--Move the computed value to output
 					end if;
